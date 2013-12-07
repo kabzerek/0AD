@@ -95,6 +95,8 @@ function init(data)
 	left = 50;
 	getGUIObjectByName("playerName1Heading").size = left + " 26 " + (left + playerNameHeadingWidth) + " 100%"; left += playerNameHeadingWidth;
 	getGUIObjectByName("unitsTrainedHeading").size = left + " 16 " + (left + width) + " 100%"; left += width;
+	getGUIObjectByName("championUnitsTrainedHeading").size = left + " 6 " + (left + width) + " 100%"; left += width;
+	getGUIObjectByName("heroUnitsTrainedHeading").size = left + " 16 " + (left + width) + " 100%"; left += width;
 	getGUIObjectByName("unitsLostHeading").size = left + " 16 " + (left + width) + " 100%"; left += width;
 	getGUIObjectByName("enemyUnitsKilledHeading").size = left + " 16 " + (left + width) + " 100%"; left += width;
 	getGUIObjectByName("buildingsConstructedHeading").size = left + " 16 " + (left + width) + " 100%"; left += width;
@@ -162,6 +164,8 @@ function init(data)
 			var totalScore = getGUIObjectByName("totalScore["+i+"]");
 
 			var unitsTrained = getGUIObjectByName("unitsTrained["+i+"]");
+			var championUnitsTrained = getGUIObjectByName("championUnitsTrained["+i+"]");
+			var heroUnitsTrained = getGUIObjectByName("heroUnitsTrained["+i+"]");
 			var unitsLost = getGUIObjectByName("unitsLost["+i+"]");
 			var enemyUnitsKilled = getGUIObjectByName("enemyUnitsKilled["+i+"]");
 			var buildingsConstructed = getGUIObjectByName("buildingsConstructed["+i+"]");
@@ -201,6 +205,8 @@ function init(data)
 			
 			left = 240;
 			unitsTrained.size = left + " 2 " + (left + width) + " 100%"; left += width;
+			championUnitsTrained.size = left + " 2 " + (left + width) + " 100%"; left += width;
+			heroUnitsTrained.size = left + " 2 " + (left + width) + " 100%"; left += width;
 			unitsLost.size = left + " 2 " + (left + width) + " 100%"; left += width;
 			enemyUnitsKilled.size = left + " 2 " + (left + width) + " 100%"; left += width;
 			buildingsConstructed.size = left + " 2 " + (left + width) + " 100%"; left += width;
@@ -249,6 +255,8 @@ function init(data)
 			totalScore.caption = Number(economyScore.caption) + Number(militaryScore.caption) + Number(explorationScore.caption);
 			
 			unitsTrained.caption = playerState.statistics.unitsTrained;
+			championUnitsTrained.caption = playerState.statistics.championUnitsTrained;
+			heroUnitsTrained.caption = playerState.statistics.heroUnitsTrained;
 			unitsLost.caption = playerState.statistics.unitsLost;
 			enemyUnitsKilled.caption = playerState.statistics.enemyUnitsKilled;
 			buildingsConstructed.caption = playerState.statistics.buildingsConstructed;
