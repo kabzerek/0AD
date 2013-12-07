@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<actor version="1">
+  <castshadow/>
+  <group>
+    <variant frequency="100" name="Mesh">
+      <animations>
+        <animation file="quadraped/elephant_idle_01.dae" name="idle" speed="40"/>
+        <animation file="quadraped/elephant_idle_01.dae" name="idle" speed="50"/>
+        <animation file="quadraped/elephant_idle_02.dae" name="idle" speed="60"/>
+        <animation file="quadraped/elephant_walk_01.dae" name="walk" speed="45"/>
+        <animation file="quadraped/elephant_walk_01.dae" name="walk" speed="50"/>
+        <animation file="quadraped/elephant_run_01.dae" name="run" speed="50"/>
+        <animation event="0.5" file="quadraped/elephant_attack_01.dae" name="attack_melee" speed="50"/>
+        <animation event="0.5" file="quadraped/elephant_attack_02.dae" name="attack_melee" speed="50"/>
+        <animation event="0.5" file="quadraped/elephant_attack_03.dae" name="attack_melee" speed="50"/>
+        <animation file="quadraped/elephant_death_01.dae" name="death" speed="100"/>
+      </animations>
+      <mesh>skeletal/elephant_asian.dae</mesh>
+      <props>
+        <prop actor="units/persians/champion_unit_3_mahout.xml" attachpoint="rider1"/>
+        <prop actor="units/persians/champion_unit_3_raja.xml" attachpoint="rider2"/>
+      </props>
+    </variant>
+  </group>
+  <group>
+    <variant frequency="1" name="elephant-hide-gray-1">
+      <textures><texture file="skeletal/pers_su2_ele_01.dds" name="baseTex"/></textures>
+    </variant>
+    <variant frequency="1" name="elephant-hide-brown-1">
+      <textures><texture file="skeletal/pers_su2_ele_02.dds" name="baseTex"/></textures>
+    </variant>
+    <variant frequency="1" name="elephant-hide-gray-2">
+      <textures><texture file="skeletal/pers_su2_ele_03.dds" name="baseTex"/></textures>
+    </variant>
+    <variant frequency="1" name="elephant-hide-brown-2">
+      <textures><texture file="skeletal/pers_su2_ele_04.dds" name="baseTex"/></textures>
+    </variant>
+    <variant frequency="1" name="elephant-hide-gray-3">
+      <textures><texture file="skeletal/pers_su2_ele_05.dds" name="baseTex"/></textures>
+    </variant>
+    <variant frequency="1" name="elephant-hide-gray-4">
+      <textures><texture file="skeletal/pers_su2_ele_06.dds" name="baseTex"/></textures>
+    </variant>
+    <variant frequency="1" name="elephant-hide-brown-4">
+      <textures><texture file="skeletal/pers_su2_ele_07.dds" name="baseTex"/></textures>
+    </variant>
+  </group>
+  <group>
+    <variant frequency="100" name="Idle"/>
+    <variant name="Run">
+      <props>
+        <prop actor="particle/dust_cav.xml" attachpoint="root"/>
+      </props>
+    </variant>
+  </group>
+  <material>player_trans.xml</material>
+</actor>

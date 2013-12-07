@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<actor version="1">
+  <castshadow/>
+  <group>
+    <variant>
+      <mesh>structural/celt_kennel_mud.dae</mesh>
+      <textures><texture file="props/decal_struct_mud_long.dds" name="baseTex"/></textures>
+    </variant>
+  </group>
+  <material>terrain_base.xml</material>
+</actor>

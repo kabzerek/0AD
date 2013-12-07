@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<actor version="1">
+  <castshadow/>
+  <group>
+    <variant frequency="1" name="elephant_african_bush [adult]">
+      <mesh>skeletal/elephant_african_bush.dae</mesh>
+      <textures>
+        <texture file="skeletal/animal-elephant-base.dds" name="baseTex"/>
+        <texture file="skeletal/animal-elephant-base_spec.png" name="specTex"/>
+      </textures>
+    </variant>
+  </group>
+  <group>
+    <variant frequency="100" name="Idle"/>
+    <variant name="Run">
+      <props>
+        <prop actor="particle/dust_cav.xml" attachpoint="root"/>
+      </props>
+    </variant>
+    <variant name="death">
+      <props>
+        <prop actor="props/units/blood_01.xml" attachpoint="root"/>
+      </props>
+    </variant>
+  </group>
+  <material>basic_specmap.xml</material>
+</actor>
