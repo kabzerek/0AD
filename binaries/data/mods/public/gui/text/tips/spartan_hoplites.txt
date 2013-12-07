@@ -1,0 +1,8 @@
+SPARTIATES
+- Strongest infantry unit in the game.
+
+- Champion Infantry available to the Spartans faction.
+
+- Long train time, but high armor and attack.
+
+- Use the 'Phalanx' formation for extra armor bonuses.

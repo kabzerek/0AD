@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="iso-8859-1" standalone="no" ?>
+
+<!DOCTYPE objects SYSTEM "../gui.dtd">
+
+<objects>
+
+		<!--
+		==========================================
+		- INCLUDE SCRIPT - UTILITY FUNCTIONS
+		==========================================
+		-->
+
+        <script file="gui/common/functions_utility.js" />
+
+        <script file="gui/common/functions_utility_list.js" />
+
+        <script file="gui/common/functions_utility_music.js" />
+
+        <!--
+        ==========================================
+         - INCLUDE SCRIPT - GLOBAL OBJECT FUNCTIONS
+        ==========================================
+        -->
+
+        <script file="gui/common/functions_global_object.js" />
+
+</objects>

@@ -1,0 +1,4 @@
+PEZHETAIROS
+- The Infantry Spearman for the Macedonians.
+
+- Uses 'Syntagma' formation for high pierce attack and high armour, but slow move speed.

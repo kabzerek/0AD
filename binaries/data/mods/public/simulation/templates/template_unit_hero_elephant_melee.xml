@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Entity parent="template_unit_champion_elephant_melee">
+  <Armour>
+    <Hack>10</Hack>
+    <Pierce>10</Pierce>
+    <Crush>12</Crush>
+  </Armour>
+  <Attack>
+    <Melee>
+      <Hack>25.0</Hack>
+      <Crush>25.0</Crush>
+    </Melee>
+    <Charge>
+      <Hack>75.0</Hack>
+      <Crush>75.0</Crush>
+    </Charge>
+  </Attack>
+  <Cost>
+    <Population>3</Population>
+    <Resources>
+      <food>500</food>
+      <metal>500</metal>
+    </Resources>
+  </Cost>
+  <Footprint>
+    <Circle radius="4.0"/>
+    <Height>9.0</Height>
+  </Footprint>
+  <Identity>
+    <Classes datatype="tokens">Hero -Champion</Classes>
+    <Tooltip>Classes: Hero Melee Elephant.
+Counters: 2x vs. All Cavalry, 1.5x vs. All Structures. Extra 1.5x vs. Gates.
+Countered by: Skirmishers and Swordsmen. Can run amok.</Tooltip>
+    <RequiredTechnology>phase_city</RequiredTechnology>
+  </Identity>
+  <Selectable>
+    <Overlay>
+      <AlwaysVisible/>
+      <Texture>
+        <MainTexture>star/256x256.png</MainTexture>
+        <MainTextureMask>star/256x256_mask.png</MainTextureMask>
+      </Texture>
+    </Overlay>
+  </Selectable>
+  <TrainingRestrictions>
+    <Category>Hero</Category>
+  </TrainingRestrictions>
+</Entity>

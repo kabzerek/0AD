@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Entity parent="template_unit_hero_infantry">
+  <Armour>
+    <Hack>15</Hack>
+    <Pierce>10</Pierce>
+    <Crush>10</Crush>
+  </Armour>
+  <Attack>
+    <Melee>
+      <Hack>10.0</Hack>
+      <Pierce>0.0</Pierce>
+      <Crush>0.0</Crush>
+      <MaxRange>8.0</MaxRange>
+	  <Bonuses>
+		<BonusCavalry>
+		  <Classes>Cavalry</Classes>
+		  <Multiplier>2.0</Multiplier>
+		</BonusCavalry>
+	  </Bonuses>
+    </Melee>
+    <Charge>
+      <Hack>20.0</Hack>
+      <Pierce>0.0</Pierce>
+      <MaxRange>8.0</MaxRange>
+	  <Bonuses>
+		<BonusCavalry>
+		  <Classes>Cavalry</Classes>
+		  <Multiplier>2.0</Multiplier>
+		</BonusCavalry>
+	  </Bonuses>
+    </Charge>
+  </Attack>
+  <Identity>
+    <Classes datatype="tokens">Melee Spear Pike</Classes>
+    <GenericName>Hero Pikeman</GenericName>
+    <RequiredTechnology>phase_city</RequiredTechnology>
+  </Identity>
+  <Loot>
+    <wood>10</wood>
+    <metal>10</metal>
+  </Loot>
+  <Stamina>
+    <Max>1200</Max>
+  </Stamina>
+  <UnitMotion>
+    <WalkSpeed>7.0</WalkSpeed>
+    <Run>
+      <Speed>17.5</Speed>
+    </Run>
+  </UnitMotion>
+</Entity>

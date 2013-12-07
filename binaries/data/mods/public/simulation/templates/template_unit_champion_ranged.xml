@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Entity parent="template_unit_champion">
+  <Identity>
+    <GenericName>Champion Ranged</GenericName>
+    <Classes datatype="tokens">Ranged</Classes>
+  </Identity>
+  <Sound>
+    <SoundGroups>
+      <attack>attack/weapon/arrowfly.xml</attack>
+    </SoundGroups>
+  </Sound>
+</Entity>

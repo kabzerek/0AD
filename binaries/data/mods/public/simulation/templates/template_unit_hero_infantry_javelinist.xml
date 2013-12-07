@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Entity parent="template_unit_champion_infantry_javelinist">
+  <Armour>
+    <Hack>5</Hack>
+    <Pierce>6</Pierce>
+    <Crush>7</Crush>
+  </Armour>
+  <Attack>
+    <Ranged>
+      <Pierce>30.0</Pierce>
+	  <Bonuses>
+		<BonusPrimary>
+		  <Classes>Infantry Spear</Classes>
+		  <Multiplier>1.5</Multiplier>
+		</BonusPrimary>
+		<BonusSecondary>
+		  <Classes>Cavalry Bow</Classes>
+		  <Multiplier>1.5</Multiplier>
+		</BonusSecondary>
+		<BonusElephants>
+		  <Classes>Elephant</Classes>
+		  <Multiplier>2.0</Multiplier>
+		</BonusElephants>
+		<BonusChariots>
+		  <Classes>Chariot</Classes>
+		  <Multiplier>1.5</Multiplier>
+		</BonusChariots>
+	  </Bonuses>
+    </Ranged>
+  </Attack>
+  <Cost>
+    <BuildTime>35</BuildTime>
+    <Resources>
+      <wood>200</wood>
+    </Resources>
+  </Cost>
+  <Footprint>
+    <Circle radius="2.0"/>
+    <Height>2.5</Height>
+  </Footprint>
+  <Health>
+    <Max>600</Max>
+  </Health>
+  <Identity>
+    <Classes datatype="tokens">Hero</Classes>
+    <GenericName>Hero Skirmisher</GenericName>
+    <RequiredTechnology>phase_city</RequiredTechnology>
+  </Identity>
+  <Loot>
+    <xp>350</xp>
+    <food>5</food>
+    <wood>20</wood>
+    <stone>0</stone>
+    <metal>0</metal>
+  </Loot>
+  <Minimap>
+    <Type>hero</Type>
+  </Minimap>
+  <Selectable>
+    <Overlay>
+      <AlwaysVisible/>
+      <Texture>
+        <MainTexture>star/256x256.png</MainTexture>
+        <MainTextureMask>star/256x256_mask.png</MainTextureMask>
+      </Texture>
+    </Overlay>
+  </Selectable>
+  <TrainingRestrictions>
+    <Category>Hero</Category>
+  </TrainingRestrictions>
+</Entity>
