@@ -62,32 +62,32 @@
 			<object type="text" style="TitleText" ghost="true">Score</object>
 		</object>
 		
-		<object name="buildingsPanelButton" type="button" sprite="BackgroundTab" size="638 82 756 120">
+		<object name="buildingsPanelButton" type="button" sprite="BackgroundTab" size="142 82 260 120">
 			<action on="Press">selectPanel(1);</action>
 			<object type="text" style="TitleText" ghost="true">Buildings</object>
 		</object>
 
-		<object name="unitsPanelButton" type="button" sprite="BackgroundTab" size="762 82 880 120">
+		<object name="unitsPanelButton" type="button" sprite="BackgroundTab" size="266 82 384 120">
 			<action on="Press">selectPanel(2);</action>
 			<object type="text" style="TitleText" ghost="true">Units</object>
 		</object>
 
-		<object name="conquestPanelButton" type="button" sprite="BackgroundTab" size="266 82 384 120">
+		<object name="conquestPanelButton" type="button" sprite="BackgroundTab" size="390 82 508 120">
 			<action on="Press">selectPanel(3);</action>
 			<object type="text" style="TitleText" ghost="true">Conquest</object>
 		</object>
 
-		<object name="resourcesPanelButton" type="button" sprite="BackgroundTab" size="390 82 508 120">
+		<object name="resourcesPanelButton" type="button" sprite="BackgroundTab" size="514 82 632 120">
 			<action on="Press">selectPanel(4);</action>
 			<object type="text" style="TitleText" ghost="true">Resources</object>
 		</object>
 
-		<object name="marketPanelButton" type="button" sprite="BackgroundTab" size="514 82 632 120">
+		<object name="marketPanelButton" type="button" sprite="BackgroundTab" size="638 82 756 120">
 			<action on="Press">selectPanel(5);</action>
 			<object type="text" style="TitleText" ghost="true">Market</object>
 		</object>
 		
-		<object name="miscPanelButton" type="button" sprite="BackgroundTab" size="886 82 1004 120">
+		<object name="miscPanelButton" type="button" sprite="BackgroundTab" size="762 82 880 120">
 			<action on="Press">selectPanel(6);</action>
 			<object type="text" style="TitleText" ghost="true">Miscellaneous</object>
 		</object>
@@ -318,8 +318,17 @@
 				<object name="playerName6Heading" type="text" style="LeftTabLabelText">
 					Player name
 				</object>
+				<object name="deforestationHeading" type="text" style="CenteredTabLabelText">
+					Deforestation
+				</object>
 				<object name="vegetarianRatioHeading" type="text" style="CenteredTabLabelText">
 					Vegetarian&#10;ratio
+				</object>
+				<object name="favouriteUnitHeading" type="text" style="CenteredTabLabelText">
+					Favourite&#10;Unit
+				</object>
+				<object name="feminisationHeading" type="text" style="CenteredTabLabelText">
+					Feminisation
 				</object>
 
 			</object>
@@ -330,7 +339,10 @@
 						<object name="playerColourBox6[n]"      type="image" size="10 4 30 24" />
 						<object name="playerName6[n]"           type="text"  style="LeftLabelText" size="40 2 208 100%" />
 						<object name="civIcon6[n]"              type="image" size="208 0 240 32" tooltip_style="sessionToolTip"/>
+						<object name="deforestation[n]"  		type="text" style="CenteredLabelText"/>
 						<object name="vegetarianRatio[n]"  		type="text" style="CenteredLabelText"/>
+						<object name="favouriteUnit[n]"  		type="text" style="CenteredLabelText"/>
+						<object name="feminisation[n]"  		type="text" style="CenteredLabelText"/>
 					</object>	
 				</repeat>
 			</object>
