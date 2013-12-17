@@ -300,6 +300,48 @@
 
 		</object>
 
+		<object name="detBuildingsPanel" type="image" sprite="ForegroundBody" size="20 120 100%-20 100%-58" hidden="true">
+
+			<object size="0 0 100% 100%-50">
+
+			</object>
+
+			<object size="0 65 100% 100%-50">
+				<repeat count="0">
+
+				</repeat>
+			</object>
+
+		</object>
+		
+		<object name="detUnitsPanel" type="image" sprite="ForegroundBody" size="20 120 100%-20 100%-58" hidden="true">
+
+			<object size="0 0 100% 100%-50">
+
+			</object>
+
+			<object size="0 65 100% 100%-50">
+				<repeat count="0">
+
+				</repeat>
+			</object>
+
+		</object>
+		
+		<object name="miscPanel" type="image" sprite="ForegroundBody" size="20 120 100%-20 100%-58" hidden="true">
+
+			<object size="0 0 100% 100%-50">
+
+			</object>
+
+			<object size="0 65 100% 100%-50">
+				<repeat count="0">
+
+				</repeat>
+			</object>
+
+		</object>
+		
 		<object type="button" style="StoneButton" size="100%-164 100%-52 100%-24 100%-24">
 			Continue
 			<action on="Press"><![CDATA[
