@@ -1,8 +1,8 @@
 // Max player slots for any map (should read from config)
 const MAX_SLOTS = 8;
 
-var panelNames = [ 'scorePanel', 'unitsBuildingsPanel', 'conquestPanel', 'resourcesPanel', 'marketPanel', 'detBuildingsPanel', 'detUnitsPanel', 'miscPanel' ];
-var panelButtonNames = [ 'scorePanelButton', 'unitsBuildingsPanelButton', 'conquestPanelButton', 'resourcesPanelButton', 'marketPanelButton', 'detBuildingsPanelButton', 'detUnitsPanelButton', 'miscPanelButton' ];
+var panelNames = [ 'scorePanel', 'unitsBuildingsPanel', 'conquestPanel', 'resourcesPanel', 'marketPanel' ];
+var panelButtonNames = [ 'scorePanelButton', 'unitsBuildingsPanelButton', 'conquestPanelButton', 'resourcesPanelButton', 'marketPanelButton' ];
 
 /**
  * Select active panel
@@ -114,6 +114,7 @@ function init(data)
 	getGUIObjectByName("woodGatheredHeading").size = left + " 34 " + (left + width) + " 100%"; left += width;
 	getGUIObjectByName("stoneGatheredHeading").size = left + " 34 " + (left + width) + " 100%"; left += width;
 	getGUIObjectByName("metalGatheredHeading").size = left + " 34 " + (left + width) + " 100%"; left += width;
+	getGUIObjectByName("vegetarianRatioHeading").size = left + " 16 " + (left + width) + " 100%"; left += width;
 	getGUIObjectByName("treasuresCollectedHeading").size = left + " 16 " + (left + width) + " 100%"; left += width;
 	getGUIObjectByName("resourcesTributedHeading").size = left + " 16 " + (left + tributesWidth) + " 100%"; left += tributesWidth;
 
@@ -126,18 +127,6 @@ function init(data)
 	getGUIObjectByName("barterEfficiencyHeading").size = left + " 16 " + (left + width) + " 100%"; left += width;
 	getGUIObjectByName("tradeIncomeHeading").size = left + " 16 " + (left + width) + " 100%"; left += width;
 
-	left = 50;
-	getGUIObjectByName("playerName5Heading").size = left + " 26 " + (left + playerNameHeadingWidth) + " 100%"; left += playerNameHeadingWidth;
-	getGUIObjectByName("exchangedFoodHeading").size = left + " 16 " + (left + width) + " 100%"; left += width;
-	
-	left = 50;
-	getGUIObjectByName("playerName6Heading").size = left + " 26 " + (left + playerNameHeadingWidth) + " 100%"; left += playerNameHeadingWidth;
-	getGUIObjectByName("exchangedFoodHeading").size = left + " 16 " + (left + width) + " 100%"; left += width;
-	
-	left = 50;
-	getGUIObjectByName("playerName7Heading").size = left + " 26 " + (left + playerNameHeadingWidth) + " 100%"; left += playerNameHeadingWidth;
-	getGUIObjectByName("vegetarianRatioHeading").size = left + " 16 " + (left + width) + " 100%"; left += width;
-	
 	// Show counters
 	for (var i = 0; i < MAX_SLOTS; ++i)
 	{
@@ -187,6 +176,7 @@ function init(data)
 			var woodGathered = getGUIObjectByName("woodGathered["+i+"]");
 			var stoneGathered = getGUIObjectByName("stoneGathered["+i+"]");
 			var metalGathered = getGUIObjectByName("metalGathered["+i+"]");
+			var vegetarianRatio = getGUIObjectByName("vegetarianRatio["+i+"]");
 			var treasuresCollected = getGUIObjectByName("treasuresCollected["+i+"]");
 			var resourcesTributed = getGUIObjectByName("resourcesTributed["+i+"]");
 
@@ -196,12 +186,6 @@ function init(data)
 			var exchangedMetal = getGUIObjectByName("exchangedMetal["+i+"]");
 			var barterEfficiency = getGUIObjectByName("barterEfficiency["+i+"]");
 			var tradeIncome = getGUIObjectByName("tradeIncome["+i+"]");
-			
-			//detBuildings
-			
-			//detUnits
-			
-			var vegetarianRatio = getGUIObjectByName("vegetarianRatio["+i+"]");
 
 			// align counters
 
@@ -239,6 +223,7 @@ function init(data)
 			woodGathered.size = left + " 2 " + (left + width) + " 100%"; left += width;
 			stoneGathered.size = left + " 2 " + (left + width) + " 100%"; left += width;
 			metalGathered.size = left + " 2 " + (left + width) + " 100%"; left += width;
+			vegetarianRatio.size = left + " 2 " + (left + width) + " 100%"; left += width;
 			treasuresCollected.size	= left + " 2 " + (left + width) + " 100%"; left += width;
 			resourcesTributed.size = left + " 2 " + (left + tributesWidth) + " 100%"; left += tributesWidth;
 			size = getGUIObjectByName("playerBox3["+i+"]").size;
@@ -255,23 +240,6 @@ function init(data)
 			size = getGUIObjectByName("playerBox4["+i+"]").size;
 			size.right = left + 10;
 			getGUIObjectByName("playerBox4["+i+"]").size = size;
-			
-			
-			left = 240;
-			size = getGUIObjectByName("playerBox5["+i+"]").size;
-			size.right = left + 10;
-			getGUIObjectByName("playerBox5["+i+"]").size = size;
-			
-			left = 240;
-			size = getGUIObjectByName("playerBox6["+i+"]").size;
-			size.right = left + 10;
-			getGUIObjectByName("playerBox6["+i+"]").size = size;
-			
-			left = 240;
-			vegetarianRatio.size = left + " 2 " + (left + width) + " 100%"; left += width;
-			size = getGUIObjectByName("playerBox7["+i+"]").size;
-			size.right = left + 10;
-			getGUIObjectByName("playerBox7["+i+"]").size = size;
 
 			// display counters
 			economyScore.caption = Math.round((playerState.statistics.resourcesGathered.food + playerState.statistics.resourcesGathered.wood + 
