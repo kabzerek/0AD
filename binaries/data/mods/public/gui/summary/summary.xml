@@ -57,31 +57,46 @@
 		<object name="tabDividerLeft" type="image" sprite="TabSpacer" size="172 120 174 122"/>
 		<object name="tabDividerRight" type="image" sprite="TabSpacer" size="328 120 330 122"/>
 
-		<object name="scorePanelButton" type="button" sprite="ForegroundTab" size="20 95 170 120">
+		<object name="scorePanelButton" type="button" sprite="ForegroundTab" size="20 82 136 120">
 			<action on="Press">selectPanel(0);</action>
 			<object type="text" style="TitleText" ghost="true">Score</object>
 		</object>
 		
-		<object name="unitsBuildingsPanelButton" type="button" sprite="BackgroundTab" size="176 95 326 120">
+		<object name="unitsBuildingsPanelButton" type="button" sprite="BackgroundTab" size="142 82 260 120">
 			<action on="Press">selectPanel(1);</action>
-			<object type="text" style="TitleText" ghost="true">Units/buildings</object>
+			<object type="text" style="TitleText" ghost="true">Units &amp; Buildings</object>
 		</object>
 
-		<object name="conquestPanelButton" type="button" sprite="BackgroundTab" size="332 95 480 120">
+		<object name="conquestPanelButton" type="button" sprite="BackgroundTab" size="266 82 384 120">
 			<action on="Press">selectPanel(2);</action>
 			<object type="text" style="TitleText" ghost="true">Conquest</object>
 		</object>
 
-		<object name="resourcesPanelButton" type="button" sprite="BackgroundTab" size="486 95 636 120">
+		<object name="resourcesPanelButton" type="button" sprite="BackgroundTab" size="390 82 508 120">
 			<action on="Press">selectPanel(3);</action>
 			<object type="text" style="TitleText" ghost="true">Resources</object>
 		</object>
 
-		<object name="marketPanelButton" type="button" sprite="BackgroundTab" size="642 95 792 120">
+		<object name="marketPanelButton" type="button" sprite="BackgroundTab" size="514 82 632 120">
 			<action on="Press">selectPanel(4);</action>
 			<object type="text" style="TitleText" ghost="true">Market</object>
 		</object>
+		
+		<object name="detBuildingsPanelButton" type="button" sprite="BackgroundTab" size="638 82 756 120">
+			<action on="Press">selectPanel(5);</action>
+			<object type="text" style="TitleText" ghost="true">Detailed Buildings</object>
+		</object>
 
+		<object name="detUnitsPanelButton" type="button" sprite="BackgroundTab" size="762 82 880 120">
+			<action on="Press">selectPanel(6);</action>
+			<object type="text" style="TitleText" ghost="true">Detailed Units</object>
+		</object>
+		
+		<object name="miscPanelButton" type="button" sprite="BackgroundTab" size="886 82 1004 120">
+			<action on="Press">selectPanel(7);</action>
+			<object type="text" style="TitleText" ghost="true">Miscellaneous</object>
+		</object>
+		
 		<object name="scorePanel" type="image" sprite="ForegroundBody" size="20 120 100%-20 100%-58">
 
 			<object size="0 0 100% 100%-50">
