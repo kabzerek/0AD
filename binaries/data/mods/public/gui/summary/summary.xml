@@ -243,6 +243,9 @@
 				<object name="metalGatheredHeading" type="text" style="CenteredTabLabelText">
 					Metal
 				</object>
+				<object name="totalGatheredHeading" type="text" style="CenteredTabLabelText">
+					Total
+				</object>
 				<object name="treasuresCollectedHeading" type="text" style="CenteredTabLabelText">
 					Treasures&#10;collected
 				</object>
@@ -261,6 +264,7 @@
 						<object name="woodGathered[n]"     		type="text" style="CenteredLabelText"/>
 						<object name="stoneGathered[n]"    		type="text" style="CenteredLabelText" />
 						<object name="metalGathered[n]"    		type="text" style="CenteredLabelText"/>
+						<object name="totalGathered[n]"    		type="text" style="CenteredLabelText"/>
 						<object name="treasuresCollected[n]"    	type="text" style="CenteredLabelText"/>
 						<object name="resourcesTributed[n]"	    type="text" style="CenteredLabelText"/>
 					</object>
