@@ -6,10 +6,37 @@ StatisticsTracker.prototype.Schema =
 StatisticsTracker.prototype.Init = function()
 {
 	// units
-	this.unitsTrained = 0;
-	this.unitsLost = 0;
+	this.unitsTrained = {
+			"infantry": 0,
+			"workers": 0,	//or 8
+			"females": 0,	//or 4
+			"cavalry": 0,
+			"champion": 0,
+			"heroes": 0,
+			"navy": 0,
+			"total": 0
+	};
+	this.unitsLost = {
+			"infantry": 0,
+			"workers": 0,
+			"females": 0,
+			"cavalry": 0,
+			"champion": 0,
+			"heroes": 0,
+			"navy": 0,
+			"total": 0
+	};
 	this.unitsLostValue = 0;
-	this.enemyUnitsKilled = 0;
+	this.enemyUnitsKilled = {
+			"infantry": 0,
+			"workers": 0,
+			"females": 0,
+			"cavalry": 0,
+			"champion": 0,
+			"heroes": 0,
+			"navy": 0,
+			"total": 0
+	};
 	this.enemyUnitsKilledValue = 0;
 	//buildings
 	this.buildingsConstructed = 0;
@@ -53,9 +80,6 @@ StatisticsTracker.prototype.Init = function()
 	
 	this.deforestation = 0;
 	this.favUnit = 0;
-	
-	this.workers = 0;	//albo 8
-	this.female = 0;	//albo 4
 };
 
 StatisticsTracker.prototype.GetStatistics = function()
@@ -89,35 +113,51 @@ StatisticsTracker.prototype.GetStatistics = function()
 };
 
 /** 
- * Counts the total number of units trained as well as an individual counts for 
- * unit types. 
+ * Counts the total number of units trained as well as an individual count for 
+ * each unit type. 
  * @param trainedUnit The unit that has been trained 
  * @return The total count of units trained so far 
  */ 
 StatisticsTracker.prototype.IncreaseTrainedUnitsCounter = function(trainedUnit)
 {
-	var cmpUnitIdentity = Engine.QueryInterface(trainedUnit, IID_Identity);
-	if (cmpUnitIdentity)
-	{
-		var classes = cmpUnitIdentity.GetClassesList();
-		
-		var unitIsWorker = classes.indexOf("Worker") != -1;
-		var unitIsFemale = classes.indexOf("Female") != -1;
-	}
+	var cmpUnitEntityIdentity = Engine.QueryInterface(trainedUnit, IID_Identity);
+
+	var unitIsInfantry = cmpUnitEntityIdentity.HasClass("Infantry");
+	var unitIsWorker = cmpUnitEntityIdentity.HasClass("Worker");
+	var unitIsFemale = cmpUnitEntityIdentity.HasClass("Female");
+	var unitIsCavalry = cmpUnitEntityIdentity.HasClass("Cavalry");
+	var unitIsChampion = cmpUnitEntityIdentity.HasClass("Champion");
+	var unitIsHero = cmpUnitEntityIdentity.HasClass("Hero");
+	var unitIsNavy = cmpUnitEntityIdentity.HasClass("Ship");
+	
+	if (unitIsInfantry)
+		this.unitsTrained["infantry"]++;
 	
 	if (unitIsWorker)
-		this.workers++;
+		this.unitsTrained["workers"]++;
 	
 	if (unitIsFemale)
-		this.female++;
+		this.unitsTrained["females"]++;
+		
+	if (unitIsCavalry)
+		this.unitsTrained["cavalry"]++;
+		
+	if (unitIsChampion)
+		this.unitsTrained["champion"]++;
+		
+	if (unitIsHero)
+		this.unitsTrained["heroes"]++;
+		
+	if (unitIsNavy)
+		this.unitsTrained["navy"]++;
 	
-	return this.unitsTrained++;
+	return this.unitsTrained["total"]++;
 };
 
 StatisticsTracker.prototype.GetFeminisation = function()
 {
-	if (this.female)
-		return 	this.female / this.workers;
+	if (this.unitsTrained["females"])
+		return 	this.unitsTrained["females"] / this.unitsTrained["workers"];
 	return 0;
 };
 
@@ -153,7 +193,36 @@ StatisticsTracker.prototype.KilledEntity = function(targetEntity)
 		{
 			if (targetIsUnit)
 			{
-				this.enemyUnitsKilled++;
+				var unitIsInfantry = cmpTargetEntityIdentity.HasClass("Infantry");
+				var unitIsWorker = cmpTargetEntityIdentity.HasClass("Worker");
+				var unitIsFemale = cmpTargetEntityIdentity.HasClass("Female");
+				var unitIsCavalry = cmpTargetEntityIdentity.HasClass("Cavalry");
+				var unitIsChampion = cmpTargetEntityIdentity.HasClass("Champion");
+				var unitIsHero = cmpTargetEntityIdentity.HasClass("Hero");
+				var unitIsNavy = cmpTargetEntityIdentity.HasClass("Ship");
+	
+				if (unitIsInfantry)
+					this.enemyUnitsKilled["infantry"]++;
+	
+				if (unitIsWorker)
+					this.enemyUnitsKilled["workers"]++;
+	
+				if (unitIsFemale)
+					this.enemyUnitsKilled["females"]++;
+		
+				if (unitIsCavalry)
+					this.enemyUnitsKilled["cavalry"]++;
+		
+				if (unitIsChampion)
+					this.enemyUnitsKilled["champion"]++;
+		
+				if (unitIsHero)
+					this.enemyUnitsKilled["heroes"]++;
+		
+				if (unitIsNavy)
+					this.enemyUnitsKilled["navy"]++;
+				
+				this.enemyUnitsKilled["total"]++;
 				for (var r in costs)
 				{
 					this.enemyUnitsKilledValue += costs[r];
@@ -189,7 +258,36 @@ StatisticsTracker.prototype.LostEntity = function(lostEntity)
 
 		if (lostEntityIsUnit)
 		{
-			this.unitsLost++;
+			var unitIsInfantry = cmpLostEntityIdentity.HasClass("Infantry");
+			var unitIsWorker = cmpLostEntityIdentity.HasClass("Worker");
+			var unitIsFemale = cmpLostEntityIdentity.HasClass("Female");
+			var unitIsCavalry = cmpLostEntityIdentity.HasClass("Cavalry");
+			var unitIsChampion = cmpLostEntityIdentity.HasClass("Champion");
+			var unitIsHero = cmpLostEntityIdentity.HasClass("Hero");
+			var unitIsNavy = cmpLostEntityIdentity.HasClass("Ship");
+	
+			if (unitIsInfantry)
+				this.unitsLost["infantry"]++;
+	
+			if (unitIsWorker)
+				this.unitsLost["workers"]++;
+	
+			if (unitIsFemale)
+				this.unitsLost["females"]++;
+		
+			if (unitIsCavalry)
+				this.unitsLost["cavalry"]++;
+		
+			if (unitIsChampion)
+				this.unitsLost["champion"]++;
+		
+			if (unitIsHero)
+				this.unitsLost["heroes"]++;
+		
+			if (unitIsNavy)
+				this.unitsLost["navy"]++;
+				
+			this.unitsLost["total"]++;
 			for (var r in costs)
 			{
 				this.unitsLostValue += costs[r];
