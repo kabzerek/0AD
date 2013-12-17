@@ -53,7 +53,9 @@ StatisticsTracker.prototype.Init = function()
 	
 	this.deforestation = 0;
 	this.favUnit = 0;
-	this.feminisation = 0;
+	
+	this.workers = 0;	//albo 8
+	this.female = 0;	//albo 4
 };
 
 StatisticsTracker.prototype.GetStatistics = function()
@@ -82,13 +84,41 @@ StatisticsTracker.prototype.GetStatistics = function()
 		"percentMapExplored": this.GetPercentMapExplored(),
 		"deforestation": this.deforestation,
 		"favouriteUnit": this.favUnit,
-		"feminisation": this.feminisation
+		"feminisation": this.GetFeminisation()
 	};
 };
 
+/** 
+ * Counts the total number of units trained as well as an individual counts for 
+ * unit types. 
+ * @param trainedUnit The unit that has been trained 
+ * @return The total count of units trained so far 
+ */ 
 StatisticsTracker.prototype.IncreaseTrainedUnitsCounter = function(trainedUnit)
 {
+	var cmpUnitIdentity = Engine.QueryInterface(trainedUnit, IID_Identity);
+	if (cmpUnitIdentity)
+	{
+		var classes = cmpUnitIdentity.GetClassesList();
+		
+		var unitIsWorker = classes.indexOf("Worker") != -1;
+		var unitIsFemale = classes.indexOf("Female") != -1;
+	}
+	
+	if (unitIsWorker)
+		this.workers++;
+	
+	if (unitIsFemale)
+		this.female++;
+	
 	return this.unitsTrained++;
+};
+
+StatisticsTracker.prototype.GetFeminisation = function()
+{
+	if (this.female)
+		return 	this.female / this.workers;
+	return 0;
 };
 
 StatisticsTracker.prototype.IncreaseConstructedBuildingsCounter = function()
