@@ -50,6 +50,10 @@ StatisticsTracker.prototype.Init = function()
 	this.tributesReceived = 0;
 	this.tradeIncome = 0;
 	this.treasuresCollected = 0;
+	
+	this.deforestation = 0;
+	this.favUnit = 0;
+	this.feminisation = 0;
 };
 
 StatisticsTracker.prototype.GetStatistics = function()
@@ -75,11 +79,14 @@ StatisticsTracker.prototype.GetStatistics = function()
 		"tributesReceived": this.tributesReceived,
 		"tradeIncome": this.tradeIncome,
 		"treasuresCollected": this.treasuresCollected,
-		"percentMapExplored": this.GetPercentMapExplored()
+		"percentMapExplored": this.GetPercentMapExplored(),
+		"deforestation": this.deforestation,
+		"favouriteUnit": this.favUnit,
+		"feminisation": this.feminisation
 	};
 };
 
-StatisticsTracker.prototype.IncreaseTrainedUnitsCounter = function()
+StatisticsTracker.prototype.IncreaseTrainedUnitsCounter = function(trainedUnit)
 {
 	return this.unitsTrained++;
 };
@@ -199,27 +206,27 @@ StatisticsTracker.prototype.IncreaseTreasuresCollectedCounter = function()
 StatisticsTracker.prototype.IncreaseResourcesSoldCounter = function(type, amount)
 {
 	this.resourcesSold[type] += amount;
-}
+};
 
 StatisticsTracker.prototype.IncreaseResourcesBoughtCounter = function(type, amount)
 {
 	this.resourcesBought[type] += amount;
-}
+};
 
 StatisticsTracker.prototype.IncreaseTributesSentCounter = function(amount)
 {
 	this.tributesSent += amount;
-}
+};
 
 StatisticsTracker.prototype.IncreaseTributesReceivedCounter = function(amount)
 {
 	this.tributesReceived += amount;
-}
+};
 
 StatisticsTracker.prototype.IncreaseTradeIncomeCounter = function(amount)
 {
 	this.tradeIncome += amount;
-}
+};
 
 StatisticsTracker.prototype.GetPercentMapExplored = function()
 {

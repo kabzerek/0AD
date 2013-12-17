@@ -108,7 +108,7 @@ function init(data)
 	getGUIObjectByName("playerName3Heading").size = left + " 26 " + (left + playerNameHeadingWidth) + " 100%"; left += playerNameHeadingWidth;
 	getGUIObjectByName("civCentresBuiltHeading").size = left + " 16 " + (left + width) + " 100%"; left += width;
 	getGUIObjectByName("enemyCivCentresDestroyedHeading").size = left +  " 6 " + (left + width) + " 100%"; left += width;
-	getGUIObjectByName("mapExplorationHeading").size = left +  " 6 " + (left + width) + " 100%"; left += width;
+	getGUIObjectByName("mapExplorationHeading").size = left +  " 16 " + (left + width) + " 100%"; left += width;
 
 	left = 50;
 	getGUIObjectByName("playerName4Heading").size = left + " 26 " + (left + playerNameHeadingWidth) + " 100%"; left += playerNameHeadingWidth;
@@ -131,7 +131,10 @@ function init(data)
 	
 	left = 50;
 	getGUIObjectByName("playerName6Heading").size = left + " 26 " + (left + playerNameHeadingWidth) + " 100%"; left += playerNameHeadingWidth;
+	getGUIObjectByName("deforestationHeading").size = left + " 26 " + (left + width) + " 100%"; left += width;
 	getGUIObjectByName("vegetarianRatioHeading").size = left + " 16 " + (left + width) + " 100%"; left += width;
+	getGUIObjectByName("favouriteUnitHeading").size = left + " 16 " + (left + width) + " 100%"; left += width;
+	getGUIObjectByName("feminisationHeading").size = left + " 26 " + (left + width) + " 100%"; left += width;
 	
 	
 	// Show counters
@@ -194,7 +197,10 @@ function init(data)
 			var barterEfficiency = getGUIObjectByName("barterEfficiency["+i+"]");
 			var tradeIncome = getGUIObjectByName("tradeIncome["+i+"]");
 			
+			var deforestation = getGUIObjectByName("deforestation["+i+"]");
 			var vegetarianRatio = getGUIObjectByName("vegetarianRatio["+i+"]");
+			var favouriteUnit = getGUIObjectByName("favouriteUnit["+i+"]");
+			var feminisationRatio = getGUIObjectByName("feminisation["+i+"]");
 
 			// align counters
 
@@ -256,7 +262,10 @@ function init(data)
 			
 			left = 240;
 			size = getGUIObjectByName("playerBox6["+i+"]").size;
+			deforestation.size = left + " 2 " + (left + width) + " 100%"; left += width; 
 			vegetarianRatio.size = left + " 2 " + (left + width) + " 100%"; left += width;
+			favouriteUnit.size = left + " 2 " + (left + width) + " 100%"; left += width;
+			feminisationRatio.size = left + " 2 " + (left + width) + " 100%"; left += width;
 			size.right = left + 10;
 			getGUIObjectByName("playerBox6["+i+"]").size = size;
 
@@ -310,8 +319,11 @@ function init(data)
 			barterEfficiency.caption = Math.floor(totalSold > 0 ? (totalBought / totalSold) * 100 : 0) + "%";
 			tradeIncome.caption = playerState.statistics.tradeIncome;
 			
+			deforestation.caption = playerState.statistics.deforestation + "%";
 			vegetarianRatio.caption = Math.floor(playerState.statistics.resourcesGathered.food > 0 ?
 				(playerState.statistics.resourcesGathered.vegetarianFood / playerState.statistics.resourcesGathered.food) * 100 : 0) + "%";
+			favouriteUnit.caption = playerState.statistics.favouriteUnit;
+			feminisationRatio.caption = playerState.statistics.feminisation + "%";
 		}
 		else
 		{
