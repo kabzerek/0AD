@@ -7,8 +7,6 @@ StatisticsTracker.prototype.Init = function()
 {
 	// units
 	this.unitsTrained = 0;
-	this.championUnitsTrained = 0;
-	this.heroUnitsTrained = 0;
 	this.unitsLost = 0;
 	this.unitsLostValue = 0;
 	this.enemyUnitsKilled = 0;
@@ -58,8 +56,6 @@ StatisticsTracker.prototype.GetStatistics = function()
 {
 	return {
 		"unitsTrained": this.unitsTrained,
-		"championUnitsTrained": this.championUnitsTrained,
-		"heroUnitsTrained": this.heroUnitsTrained,
 		"unitsLost": this.unitsLost,
 		"unitsLostValue": this.unitsLostValue,
 		"enemyUnitsKilled": this.enemyUnitsKilled,
@@ -83,40 +79,8 @@ StatisticsTracker.prototype.GetStatistics = function()
 	};
 };
 
-/** 
- * Counts the total number of units trained as well as an individual count for 
- * each unit type. 
- * @param trainedUnit The unit that has been trained 
- * @return The total count of units trained so far 
- */ 
-StatisticsTracker.prototype.IncreaseTrainedUnitsCounter = function(trainedUnit)
+StatisticsTracker.prototype.IncreaseTrainedUnitsCounter = function()
 {
-	//Choices include:
-	//Unit, Infantry, Melee, Cavalry, Ranged, Mechanical, Ship, Siege, Champion, Hero, Elephant, Chariot,
-	//Mercenary, Spear, Sword, Bow, Javelin, Sling, Support, Animal, Domestic, Organic, Structure, Civic,
-	//CivCentre, Economic, Defensive, Gates, Wall, BarterMarket, Village, Town, City, ConquestCritical,
-	//Worker, Female, Healer, Slave, CitizenSoldier, Trade, Market, NavalMarket, Warship, SeaCreature,
-	//ForestPlant, DropsiteFood, DropsiteWood, DropsiteStone, DropsiteMetal, GarrisonTower, GarrisonFortress
-	
-	var cmpUnitIdentity = Engine.QueryInterface(trainedUnit, IID_Identity);
-	if (cmpUnitIdentity)
-	{
-		var classes = cmpUnitIdentity.GetClassesList();
-		
-		var unitIsChampion = classes.indexOf("Champion") != -1;
-		var unitIsHero = classes.indexOf("Hero") != -1;
-	}
-	
-	if (unitIsChampion)
-	{
-		this.championUnitsTrained++;
-	}
-	
-	if (unitIsHero)
-	{
-		this.heroUnitsTrained++;
-	}
-	
 	return this.unitsTrained++;
 };
 

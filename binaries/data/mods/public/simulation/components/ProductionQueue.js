@@ -516,7 +516,7 @@ ProductionQueue.prototype.SpawnUnits = function(templateName, count, metadata)
 		}
 
 		var cmpPlayerStatisticsTracker = QueryOwnerInterface(this.entity, IID_StatisticsTracker);
-		cmpPlayerStatisticsTracker.IncreaseTrainedUnitsCounter(ent);
+		cmpPlayerStatisticsTracker.IncreaseTrainedUnitsCounter();
 
 		// Play a sound, but only for the first in the batch (to avoid nasty phasing effects)
 		if (createdEnts.length == 0)

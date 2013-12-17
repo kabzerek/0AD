@@ -282,10 +282,10 @@ private:
 			m_Commands.clear();
 			m_ScriptInterface.CallFunctionVoid(m_Obj.get(), "HandleMessage", state, SharedAI);
 		}
-		void InitWithSharedScript(CScriptVal state, CScriptValRooted SharedAI)
+		void InitAI(CScriptVal state, CScriptValRooted SharedAI)
 		{
 			m_Commands.clear();
-			m_ScriptInterface.CallFunctionVoid(m_Obj.get(), "InitWithSharedScript", state, SharedAI);
+			m_ScriptInterface.CallFunctionVoid(m_Obj.get(), "Init", state, SharedAI);
 		}
 
 		CAIWorker& m_Worker;
@@ -452,53 +452,35 @@ public:
 			return false;
 		}
 		
+		// Set up the data to pass as the constructor argument
+		CScriptVal settings;
+		m_ScriptInterface.Eval(L"({})", settings);
+		CScriptVal playersID;
+		m_ScriptInterface.Eval(L"({})", playersID);
+		
+		for (size_t i = 0; i < m_Players.size(); ++i)
+		{
+			jsval val = m_ScriptInterface.ToJSVal(m_ScriptInterface.GetContext(), m_Players[i]->m_Player);
+			m_ScriptInterface.SetPropertyInt(playersID.get(), i, CScriptVal(val), true);
+		}
+		
+		m_ScriptInterface.SetProperty(settings.get(), "players", playersID);
+		ENSURE(m_HasLoadedEntityTemplates);
+		m_ScriptInterface.SetProperty(settings.get(), "templates", m_EntityTemplates, false);
+		
 		if (hasTechs)
 		{
-			// Set up the data to pass as the constructor argument
-			CScriptVal settings;
-			m_ScriptInterface.Eval(L"({})", settings);
-			CScriptVal playersID;
-			m_ScriptInterface.Eval(L"({})", playersID);
-			
-			for (size_t i = 0; i < m_Players.size(); ++i)
-			{
-				jsval val = m_ScriptInterface.ToJSVal(m_ScriptInterface.GetContext(), m_Players[i]->m_Player);
-				m_ScriptInterface.SetPropertyInt(playersID.get(), i, CScriptVal(val), true);
-			}
-			
-			m_ScriptInterface.SetProperty(settings.get(), "players", playersID);
-			
-			ENSURE(m_HasLoadedEntityTemplates);
-			m_ScriptInterface.SetProperty(settings.get(), "templates", m_EntityTemplates, false);
-		
 			m_ScriptInterface.SetProperty(settings.get(), "techTemplates", m_TechTemplates, false);
-
-			m_SharedAIObj = CScriptValRooted(m_ScriptInterface.GetContext(),m_ScriptInterface.CallConstructor(ctor.get(), settings.get()));
 		}
 		else
 		{
 			// won't get the tech templates directly.
-			// Set up the data to pass as the constructor argument
-			CScriptVal settings;
-			m_ScriptInterface.Eval(L"({})", settings);
-			CScriptVal playersID;
-			m_ScriptInterface.Eval(L"({})", playersID);
-			for (size_t i = 0; i < m_Players.size(); ++i)
-			{
-				jsval val = m_ScriptInterface.ToJSVal(m_ScriptInterface.GetContext(), m_Players[i]->m_Player);
-				m_ScriptInterface.SetPropertyInt(playersID.get(), i, CScriptVal(val), true);
-			}
-			
-			m_ScriptInterface.SetProperty(settings.get(), "players", playersID);
-			
-			CScriptVal m_fakeTech;
-			m_ScriptInterface.Eval("({})", m_fakeTech);
-			m_ScriptInterface.SetProperty(settings.get(), "techTemplates", m_fakeTech, false);
-
-			ENSURE(m_HasLoadedEntityTemplates);
-			m_ScriptInterface.SetProperty(settings.get(), "templates", m_EntityTemplates, false);
-			m_SharedAIObj = CScriptValRooted(m_ScriptInterface.GetContext(),m_ScriptInterface.CallConstructor(ctor.get(), settings.get()));
+			CScriptVal fakeTech;
+			m_ScriptInterface.Eval("({})", fakeTech);
+			m_ScriptInterface.SetProperty(settings.get(), "techTemplates", fakeTech, false);
 		}
+		m_SharedAIObj = CScriptValRooted(m_ScriptInterface.GetContext(),m_ScriptInterface.CallConstructor(ctor.get(), settings.get()));
+	
 		
 		if (m_SharedAIObj.undefined())
 		{
@@ -541,13 +523,13 @@ public:
 			m_ScriptInterface.SetProperty(state.get(), "passabilityMap", m_PassabilityMapVal, true);
 			m_ScriptInterface.SetProperty(state.get(), "territoryMap", m_TerritoryMapVal, true);
 
-			m_ScriptInterface.CallFunctionVoid(m_SharedAIObj.get(), "initWithState", state);
+			m_ScriptInterface.CallFunctionVoid(m_SharedAIObj.get(), "init", state);
 			m_ScriptInterface.MaybeGC();
 			
 			for (size_t i = 0; i < m_Players.size(); ++i)
 			{
 				if (m_HasSharedComponent && m_Players[i]->m_UseSharedComponent)
-					m_Players[i]->InitWithSharedScript(state,m_SharedAIObj);
+					m_Players[i]->InitAI(state,m_SharedAIObj);
 			}
 		}
 		
@@ -910,6 +892,7 @@ public:
 	virtual void Init(const CParamNode& UNUSED(paramNode))
 	{
 		m_TerritoriesDirtyID = 0;
+		m_JustDeserialized = false;
 
 		StartLoadEntityTemplates();
 	}
@@ -935,6 +918,8 @@ public:
 		ForceLoadEntityTemplates();
 
 		m_Worker.Deserialize(deserialize.GetStream());
+		
+		m_JustDeserialized = true;
 	}
 
 	virtual void HandleMessage(const CMessage& msg, bool UNUSED(global))
@@ -1034,7 +1019,11 @@ public:
 		ENSURE(cmpAIInterface);
 
 		// Get the game state from AIInterface
-		CScriptVal state = cmpAIInterface->GetRepresentation();
+		CScriptVal state;
+		if (m_JustDeserialized)
+			state = cmpAIInterface->GetFullRepresentation(true);
+		else
+			state = cmpAIInterface->GetRepresentation();
 
 		// Get the passability data
 		Grid<u16> dummyGrid;
@@ -1058,6 +1047,8 @@ public:
 		LoadPathfinderClasses(state);
 
 		m_Worker.StartComputation(scriptInterface.WriteStructuredClone(state.get()), *passabilityMap, *territoryMap, territoryMapDirty);
+		
+		m_JustDeserialized = false;
 	}
 
 	virtual void PushCommands()
@@ -1086,6 +1077,8 @@ private:
 	size_t m_TemplateLoadedIdx;
 	std::vector<std::pair<std::string, const CParamNode*> > m_Templates;
 	size_t m_TerritoriesDirtyID;
+
+	bool m_JustDeserialized;
 
 	void StartLoadEntityTemplates()
 	{
