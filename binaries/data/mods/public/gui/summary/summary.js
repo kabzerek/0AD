@@ -1,8 +1,8 @@
 // Max player slots for any map (should read from config)
 const MAX_SLOTS = 8;
 
-var panelNames = [ 'scorePanel', 'unitsBuildingsPanel', 'conquestPanel', 'resourcesPanel', 'marketPanel' ];
-var panelButtonNames = [ 'scorePanelButton', 'unitsBuildingsPanelButton', 'conquestPanelButton', 'resourcesPanelButton', 'marketPanelButton' ];
+var panelNames = [ 'scorePanel', 'unitsBuildingsPanel', 'conquestPanel', 'resourcesPanel', 'marketPanel', 'detBuildingsPanel', 'detUnitsPanel', 'miscPanel' ];
+var panelButtonNames = [ 'scorePanelButton', 'unitsBuildingsPanelButton', 'conquestPanelButton', 'resourcesPanelButton', 'marketPanelButton', 'detBuildingsPanelButton', 'detUnitsPanelButton', 'miscPanelButton' ];
 
 /**
  * Select active panel
