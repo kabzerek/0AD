@@ -1,8 +1,8 @@
 // Max player slots for any map (should read from config)
 const MAX_SLOTS = 8;
 
-var panelNames = [ 'scorePanel', 'unitsBuildingsPanel', 'conquestPanel', 'resourcesPanel', 'marketPanel' ];
-var panelButtonNames = [ 'scorePanelButton', 'unitsBuildingsPanelButton', 'conquestPanelButton', 'resourcesPanelButton', 'marketPanelButton' ];
+var panelNames = [ 'scorePanel', 'unitsBuildingsPanel', 'conquestPanel', 'resourcesPanel', 'marketPanel', 'detBuildingsPanel', 'detUnitsPanel', 'miscPanel' ];
+var panelButtonNames = [ 'scorePanelButton', 'unitsBuildingsPanelButton', 'conquestPanelButton', 'resourcesPanelButton', 'marketPanelButton', 'detBuildingsPanelButton', 'detUnitsPanelButton', 'miscPanelButton' ];
 
 /**
  * Select active panel
@@ -127,6 +127,15 @@ function init(data)
 	getGUIObjectByName("barterEfficiencyHeading").size = left + " 16 " + (left + width) + " 100%"; left += width;
 	getGUIObjectByName("tradeIncomeHeading").size = left + " 16 " + (left + width) + " 100%"; left += width;
 
+	left = 50;
+	getGUIObjectByName("playerName5Heading").size = left + " 26 " + (left + playerNameHeadingWidth) + " 100%"; left += playerNameHeadingWidth;
+	
+	left = 50;
+	getGUIObjectByName("playerName6Heading").size = left + " 26 " + (left + playerNameHeadingWidth) + " 100%"; left += playerNameHeadingWidth;
+	
+	left = 50;
+	getGUIObjectByName("playerName7Heading").size = left + " 26 " + (left + playerNameHeadingWidth) + " 100%"; left += playerNameHeadingWidth;
+	
 	// Show counters
 	for (var i = 0; i < MAX_SLOTS; ++i)
 	{
@@ -240,6 +249,21 @@ function init(data)
 			size = getGUIObjectByName("playerBox4["+i+"]").size;
 			size.right = left + 10;
 			getGUIObjectByName("playerBox4["+i+"]").size = size;
+			
+			left = 240;
+			size = getGUIObjectByName("playerBox5["+i+"]").size;
+			size.right = left + 10;
+			getGUIObjectByName("playerBox5["+i+"]").size = size;
+			
+			left = 240;
+			size = getGUIObjectByName("playerBox6["+i+"]").size;
+			size.right = left + 10;
+			getGUIObjectByName("playerBox6["+i+"]").size = size;
+			
+			left = 240;
+			size = getGUIObjectByName("playerBox7["+i+"]").size;
+			size.right = left + 10;
+			getGUIObjectByName("playerBox7["+i+"]").size = size;
 
 			// display counters
 			economyScore.caption = Math.round((playerState.statistics.resourcesGathered.food + playerState.statistics.resourcesGathered.wood + 
