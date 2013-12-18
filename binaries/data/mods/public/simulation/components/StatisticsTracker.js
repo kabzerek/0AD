@@ -8,8 +8,8 @@ StatisticsTracker.prototype.Init = function()
 	// units
 	this.unitsTrained = {
 			"infantry": 0,
-			"workers": 0,	//or 8
-			"females": 0,	//or 4
+			"workers": 0,
+			"females": 0,
 			"cavalry": 0,
 			"champion": 0,
 			"heroes": 0,
@@ -76,6 +76,7 @@ StatisticsTracker.prototype.Init = function()
 	this.enemyCivCentresDestroyed = 0;
 	// resources
 	this.resourcesGathered = {
+			"total": 0,
 			"food": 0,
 			"wood": 0,
 			"metal": 0,
@@ -83,18 +84,21 @@ StatisticsTracker.prototype.Init = function()
 			"vegetarianFood": 0
 	};
 	this.resourcesUsed = {
+			"total": 0,
 			"food": 0,
 			"wood": 0,
 			"metal": 0,
 			"stone": 0
 	};
 	this.resourcesSold = {
+			"total": 0,
 			"food": 0,
 			"wood": 0,
 			"metal": 0,
 			"stone": 0
 	};
 	this.resourcesBought = {
+			"total": 0,
 			"food": 0,
 			"wood": 0,
 			"metal": 0,
@@ -144,35 +148,38 @@ StatisticsTracker.prototype.IncreaseTrainedUnitsCounter = function(trainedUnit)
 {
 	var cmpUnitEntityIdentity = Engine.QueryInterface(trainedUnit, IID_Identity);
 
-	var unitIsInfantry = cmpUnitEntityIdentity.HasClass("Infantry");
-	var unitIsWorker = cmpUnitEntityIdentity.HasClass("Worker");
-	var unitIsFemale = cmpUnitEntityIdentity.HasClass("Female");
-	var unitIsCavalry = cmpUnitEntityIdentity.HasClass("Cavalry");
-	var unitIsChampion = cmpUnitEntityIdentity.HasClass("Champion");
-	var unitIsHero = cmpUnitEntityIdentity.HasClass("Hero");
-	var unitIsNavy = cmpUnitEntityIdentity.HasClass("Ship");
-	if (unitIsInfantry)
-		this.unitsTrained["infantry"]++;
-	
-	if (unitIsWorker)
-		this.unitsTrained["workers"]++;
-	
-	if (unitIsFemale)
-		this.unitsTrained["females"]++;
+	if (cmpUnitEntityIdentity)
+	{
+		var unitIsInfantry = cmpUnitEntityIdentity.HasClass("Infantry");
+		var unitIsWorker = cmpUnitEntityIdentity.HasClass("Worker");
+		var unitIsFemale = cmpUnitEntityIdentity.HasClass("Female");
+		var unitIsCavalry = cmpUnitEntityIdentity.HasClass("Cavalry");
+		var unitIsChampion = cmpUnitEntityIdentity.HasClass("Champion");
+		var unitIsHero = cmpUnitEntityIdentity.HasClass("Hero");
+		var unitIsNavy = cmpUnitEntityIdentity.HasClass("Ship");
+		if (unitIsInfantry)
+			this.unitsTrained["infantry"]++;
 		
-	if (unitIsCavalry)
-		this.unitsTrained["cavalry"]++;
+		if (unitIsWorker)
+			this.unitsTrained["workers"]++;
 		
-	if (unitIsChampion)
-		this.unitsTrained["champion"]++;
+		if (unitIsFemale)
+			this.unitsTrained["females"]++;
+			
+		if (unitIsCavalry)
+			this.unitsTrained["cavalry"]++;
+			
+		if (unitIsChampion)
+			this.unitsTrained["champion"]++;
+			
+		if (unitIsHero)
+			this.unitsTrained["heroes"]++;
+			
+		if (unitIsNavy)
+			this.unitsTrained["navy"]++;
 		
-	if (unitIsHero)
-		this.unitsTrained["heroes"]++;
-		
-	if (unitIsNavy)
-		this.unitsTrained["navy"]++;
-	
-	return this.unitsTrained["total"]++;
+		return this.unitsTrained["total"]++;
+	}
 };
 
 StatisticsTracker.prototype.GetFeminisation = function()
@@ -191,30 +198,32 @@ StatisticsTracker.prototype.IncreaseConstructedBuildingsCounter = function(const
 {
 	var cmpBuildingEntityIdentity = Engine.QueryInterface(constructedBuilding, IID_Identity);
 		
-	//TODO Houses	Economic	Outposts	Military	Fortresses	Special	Wonders
-	var buildingIsHouse = cmpBuildingEntityIdentity.HasClass("House");
-	var buildingIsEconomic = cmpBuildingEntityIdentity.HasClass("Economic");
-	var buildingIsOutpost = cmpBuildingEntityIdentity.HasClass("Outpost");
-	var buildingIsMilitary = cmpBuildingEntityIdentity.HasClass("Military");
-	var buildingIsFortress = cmpBuildingEntityIdentity.HasClass("Fortress");
-	var buildingIsSpecial = cmpBuildingEntityIdentity.HasClass("SpecialBuilding");
-	var buildingIsWonder = cmpBuildingEntityIdentity.HasClass("Wonder");
-	if (buildingIsHouse)
-		this.buildingsConstructed["houses"]++;
-	if (buildingIsEconomic)
-		this.buildingsConstructed["economic"]++;
-	if (buildingIsOutpost)
-		this.buildingsConstructed["outposts"]++;
-	if (buildingIsMilitary)
-		this.buildingsConstructed["military"]++;
-	if (buildingIsFortress)
-		this.buildingsConstructed["fortresses"]++;
-	if (buildingIsSpecial)
-		this.buildingsConstructed["special"]++;
-	if (buildingIsWonder)
-		this.buildingsConstructed["wonders"]++;
-	
-	return this.buildingsConstructed["total"]++;
+	if (cmpBuildingEntityIdentity)
+	{
+		var buildingIsHouse = cmpBuildingEntityIdentity.HasClass("House");
+		var buildingIsEconomic = cmpBuildingEntityIdentity.HasClass("Economic");
+		var buildingIsOutpost = cmpBuildingEntityIdentity.HasClass("Outpost");
+		var buildingIsMilitary = cmpBuildingEntityIdentity.HasClass("Military");
+		var buildingIsFortress = cmpBuildingEntityIdentity.HasClass("Fortress");
+		var buildingIsSpecial = cmpBuildingEntityIdentity.HasClass("SpecialBuilding");
+		var buildingIsWonder = cmpBuildingEntityIdentity.HasClass("Wonder");
+		if (buildingIsHouse)
+			this.buildingsConstructed["houses"]++;
+		if (buildingIsEconomic)
+			this.buildingsConstructed["economic"]++;
+		if (buildingIsOutpost)
+			this.buildingsConstructed["outposts"]++;
+		if (buildingIsMilitary)
+			this.buildingsConstructed["military"]++;
+		if (buildingIsFortress)
+			this.buildingsConstructed["fortresses"]++;
+		if (buildingIsSpecial)
+			this.buildingsConstructed["special"]++;
+		if (buildingIsWonder)
+			this.buildingsConstructed["wonders"]++;
+		
+		return this.buildingsConstructed["total"]++;
+	}
 };
 
 StatisticsTracker.prototype.IncreaseBuiltCivCentresCounter = function()
@@ -424,6 +433,7 @@ StatisticsTracker.prototype.LostEntity = function(lostEntity)
 StatisticsTracker.prototype.IncreaseResourceGatheredCounter = function(type, amount, specificType)
 {
 	this.resourcesGathered[type] += amount;
+	this.resourcesGathered["total"] += amount;
 	
 	if (type == "food" && (specificType == "fruit" || specificType == "grain"))
 		this.resourcesGathered["vegetarianFood"] += amount;
@@ -436,6 +446,7 @@ StatisticsTracker.prototype.IncreaseResourceGatheredCounter = function(type, amo
 StatisticsTracker.prototype.IncreaseResourceUsedCounter = function(type, amount)
 {
 	this.resourcesUsed[type] += amount;
+	this.resourcesUsed["total"] += amount;
 };
 
 StatisticsTracker.prototype.IncreaseTreasuresCollectedCounter = function()
@@ -446,11 +457,13 @@ StatisticsTracker.prototype.IncreaseTreasuresCollectedCounter = function()
 StatisticsTracker.prototype.IncreaseResourcesSoldCounter = function(type, amount)
 {
 	this.resourcesSold[type] += amount;
+	this.resourcesSold["total"] += amount;
 };
 
 StatisticsTracker.prototype.IncreaseResourcesBoughtCounter = function(type, amount)
 {
 	this.resourcesBought[type] += amount;
+	this.resourcesBought["total"] += amount;
 };
 
 StatisticsTracker.prototype.IncreaseTributesSentCounter = function(amount)
