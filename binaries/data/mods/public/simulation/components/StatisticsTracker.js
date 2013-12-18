@@ -104,9 +104,6 @@ StatisticsTracker.prototype.Init = function()
 	this.tributesReceived = 0;
 	this.tradeIncome = 0;
 	this.treasuresCollected = 0;
-	
-	this.deforestation = 0;
-	this.favUnit = 0;
 };
 
 StatisticsTracker.prototype.GetStatistics = function()
@@ -133,8 +130,6 @@ StatisticsTracker.prototype.GetStatistics = function()
 		"tradeIncome": this.tradeIncome,
 		"treasuresCollected": this.treasuresCollected,
 		"percentMapExplored": this.GetPercentMapExplored(),
-		"deforestation": this.deforestation,
-		"favouriteUnit": this.favUnit,
 		"feminisation": this.GetFeminisation()
 	};
 };

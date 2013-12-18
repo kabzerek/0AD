@@ -364,14 +364,8 @@
 				<object name="playerName6Heading" type="text" style="LeftTabLabelText">
 					Player name
 				</object>
-				<object name="deforestationHeading" type="text" style="CenteredTabLabelText">
-					Deforestation
-				</object>
 				<object name="vegetarianRatioHeading" type="text" style="CenteredTabLabelText">
 					Vegetarian&#10;ratio
-				</object>
-				<object name="favouriteUnitHeading" type="text" style="CenteredTabLabelText">
-					Favourite&#10;unit
 				</object>
 				<object name="feminisationHeading" type="text" style="CenteredTabLabelText">
 					Feminisation
@@ -387,9 +381,7 @@
 						<object name="playerColourBox6[n]"      type="image" size="10 4 30 24" />
 						<object name="playerName6[n]"           type="text"  style="LeftLabelText" size="40 2 208 100%" />
 						<object name="civIcon6[n]"              type="image" size="208 0 240 32" tooltip_style="sessionToolTip"/>
-						<object name="deforestation[n]"  	type="text" style="CenteredLabelText"/>
 						<object name="vegetarianRatio[n]"  	type="text" style="CenteredLabelText"/>
-						<object name="favouriteUnit[n]"  	type="text" style="CenteredLabelText"/>
 						<object name="feminisation[n]"  	type="text" style="CenteredLabelText"/>
 						<object name="killDeathRatio[n]"  	type="text" style="CenteredLabelText"/>
 					</object>	
