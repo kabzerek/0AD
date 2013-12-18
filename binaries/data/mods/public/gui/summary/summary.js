@@ -121,6 +121,12 @@ function init(data)
 	var playerNameHeadingWidth = 200;
 	// Special cased to make the (Sent / Received) part fit
 	var tributesWidth = 121;
+	// Special cased to make the (total buildings) part fit
+	var totalBuildingsWidth = 105;
+	// Special cased to make the (total units) part fit
+	var totalUnitsWidth = 120;
+	// Special cased to make the (total gathered resources) part fit
+	var totalGatheredWidth = 110;
 	getGUIObjectByName("playerName0Heading").size = left + " 26 " + (left + playerNameHeadingWidth) + " 100%"; left += playerNameHeadingWidth;
 	getGUIObjectByName("economyScoreHeading").size = left + " 16 " + (left + width) + " 100%"; left += width;
 	getGUIObjectByName("militaryScoreHeading").size = left +  " 16 " + (left + width) + " 100%"; left += width;
@@ -130,8 +136,8 @@ function init(data)
 	left = 50;
 	width = 85;
 	getGUIObjectByName("playerName1Heading").size = left + " 26 " + (left + playerNameHeadingWidth) + " 100%"; left += playerNameHeadingWidth;
-	getGUIObjectByName("buildingsHeading").size = left + " 16 " + (left + width * 7 + 20) + " 100%";
-	getGUIObjectByName("totalBuildingsHeading").size = left + " 34 " + (left + width + 20) + " 100%"; left += width + 20;
+	getGUIObjectByName("buildingsHeading").size = left + " 16 " + (left + width * 6 + totalBuildingsWidth) + " 100%";
+	getGUIObjectByName("totalBuildingsHeading").size = left + " 34 " + (left + totalBuildingsWidth) + " 100%"; left += totalBuildingsWidth;
 	getGUIObjectByName("houseBuildingsHeading").size = left + " 34 " + (left + width) + " 100%"; left += width;
 	getGUIObjectByName("economicBuildingsHeading").size = left + " 34 " + (left + width) + " 100%"; left += width;
 	getGUIObjectByName("outpostBuildingsHeading").size = left + " 34 " + (left + width) + " 100%"; left += width;
@@ -144,8 +150,8 @@ function init(data)
 	left = 50;
 	width = 100;
 	getGUIObjectByName("playerName2Heading").size = left + " 26 " + (left + playerNameHeadingWidth) + " 100%"; left += playerNameHeadingWidth;
-	getGUIObjectByName("unitsHeading").size = left + " 16 " + (left + width * 7 + 20) + " 100%";
-	getGUIObjectByName("totalUnitsHeading").size = left + " 34 " + (left + width + 20) + " 100%"; left += width + 20;
+	getGUIObjectByName("unitsHeading").size = left + " 16 " + (left + width * 6 + totalUnitsWidth) + " 100%";
+	getGUIObjectByName("totalUnitsHeading").size = left + " 34 " + (left + totalUnitsWidth) + " 100%"; left += totalUnitsWidth;
 	getGUIObjectByName("infantryUnitsHeading").size = left + " 34 " + (left + width) + " 100%"; left += width;
 	getGUIObjectByName("workerUnitsHeading").size = left + " 34 " + (left + width) + " 100%"; left += width;
 	getGUIObjectByName("cavalryUnitsHeading").size = left + " 34 " + (left + width) + " 100%"; left += width;
@@ -163,12 +169,12 @@ function init(data)
 	left = 50;
 	width = 100;
 	getGUIObjectByName("playerName4Heading").size = left + " 26 " + (left + playerNameHeadingWidth) + " 100%"; left += playerNameHeadingWidth;
-	getGUIObjectByName("resourceHeading").size = left + " 16 " + (left + width * 5 + 10) + " 100%";
+	getGUIObjectByName("resourceHeading").size = left + " 16 " + (left + width * 4 + totalGatheredWidth) + " 100%";
 	getGUIObjectByName("foodGatheredHeading").size = left + " 34 " + (left + width) + " 100%"; left += width;
 	getGUIObjectByName("woodGatheredHeading").size = left + " 34 " + (left + width) + " 100%"; left += width;
 	getGUIObjectByName("stoneGatheredHeading").size = left + " 34 " + (left + width) + " 100%"; left += width;
 	getGUIObjectByName("metalGatheredHeading").size = left + " 34 " + (left + width) + " 100%"; left += width;
-	getGUIObjectByName("totalGatheredHeading").size = left + " 34 " + (left + width + 10) + " 100%"; left += width + 10;
+	getGUIObjectByName("totalGatheredHeading").size = left + " 34 " + (left + totalGatheredWidth) + " 100%"; left += totalGatheredWidth;
 	getGUIObjectByName("treasuresCollectedHeading").size = left + " 16 " + (left + width) + " 100%"; left += width;
 	getGUIObjectByName("resourcesTributedHeading").size = left + " 16 " + (left + tributesWidth) + " 100%"; left += tributesWidth;
 
