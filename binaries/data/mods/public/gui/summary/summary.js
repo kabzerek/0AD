@@ -359,21 +359,21 @@ function init(data)
 			totalScore.caption = Number(economyScore.caption) + Number(militaryScore.caption) + Number(explorationScore.caption);
 
 			totalBuildings.caption = captionBuildings(playerState, "total");
-			houseBuildings.caption = captionBuildings(playerState, "houses");
-			economicBuildings.caption = captionBuildings(playerState, "economic");
-			outpostBuildings.caption = captionBuildings(playerState, "outposts");
-			militaryBuildings.caption = captionBuildings(playerState, "military");
-			fortressBuildings.caption = captionBuildings(playerState, "fortresses");
-			specialBuildings.caption = captionBuildings(playerState, "special");
-			wonderBuildings.caption = captionBuildings(playerState, "wonders");
+			houseBuildings.caption = captionBuildings(playerState, "House");
+			economicBuildings.caption = captionBuildings(playerState, "Economic");
+			outpostBuildings.caption = captionBuildings(playerState, "Outpost");
+			militaryBuildings.caption = captionBuildings(playerState, "Military");
+			fortressBuildings.caption = captionBuildings(playerState, "Fortress");
+			specialBuildings.caption = captionBuildings(playerState, "SpecialBuilding");
+			wonderBuildings.caption = captionBuildings(playerState, "Wonder");
 
 			totalUnits.caption = captionUnits(playerState, "total");
-			infantryUnits.caption = captionUnits(playerState, "infantry");
-			workerUnits.caption = captionUnits(playerState, "workers");
-			cavalryUnits.caption = captionUnits(playerState, "cavalry");
-			championUnits.caption = captionUnits(playerState, "champion");
-			heroesUnits.caption = captionUnits(playerState, "heroes");
-			navyUnits.caption = captionUnits(playerState, "navy");
+			infantryUnits.caption = captionUnits(playerState, "Infantry");
+			workerUnits.caption = captionUnits(playerState, "Worker");
+			cavalryUnits.caption = captionUnits(playerState, "Cavalry");
+			championUnits.caption = captionUnits(playerState, "Champion");
+			heroesUnits.caption = captionUnits(playerState, "Hero");
+			navyUnits.caption = captionUnits(playerState, "Ship");
 
 			civCentresBuilt.caption = playerState.statistics.civCentresBuilt;
 			enemyCivCentresDestroyed.caption = playerState.statistics.enemyCivCentresDestroyed;
