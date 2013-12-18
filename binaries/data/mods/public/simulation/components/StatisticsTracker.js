@@ -297,6 +297,9 @@ StatisticsTracker.prototype.KilledEntity = function(targetEntity)
 				var buildingIsSpecial = cmpTargetEntityIdentity.HasClass("Special");
 				var buildingIsWonder = cmpTargetEntityIdentity.HasClass("Wonder");
 				
+				if (buildingIsHouse)
+					this.enemyBuildingsDestroyed["houses"]++;
+					
 				if (buildingIsEconomic)
 					this.enemyBuildingsDestroyed["economic"]++;
 					
@@ -390,6 +393,9 @@ StatisticsTracker.prototype.LostEntity = function(lostEntity)
 			var buildingIsSpecial = cmpLostEntityIdentity.HasClass("Special");
 			var buildingIsWonder = cmpLostEntityIdentity.HasClass("Wonder");
 			
+				
+			if (buildingIsHouse)
+				this.buildingsLost["houses"]++;
 				
 			if (buildingIsEconomic)
 				this.buildingsLost["economic"]++;

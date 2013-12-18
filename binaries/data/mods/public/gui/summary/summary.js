@@ -93,8 +93,7 @@ function init(data)
 	getGUIObjectByName("totalScoreHeading").size = left +  " 16 " + (left + width) + " 100%"; left += width;
 	
 	left = 50;
-	width = 100;
-	
+	width = 85;
 	getGUIObjectByName("playerName1Heading").size = left + " 26 " + (left + playerNameHeadingWidth) + " 100%"; left += playerNameHeadingWidth;
 	getGUIObjectByName("buildingsHeading").size = left + " 16 " + (left + width * 7 + 20) + " 100%";
 	getGUIObjectByName("totalBuildingsHeading").size = left + " 34 " + (left + width + 20) + " 100%"; left += width + 20;
@@ -245,9 +244,8 @@ function init(data)
 			getGUIObjectByName("playerBox0["+i+"]").size = size;
 			
 			left = 240;
-			width = 100;
-			
-			totalBuildings.size = left + " 2 " + (left + width) + " 100%"; left += width;
+			width = 85;
+			totalBuildings.size = left + " 2 " + (left + width) + " 100%"; left += width + 20;
 			houseBuildings.size = left + " 2 " + (left + width) + " 100%"; left += width;
 			economicBuildings.size = left + " 2 " + (left + width) + " 100%"; left += width;
 			outpostBuildings.size = left + " 2 " + (left + width) + " 100%"; left += width;
