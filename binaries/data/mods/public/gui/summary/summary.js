@@ -416,15 +416,12 @@ function init(data)
 				totalSold += soldAmount;
 			barterEfficiency.caption = Math.floor(totalSold > 0 ? (totalBought / totalSold) * 100 : 0) + "%";
 			tradeIncome.caption = playerState.statistics.tradeIncome;
-			
-			// colours used for kill / death ratio
-			const KILL_COLOR = '[color="201 255 200"]';
-			const DEATH_COLOR = '[color="255 213 213"]';			
+						
 			vegetarianRatio.caption = Math.floor(playerState.statistics.resourcesGathered.food > 0 ?
 				(playerState.statistics.resourcesGathered.vegetarianFood / playerState.statistics.resourcesGathered.food) * 100 : 0) + "%";
 			feminisationRatio.caption = playerState.statistics.feminisation + "%";
-			killDeathRatio.caption = KILL_COLOR + playerState.statistics.enemyUnitsKilled["total"] + '[/color] / '
-				+ DEATH_COLOR + playerState.statistics.unitsLost["total"] + '[/color]';
+			killDeathRatio.caption = Math.round((playerState.statistics.enemyUnitsKilled["total"] > 0 ?
+				(playerState.statistics.enemyUnitsKilled["total"] / playerState.statistics.unitsLost["total"]) : 0)*100)/100;
 		}
 		else
 		{
