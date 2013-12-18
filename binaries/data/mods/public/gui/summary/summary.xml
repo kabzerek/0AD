@@ -133,14 +133,32 @@
 				<object name="playerName1Heading" type="text" style="LeftTabLabelText">
 					Player name
 				</object>
-				<object name="buildingsConstructedHeading" type="text" style="CenteredTabLabelText">
-					Buildings&#10;constructed
+				<object name="buildingsHeading" type="text" style="CenteredTabLabelText">
+					Buildings Statistics (Constructed / Lost / Destroyed)
 				</object>
-				<object name="buildingsLostHeading" type="text" style="CenteredTabLabelText">
-					Buildings&#10;lost
+				<object name="totalBuildingsHeading" type="text" style="CenteredTabLabelText">
+					Total
 				</object>
-				<object name="enemyBuildingsDestroyedHeading" type="text" style="CenteredTabLabelText">
-					Enemy&#10;buildings&#10;destroyed
+				<object name="houseBuildingsHeading" type="text" style="CenteredTabLabelText">
+					Houses
+				</object>
+				<object name="economicBuildingsHeading" type="text" style="CenteredTabLabelText">
+					Economic
+				</object>
+				<object name="outpostBuildingsHeading" type="text" style="CenteredTabLabelText">
+					Outposts
+				</object>
+				<object name="militaryBuildingsHeading" type="text" style="CenteredTabLabelText">
+					Military
+				</object>
+				<object name="fortressBuildingsHeading" type="text" style="CenteredTabLabelText">
+					Fortresses
+				</object>
+				<object name="specialBuildingsHeading" type="text" style="CenteredTabLabelText">
+					Special
+				</object>
+				<object name="wonderBuildingsHeading" type="text" style="CenteredTabLabelText">
+					Wonders
 				</object>
 
 			</object>
@@ -151,9 +169,14 @@
 						<object name="playerColourBox1[n]"      type="image" size="10 4 30 24" />
 						<object name="playerName1[n]"           type="text"  style="LeftLabelText" size="40 2 208 100%" />
 						<object name="civIcon1[n]"              type="image" size="208 0 240 32" tooltip_style="sessionToolTip"/>
-						<object name="buildingsConstructed[n]" 		type="text" style="CenteredLabelText"/>
-						<object name="buildingsLost[n]"        		type="text" style="CenteredLabelText"/>
-						<object name="enemyBuildingsDestroyed[n]"   	type="text" style="CenteredLabelText"/>
+						<object name="totalBuildings[n]" 		type="text" style="CenteredLabelText"/>
+						<object name="houseBuildings[n]"        	type="text" style="CenteredLabelText"/>
+						<object name="economicBuildings[n]"        	type="text" style="CenteredLabelText"/>
+						<object name="outpostBuildings[n]"        	type="text" style="CenteredLabelText"/>
+						<object name="militaryBuildings[n]"        	type="text" style="CenteredLabelText"/>
+						<object name="fortressBuildings[n]"        	type="text" style="CenteredLabelText"/>
+						<object name="specialBuildings[n]"        	type="text" style="CenteredLabelText"/>
+						<object name="wonderBuildings[n]"        	type="text" style="CenteredLabelText"/>
 					</object>
 				</repeat>
 			</object>

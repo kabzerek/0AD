@@ -94,10 +94,18 @@ function init(data)
 	
 	left = 50;
 	width = 100;
+	
 	getGUIObjectByName("playerName1Heading").size = left + " 26 " + (left + playerNameHeadingWidth) + " 100%"; left += playerNameHeadingWidth;
-	getGUIObjectByName("buildingsConstructedHeading").size = left + " 16 " + (left + width) + " 100%"; left += width;
-	getGUIObjectByName("buildingsLostHeading").size = left + " 16 " + (left + width) + " 100%"; left += width;
-	getGUIObjectByName("enemyBuildingsDestroyedHeading").size = left + " 6 " + (left + width) + " 100%"; left += width;
+	getGUIObjectByName("buildingsHeading").size = left + " 16 " + (left + width * 7 + 20) + " 100%";
+	getGUIObjectByName("totalBuildingsHeading").size = left + " 34 " + (left + width + 20) + " 100%"; left += width + 20;
+	getGUIObjectByName("houseBuildingsHeading").size = left + " 34 " + (left + width) + " 100%"; left += width;
+	getGUIObjectByName("economicBuildingsHeading").size = left + " 34 " + (left + width) + " 100%"; left += width;
+	getGUIObjectByName("outpostBuildingsHeading").size = left + " 34 " + (left + width) + " 100%"; left += width;
+	getGUIObjectByName("militaryBuildingsHeading").size = left + " 34 " + (left + width) + " 100%"; left += width;
+	getGUIObjectByName("fortressBuildingsHeading").size = left + " 34 " + (left + width) + " 100%"; left += width;
+	getGUIObjectByName("specialBuildingsHeading").size = left + " 34 " + (left + width) + " 100%"; left += width;
+	getGUIObjectByName("wonderBuildingsHeading").size = left + " 34 " + (left + width) + " 100%"; left += width;
+	
 
 	left = 50;
 	width = 100;
@@ -183,9 +191,14 @@ function init(data)
 			var explorationScore = getGUIObjectByName("explorationScore["+i+"]");
 			var totalScore = getGUIObjectByName("totalScore["+i+"]");
 			
-			var buildingsConstructed = getGUIObjectByName("buildingsConstructed["+i+"]");
-			var buildingsLost = getGUIObjectByName("buildingsLost["+i+"]");
-			var enemyBuildingsDestroyed = getGUIObjectByName("enemyBuildingsDestroyed["+i+"]");
+			var totalBuildings = getGUIObjectByName("totalBuildings["+i+"]");
+			var houseBuildings = getGUIObjectByName("houseBuildings["+i+"]");
+			var economicBuildings = getGUIObjectByName("economicBuildings["+i+"]");
+			var outpostBuildings = getGUIObjectByName("outpostBuildings["+i+"]");
+			var militaryBuildings = getGUIObjectByName("militaryBuildings["+i+"]");
+			var fortressBuildings = getGUIObjectByName("fortressBuildings["+i+"]");
+			var specialBuildings = getGUIObjectByName("specialBuildings["+i+"]");
+			var wonderBuildings = getGUIObjectByName("wonderBuildings["+i+"]");
 
 			var totalUnits = getGUIObjectByName("totalUnits["+i+"]");
 			var infantryUnits = getGUIObjectByName("infantryUnits["+i+"]");
@@ -233,9 +246,15 @@ function init(data)
 			
 			left = 240;
 			width = 100;
-			buildingsConstructed.size = left + " 2 " + (left + width) + " 100%"; left += width;
-			buildingsLost.size = left + " 2 " + (left + width) + " 100%"; left += width;
-			enemyBuildingsDestroyed.size = left + " 2 " + (left + width) + " 100%"; left += width;
+			
+			totalBuildings.size = left + " 2 " + (left + width) + " 100%"; left += width;
+			houseBuildings.size = left + " 2 " + (left + width) + " 100%"; left += width;
+			economicBuildings.size = left + " 2 " + (left + width) + " 100%"; left += width;
+			outpostBuildings.size = left + " 2 " + (left + width) + " 100%"; left += width;
+			militaryBuildings.size = left + " 2 " + (left + width) + " 100%"; left += width;
+			fortressBuildings.size = left + " 2 " + (left + width) + " 100%"; left += width;
+			specialBuildings.size = left + " 2 " + (left + width) + " 100%"; left += width;
+			wonderBuildings.size = left + " 2 " + (left + width) + " 100%"; left += width;
 			size = getGUIObjectByName("playerBox1["+i+"]").size;
 			size.right = left + 10;
 			getGUIObjectByName("playerBox1["+i+"]").size = size;
@@ -304,13 +323,37 @@ function init(data)
 			explorationScore.caption = playerState.statistics.percentMapExplored * 10;
 			totalScore.caption = Number(economyScore.caption) + Number(militaryScore.caption) + Number(explorationScore.caption);
 			
-			buildingsConstructed.caption = playerState.statistics.buildingsConstructed;
-			buildingsLost.caption = playerState.statistics.buildingsLost;
-			enemyBuildingsDestroyed.caption = playerState.statistics.enemyBuildingsDestroyed;
-			
+			// colours used for buildings and units
 			const TRAINED_COLOR = '[color="201 255 200"]';
 			const LOST_COLOR = '[color="196 198 255"]'; 
 			const KILLED_COLOR = '[color="255 213 213"]';
+			
+			totalBuildings.caption = TRAINED_COLOR + playerState.statistics.buildingsConstructed.total + "[/color] / " +
+				LOST_COLOR + playerState.statistics.buildingsLost.total + "[/color] / " +
+				KILLED_COLOR + playerState.statistics.enemyBuildingsDestroyed.total + "[/color]";
+			houseBuildings.caption = TRAINED_COLOR + playerState.statistics.buildingsConstructed.houses + "[/color] / " +
+				LOST_COLOR + playerState.statistics.buildingsLost.houses + "[/color] / " +
+				KILLED_COLOR + playerState.statistics.enemyBuildingsDestroyed.houses + "[/color]";
+			economicBuildings.caption = TRAINED_COLOR + playerState.statistics.buildingsConstructed.economic + "[/color] / " +
+				LOST_COLOR + playerState.statistics.buildingsLost.economic + "[/color] / " +
+				KILLED_COLOR + playerState.statistics.enemyBuildingsDestroyed.economic + "[/color]";
+			outpostBuildings.caption = TRAINED_COLOR + playerState.statistics.buildingsConstructed.outposts + "[/color] / " +
+				LOST_COLOR + playerState.statistics.buildingsLost.outposts + "[/color] / " +
+				KILLED_COLOR + playerState.statistics.enemyBuildingsDestroyed.outposts + "[/color]";
+			militaryBuildings.caption = TRAINED_COLOR + playerState.statistics.buildingsConstructed.military + "[/color] / " +
+				LOST_COLOR + playerState.statistics.buildingsLost.military + "[/color] / " +
+				KILLED_COLOR + playerState.statistics.enemyBuildingsDestroyed.military + "[/color]";
+			fortressBuildings.caption = TRAINED_COLOR + playerState.statistics.buildingsConstructed.fortresses + "[/color] / " +
+				LOST_COLOR + playerState.statistics.buildingsLost.fortresses + "[/color] / " +
+				KILLED_COLOR + playerState.statistics.enemyBuildingsDestroyed.fortresses + "[/color]";
+			specialBuildings.caption = TRAINED_COLOR + playerState.statistics.buildingsConstructed.special + "[/color] / " +
+				LOST_COLOR + playerState.statistics.buildingsLost.special + "[/color] / " +
+				KILLED_COLOR + playerState.statistics.enemyBuildingsDestroyed.special + "[/color]";
+			wonderBuildings.caption = TRAINED_COLOR + playerState.statistics.buildingsConstructed.wonders + "[/color] / " +
+				LOST_COLOR + playerState.statistics.buildingsLost.wonders + "[/color] / " +
+				KILLED_COLOR + playerState.statistics.enemyBuildingsDestroyed.wonders + "[/color]";
+				
+			
 			totalUnits.caption = TRAINED_COLOR + playerState.statistics.unitsTrained.total + "[/color] / " +
 				LOST_COLOR + playerState.statistics.unitsLost.total + "[/color] / " +
 				KILLED_COLOR + playerState.statistics.enemyUnitsKilled.total + "[/color]";
@@ -337,6 +380,7 @@ function init(data)
 			enemyCivCentresDestroyed.caption = playerState.statistics.enemyCivCentresDestroyed;
 			mapExploration.caption = playerState.statistics.percentMapExplored + "%";
 
+			// colours used for gathered and traded resources
 			const SOLD_COLOR = '[color="201 255 200"]';
 			const BOUGHT_COLOR = '[color="255 213 213"]';
 			foodGathered.caption = SOLD_COLOR + playerState.statistics.resourcesGathered.food + "[/color] / " +

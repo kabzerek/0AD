@@ -39,10 +39,37 @@ StatisticsTracker.prototype.Init = function()
 	};
 	this.enemyUnitsKilledValue = 0;
 	//buildings
-	this.buildingsConstructed = 0;
-	this.buildingsLost = 0;
+	this.buildingsConstructed = {
+		"houses": 0,
+		"economic:": 0,
+		"outposts": 0,
+		"military": 0,
+		"fortresses": 0,
+		"special": 0,
+		"wonders": 0,
+		"total": 0	
+	};
+	this.buildingsLost = {
+		"houses": 0,
+		"economic:": 0,
+		"outposts": 0,
+		"military": 0,
+		"fortresses": 0,
+		"special": 0,
+		"wonders": 0,
+		"total": 0
+		};
 	this.buildingsLostValue = 0;
-	this.enemyBuildingsDestroyed = 0;
+	this.enemyBuildingsDestroyed = {
+		"houses": 0,
+		"economic:": 0,
+		"outposts": 0,
+		"military": 0,
+		"fortresses": 0,
+		"special": 0,
+		"wonders": 0,
+		"total": 0
+		};
 	this.enemyBuildingsDestroyedValue = 0;
 	// civ centres
 	this.civCentresBuilt = 0;
@@ -114,7 +141,7 @@ StatisticsTracker.prototype.GetStatistics = function()
 
 /** 
  * Counts the total number of units trained as well as an individual count for 
- * each unit type. 
+ * each unit type. Based on templates.
  * @param trainedUnit The unit that has been trained 
  * @return The total count of units trained so far 
  */ 
@@ -161,9 +188,39 @@ StatisticsTracker.prototype.GetFeminisation = function()
 	return 0;
 };
 
-StatisticsTracker.prototype.IncreaseConstructedBuildingsCounter = function()
+
+/** 
+ * Counts the total number of buildings constructed as well as an individual count for 
+ * each building type. Based on templates.
+ * @param constructedBuilding The building that has been constructed 
+ * @return The total count of buildings constructed so far 
+ */ 
+StatisticsTracker.prototype.IncreaseConstructedBuildingsCounter = function(constructedBuilding)
 {
-	return this.buildingsConstructed++;
+	//var cmpBuildingEntityIdentity = Engine.QueryInterface(constructedBuilding, IID_Identity);
+		
+	//TODO Houses	Economic	Outposts	Military	Fortresses	Special	Wonders
+	//var buildingIsHouse = cmpBuildingEntityIdentity.HasClass("House");
+	//var buildingIsEconomic = cmpBuildingEntityIdentity.HasClass("Economic");
+	//var buildingIsOutpost = cmpBuildingEntityIdentity.HasClass("Outpost");
+	//var buildingIsMilitary = cmpBuildingEntityIdentity.HasClass("Military");
+	//var buildingIsFortress = cmpBuildingEntityIdentity.HasClass("Fortress");
+	//var buildingIsSpecial = cmpBuildingEntityIdentity.HasClass("Special");
+	//var buildingIsWonder = cmpBuildingEntityIdentity.HasClass("Wonder");
+	//if (buildingIsEconomic)
+	//	this.buildingsConstructed["economic"]++;
+	//if (buildingIsOutpost)
+	//	this.buildingsConstructed["outposts"]++;
+	//if (buildingIsMilitary)
+	//	this.buildingsConstructed["military"]++;
+	//if (buildingIsFortress)
+	//	this.buildingsConstructed["fortresses"]++;
+	//if (buildingIsSpecial)
+	//	this.buildingsConstructed["special"]++;
+	//if (buildingIsWonder)
+	//	this.buildingsConstructed["wonders"]++;
+	
+	return this.buildingsConstructed["total"]++;
 };
 
 StatisticsTracker.prototype.IncreaseBuiltCivCentresCounter = function()
@@ -230,7 +287,34 @@ StatisticsTracker.prototype.KilledEntity = function(targetEntity)
 			}	
 			if (targetIsStructure)
 			{
-				this.enemyBuildingsDestroyed++;
+				var buildingIsHouse = cmpTargetEntityIdentity.HasClass("House");
+				var buildingIsEconomic = cmpTargetEntityIdentity.HasClass("Economic");
+				var buildingIsOutpost = cmpTargetEntityIdentity.HasClass("Outpost");
+				var buildingIsMilitary = cmpTargetEntityIdentity.HasClass("Military");
+				var buildingIsFortress = cmpTargetEntityIdentity.HasClass("Fortress");
+				var buildingIsSpecial = cmpTargetEntityIdentity.HasClass("Special");
+				var buildingIsWonder = cmpTargetEntityIdentity.HasClass("Wonder");
+				
+				if (buildingIsEconomic)
+					this.enemyBuildingsDestroyed["economic"]++;
+					
+				if (buildingIsOutpost)
+					this.enemyBuildingsDestroyed["outposts"]++;
+					
+				if (buildingIsMilitary)
+					this.enemyBuildingsDestroyed["military"]++;
+					
+				if (buildingIsFortress)
+					this.enemyBuildingsDestroyed["fortresses"]++;
+					
+				if (buildingIsSpecial)
+					this.enemyBuildingsDestroyed["special"]++;
+					
+				if (buildingIsWonder)
+					this.enemyBuildingsDestroyed["wonders"]++;
+					
+				this.enemyBuildingsDestroyed["total"]++;
+				
 				for (var r in costs)
 				{
 					this.enemyBuildingsDestroyedValue += costs[r];
@@ -295,7 +379,36 @@ StatisticsTracker.prototype.LostEntity = function(lostEntity)
 		}	
 		if (lostEntityIsStructure)
 		{
-			this.buildingsLost++;
+			//TODO Houses	Economic	Outposts	Military	Fortresses	Special	Wonders
+			var buildingIsHouse = cmpLostEntityIdentity.HasClass("House");
+			var buildingIsEconomic = cmpLostEntityIdentity.HasClass("Economic");
+			var buildingIsOutpost = cmpLostEntityIdentity.HasClass("Outpost");
+			var buildingIsMilitary = cmpLostEntityIdentity.HasClass("Military");
+			var buildingIsFortress = cmpLostEntityIdentity.HasClass("Fortress");
+			var buildingIsSpecial = cmpLostEntityIdentity.HasClass("Special");
+			var buildingIsWonder = cmpLostEntityIdentity.HasClass("Wonder");
+			
+				
+			if (buildingIsEconomic)
+				this.buildingsLost["economic"]++;
+					
+			if (buildingIsOutpost)
+				this.buildingsLost["outposts"]++;
+					
+			if (buildingIsMilitary)
+				this.buildingsLost["military"]++;
+					
+			if (buildingIsFortress)
+				this.buildingsLost["fortresses"]++;
+					
+			if (buildingIsSpecial)
+				this.buildingsLost["special"]++;
+					
+			if (buildingIsWonder)
+				this.buildingsLost["wonders"]++;
+					
+			
+			this.buildingsLost["total"]++;
 			for (var r in costs)
 			{
 				this.buildingsLostValue += costs[r];
