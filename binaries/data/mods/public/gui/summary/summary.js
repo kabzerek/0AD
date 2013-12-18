@@ -154,6 +154,7 @@ function init(data)
 	getGUIObjectByName("vegetarianRatioHeading").size = left + " 16 " + (left + width) + " 100%"; left += width;
 	getGUIObjectByName("favouriteUnitHeading").size = left + " 16 " + (left + width) + " 100%"; left += width;
 	getGUIObjectByName("feminisationHeading").size = left + " 26 " + (left + width) + " 100%"; left += width;
+	getGUIObjectByName("killDeathRatioHeading").size = left + " 16 " + (left + width) + " 100%"; left += width;
 	
 	
 	// Show counters
@@ -230,6 +231,7 @@ function init(data)
 			var vegetarianRatio = getGUIObjectByName("vegetarianRatio["+i+"]");
 			var favouriteUnit = getGUIObjectByName("favouriteUnit["+i+"]");
 			var feminisationRatio = getGUIObjectByName("feminisation["+i+"]");
+			var killDeathRatio = getGUIObjectByName("killDeathRatio["+i+"]");
 
 			// align counters
 
@@ -311,6 +313,7 @@ function init(data)
 			vegetarianRatio.size = left + " 2 " + (left + width) + " 100%"; left += width;
 			favouriteUnit.size = left + " 2 " + (left + width) + " 100%"; left += width;
 			feminisationRatio.size = left + " 2 " + (left + width) + " 100%"; left += width;
+			killDeathRatio.size = left + " 2 " + (left + width) + " 100%"; left += width;
 			size.right = left + 10;
 			getGUIObjectByName("playerBox6["+i+"]").size = size;
 
@@ -420,11 +423,16 @@ function init(data)
 			barterEfficiency.caption = Math.floor(totalSold > 0 ? (totalBought / totalSold) * 100 : 0) + "%";
 			tradeIncome.caption = playerState.statistics.tradeIncome;
 			
+			// colours used for kill / death ratio
+			const KILL_COLOR = '[color="201 255 200"]';
+			const DEATH_COLOR = '[color="255 213 213"]';			
 			deforestation.caption = playerState.statistics.deforestation + "%";
 			vegetarianRatio.caption = Math.floor(playerState.statistics.resourcesGathered.food > 0 ?
 				(playerState.statistics.resourcesGathered.vegetarianFood / playerState.statistics.resourcesGathered.food) * 100 : 0) + "%";
 			favouriteUnit.caption = playerState.statistics.favouriteUnit;
 			feminisationRatio.caption = playerState.statistics.feminisation + "%";
+			killDeathRatio.caption = KILL_COLOR + playerState.statistics.enemyUnitsKilled["total"] + '[/color] / '
+				+ DEATH_COLOR + playerState.statistics.unitsLost["total"] + '[/color]';
 		}
 		else
 		{

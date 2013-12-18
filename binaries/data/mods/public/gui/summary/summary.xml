@@ -376,7 +376,9 @@
 				<object name="feminisationHeading" type="text" style="CenteredTabLabelText">
 					Feminisation
 				</object>
-
+				<object name="killDeathRatioHeading" type="text" style="CenteredTabLabelText">
+					Kill / Death&#10;ratio
+				</object>
 			</object>
 
 			<object size="0 65 100% 100%-50">
@@ -389,6 +391,7 @@
 						<object name="vegetarianRatio[n]"  	type="text" style="CenteredLabelText"/>
 						<object name="favouriteUnit[n]"  	type="text" style="CenteredLabelText"/>
 						<object name="feminisation[n]"  	type="text" style="CenteredLabelText"/>
+						<object name="killDeathRatio[n]"  	type="text" style="CenteredLabelText"/>
 					</object>	
 				</repeat>
 			</object>
