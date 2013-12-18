@@ -354,7 +354,7 @@ function init(data)
 				KILLED_COLOR + playerState.statistics.enemyBuildingsDestroyed.wonders + "[/color]";
 				
 			
-			totalUnits.caption = TRAINED_COLOR + playerState.statistics.unitsTrained.total + "[/color] / " +
+			totalUnits.caption = TRAINED_COLOR + playerState.statistics.buildingsConstructed.total + "[/color] / " +
 				LOST_COLOR + playerState.statistics.unitsLost.total + "[/color] / " +
 				KILLED_COLOR + playerState.statistics.enemyUnitsKilled.total + "[/color]";
 			infantryUnits.caption = TRAINED_COLOR + playerState.statistics.unitsTrained.infantry + "[/color] / " +

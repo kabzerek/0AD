@@ -41,7 +41,7 @@ StatisticsTracker.prototype.Init = function()
 	//buildings
 	this.buildingsConstructed = {
 		"houses": 0,
-		"economic:": 0,
+		"economic": 0,
 		"outposts": 0,
 		"military": 0,
 		"fortresses": 0,
@@ -51,7 +51,7 @@ StatisticsTracker.prototype.Init = function()
 	};
 	this.buildingsLost = {
 		"houses": 0,
-		"economic:": 0,
+		"economic": 0,
 		"outposts": 0,
 		"military": 0,
 		"fortresses": 0,
@@ -62,7 +62,7 @@ StatisticsTracker.prototype.Init = function()
 	this.buildingsLostValue = 0;
 	this.enemyBuildingsDestroyed = {
 		"houses": 0,
-		"economic:": 0,
+		"economic": 0,
 		"outposts": 0,
 		"military": 0,
 		"fortresses": 0,
@@ -197,28 +197,30 @@ StatisticsTracker.prototype.GetFeminisation = function()
  */ 
 StatisticsTracker.prototype.IncreaseConstructedBuildingsCounter = function(constructedBuilding)
 {
-	//var cmpBuildingEntityIdentity = Engine.QueryInterface(constructedBuilding, IID_Identity);
+	var cmpBuildingEntityIdentity = Engine.QueryInterface(constructedBuilding, IID_Identity);
 		
 	//TODO Houses	Economic	Outposts	Military	Fortresses	Special	Wonders
-	//var buildingIsHouse = cmpBuildingEntityIdentity.HasClass("House");
-	//var buildingIsEconomic = cmpBuildingEntityIdentity.HasClass("Economic");
-	//var buildingIsOutpost = cmpBuildingEntityIdentity.HasClass("Outpost");
-	//var buildingIsMilitary = cmpBuildingEntityIdentity.HasClass("Military");
-	//var buildingIsFortress = cmpBuildingEntityIdentity.HasClass("Fortress");
-	//var buildingIsSpecial = cmpBuildingEntityIdentity.HasClass("Special");
-	//var buildingIsWonder = cmpBuildingEntityIdentity.HasClass("Wonder");
-	//if (buildingIsEconomic)
-	//	this.buildingsConstructed["economic"]++;
-	//if (buildingIsOutpost)
-	//	this.buildingsConstructed["outposts"]++;
-	//if (buildingIsMilitary)
-	//	this.buildingsConstructed["military"]++;
-	//if (buildingIsFortress)
-	//	this.buildingsConstructed["fortresses"]++;
-	//if (buildingIsSpecial)
-	//	this.buildingsConstructed["special"]++;
-	//if (buildingIsWonder)
-	//	this.buildingsConstructed["wonders"]++;
+	var buildingIsHouse = cmpBuildingEntityIdentity.HasClass("House");
+	var buildingIsEconomic = cmpBuildingEntityIdentity.HasClass("Economic");
+	var buildingIsOutpost = cmpBuildingEntityIdentity.HasClass("Outpost");
+	var buildingIsMilitary = cmpBuildingEntityIdentity.HasClass("Military");
+	var buildingIsFortress = cmpBuildingEntityIdentity.HasClass("Fortress");
+	var buildingIsSpecial = cmpBuildingEntityIdentity.HasClass("Special");
+	var buildingIsWonder = cmpBuildingEntityIdentity.HasClass("Wonder");
+	if (buildingIsHouse)
+		this.buildingsConstructed["houses"]++;
+	if (buildingIsEconomic)
+		this.buildingsConstructed["economic"]++;
+	if (buildingIsOutpost)
+		this.buildingsConstructed["outposts"]++;
+	if (buildingIsMilitary)
+		this.buildingsConstructed["military"]++;
+	if (buildingIsFortress)
+		this.buildingsConstructed["fortresses"]++;
+	if (buildingIsSpecial)
+		this.buildingsConstructed["special"]++;
+	if (buildingIsWonder)
+		this.buildingsConstructed["wonders"]++;
 	
 	return this.buildingsConstructed["total"]++;
 };
