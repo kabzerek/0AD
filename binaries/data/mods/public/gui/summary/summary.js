@@ -323,8 +323,8 @@ function init(data)
 			
 			// colours used for buildings and units
 			const TRAINED_COLOR = '[color="201 255 200"]';
-			const LOST_COLOR = '[color="196 198 255"]'; 
-			const KILLED_COLOR = '[color="255 213 213"]';
+			const LOST_COLOR = '[color="255 213 213"]';
+			const KILLED_COLOR = '[color="196 198 255"]'; 
 			
 			totalBuildings.caption = TRAINED_COLOR + playerState.statistics.buildingsConstructed.total + "[/color] / " +
 				LOST_COLOR + playerState.statistics.buildingsLost.total + "[/color] / " +

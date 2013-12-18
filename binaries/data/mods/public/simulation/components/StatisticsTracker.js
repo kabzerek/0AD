@@ -156,7 +156,6 @@ StatisticsTracker.prototype.IncreaseTrainedUnitsCounter = function(trainedUnit)
 	var unitIsChampion = cmpUnitEntityIdentity.HasClass("Champion");
 	var unitIsHero = cmpUnitEntityIdentity.HasClass("Hero");
 	var unitIsNavy = cmpUnitEntityIdentity.HasClass("Ship");
-	
 	if (unitIsInfantry)
 		this.unitsTrained["infantry"]++;
 	
@@ -183,9 +182,7 @@ StatisticsTracker.prototype.IncreaseTrainedUnitsCounter = function(trainedUnit)
 
 StatisticsTracker.prototype.GetFeminisation = function()
 {
-	if (this.unitsTrained["females"])
-		return 	this.unitsTrained["females"] / this.unitsTrained["workers"];
-	return 0;
+	return Math.floor(this.unitsTrained["females"] > 0 ? (this.unitsTrained["females"] / this.unitsTrained["workers"]) * 100 : 0)
 };
 
 
