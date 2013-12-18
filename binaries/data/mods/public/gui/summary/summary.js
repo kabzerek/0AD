@@ -347,8 +347,7 @@ function init(data)
 			getGUIObjectByName("playerBox6["+i+"]").size = size;
 
 			// display counters
-			economyScore.caption = Math.round((playerState.statistics.resourcesGathered.food + playerState.statistics.resourcesGathered.wood + 
-				playerState.statistics.resourcesGathered.stone + playerState.statistics.resourcesGathered.metal) / 10);
+			economyScore.caption = Math.round(playerState.statistics.resourcesGathered.total / 10);
 			militaryScore.caption = Math.round((playerState.statistics.enemyUnitsKilledValue + playerState.statistics.enemyBuildingsDestroyedValue) / 10);
 			explorationScore.caption = playerState.statistics.percentMapExplored * 10;
 			totalScore.caption = Number(economyScore.caption) + Number(militaryScore.caption) + Number(explorationScore.caption);
