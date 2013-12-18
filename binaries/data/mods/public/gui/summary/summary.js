@@ -245,7 +245,7 @@ function init(data)
 			
 			left = 240;
 			width = 85;
-			totalBuildings.size = left + " 2 " + (left + width) + " 100%"; left += width + 20;
+			totalBuildings.size = left + " 2 " + (left + width + 20) + " 100%"; left += width + 20;
 			houseBuildings.size = left + " 2 " + (left + width) + " 100%"; left += width;
 			economicBuildings.size = left + " 2 " + (left + width) + " 100%"; left += width;
 			outpostBuildings.size = left + " 2 " + (left + width) + " 100%"; left += width;
