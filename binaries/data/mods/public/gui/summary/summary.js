@@ -4,6 +4,15 @@ const MAX_SLOTS = 8;
 var panelNames = [ 'scorePanel', 'buildingsPanel', 'unitsPanel', 'conquestPanel', 'resourcesPanel', 'marketPanel', 'miscPanel' ];
 var panelButtonNames = [ 'scorePanelButton', 'buildingsPanelButton', 'unitsPanelButton', 'conquestPanelButton', 'resourcesPanelButton', 'marketPanelButton', 'miscPanelButton' ];
 
+// colours used for units and buildings
+const TRAINED_COLOR = '[color="201 255 200"]';
+const LOST_COLOR = '[color="255 213 213"]';
+const KILLED_COLOR = '[color="196 198 255"]';
+
+// colours used for gathered and traded resources
+const SOLD_COLOR = '[color="201 255 200"]';
+const BOUGHT_COLOR = '[color="255 213 213"]';
+
 /**
  * Select active panel
  * @param panelNumber Number of panel, which should get active state (integer)
@@ -32,6 +41,32 @@ function adjustTabDividers(tabSize)
 	var rightSpacer = getGUIObjectByName("tabDividerRight");
 	leftSpacer.size = "20 " + leftSpacer.size.top + " " + (tabSize.left + 2) + " " + leftSpacer.size.bottom;
 	rightSpacer.size = (tabSize.right - 2) + " " + rightSpacer.size.top + " 100%-20 " + rightSpacer.size.bottom;
+}
+
+function captionUnits(playerState, type)
+{
+	return TRAINED_COLOR + playerState["statistics"]["unitsTrained"][type] + "[/color] / "
+		+ LOST_COLOR + playerState["statistics"]["unitsLost"][type] + "[/color] / "
+		+ KILLED_COLOR + playerState["statistics"]["enemyUnitsKilled"][type] + "[/color]";
+}
+
+function captionBuildings(playerState, type)
+{
+	return TRAINED_COLOR + playerState["statistics"]["buildingsConstructed"][type] + "[/color] / "
+		+ LOST_COLOR + playerState["statistics"]["buildingsLost"][type] + "[/color] / "
+		+ KILLED_COLOR + playerState["statistics"]["enemyBuildingsDestroyed"][type] + "[/color]";
+}
+
+function captionResourcesGathered(playerState, type)
+{
+	return SOLD_COLOR + playerState["statistics"]["resourcesGathered"][type] + "[/color] / "
+		+ BOUGHT_COLOR + (playerState["statistics"]["resourcesUsed"][type] - playerState["statistics"]["resourcesSold"][type]) + "[/color]";
+}
+
+function captionResourcesExchanged(playerState, type)
+{
+	return SOLD_COLOR + '+' + playerState["statistics"]["resourcesBought"][type] + '[/color] '
+		+ BOUGHT_COLOR + '-' + playerState["statistics"]["resourcesSold"][type] + '[/color]';	
 }
 
 function init(data)
@@ -317,97 +352,41 @@ function init(data)
 			militaryScore.caption = Math.round((playerState.statistics.enemyUnitsKilledValue + playerState.statistics.enemyBuildingsDestroyedValue) / 10);
 			explorationScore.caption = playerState.statistics.percentMapExplored * 10;
 			totalScore.caption = Number(economyScore.caption) + Number(militaryScore.caption) + Number(explorationScore.caption);
-			
-			// colours used for buildings and units
-			const TRAINED_COLOR = '[color="201 255 200"]';
-			const LOST_COLOR = '[color="255 213 213"]';
-			const KILLED_COLOR = '[color="196 198 255"]'; 
-			
-			totalBuildings.caption = TRAINED_COLOR + playerState.statistics.buildingsConstructed.total + "[/color] / " +
-				LOST_COLOR + playerState.statistics.buildingsLost.total + "[/color] / " +
-				KILLED_COLOR + playerState.statistics.enemyBuildingsDestroyed.total + "[/color]";
-			houseBuildings.caption = TRAINED_COLOR + playerState.statistics.buildingsConstructed.houses + "[/color] / " +
-				LOST_COLOR + playerState.statistics.buildingsLost.houses + "[/color] / " +
-				KILLED_COLOR + playerState.statistics.enemyBuildingsDestroyed.houses + "[/color]";
-			economicBuildings.caption = TRAINED_COLOR + playerState.statistics.buildingsConstructed.economic + "[/color] / " +
-				LOST_COLOR + playerState.statistics.buildingsLost.economic + "[/color] / " +
-				KILLED_COLOR + playerState.statistics.enemyBuildingsDestroyed.economic + "[/color]";
-			outpostBuildings.caption = TRAINED_COLOR + playerState.statistics.buildingsConstructed.outposts + "[/color] / " +
-				LOST_COLOR + playerState.statistics.buildingsLost.outposts + "[/color] / " +
-				KILLED_COLOR + playerState.statistics.enemyBuildingsDestroyed.outposts + "[/color]";
-			militaryBuildings.caption = TRAINED_COLOR + playerState.statistics.buildingsConstructed.military + "[/color] / " +
-				LOST_COLOR + playerState.statistics.buildingsLost.military + "[/color] / " +
-				KILLED_COLOR + playerState.statistics.enemyBuildingsDestroyed.military + "[/color]";
-			fortressBuildings.caption = TRAINED_COLOR + playerState.statistics.buildingsConstructed.fortresses + "[/color] / " +
-				LOST_COLOR + playerState.statistics.buildingsLost.fortresses + "[/color] / " +
-				KILLED_COLOR + playerState.statistics.enemyBuildingsDestroyed.fortresses + "[/color]";
-			specialBuildings.caption = TRAINED_COLOR + playerState.statistics.buildingsConstructed.special + "[/color] / " +
-				LOST_COLOR + playerState.statistics.buildingsLost.special + "[/color] / " +
-				KILLED_COLOR + playerState.statistics.enemyBuildingsDestroyed.special + "[/color]";
-			wonderBuildings.caption = TRAINED_COLOR + playerState.statistics.buildingsConstructed.wonders + "[/color] / " +
-				LOST_COLOR + playerState.statistics.buildingsLost.wonders + "[/color] / " +
-				KILLED_COLOR + playerState.statistics.enemyBuildingsDestroyed.wonders + "[/color]";
-				
-			
-			totalUnits.caption = TRAINED_COLOR + playerState.statistics.buildingsConstructed.total + "[/color] / " +
-				LOST_COLOR + playerState.statistics.unitsLost.total + "[/color] / " +
-				KILLED_COLOR + playerState.statistics.enemyUnitsKilled.total + "[/color]";
-			infantryUnits.caption = TRAINED_COLOR + playerState.statistics.unitsTrained.infantry + "[/color] / " +
-				LOST_COLOR + playerState.statistics.unitsLost.infantry + "[/color] / " +
-				KILLED_COLOR + playerState.statistics.enemyUnitsKilled.infantry + "[/color]";
-			workerUnits.caption = TRAINED_COLOR + playerState.statistics.unitsTrained.workers + "[/color] / " +
-				LOST_COLOR + playerState.statistics.unitsLost.workers + "[/color] / " +
-				KILLED_COLOR + playerState.statistics.enemyUnitsKilled.workers + "[/color]";
-			cavalryUnits.caption = TRAINED_COLOR + playerState.statistics.unitsTrained.cavalry + "[/color] / " +
-				LOST_COLOR + playerState.statistics.unitsLost.cavalry + "[/color] / " +
-				KILLED_COLOR + playerState.statistics.enemyUnitsKilled.cavalry + "[/color]";
-			championUnits.caption = TRAINED_COLOR + playerState.statistics.unitsTrained.champion + "[/color] / " +
-				LOST_COLOR + playerState.statistics.unitsLost.champion + "[/color] / " +
-				KILLED_COLOR + playerState.statistics.enemyUnitsKilled.champion + "[/color]";
-			heroesUnits.caption = TRAINED_COLOR + playerState.statistics.unitsTrained.heroes + "[/color] / " +
-				LOST_COLOR + playerState.statistics.unitsLost.heroes + "[/color] / " +
-				KILLED_COLOR + playerState.statistics.enemyUnitsKilled.heroes + "[/color]";
-			navyUnits.caption = TRAINED_COLOR + playerState.statistics.unitsTrained.navy + "[/color] / " +
-				LOST_COLOR + playerState.statistics.unitsLost.navy + "[/color] / " +
-				KILLED_COLOR + playerState.statistics.enemyUnitsKilled.navy + "[/color]";
+
+			totalBuildings.caption = captionBuildings(playerState, "total");
+			houseBuildings.caption = captionBuildings(playerState, "houses");
+			economicBuildings.caption = captionBuildings(playerState, "economic");
+			outpostBuildings.caption = captionBuildings(playerState, "outposts");
+			militaryBuildings.caption = captionBuildings(playerState, "military");
+			fortressBuildings.caption = captionBuildings(playerState, "fortresses");
+			specialBuildings.caption = captionBuildings(playerState, "special");
+			wonderBuildings.caption = captionBuildings(playerState, "wonders");
+
+			totalUnits.caption = captionUnits(playerState, "total");
+			infantryUnits.caption = captionUnits(playerState, "infantry");
+			workerUnits.caption = captionUnits(playerState, "workers");
+			cavalryUnits.caption = captionUnits(playerState, "cavalry");
+			championUnits.caption = captionUnits(playerState, "champion");
+			heroesUnits.caption = captionUnits(playerState, "heroes");
+			navyUnits.caption = captionUnits(playerState, "navy");
 
 			civCentresBuilt.caption = playerState.statistics.civCentresBuilt;
 			enemyCivCentresDestroyed.caption = playerState.statistics.enemyCivCentresDestroyed;
 			mapExploration.caption = playerState.statistics.percentMapExplored + "%";
 
-			// colours used for gathered and traded resources
-			const SOLD_COLOR = '[color="201 255 200"]';
-			const BOUGHT_COLOR = '[color="255 213 213"]';
-			foodGathered.caption = SOLD_COLOR + playerState.statistics.resourcesGathered.food + "[/color] / " +
-				BOUGHT_COLOR + (playerState.statistics.resourcesUsed.food - playerState.statistics.resourcesSold.food) + "[/color]";
-			woodGathered.caption = SOLD_COLOR + playerState.statistics.resourcesGathered.wood + "[/color] / " +
-				BOUGHT_COLOR + (playerState.statistics.resourcesUsed.wood - playerState.statistics.resourcesSold.wood) + "[/color]";
-			stoneGathered.caption = SOLD_COLOR + playerState.statistics.resourcesGathered.stone + "[/color] / " +
-				BOUGHT_COLOR + (playerState.statistics.resourcesUsed.stone - playerState.statistics.resourcesSold.stone) + "[/color]";
-			metalGathered.caption = SOLD_COLOR + playerState.statistics.resourcesGathered.metal + "[/color] / " +
-				BOUGHT_COLOR + (playerState.statistics.resourcesUsed.metal - playerState.statistics.resourcesSold.metal) + "[/color]";
-			totalGathered.caption =	SOLD_COLOR +
-				(playerState.statistics.resourcesGathered.food +
-				playerState.statistics.resourcesGathered.wood +
-				playerState.statistics.resourcesGathered.stone +
-				playerState.statistics.resourcesGathered.metal) + "[/color] / " +
-				BOUGHT_COLOR +
-				((playerState.statistics.resourcesUsed.food - playerState.statistics.resourcesSold.food) +
-				(playerState.statistics.resourcesUsed.wood - playerState.statistics.resourcesSold.wood) +
-				(playerState.statistics.resourcesUsed.stone - playerState.statistics.resourcesSold.stone) +
-				(playerState.statistics.resourcesUsed.metal - playerState.statistics.resourcesSold.metal)) + "[/color]";
+			foodGathered.caption = captionResourcesGathered(playerState, "food");
+			woodGathered.caption = captionResourcesGathered(playerState, "wood");
+			stoneGathered.caption = captionResourcesGathered(playerState, "stone");
+			metalGathered.caption = captionResourcesGathered(playerState, "metal");
+			totalGathered.caption =	captionResourcesGathered(playerState, "total");
 			treasuresCollected.caption = playerState.statistics.treasuresCollected;
 			resourcesTributed.caption = SOLD_COLOR + playerState.statistics.tributesSent + "[/color] / " +
 				BOUGHT_COLOR + playerState.statistics.tributesReceived + "[/color]";
 
-			exchangedFood.caption = SOLD_COLOR + '+' + playerState.statistics.resourcesBought.food
-				+ '[/color] ' + BOUGHT_COLOR + '-' + playerState.statistics.resourcesSold.food + '[/color]';
-			exchangedWood.caption = SOLD_COLOR + '+' + playerState.statistics.resourcesBought.wood
-				+ '[/color] ' + BOUGHT_COLOR + '-' + playerState.statistics.resourcesSold.wood + '[/color]';
-			exchangedStone.caption = SOLD_COLOR + '+' + playerState.statistics.resourcesBought.stone
-				+ '[/color] ' + BOUGHT_COLOR + '-' + playerState.statistics.resourcesSold.stone + '[/color]';
-			exchangedMetal.caption = SOLD_COLOR + '+' + playerState.statistics.resourcesBought.metal
-				+ '[/color] ' + BOUGHT_COLOR + '-' + playerState.statistics.resourcesSold.metal + '[/color]';
+			exchangedFood.caption = captionResourcesExchanged(playerState, "food");
+			exchangedWood.caption = captionResourcesExchanged(playerState, "wood");
+			exchangedStone.caption = captionResourcesExchanged(playerState, "stone");
+			exchangedMetal.caption = captionResourcesExchanged(playerState, "metal");
 			var totalBought = 0;
 			for each (var boughtAmount in playerState.statistics.resourcesBought)
 				totalBought += boughtAmount;
