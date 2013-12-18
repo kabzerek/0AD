@@ -197,7 +197,7 @@ StatisticsTracker.prototype.IncreaseConstructedBuildingsCounter = function(const
 	var buildingIsOutpost = cmpBuildingEntityIdentity.HasClass("Outpost");
 	var buildingIsMilitary = cmpBuildingEntityIdentity.HasClass("Military");
 	var buildingIsFortress = cmpBuildingEntityIdentity.HasClass("Fortress");
-	var buildingIsSpecial = cmpBuildingEntityIdentity.HasClass("Special");
+	var buildingIsSpecial = cmpBuildingEntityIdentity.HasClass("SpecialBuilding");
 	var buildingIsWonder = cmpBuildingEntityIdentity.HasClass("Wonder");
 	if (buildingIsHouse)
 		this.buildingsConstructed["houses"]++;
@@ -286,7 +286,7 @@ StatisticsTracker.prototype.KilledEntity = function(targetEntity)
 				var buildingIsOutpost = cmpTargetEntityIdentity.HasClass("Outpost");
 				var buildingIsMilitary = cmpTargetEntityIdentity.HasClass("Military");
 				var buildingIsFortress = cmpTargetEntityIdentity.HasClass("Fortress");
-				var buildingIsSpecial = cmpTargetEntityIdentity.HasClass("Special");
+				var buildingIsSpecial = cmpTargetEntityIdentity.HasClass("SpecialBuilding");
 				var buildingIsWonder = cmpTargetEntityIdentity.HasClass("Wonder");
 				
 				if (buildingIsHouse)
@@ -376,13 +376,12 @@ StatisticsTracker.prototype.LostEntity = function(lostEntity)
 		}	
 		if (lostEntityIsStructure)
 		{
-			//TODO Houses	Economic	Outposts	Military	Fortresses	Special	Wonders
 			var buildingIsHouse = cmpLostEntityIdentity.HasClass("House");
 			var buildingIsEconomic = cmpLostEntityIdentity.HasClass("Economic");
 			var buildingIsOutpost = cmpLostEntityIdentity.HasClass("Outpost");
 			var buildingIsMilitary = cmpLostEntityIdentity.HasClass("Military");
 			var buildingIsFortress = cmpLostEntityIdentity.HasClass("Fortress");
-			var buildingIsSpecial = cmpLostEntityIdentity.HasClass("Special");
+			var buildingIsSpecial = cmpLostEntityIdentity.HasClass("SpecialBuilding");
 			var buildingIsWonder = cmpLostEntityIdentity.HasClass("Wonder");
 			
 				
