@@ -47,22 +47,22 @@ function init(data)
 	
 	function captionUnits(type)
 	{
-		return TRAINED_COLOR + playerState.statistics.unitsTrained[type] + "[/color] / "
-			+ LOST_COLOR + playerState.statistics.unitsLost[type] + "[/color] / "
-			+ KILLED_COLOR + playerState.statistics.enemyUnitsKilled[type] + "[/color]";
+		return TRAINED_COLOR + playerState.statistics.unitsTrained[type] + '[/color] / '
+			+ LOST_COLOR + playerState.statistics.unitsLost[type] + '[/color] / '
+			+ KILLED_COLOR + playerState.statistics.enemyUnitsKilled[type] + '[/color]';
 	}
 	
 	function captionBuildings(type)
 	{
-		return TRAINED_COLOR + playerState.statistics.buildingsConstructed[type] + "[/color] / "
-			+ LOST_COLOR + playerState.statistics.buildingsLost[type] + "[/color] / "
-			+ KILLED_COLOR + playerState.statistics.enemyBuildingsDestroyed[type] + "[/color]";
+		return TRAINED_COLOR + playerState.statistics.buildingsConstructed[type] + '[/color] / '
+			+ LOST_COLOR + playerState.statistics.buildingsLost[type] + '[/color] / '
+			+ KILLED_COLOR + playerState.statistics.enemyBuildingsDestroyed[type] + '[/color]';
 	}
 	
 	function captionResourcesGathered(type)
 	{
-		return SOLD_COLOR + playerState.statistics.resourcesGathered[type] + "[/color] / "
-			+ BOUGHT_COLOR + (playerState.statistics.resourcesUsed[type] - playerState.statistics.resourcesSold[type]) + "[/color]";
+		return SOLD_COLOR + playerState.statistics.resourcesGathered[type] + '[/color] / '
+			+ BOUGHT_COLOR + (playerState.statistics.resourcesUsed[type] - playerState.statistics.resourcesSold[type]) + '[/color]';
 	}
 	
 	function captionResourcesExchanged(type)
@@ -208,7 +208,7 @@ function init(data)
 					+ Math.floor(playerState.colour.b * 255);
 				playerBox.sprite = colourString + " 32";
 				var playerColourBox = getGUIObjectByName("playerColourBox"+k+"["+i+"]");
-				playerColourBox.sprite = colourString + " 255";
+				playerColourBox.sprite = colourString + " 10";//" 255";
 
 				// Show the multiplayer name, e.g. "Foobar" rather than "Player 1".
 				// TODO: Perhaps show both the multiplayer and map-specific name?
