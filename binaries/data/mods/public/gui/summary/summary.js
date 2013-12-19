@@ -4,15 +4,6 @@ const MAX_SLOTS = 8;
 var panelNames = [ 'scorePanel', 'buildingsPanel', 'unitsPanel', 'conquestPanel', 'resourcesPanel', 'marketPanel', 'miscPanel' ];
 var panelButtonNames = [ 'scorePanelButton', 'buildingsPanelButton', 'unitsPanelButton', 'conquestPanelButton', 'resourcesPanelButton', 'marketPanelButton', 'miscPanelButton' ];
 
-// colours used for units and buildings
-const TRAINED_COLOR = '[color="201 255 200"]';
-const LOST_COLOR = '[color="255 213 213"]';
-const KILLED_COLOR = '[color="196 198 255"]';
-
-// colours used for gathered and traded resources
-const SOLD_COLOR = '[color="201 255 200"]';
-const BOUGHT_COLOR = '[color="255 213 213"]';
-
 /**
  * Select active panel
  * @param panelNumber Number of panel, which should get active state (integer)
@@ -43,34 +34,43 @@ function adjustTabDividers(tabSize)
 	rightSpacer.size = (tabSize.right - 2) + " " + rightSpacer.size.top + " 100%-20 " + rightSpacer.size.bottom;
 }
 
-function captionUnits(playerState, type)
-{
-	return TRAINED_COLOR + playerState["statistics"]["unitsTrained"][type] + "[/color] / "
-		+ LOST_COLOR + playerState["statistics"]["unitsLost"][type] + "[/color] / "
-		+ KILLED_COLOR + playerState["statistics"]["enemyUnitsKilled"][type] + "[/color]";
-}
-
-function captionBuildings(playerState, type)
-{
-	return TRAINED_COLOR + playerState["statistics"]["buildingsConstructed"][type] + "[/color] / "
-		+ LOST_COLOR + playerState["statistics"]["buildingsLost"][type] + "[/color] / "
-		+ KILLED_COLOR + playerState["statistics"]["enemyBuildingsDestroyed"][type] + "[/color]";
-}
-
-function captionResourcesGathered(playerState, type)
-{
-	return SOLD_COLOR + playerState["statistics"]["resourcesGathered"][type] + "[/color] / "
-		+ BOUGHT_COLOR + (playerState["statistics"]["resourcesUsed"][type] - playerState["statistics"]["resourcesSold"][type]) + "[/color]";
-}
-
-function captionResourcesExchanged(playerState, type)
-{
-	return SOLD_COLOR + '+' + playerState["statistics"]["resourcesBought"][type] + '[/color] '
-		+ BOUGHT_COLOR + '-' + playerState["statistics"]["resourcesSold"][type] + '[/color]';	
-}
-
 function init(data)
 {
+	// colours used for units and buildings
+	const TRAINED_COLOR = '[color="201 255 200"]';
+	const LOST_COLOR = '[color="255 213 213"]';
+	const KILLED_COLOR = '[color="196 198 255"]';
+
+	// colours used for gathered and traded resources
+	const SOLD_COLOR = '[color="201 255 200"]';
+	const BOUGHT_COLOR = '[color="255 213 213"]';
+	
+	function captionUnits(type)
+	{
+		return TRAINED_COLOR + playerState.statistics.unitsTrained[type] + "[/color] / "
+			+ LOST_COLOR + playerState.statistics.unitsLost[type] + "[/color] / "
+			+ KILLED_COLOR + playerState.statistics.enemyUnitsKilled[type] + "[/color]";
+	}
+	
+	function captionBuildings(type)
+	{
+		return TRAINED_COLOR + playerState.statistics.buildingsConstructed[type] + "[/color] / "
+			+ LOST_COLOR + playerState.statistics.buildingsLost[type] + "[/color] / "
+			+ KILLED_COLOR + playerState.statistics.enemyBuildingsDestroyed[type] + "[/color]";
+	}
+	
+	function captionResourcesGathered(type)
+	{
+		return SOLD_COLOR + playerState.statistics.resourcesGathered[type] + "[/color] / "
+			+ BOUGHT_COLOR + (playerState.statistics.resourcesUsed[type] - playerState.statistics.resourcesSold[type]) + "[/color]";
+	}
+	
+	function captionResourcesExchanged(type)
+	{
+		return SOLD_COLOR + '+' + playerState.statistics.resourcesBought[type] + '[/color] '
+			+ BOUGHT_COLOR + '-' + playerState.statistics.resourcesSold[type] + '[/color]';	
+	}
+	
 	var civData = loadCivData();
 	var mapSize = "Scenario";
 
@@ -358,40 +358,40 @@ function init(data)
 			explorationScore.caption = playerState.statistics.percentMapExplored * 10;
 			totalScore.caption = Number(economyScore.caption) + Number(militaryScore.caption) + Number(explorationScore.caption);
 
-			totalBuildings.caption = captionBuildings(playerState, "total");
-			houseBuildings.caption = captionBuildings(playerState, "House");
-			economicBuildings.caption = captionBuildings(playerState, "Economic");
-			outpostBuildings.caption = captionBuildings(playerState, "Outpost");
-			militaryBuildings.caption = captionBuildings(playerState, "Military");
-			fortressBuildings.caption = captionBuildings(playerState, "Fortress");
-			specialBuildings.caption = captionBuildings(playerState, "SpecialBuilding");
-			wonderBuildings.caption = captionBuildings(playerState, "Wonder");
+			totalBuildings.caption = captionBuildings("total");
+			houseBuildings.caption = captionBuildings("House");
+			economicBuildings.caption = captionBuildings("Economic");
+			outpostBuildings.caption = captionBuildings("Outpost");
+			militaryBuildings.caption = captionBuildings("Military");
+			fortressBuildings.caption = captionBuildings("Fortress");
+			specialBuildings.caption = captionBuildings("SpecialBuilding");
+			wonderBuildings.caption = captionBuildings("Wonder");
 
-			totalUnits.caption = captionUnits(playerState, "total");
-			infantryUnits.caption = captionUnits(playerState, "Infantry");
-			workerUnits.caption = captionUnits(playerState, "Worker");
-			cavalryUnits.caption = captionUnits(playerState, "Cavalry");
-			championUnits.caption = captionUnits(playerState, "Champion");
-			heroesUnits.caption = captionUnits(playerState, "Hero");
-			navyUnits.caption = captionUnits(playerState, "Ship");
+			totalUnits.caption = captionUnits("total");
+			infantryUnits.caption = captionUnits("Infantry");
+			workerUnits.caption = captionUnits("Worker");
+			cavalryUnits.caption = captionUnits("Cavalry");
+			championUnits.caption = captionUnits("Champion");
+			heroesUnits.caption = captionUnits("Hero");
+			navyUnits.caption = captionUnits("Ship");
 
 			civCentresBuilt.caption = playerState.statistics.civCentresBuilt;
 			enemyCivCentresDestroyed.caption = playerState.statistics.enemyCivCentresDestroyed;
 			mapExploration.caption = playerState.statistics.percentMapExplored + "%";
 
-			foodGathered.caption = captionResourcesGathered(playerState, "food");
-			woodGathered.caption = captionResourcesGathered(playerState, "wood");
-			stoneGathered.caption = captionResourcesGathered(playerState, "stone");
-			metalGathered.caption = captionResourcesGathered(playerState, "metal");
-			totalGathered.caption =	captionResourcesGathered(playerState, "total");
+			foodGathered.caption = captionResourcesGathered("food");
+			woodGathered.caption = captionResourcesGathered("wood");
+			stoneGathered.caption = captionResourcesGathered("stone");
+			metalGathered.caption = captionResourcesGathered("metal");
+			totalGathered.caption =	captionResourcesGathered("total");
 			treasuresCollected.caption = playerState.statistics.treasuresCollected;
 			resourcesTributed.caption = SOLD_COLOR + playerState.statistics.tributesSent + "[/color] / " +
 				BOUGHT_COLOR + playerState.statistics.tributesReceived + "[/color]";
 
-			exchangedFood.caption = captionResourcesExchanged(playerState, "food");
-			exchangedWood.caption = captionResourcesExchanged(playerState, "wood");
-			exchangedStone.caption = captionResourcesExchanged(playerState, "stone");
-			exchangedMetal.caption = captionResourcesExchanged(playerState, "metal");
+			exchangedFood.caption = captionResourcesExchanged("food");
+			exchangedWood.caption = captionResourcesExchanged("wood");
+			exchangedStone.caption = captionResourcesExchanged("stone");
+			exchangedMetal.caption = captionResourcesExchanged("metal");
 			var totalBought = 0;
 			for each (var boughtAmount in playerState.statistics.resourcesBought)
 				totalBought += boughtAmount;
@@ -404,8 +404,8 @@ function init(data)
 			vegetarianRatio.caption = Math.floor(playerState.statistics.resourcesGathered.food > 0 ?
 				(playerState.statistics.resourcesGathered.vegetarianFood / playerState.statistics.resourcesGathered.food) * 100 : 0) + "%";
 			feminisationRatio.caption = playerState.statistics.feminisation + "%";
-			killDeathRatio.caption = Math.round((playerState.statistics.enemyUnitsKilled["total"] > 0 ?
-				(playerState.statistics.enemyUnitsKilled["total"] / playerState.statistics.unitsLost["total"]) : 0)*100)/100;
+			killDeathRatio.caption = Math.round((playerState.statistics.enemyUnitsKilled.total > 0 ?
+				(playerState.statistics.enemyUnitsKilled.total / playerState.statistics.unitsLost.total) : 0)*100)/100;
 		}
 		else
 		{
