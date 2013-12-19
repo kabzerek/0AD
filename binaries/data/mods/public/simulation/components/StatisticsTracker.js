@@ -146,8 +146,11 @@ StatisticsTracker.prototype.GetStatistics = function()
  */
 StatisticsTracker.prototype.CounterIncrement = function(entity, counter, type)
 {
-	if (entity["HasClass(" + type + ")"])
-		this[counter][type]++;
+	var classes = entity.GetClassesList();
+	
+	if (classes)
+		if (classes.indexOf(type) != -1)
+			this[counter][type]++;
 };
 
 /** 
