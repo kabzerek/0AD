@@ -6,6 +6,15 @@ StatisticsTracker.prototype.Schema =
 StatisticsTracker.prototype.Init = function()
 {
 	// units
+	this.unitsClasses = [
+		"Infantry",
+		"Worker",
+		"Female",
+		"Cavalry",
+		"Champion",
+		"Hero",
+		"Ship"
+	];	
 	this.unitsTrained = {
 			"Infantry": 0,
 			"Worker": 0,
@@ -38,42 +47,48 @@ StatisticsTracker.prototype.Init = function()
 			"total": 0
 	};
 	this.enemyUnitsKilledValue = 0;
-	//buildings		
+	//buildings
+	this.buildingsClasses = [
+		"CivCentre",
+		"House",
+		"Economic",
+		"Outpost",
+		"Military",
+		"Fortress",
+		"Wonder"
+	];
 	this.buildingsConstructed = {
+		"CivCentre": 0,
 		"House": 0,
 		"Economic": 0,
 		"Outpost": 0,
 		"Military": 0,
 		"Fortress": 0,
-		"SpecialBuilding": 0,
 		"Wonder": 0,
 		"total": 0	
 	};
 	this.buildingsLost = {
+		"CivCentre": 0,
 		"House": 0,
 		"Economic": 0,
 		"Outpost": 0,
 		"Military": 0,
 		"Fortress": 0,
-		"SpecialBuilding": 0,
 		"Wonder": 0,
 		"total": 0
 		};
 	this.buildingsLostValue = 0;
 	this.enemyBuildingsDestroyed = {
+		"CivCentre": 0,
 		"House": 0,
 		"Economic": 0,
 		"Outpost": 0,
 		"Military": 0,
 		"Fortress": 0,
-		"SpecialBuilding": 0,
 		"Wonder": 0,
 		"total": 0
 		};
 	this.enemyBuildingsDestroyedValue = 0;
-	// civ centres
-	this.civCentresBuilt = 0;
-	this.enemyCivCentresDestroyed = 0;
 	// resources
 	this.resourcesGathered = {
 			"total": 0,
@@ -166,13 +181,10 @@ StatisticsTracker.prototype.IncreaseTrainedUnitsCounter = function(trainedUnit)
 	if (!cmpUnitEntityIdentity)
 		return;
 
-	this.CounterIncrement(cmpUnitEntityIdentity, "unitsTrained", "Infantry");
-	this.CounterIncrement(cmpUnitEntityIdentity, "unitsTrained", "Worker");
-	this.CounterIncrement(cmpUnitEntityIdentity, "unitsTrained", "Female");
-	this.CounterIncrement(cmpUnitEntityIdentity, "unitsTrained", "Cavalry");
-	this.CounterIncrement(cmpUnitEntityIdentity, "unitsTrained", "Champion");
-	this.CounterIncrement(cmpUnitEntityIdentity, "unitsTrained", "Hero");
-	this.CounterIncrement(cmpUnitEntityIdentity, "unitsTrained", "Ship");
+	for (type in this.unitsClasses)
+	{
+		this.CounterIncrement(cmpUnitEntityIdentity, "unitsTrained", type);
+	}
 	this.unitsTrained.total++;
 };
 
@@ -194,19 +206,11 @@ StatisticsTracker.prototype.IncreaseConstructedBuildingsCounter = function(const
 	if (!cmpBuildingEntityIdentity)
 		return;
 
-	this.CounterIncrement(cmpBuildingEntityIdentity, "buildingsConstructed", "House");
-	this.CounterIncrement(cmpBuildingEntityIdentity, "buildingsConstructed", "Economic");
-	this.CounterIncrement(cmpBuildingEntityIdentity, "buildingsConstructed", "Outpost");
-	this.CounterIncrement(cmpBuildingEntityIdentity, "buildingsConstructed", "Military");
-	this.CounterIncrement(cmpBuildingEntityIdentity, "buildingsConstructed", "Fortress");
-	this.CounterIncrement(cmpBuildingEntityIdentity, "buildingsConstructed", "SpecialBuilding");
-	this.CounterIncrement(cmpBuildingEntityIdentity, "buildingsConstructed", "Wonder");
+	for (type in this.buildingsClasses)
+	{
+		this.CounterIncrement(cmpBuildingEntityIdentity, "buildingsConstructed", type);
+	}
 	this.buildingsConstructed.total++;
-};
-
-StatisticsTracker.prototype.IncreaseBuiltCivCentresCounter = function()
-{
-	this.civCentresBuilt++;
 };
 
 
@@ -224,7 +228,6 @@ StatisticsTracker.prototype.KilledEntity = function(targetEntity)
 	var targetIsDomesticAnimal = cmpTargetEntityIdentity.HasClass("Animal") && cmpTargetEntityIdentity.HasClass("Domestic");
 	// Don't count domestic animals as units
 	var targetIsUnit = cmpTargetEntityIdentity.HasClass("Unit") && !targetIsDomesticAnimal;
-	var targetIsCivCentre = cmpTargetEntityIdentity.HasClass("CivCentre");
 
 	var cmpTargetOwnership = Engine.QueryInterface(targetEntity, IID_Ownership);
     
@@ -234,13 +237,10 @@ StatisticsTracker.prototype.KilledEntity = function(targetEntity)
 
 	if (targetIsUnit)
 	{
-		this.CounterIncrement(cmpTargetEntityIdentity, "enemyUnitsKilled", "Infantry");
-		this.CounterIncrement(cmpTargetEntityIdentity, "enemyUnitsKilled", "Worker");
-		this.CounterIncrement(cmpTargetEntityIdentity, "enemyUnitsKilled", "Female");
-		this.CounterIncrement(cmpTargetEntityIdentity, "enemyUnitsKilled", "Cavalry");
-		this.CounterIncrement(cmpTargetEntityIdentity, "enemyUnitsKilled", "Champion");
-		this.CounterIncrement(cmpTargetEntityIdentity, "enemyUnitsKilled", "Hero");
-		this.CounterIncrement(cmpTargetEntityIdentity, "enemyUnitsKilled", "Ship");
+		for (type in this.unitsClasses)
+		{
+			this.CounterIncrement(cmpTargetEntityIdentity, "enemyUnitsKilled", type);
+		}
 		this.enemyUnitsKilled.total++;
 		
 		for (var r in costs)
@@ -250,13 +250,10 @@ StatisticsTracker.prototype.KilledEntity = function(targetEntity)
 	}	
 	if (targetIsStructure)
 	{
-		this.CounterIncrement(cmpTargetEntityIdentity, "enemyBuildingsDestroyed", "House");
-		this.CounterIncrement(cmpTargetEntityIdentity, "enemyBuildingsDestroyed", "Economic");
-		this.CounterIncrement(cmpTargetEntityIdentity, "enemyBuildingsDestroyed", "Outpost");
-		this.CounterIncrement(cmpTargetEntityIdentity, "enemyBuildingsDestroyed", "Military");
-		this.CounterIncrement(cmpTargetEntityIdentity, "enemyBuildingsDestroyed", "Fortress");
-		this.CounterIncrement(cmpTargetEntityIdentity, "enemyBuildingsDestroyed", "SpecialBuilding");
-		this.CounterIncrement(cmpTargetEntityIdentity, "enemyBuildingsDestroyed", "Wonder");
+		for (type in this.buildingsClasses)
+		{
+			this.CounterIncrement(cmpTargetEntityIdentity, "enemyBuildingsDestroyed", type);
+		}
 		this.enemyBuildingsDestroyed.total++;
 		
 		for (var r in costs)
@@ -264,8 +261,6 @@ StatisticsTracker.prototype.KilledEntity = function(targetEntity)
 			this.enemyBuildingsDestroyedValue += costs[r];
 		}
 	}
-	if (targetIsCivCentre && targetIsStructure)
-		this.enemyCivCentresDestroyed++;
 };
 
 StatisticsTracker.prototype.LostEntity = function(lostEntity)
@@ -285,13 +280,10 @@ StatisticsTracker.prototype.LostEntity = function(lostEntity)
 
 	if (lostEntityIsUnit)
 	{
-		this.CounterIncrement(cmpLostEntityIdentity, "unitsLost", "Infantry");
-		this.CounterIncrement(cmpLostEntityIdentity, "unitsLost", "Worker");
-		this.CounterIncrement(cmpLostEntityIdentity, "unitsLost", "Female");
-		this.CounterIncrement(cmpLostEntityIdentity, "unitsLost", "Cavalry");
-		this.CounterIncrement(cmpLostEntityIdentity, "unitsLost", "Champion");
-		this.CounterIncrement(cmpLostEntityIdentity, "unitsLost", "Hero");
-		this.CounterIncrement(cmpLostEntityIdentity, "unitsLost", "Ship");
+		for (type in this.unitsClasses)
+		{
+			this.CounterIncrement(cmpLostEntityIdentity, "unitsLost", type);
+		}
 		this.unitsLost.total++;
 		
 		for (var r in costs)
@@ -301,13 +293,10 @@ StatisticsTracker.prototype.LostEntity = function(lostEntity)
 	}	
 	if (lostEntityIsStructure)
 	{
-		this.CounterIncrement(cmpLostEntityIdentity, "buildingsLost", "House");
-		this.CounterIncrement(cmpLostEntityIdentity, "buildingsLost", "Economic");
-		this.CounterIncrement(cmpLostEntityIdentity, "buildingsLost", "Outpost");
-		this.CounterIncrement(cmpLostEntityIdentity, "buildingsLost", "Military");
-		this.CounterIncrement(cmpLostEntityIdentity, "buildingsLost", "Fortress");
-		this.CounterIncrement(cmpLostEntityIdentity, "buildingsLost", "SpecialBuilding");
-		this.CounterIncrement(cmpLostEntityIdentity, "buildingsLost", "Wonder");
+		for (type in this.buildingsClasses)
+		{
+			this.CounterIncrement(cmpLostEntityIdentity, "buildingsLost", type);
+		}
 		this.buildingsLost.total++;
 		
 		for (var r in costs)
