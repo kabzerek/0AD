@@ -153,14 +153,13 @@ StatisticsTracker.prototype.GetStatistics = function()
 
 /**
  *Increments counter associated with certain entity/counter and type of given entity.
- *@param entity Variable containing a class by which the unit is being identified
- *@param counter The name of the counter to increment(e.g. "unitsTrained")
+ *@param entity The entity id
+ *@param counter The name of the counter to increment (e.g. "unitsTrained")
  *@param type The type of the counter (e.g. "workers")
  */
 StatisticsTracker.prototype.CounterIncrement = function(entity, counter, type)
 {
 	var classes = entity.GetClassesList();
-	
 	if (!classes)
 		return;
 	if (classes.indexOf(type) != -1)
@@ -179,9 +178,9 @@ StatisticsTracker.prototype.IncreaseTrainedUnitsCounter = function(trainedUnit)
 	if (!cmpUnitEntityIdentity)
 		return;
 
-	for (type in this.unitsClasses)
+	for each (type in this.unitsClasses)
 	{
-		this.CounterIncrement(cmpUnitEntityIdentity, "unitsTrained", this.unitsClasses[type]);
+		this.CounterIncrement(cmpUnitEntityIdentity, "unitsTrained", type);
 	}
 	this.unitsTrained.total++;
 };
@@ -204,9 +203,9 @@ StatisticsTracker.prototype.IncreaseConstructedBuildingsCounter = function(const
 	if (!cmpBuildingEntityIdentity)
 		return;
 
-	for (type in this.buildingsClasses)
+	for each(type in this.buildingsClasses)
 	{
-		this.CounterIncrement(cmpBuildingEntityIdentity, "buildingsConstructed", this.buildingsClasses[type]);
+		this.CounterIncrement(cmpBuildingEntityIdentity, "buildingsConstructed", type);
 	}
 	this.buildingsConstructed.total++;
 };
@@ -235,9 +234,9 @@ StatisticsTracker.prototype.KilledEntity = function(targetEntity)
 
 	if (targetIsUnit)
 	{
-		for (type in this.unitsClasses)
+		for each (type in this.unitsClasses)
 		{
-			this.CounterIncrement(cmpTargetEntityIdentity, "enemyUnitsKilled", this.unitsClasses[type]);
+			this.CounterIncrement(cmpTargetEntityIdentity, "enemyUnitsKilled", type);
 		}
 		this.enemyUnitsKilled.total++;
 		
@@ -248,9 +247,9 @@ StatisticsTracker.prototype.KilledEntity = function(targetEntity)
 	}	
 	if (targetIsStructure)
 	{
-		for (type in this.buildingsClasses)
+		for each (type in this.buildingsClasses)
 		{
-			this.CounterIncrement(cmpTargetEntityIdentity, "enemyBuildingsDestroyed", this.buildingsClasses[type]);
+			this.CounterIncrement(cmpTargetEntityIdentity, "enemyBuildingsDestroyed", type);
 		}
 		this.enemyBuildingsDestroyed.total++;
 		
@@ -278,9 +277,9 @@ StatisticsTracker.prototype.LostEntity = function(lostEntity)
 
 	if (lostEntityIsUnit)
 	{
-		for (type in this.unitsClasses)
+		for each (type in this.unitsClasses)
 		{
-			this.CounterIncrement(cmpLostEntityIdentity, "unitsLost", this.unitsClasses[type]);
+			this.CounterIncrement(cmpLostEntityIdentity, "unitsLost", type);
 		}
 		this.unitsLost.total++;
 		
@@ -291,9 +290,9 @@ StatisticsTracker.prototype.LostEntity = function(lostEntity)
 	}	
 	if (lostEntityIsStructure)
 	{
-		for (type in this.buildingsClasses)
+		for each (type in this.buildingsClasses)
 		{
-			this.CounterIncrement(cmpLostEntityIdentity, "buildingsLost", this.buildingsClasses[type]);
+			this.CounterIncrement(cmpLostEntityIdentity, "buildingsLost", type);
 		}
 		this.buildingsLost.total++;
 		
