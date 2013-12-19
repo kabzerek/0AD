@@ -148,9 +148,10 @@ StatisticsTracker.prototype.CounterIncrement = function(entity, counter, type)
 {
 	var classes = entity.GetClassesList();
 	
-	if (classes)
-		if (classes.indexOf(type) != -1)
-			this[counter][type]++;
+	if (!classes)
+		return;
+	if (classes.indexOf(type) != -1)
+		this[counter][type]++;
 };
 
 /** 
@@ -162,17 +163,17 @@ StatisticsTracker.prototype.IncreaseTrainedUnitsCounter = function(trainedUnit)
 {
 	var cmpUnitEntityIdentity = Engine.QueryInterface(trainedUnit, IID_Identity);
 
-	if (cmpUnitEntityIdentity)
-	{
-		this.CounterIncrement(cmpUnitEntityIdentity, "unitsTrained", "Infantry");
-		this.CounterIncrement(cmpUnitEntityIdentity, "unitsTrained", "Worker");
-		this.CounterIncrement(cmpUnitEntityIdentity, "unitsTrained", "Female");
-		this.CounterIncrement(cmpUnitEntityIdentity, "unitsTrained", "Cavalry");
-		this.CounterIncrement(cmpUnitEntityIdentity, "unitsTrained", "Champion");
-		this.CounterIncrement(cmpUnitEntityIdentity, "unitsTrained", "Hero");
-		this.CounterIncrement(cmpUnitEntityIdentity, "unitsTrained", "Ship");
-		this.unitsTrained.total++;
-	}
+	if (!cmpUnitEntityIdentity)
+		return;
+
+	this.CounterIncrement(cmpUnitEntityIdentity, "unitsTrained", "Infantry");
+	this.CounterIncrement(cmpUnitEntityIdentity, "unitsTrained", "Worker");
+	this.CounterIncrement(cmpUnitEntityIdentity, "unitsTrained", "Female");
+	this.CounterIncrement(cmpUnitEntityIdentity, "unitsTrained", "Cavalry");
+	this.CounterIncrement(cmpUnitEntityIdentity, "unitsTrained", "Champion");
+	this.CounterIncrement(cmpUnitEntityIdentity, "unitsTrained", "Hero");
+	this.CounterIncrement(cmpUnitEntityIdentity, "unitsTrained", "Ship");
+	this.unitsTrained.total++;
 };
 
 StatisticsTracker.prototype.GetFeminisation = function()
@@ -190,22 +191,22 @@ StatisticsTracker.prototype.IncreaseConstructedBuildingsCounter = function(const
 {
 	var cmpBuildingEntityIdentity = Engine.QueryInterface(constructedBuilding, IID_Identity);
 		
-	if (cmpBuildingEntityIdentity)
-	{
-		this.CounterIncrement(cmpBuildingEntityIdentity, "buildingsConstructed", "House");
-		this.CounterIncrement(cmpBuildingEntityIdentity, "buildingsConstructed", "Economic");
-		this.CounterIncrement(cmpBuildingEntityIdentity, "buildingsConstructed", "Outpost");
-		this.CounterIncrement(cmpBuildingEntityIdentity, "buildingsConstructed", "Military");
-		this.CounterIncrement(cmpBuildingEntityIdentity, "buildingsConstructed", "Fortress");
-		this.CounterIncrement(cmpBuildingEntityIdentity, "buildingsConstructed", "SpecialBuilding");
-		this.CounterIncrement(cmpBuildingEntityIdentity, "buildingsConstructed", "Wonder");
-		this.buildingsConstructed.total++;
-	}
+	if (!cmpBuildingEntityIdentity)
+		return;
+
+	this.CounterIncrement(cmpBuildingEntityIdentity, "buildingsConstructed", "House");
+	this.CounterIncrement(cmpBuildingEntityIdentity, "buildingsConstructed", "Economic");
+	this.CounterIncrement(cmpBuildingEntityIdentity, "buildingsConstructed", "Outpost");
+	this.CounterIncrement(cmpBuildingEntityIdentity, "buildingsConstructed", "Military");
+	this.CounterIncrement(cmpBuildingEntityIdentity, "buildingsConstructed", "Fortress");
+	this.CounterIncrement(cmpBuildingEntityIdentity, "buildingsConstructed", "SpecialBuilding");
+	this.CounterIncrement(cmpBuildingEntityIdentity, "buildingsConstructed", "Wonder");
+	this.buildingsConstructed.total++;
 };
 
 StatisticsTracker.prototype.IncreaseBuiltCivCentresCounter = function()
 {
-	return this.civCentresBuilt++;
+	this.civCentresBuilt++;
 };
 
 
@@ -214,57 +215,57 @@ StatisticsTracker.prototype.KilledEntity = function(targetEntity)
 	var cmpTargetEntityIdentity = Engine.QueryInterface(targetEntity, IID_Identity);
 	var cmpCost = Engine.QueryInterface(targetEntity, IID_Cost);
 	var costs = cmpCost.GetResourceCosts();
-	if (cmpTargetEntityIdentity)
-	{
-		var cmpFoundation = Engine.QueryInterface(targetEntity, IID_Foundation);
-		// We want to deal only with real structures, not foundations
-		var targetIsStructure = cmpTargetEntityIdentity.HasClass("Structure") && cmpFoundation == null;
-		var targetIsDomesticAnimal = cmpTargetEntityIdentity.HasClass("Animal") && cmpTargetEntityIdentity.HasClass("Domestic");
-		// Don't count domestic animals as units
-		var targetIsUnit = cmpTargetEntityIdentity.HasClass("Unit") && !targetIsDomesticAnimal;
-		var targetIsCivCentre = cmpTargetEntityIdentity.HasClass("CivCentre");
+	if (!cmpTargetEntityIdentity)
+		return;
 
-		var cmpTargetOwnership = Engine.QueryInterface(targetEntity, IID_Ownership);
-	    
-		// Don't increase counters if target player is gaia (player 0)
-		if (cmpTargetOwnership.GetOwner() != 0)
+	var cmpFoundation = Engine.QueryInterface(targetEntity, IID_Foundation);
+	// We want to deal only with real structures, not foundations
+	var targetIsStructure = cmpTargetEntityIdentity.HasClass("Structure") && cmpFoundation == null;
+	var targetIsDomesticAnimal = cmpTargetEntityIdentity.HasClass("Animal") && cmpTargetEntityIdentity.HasClass("Domestic");
+	// Don't count domestic animals as units
+	var targetIsUnit = cmpTargetEntityIdentity.HasClass("Unit") && !targetIsDomesticAnimal;
+	var targetIsCivCentre = cmpTargetEntityIdentity.HasClass("CivCentre");
+
+	var cmpTargetOwnership = Engine.QueryInterface(targetEntity, IID_Ownership);
+    
+	// Don't increase counters if target player is gaia (player 0)
+	if (cmpTargetOwnership.GetOwner() == 0)
+		return;
+
+	if (targetIsUnit)
+	{
+		this.CounterIncrement(cmpTargetEntityIdentity, "enemyUnitsKilled", "Infantry");
+		this.CounterIncrement(cmpTargetEntityIdentity, "enemyUnitsKilled", "Worker");
+		this.CounterIncrement(cmpTargetEntityIdentity, "enemyUnitsKilled", "Female");
+		this.CounterIncrement(cmpTargetEntityIdentity, "enemyUnitsKilled", "Cavalry");
+		this.CounterIncrement(cmpTargetEntityIdentity, "enemyUnitsKilled", "Champion");
+		this.CounterIncrement(cmpTargetEntityIdentity, "enemyUnitsKilled", "Hero");
+		this.CounterIncrement(cmpTargetEntityIdentity, "enemyUnitsKilled", "Ship");
+		this.enemyUnitsKilled.total++;
+		
+		for (var r in costs)
 		{
-			if (targetIsUnit)
-			{
-				this.CounterIncrement(cmpTargetEntityIdentity, "enemyUnitsKilled", "Infantry");
-				this.CounterIncrement(cmpTargetEntityIdentity, "enemyUnitsKilled", "Worker");
-				this.CounterIncrement(cmpTargetEntityIdentity, "enemyUnitsKilled", "Female");
-				this.CounterIncrement(cmpTargetEntityIdentity, "enemyUnitsKilled", "Cavalry");
-				this.CounterIncrement(cmpTargetEntityIdentity, "enemyUnitsKilled", "Champion");
-				this.CounterIncrement(cmpTargetEntityIdentity, "enemyUnitsKilled", "Hero");
-				this.CounterIncrement(cmpTargetEntityIdentity, "enemyUnitsKilled", "Ship");
-				this.enemyUnitsKilled.total++;
-				
-				for (var r in costs)
-				{
-					this.enemyUnitsKilledValue += costs[r];
-				}
-			}	
-			if (targetIsStructure)
-			{
-				this.CounterIncrement(cmpTargetEntityIdentity, "enemyBuildingsDestroyed", "House");
-				this.CounterIncrement(cmpTargetEntityIdentity, "enemyBuildingsDestroyed", "Economic");
-				this.CounterIncrement(cmpTargetEntityIdentity, "enemyBuildingsDestroyed", "Outpost");
-				this.CounterIncrement(cmpTargetEntityIdentity, "enemyBuildingsDestroyed", "Military");
-				this.CounterIncrement(cmpTargetEntityIdentity, "enemyBuildingsDestroyed", "Fortress");
-				this.CounterIncrement(cmpTargetEntityIdentity, "enemyBuildingsDestroyed", "SpecialBuilding");
-				this.CounterIncrement(cmpTargetEntityIdentity, "enemyBuildingsDestroyed", "Wonder");
-				this.enemyBuildingsDestroyed.total++;
-				
-				for (var r in costs)
-				{
-					this.enemyBuildingsDestroyedValue += costs[r];
-				}
-			}
-			if (targetIsCivCentre && targetIsStructure)
-				this.enemyCivCentresDestroyed++;
+			this.enemyUnitsKilledValue += costs[r];
+		}
+	}	
+	if (targetIsStructure)
+	{
+		this.CounterIncrement(cmpTargetEntityIdentity, "enemyBuildingsDestroyed", "House");
+		this.CounterIncrement(cmpTargetEntityIdentity, "enemyBuildingsDestroyed", "Economic");
+		this.CounterIncrement(cmpTargetEntityIdentity, "enemyBuildingsDestroyed", "Outpost");
+		this.CounterIncrement(cmpTargetEntityIdentity, "enemyBuildingsDestroyed", "Military");
+		this.CounterIncrement(cmpTargetEntityIdentity, "enemyBuildingsDestroyed", "Fortress");
+		this.CounterIncrement(cmpTargetEntityIdentity, "enemyBuildingsDestroyed", "SpecialBuilding");
+		this.CounterIncrement(cmpTargetEntityIdentity, "enemyBuildingsDestroyed", "Wonder");
+		this.enemyBuildingsDestroyed.total++;
+		
+		for (var r in costs)
+		{
+			this.enemyBuildingsDestroyedValue += costs[r];
 		}
 	}
+	if (targetIsCivCentre && targetIsStructure)
+		this.enemyCivCentresDestroyed++;
 };
 
 StatisticsTracker.prototype.LostEntity = function(lostEntity)
@@ -272,46 +273,46 @@ StatisticsTracker.prototype.LostEntity = function(lostEntity)
 	var cmpLostEntityIdentity = Engine.QueryInterface(lostEntity, IID_Identity);
 	var cmpCost = Engine.QueryInterface(lostEntity, IID_Cost);
 	var costs = cmpCost.GetResourceCosts();
-	if (cmpLostEntityIdentity)
-	{
-		var cmpFoundation = Engine.QueryInterface(lostEntity, IID_Foundation);
-		// We want to deal only with real structures, not foundations
-		var lostEntityIsStructure = cmpLostEntityIdentity.HasClass("Structure") && cmpFoundation == null;
-		var lostEntityIsDomesticAnimal = cmpLostEntityIdentity.HasClass("Animal") && cmpLostEntityIdentity.HasClass("Domestic");
-		// Don't count domestic animals as units
-		var lostEntityIsUnit = cmpLostEntityIdentity.HasClass("Unit") && !lostEntityIsDomesticAnimal;
+	if (!cmpLostEntityIdentity)
+		return;
+	
+	var cmpFoundation = Engine.QueryInterface(lostEntity, IID_Foundation);
+	// We want to deal only with real structures, not foundations
+	var lostEntityIsStructure = cmpLostEntityIdentity.HasClass("Structure") && cmpFoundation == null;
+	var lostEntityIsDomesticAnimal = cmpLostEntityIdentity.HasClass("Animal") && cmpLostEntityIdentity.HasClass("Domestic");
+	// Don't count domestic animals as units
+	var lostEntityIsUnit = cmpLostEntityIdentity.HasClass("Unit") && !lostEntityIsDomesticAnimal;
 
-		if (lostEntityIsUnit)
+	if (lostEntityIsUnit)
+	{
+		this.CounterIncrement(cmpLostEntityIdentity, "unitsLost", "Infantry");
+		this.CounterIncrement(cmpLostEntityIdentity, "unitsLost", "Worker");
+		this.CounterIncrement(cmpLostEntityIdentity, "unitsLost", "Female");
+		this.CounterIncrement(cmpLostEntityIdentity, "unitsLost", "Cavalry");
+		this.CounterIncrement(cmpLostEntityIdentity, "unitsLost", "Champion");
+		this.CounterIncrement(cmpLostEntityIdentity, "unitsLost", "Hero");
+		this.CounterIncrement(cmpLostEntityIdentity, "unitsLost", "Ship");
+		this.unitsLost.total++;
+		
+		for (var r in costs)
 		{
-			this.CounterIncrement(cmpLostEntityIdentity, "unitsLost", "Infantry");
-			this.CounterIncrement(cmpLostEntityIdentity, "unitsLost", "Worker");
-			this.CounterIncrement(cmpLostEntityIdentity, "unitsLost", "Female");
-			this.CounterIncrement(cmpLostEntityIdentity, "unitsLost", "Cavalry");
-			this.CounterIncrement(cmpLostEntityIdentity, "unitsLost", "Champion");
-			this.CounterIncrement(cmpLostEntityIdentity, "unitsLost", "Hero");
-			this.CounterIncrement(cmpLostEntityIdentity, "unitsLost", "Ship");
-			this.unitsLost.total++;
-			
-			for (var r in costs)
-			{
-				this.unitsLostValue += costs[r];
-			}	
+			this.unitsLostValue += costs[r];
 		}	
-		if (lostEntityIsStructure)
+	}	
+	if (lostEntityIsStructure)
+	{
+		this.CounterIncrement(cmpLostEntityIdentity, "buildingsLost", "House");
+		this.CounterIncrement(cmpLostEntityIdentity, "buildingsLost", "Economic");
+		this.CounterIncrement(cmpLostEntityIdentity, "buildingsLost", "Outpost");
+		this.CounterIncrement(cmpLostEntityIdentity, "buildingsLost", "Military");
+		this.CounterIncrement(cmpLostEntityIdentity, "buildingsLost", "Fortress");
+		this.CounterIncrement(cmpLostEntityIdentity, "buildingsLost", "SpecialBuilding");
+		this.CounterIncrement(cmpLostEntityIdentity, "buildingsLost", "Wonder");
+		this.buildingsLost.total++;
+		
+		for (var r in costs)
 		{
-			this.CounterIncrement(cmpLostEntityIdentity, "buildingsLost", "House");
-			this.CounterIncrement(cmpLostEntityIdentity, "buildingsLost", "Economic");
-			this.CounterIncrement(cmpLostEntityIdentity, "buildingsLost", "Outpost");
-			this.CounterIncrement(cmpLostEntityIdentity, "buildingsLost", "Military");
-			this.CounterIncrement(cmpLostEntityIdentity, "buildingsLost", "Fortress");
-			this.CounterIncrement(cmpLostEntityIdentity, "buildingsLost", "SpecialBuilding");
-			this.CounterIncrement(cmpLostEntityIdentity, "buildingsLost", "Wonder");
-			this.buildingsLost.total++;
-			
-			for (var r in costs)
-			{
-				this.buildingsLostValue += costs[r];
-			}
+			this.buildingsLostValue += costs[r];
 		}
 	}
 };
@@ -327,7 +328,7 @@ StatisticsTracker.prototype.IncreaseResourceGatheredCounter = function(type, amo
 	this.resourcesGathered.total += amount;
 	
 	if (type == "food" && (specificType == "fruit" || specificType == "grain"))
-		this.resourcesGathered["vegetarianFood"] += amount;
+		this.resourcesGathered.vegetarianFood += amount;
 };
 
 /**
@@ -342,7 +343,7 @@ StatisticsTracker.prototype.IncreaseResourceUsedCounter = function(type, amount)
 
 StatisticsTracker.prototype.IncreaseTreasuresCollectedCounter = function()
 {
-	return this.treasuresCollected++;
+	this.treasuresCollected++;
 };
 
 StatisticsTracker.prototype.IncreaseResourcesSoldCounter = function(type, amount)
