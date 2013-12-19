@@ -776,120 +776,209 @@ function stopAmbient()
 // Send a report on the game status to the lobby
 function reportGame(extendedSimState)
 {
+	//units
+	unitsClasses = [
+		"Infantry",
+		"Worker",
+		"Female",
+		"Cavalry",
+		"Champion",
+		"Hero",
+		"Ship"
+	];
+	unitsCountersTypes = [
+		"unitsTrained",
+		"unitsLost",
+		"enemyUnitsKilled"
+	];
+	//buildings
+	buildingsClasses = [
+		"CivCentre",
+		"House",
+		"Economic",
+		"Outpost",
+		"Military",
+		"Fortress",
+		"Wonder"
+	];
+	buildingsCountersTypes = [
+		"buildingsConstructed",
+		"buildingsLost",
+		"enemyBuildingsDestroyed"
+	];
+	//resources
+	resourcesTypes = [
+		"total",
+		"wood",
+		"food",
+		"stone",
+		"metal",
+		"vegetarianFood"
+	];
+	resourcesCounterTypes = [
+		"resourcesGathered",
+		"resourcesUsed",
+		"resourcesSold",
+		"resourcesBought",
+	];
+	
 	if (!Engine.HasXmppClient())
 		return;
 
-	// Resources gathered and used
-	var playerFoodGatheredString = "";
-	var playerWoodGatheredString  = "";
-	var playerStoneGatheredString = "";
-	var playerMetalGatheredString = "";
-	var playerFoodUsedString = "";
-	var playerWoodUsedString  = "";
-	var playerStoneUsedString = "";
-	var playerMetalUsedString = "";
-	// Resources exchanged
-	var playerFoodBoughtString = "";
-	var playerWoodBoughtString = "";
-	var playerStoneBoughtString = "";
-	var playerMetalBoughtString = "";
-	var playerFoodSoldString = "";
-	var playerWoodSoldString = "";
-	var playerStoneSoldString = "";
-	var playerMetalSoldString = "";
-	var playerTradeIncomeString = "";
+	var playerStatistics;
+	
 	// Unit Stats
-	var playerUnitsLostString = "";
-	var playerUnitsTrainedString = "";
-	var playerEnemyUnitsKilledString = "";
+	for each (var unitCounterType in unitsCountersTypes)
+	{
+		for each (var unitsClass in unitsClasses)
+		{
+			playerStatistics[unitCounterType][unitsClass] = "";
+		}
+	}
+	playerStatistics.unitsLostValue = "";
+	playerStatistics.unitsKilledValue = "";
 	// Building stats
-	var playerBuildingsConstructedString = "";
-	var playerBuildingsLostString = "";
-	var playerEnemyBuildingsDestroyedString = "";
-	var playerCivCentersBuiltString = "";
-	var playerEnemyCivCentersDestroyedString = "";
+	for each (var buildingCounterType in buildingsCountersTypes)
+	{
+		for each (var buildingsClass in buildingsClasses)
+		{
+			playerStatistics[buildingCounterType][buildingsClass] = "";
+		}
+	}
+	playerStatistics.buildingsLostValue = "";
+	playerStatistics.enemyBuildingsDestroyedValue = "";
+	// Resources
+	for each (var resourcesCounterType in resourcesCounterTypes)
+	{
+		for each (var resourcesType in resourcesTypes)
+		{
+			playerStatistics[resourcesCounterType][resourcesType] = "";
+		}
+	}
+	playerStatistics.tradeIncome = "";
 	// Tribute
-	var playerTributeSentString = "";
-	var playerTributeReceivedString = "";
+	playerStatistics.tributesSent = "";
+	playerStatistics.tributesReceived = "";
 	// Various
+	playerStatistics.treasuresCollected = "";
+	playerStatistics.feminisation = "";
+	playerStatistics.percentMapExplored = "";
 	var mapName = Engine.GetMapSettings().Name;
-	var playerStatesString = "";
-	var playerCivsString = "";
-	var playerPercentMapExploredString = "";
-	var playerTreasuresCollectedString = "";
+	var playerStates = "";
+	var playerCivs = "";
 
 	// Serialize the statistics for each player into a comma-separated list.
 	for each (var player in extendedSimState.players)
 	{
-		playerStatesString += player.state + ",";
-		playerCivsString += player.civ + ",";
-		playerFoodGatheredString += player.statistics.resourcesGathered.food + ",";
-		playerWoodGatheredString += player.statistics.resourcesGathered.wood + ",";
-		playerStoneGatheredString += player.statistics.resourcesGathered.stone + ",";
-		playerMetalGatheredString += player.statistics.resourcesGathered.metal + ",";
-		playerFoodUsedString += player.statistics.resourcesUsed.food + ",";
-		playerWoodUsedString += player.statistics.resourcesUsed.wood + ",";
-		playerStoneUsedString += player.statistics.resourcesUsed.stone + ",";
-		playerMetalUsedString += player.statistics.resourcesUsed.metal + ",";
-		playerUnitsLostString += player.statistics.unitsLost + ",";
-		playerUnitsTrainedString += player.statistics.unitsTrained + ",";
-		playerEnemyUnitsKilledString += player.statistics.enemyUnitsKilled + ",";
-		playerBuildingsConstructedString += player.statistics.buildingsConstructed + ",";
-		playerBuildingsLostString += player.statistics.buildingsLost + ",";
-		playerEnemyBuildingsDestroyedString += player.statistics.enemyBuildingsDestroyed + ",";
-		playerFoodBoughtString += player.statistics.resourcesBought.food + ",";
-		playerWoodBoughtString += player.statistics.resourcesBought.wood + ",";
-		playerStoneBoughtString += player.statistics.resourcesBought.stone + ",";
-		playerMetalBoughtString += player.statistics.resourcesBought.metal + ",";
-		playerFoodSoldString += player.statistics.resourcesSold.food + ",";
-		playerWoodSoldString += player.statistics.resourcesSold.wood + ",";
-		playerStoneSoldString += player.statistics.resourcesSold.stone + ",";
-		playerMetalSoldString += player.statistics.resourcesSold.metal + ",";
-		playerTributeSentString += player.statistics.tributesSent + ",";
-		playerTributeReceivedString += player.statistics.tributesReceived + ",";
-		playerPercentMapExploredString += player.statistics.precentMapExplored = ",";
-		playerCivCentersBuiltString += player.statistics.civCentresBuilt + ",";
-		playerEnemyCivCentersDestroyedString += player.statistics.enemyCivCentresDestroyed + ",";
-		playerTreasuresCollectedString += player.statistics.treasuresCollected + ",";
-		playerTradeIncomeString += player.statistics.tradeIncome + ",";
+		playerStates += player.state + ",";
+		playerCivs += player.civ + ",";
+		for each (var resourcesCounterType in resourcesCounterTypes)
+		{
+			for each (var resourcesType in resourcesTypes)
+			{
+				playerStatistics[resourcesCounterType][resourcesType] += player.statistics[resourcesCounterType][resourcesType] + ",";
+			}
+		}
+		for each (var unitCounterType in unitsCountersTypes)
+		{
+			for each (var unitsClass in unitsClasses)
+			{
+				playerStatistics[unitCounterType][unitsClass] += player.statistics[unitCounterType][unitsClass] + ",";
+			}
+		}
+		for each (var buildingCounterType in buildingsCountersTypes)
+		{
+			for each (var buildingsClass in buildingsClasses)
+			{
+				playerStatistics[buildingCounterType][buildingsClass] += player.statistics[buildingCounterType][buildingsClass] + ",";
+			}
+		}
+		playerStatistics.tradeIncome += player.statistics.tradeIncome + ",";
+		playerStatistics.tributesSent += player.statistics.tributesSent + ",";
+		playerStatistics.tributesReceived += player.statistics.tributesReceived + ",";
+		playerStatistics.percentMapExplored += player.statistics.precentMapExplored + ",";
+		playerStatistics.treasuresCollected += player.statistics.treasuresCollected + ",";
 	}
 
 	// Send the report with serialized data
+	// Some loops maybe? Don't know how to make them :/
 	Engine.SendGameReport({
 			"timeElapsed" : extendedSimState.timeElapsed,
-			"playerStates" : playerStatesString,
+			"playerStates" : playerStates,
 			"playerID": Engine.GetPlayerID(),
 			"matchID": g_MatchID,
-			"civs" : playerCivsString,
+			"civs" : playerCivs,
 			"mapName" : mapName,
-			"foodGathered": playerFoodGatheredString,
-			"woodGathered": playerWoodGatheredString,
-			"stoneGathered": playerStoneGatheredString,
-			"metalGathered": playerMetalGatheredString,
-			"foodUsed": playerFoodUsedString,
-			"woodUsed": playerWoodUsedString,
-			"stoneUsed": playerStoneUsedString,
-			"metalUsed": playerMetalUsedString,
-			"unitsLost": playerUnitsLostString,
-			"unitsTrained": playerUnitsTrainedString,
-			"enemyUnitsKilled": playerEnemyUnitsKilledString,
-			"buildingsLost": playerBuildingsLostString,
-			"buildingsConstructed": playerBuildingsConstructedString,
-			"enemyBuildingsDestroyed": playerEnemyBuildingsDestroyedString,
-			"foodBought": playerFoodBoughtString,
-			"woodBought": playerWoodBoughtString,
-			"stoneBought": playerStoneBoughtString,
-			"metalBought": playerMetalBoughtString,
-			"foodSold": playerFoodSoldString,
-			"woodSold": playerWoodSoldString,
-			"stoneSold": playerStoneSoldString,
-			"metalSold": playerMetalSoldString,
-			"tributeSent": playerTributeSentString,
-			"tributeReceived": playerTributeReceivedString,
-			"precentMapExplored": playerPercentMapExploredString,
-			"civCentersBuilt": playerCivCentersBuiltString,
-			"enemyCivCentersDestroyed": playerEnemyCivCentersDestroyedString,
-			"treasuresCollected": playerTreasuresCollectedString,
-			"tradeIncome": playerTradeIncomeString
+			"foodGathered": playerStatistics.resourcesGathered.food,
+			"woodGathered": playerStatistics.resourcesGathered.wood,
+			"stoneGathered": playerStatistics.resourcesGathered.stone,
+			"metalGathered": playerStatistics.resourcesGathered.metal,
+			"vegetarianFoodGathered": playerStatistics.resourcesGathered.vegetarianFood,
+			"totalGathered": playerStatistics.resourcesGathered.total,
+			"foodUsed": playerStatistics.resourcesUsed.food,
+			"woodUsed": playerStatistics.resourcesUsed.wood,
+			"stoneUsed": playerStatistics.resourcesUsed.stone,
+			"metalUsed": playerStatistics.resourcesUsed.metal,
+			"vegetarianFoodUsed": playerStatistics.resourcesUsed.vegetarianFood,
+			"totalUsed": playerStatistics.resourcesUsed.total,
+			"foodBought": playerStatistics.resourcesBought.food,
+			"woodBought": playerStatistics.resourcesBought.wood,
+			"stoneBought": playerStatistics.resourcesBought.stone,
+			"metalBought": playerStatistics.resourcesBought.metal,
+			"vegetarianFoodBought": playerStatistics.resourcesBought.vegetarianFood,
+			"totalBought": playerStatistics.resourcesBought.total,
+			"foodSold": playerStatistics.resourcesSold.food,
+			"woodSold": playerStatistics.resourcesSold.wood,
+			"stoneSold": playerStatistics.resourcesSold.stone,
+			"metalSold": playerStatistics.resourcesSold.metal,
+			"vegetarianFoodSold": playerStatistics.resourcesSold.vegetarianFood,
+			"totalSold": playerStatistics.resourcesSold.total,
+			"infantryUnitsTrained": playerStatistics.unitsTrained.Infantry,
+			"workerUnitsTrained": playerStatistics.unitsTrained.Worker,
+			"femaleUnitsTrained": playerStatistics.unitsTrained.Female,
+			"cavalryUnitsTrained": playerStatistics.unitsTrained.Cavalry,
+			"championUnitsTrained": playerStatistics.unitsTrained.Champion,
+			"heroUnitsTrained": playerStatistics.unitsTrained.Hero,
+			"shipUnitsTrained": playerStatistics.unitsTrained.Ship,
+			"infantryUnitsLost": playerStatistics.unitsLost.Infantry,
+			"workerUnitsLost": playerStatistics.unitsLost.Worker,
+			"femaleUnitsLost": playerStatistics.unitsLost.Female,
+			"cavalryUnitsLost": playerStatistics.unitsLost.Cavalry,
+			"championUnitsLost": playerStatistics.unitsLost.Champion,
+			"heroUnitsLost": playerStatistics.unitsLost.Hero,
+			"shipUnitsLost": playerStatistics.unitsLost.Ship,
+			"enemyInfantryUnitsKilled": playerStatistics.enemyUnitsKilled.Infantry,
+			"enemyWorkerUnitsKilled": playerStatistics.enemyUnitsKilled.Worker,
+			"enemyFemaleUnitsKilled": playerStatistics.enemyUnitsKilled.Female,
+			"enemyCavalryUnitsKilled": playerStatistics.enemyUnitsKilled.Cavalry,
+			"enemyChampionUnitsKilled": playerStatistics.enemyUnitsKilled.Champion,
+			"enemyHeroUnitsKilled": playerStatistics.enemyUnitsKilled.Hero,
+			"enemyShipUnitsKilled": playerStatistics.enemyUnitsKilled.Ship,
+			"civCentreBuildingsConstructed": playerStatistics.buildingsConstructed.CivCentre,
+			"houseBuildingsConstructed": playerStatistics.buildingsConstructed.House,
+			"economicBuildingsConstructed": playerStatistics.buildingsConstructed.Economic,
+			"outpostBuildingsConstructed": playerStatistics.buildingsConstructed.Outpost,
+			"militaryBuildingsConstructed": playerStatistics.buildingsConstructed.Military,
+			"fortressBuildingsConstructed": playerStatistics.buildingsConstructed.Fortress,
+			"wonderBuildingsConstructed": playerStatistics.buildingsConstructed.Wonder,
+			"civCentreBuildingsLost": playerStatistics.buildingsLost.CivCentre,
+			"houseBuildingsLost": playerStatistics.buildingsLost.House,
+			"economicBuildingsLost": playerStatistics.buildingsLost.Economic,
+			"outpostBuildingsLost": playerStatistics.buildingsLost.Outpost,
+			"militaryBuildingsLost": playerStatistics.buildingsLost.Military,
+			"fortressBuildingsLost": playerStatistics.buildingsLost.Fortress,
+			"wonderBuildingsLost": playerStatistics.buildingsLost.Wonder,
+			"enemyCivCentreBuildingsDestroyed": playerStatistics.enemyBuildingsDestroyed.CivCentre,
+			"enemyHouseBuildingsDestroyed": playerStatistics.enemyBuildingsDestroyed.House,
+			"enemyEconomicBuildingsDestroyed": playerStatistics.enemyBuildingsDestroyed.Economic,
+			"enemyOutpostBuildingsDestroyed": playerStatistics.enemyBuildingsDestroyed.Outpost,
+			"enemyMilitaryBuildingsDestroyed": playerStatistics.enemyBuildingsDestroyed.Military,
+			"enemyFortressBuildingsDestroyed": playerStatistics.enemyBuildingsDestroyed.Fortress,
+			"enemyWonderBuildingsDestroyed": playerStatistics.enemyBuildingsDestroyed.Wonder,
+			"tributeSent": playerStatistics.tributesSent,
+			"tributeReceived": playerStatistics.tributesReceived,
+			"precentMapExplored": playerStatistics.percentMapExplored,
+			"treasuresCollected": playerStatistics.treasuresCollected,
+			"tradeIncome": playerStatistics.tradeIncome
 		});
 }
