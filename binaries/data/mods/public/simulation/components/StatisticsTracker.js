@@ -16,108 +16,108 @@ StatisticsTracker.prototype.Init = function()
 		"Ship"
 	];	
 	this.unitsTrained = {
-			"Infantry": 0,
-			"Worker": 0,
-			"Female": 0,
-			"Cavalry": 0,
-			"Champion": 0,
-			"Hero": 0,
-			"Ship": 0,
-			"total": 0
+		"Infantry": 0,
+		"Worker": 0,
+		"Female": 0,
+		"Cavalry": 0,
+		"Champion": 0,
+		"Hero": 0,
+		"Ship": 0,
+		"total": 0
 	};
 	this.unitsLost = {
-			"Infantry": 0,
-			"Worker": 0,
-			"Female": 0,
-			"Cavalry": 0,
-			"Champion": 0,
-			"Hero": 0,
-			"Ship": 0,
-			"total": 0
+		"Infantry": 0,
+		"Worker": 0,
+		"Female": 0,
+		"Cavalry": 0,
+		"Champion": 0,
+		"Hero": 0,
+		"Ship": 0,
+		"total": 0
 	};
 	this.unitsLostValue = 0;
 	this.enemyUnitsKilled = {
-			"Infantry": 0,
-			"Worker": 0,
-			"Female": 0,
-			"Cavalry": 0,
-			"Champion": 0,
-			"Hero": 0,
-			"Ship": 0,
-			"total": 0
+		"Infantry": 0,
+		"Worker": 0,
+		"Female": 0,
+		"Cavalry": 0,
+		"Champion": 0,
+		"Hero": 0,
+		"Ship": 0,
+		"total": 0
 	};
 	this.enemyUnitsKilledValue = 0;
 	//buildings
 	this.buildingsClasses = [
-		"CivCentre",
 		"House",
 		"Economic",
 		"Outpost",
 		"Military",
 		"Fortress",
+		"CivCentre",
 		"Wonder"
 	];
 	this.buildingsConstructed = {
-		"CivCentre": 0,
 		"House": 0,
 		"Economic": 0,
 		"Outpost": 0,
 		"Military": 0,
 		"Fortress": 0,
+		"CivCentre": 0,
 		"Wonder": 0,
 		"total": 0	
 	};
 	this.buildingsLost = {
-		"CivCentre": 0,
 		"House": 0,
 		"Economic": 0,
 		"Outpost": 0,
 		"Military": 0,
 		"Fortress": 0,
+		"CivCentre": 0,
 		"Wonder": 0,
 		"total": 0
 		};
 	this.buildingsLostValue = 0;
 	this.enemyBuildingsDestroyed = {
-		"CivCentre": 0,
 		"House": 0,
 		"Economic": 0,
 		"Outpost": 0,
 		"Military": 0,
 		"Fortress": 0,
+		"CivCentre": 0,
 		"Wonder": 0,
 		"total": 0
 		};
 	this.enemyBuildingsDestroyedValue = 0;
 	// resources
 	this.resourcesGathered = {
-			"total": 0,
-			"food": 0,
-			"wood": 0,
-			"metal": 0,
-			"stone": 0,
-			"vegetarianFood": 0
+		"total": 0,
+		"food": 0,
+		"wood": 0,
+		"metal": 0,
+		"stone": 0,
+		"vegetarianFood": 0
 	};
 	this.resourcesUsed = {
-			"total": 0,
-			"food": 0,
-			"wood": 0,
-			"metal": 0,
-			"stone": 0
+		"total": 0,
+		"food": 0,
+		"wood": 0,
+		"metal": 0,
+		"stone": 0
 	};
 	this.resourcesSold = {
-			"total": 0,
-			"food": 0,
-			"wood": 0,
-			"metal": 0,
-			"stone": 0
+		"total": 0,
+		"food": 0,
+		"wood": 0,
+		"metal": 0,
+		"stone": 0
 	};
 	this.resourcesBought = {
-			"total": 0,
-			"food": 0,
-			"wood": 0,
-			"metal": 0,
-			"stone": 0
+		"total": 0,
+		"food": 0,
+		"wood": 0,
+		"metal": 0,
+		"stone": 0
 	};
 	this.tributesSent = 0;
 	this.tributesReceived = 0;
@@ -138,8 +138,6 @@ StatisticsTracker.prototype.GetStatistics = function()
 		"buildingsLostValue": this.buildingsLostValue,
 		"enemyBuildingsDestroyed": this.enemyBuildingsDestroyed,
 		"enemyBuildingsDestroyedValue": this.enemyBuildingsDestroyedValue,
-		"civCentresBuilt": this.civCentresBuilt,
-		"enemyCivCentresDestroyed": this.enemyCivCentresDestroyed,
 		"resourcesGathered": this.resourcesGathered,
 		"resourcesUsed": this.resourcesUsed,
 		"resourcesSold": this.resourcesSold,
@@ -148,8 +146,8 @@ StatisticsTracker.prototype.GetStatistics = function()
 		"tributesReceived": this.tributesReceived,
 		"tradeIncome": this.tradeIncome,
 		"treasuresCollected": this.treasuresCollected,
-		"percentMapExplored": this.GetPercentMapExplored(),
-		"feminisation": this.GetFeminisation()
+		"feminisation": this.GetFeminisation(),
+		"percentMapExplored": this.GetPercentMapExplored()
 	};
 };
 
@@ -183,7 +181,7 @@ StatisticsTracker.prototype.IncreaseTrainedUnitsCounter = function(trainedUnit)
 
 	for (type in this.unitsClasses)
 	{
-		this.CounterIncrement(cmpUnitEntityIdentity, "unitsTrained", type);
+		this.CounterIncrement(cmpUnitEntityIdentity, "unitsTrained", this.unitsClasses[type]);
 	}
 	this.unitsTrained.total++;
 };
@@ -208,7 +206,7 @@ StatisticsTracker.prototype.IncreaseConstructedBuildingsCounter = function(const
 
 	for (type in this.buildingsClasses)
 	{
-		this.CounterIncrement(cmpBuildingEntityIdentity, "buildingsConstructed", type);
+		this.CounterIncrement(cmpBuildingEntityIdentity, "buildingsConstructed", this.buildingsClasses[type]);
 	}
 	this.buildingsConstructed.total++;
 };
@@ -239,7 +237,7 @@ StatisticsTracker.prototype.KilledEntity = function(targetEntity)
 	{
 		for (type in this.unitsClasses)
 		{
-			this.CounterIncrement(cmpTargetEntityIdentity, "enemyUnitsKilled", type);
+			this.CounterIncrement(cmpTargetEntityIdentity, "enemyUnitsKilled", this.unitsClasses[type]);
 		}
 		this.enemyUnitsKilled.total++;
 		
@@ -252,7 +250,7 @@ StatisticsTracker.prototype.KilledEntity = function(targetEntity)
 	{
 		for (type in this.buildingsClasses)
 		{
-			this.CounterIncrement(cmpTargetEntityIdentity, "enemyBuildingsDestroyed", type);
+			this.CounterIncrement(cmpTargetEntityIdentity, "enemyBuildingsDestroyed", this.buildingsClasses[type]);
 		}
 		this.enemyBuildingsDestroyed.total++;
 		
@@ -282,7 +280,7 @@ StatisticsTracker.prototype.LostEntity = function(lostEntity)
 	{
 		for (type in this.unitsClasses)
 		{
-			this.CounterIncrement(cmpLostEntityIdentity, "unitsLost", type);
+			this.CounterIncrement(cmpLostEntityIdentity, "unitsLost", this.unitsClasses[type]);
 		}
 		this.unitsLost.total++;
 		
@@ -295,7 +293,7 @@ StatisticsTracker.prototype.LostEntity = function(lostEntity)
 	{
 		for (type in this.buildingsClasses)
 		{
-			this.CounterIncrement(cmpLostEntityIdentity, "buildingsLost", type);
+			this.CounterIncrement(cmpLostEntityIdentity, "buildingsLost", this.buildingsClasses[type]);
 		}
 		this.buildingsLost.total++;
 		

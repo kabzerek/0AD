@@ -72,23 +72,18 @@
 			<object type="text" style="TitleText" ghost="true">Units</object>
 		</object>
 
-		<object name="conquestPanelButton" type="button" sprite="BackgroundTab" size="390 82 508 120">
+		<object name="resourcesPanelButton" type="button" sprite="BackgroundTab" size="390 82 508 120">
 			<action on="Press">selectPanel(3);</action>
-			<object type="text" style="TitleText" ghost="true">Conquest</object>
-		</object>
-
-		<object name="resourcesPanelButton" type="button" sprite="BackgroundTab" size="514 82 632 120">
-			<action on="Press">selectPanel(4);</action>
 			<object type="text" style="TitleText" ghost="true">Resources</object>
 		</object>
 
-		<object name="marketPanelButton" type="button" sprite="BackgroundTab" size="638 82 756 120">
-			<action on="Press">selectPanel(5);</action>
+		<object name="marketPanelButton" type="button" sprite="BackgroundTab" size="514 82 632 120">
+			<action on="Press">selectPanel(4);</action>
 			<object type="text" style="TitleText" ghost="true">Market</object>
 		</object>
 		
-		<object name="miscPanelButton" type="button" sprite="BackgroundTab" size="762 82 880 120">
-			<action on="Press">selectPanel(6);</action>
+		<object name="miscPanelButton" type="button" sprite="BackgroundTab" size="638 82 756 120">
+			<action on="Press">selectPanel(5);</action>
 			<object type="text" style="TitleText" ghost="true">Miscellaneous</object>
 		</object>
 		
@@ -150,12 +145,12 @@
 				</object>
 				<object name="militaryBuildingsHeading" type="text" style="CenteredTabLabelText">
 					Military
-				</object>
+				</object> 
 				<object name="fortressBuildingsHeading" type="text" style="CenteredTabLabelText">
 					Fortresses
 				</object>
-				<object name="specialBuildingsHeading" type="text" style="CenteredTabLabelText">
-					Special
+				<object name="civCentreBuildingsHeading" type="text" style="CenteredTabLabelText">
+					Civ&#160;Centers
 				</object>
 				<object name="wonderBuildingsHeading" type="text" style="CenteredTabLabelText">
 					Wonders
@@ -175,7 +170,7 @@
 						<object name="outpostBuildings[n]"        	type="text" style="CenteredLabelText"/>
 						<object name="militaryBuildings[n]"        	type="text" style="CenteredLabelText"/>
 						<object name="fortressBuildings[n]"        	type="text" style="CenteredLabelText"/>
-						<object name="specialBuildings[n]"        	type="text" style="CenteredLabelText"/>
+						<object name="civCentreBuildings[n]"        	type="text" style="CenteredLabelText"/>
 						<object name="wonderBuildings[n]"        	type="text" style="CenteredLabelText"/>
 					</object>
 				</repeat>
@@ -233,41 +228,10 @@
 			</object>
 
 		</object>
-		<object name="conquestPanel" type="image" sprite="ForegroundBody" size="20 120 100%-20 100%-58" hidden="true">
-
-			<object size="0 0 100% 100%-50">
-				<object name="playerName3Heading" type="text" style="LeftTabLabelText">
-					Player name
-				</object>
-				<object name="civCentresBuiltHeading" type="text" style="CenteredTabLabelText">
-					Civ centres&#10;built
-				</object>
-				<object name="enemyCivCentresDestroyedHeading" type="text" style="CenteredTabLabelText">
-					Enemy&#10;civ centres&#10;destroyed
-				</object>
-				<object name="mapExplorationHeading" type="text" style="CenteredTabLabelText">
-					Map&#10;exploration
-				</object>
-			</object>
-
-			<object size="0 65 100% 100%-50">
-				<repeat count="8">
-					<object type="image" name="playerBox3[n]" size="10 0 10 30" hidden="true">
-						<object name="playerColourBox3[n]"     		type="image" size="10 4 30 24" />
-						<object name="playerName3[n]"          		type="text"  style="LeftLabelText" size="40 2 208 100%" />
-						<object name="civIcon3[n]"          		type="image" size="208 0 240 32" tooltip_style="sessionToolTip"/>
-						<object name="civCentresBuilt[n]"      		type="text" style="CenteredLabelText"/>
-						<object name="enemyCivCentresDestroyed[n]" 	type="text" style="CenteredLabelText"/>
-						<object name="mapExploration[n]" 		type="text" style="CenteredLabelText"/>
-					</object>
-				</repeat>
-			</object>
-
-		</object>
 		<object name="resourcesPanel" type="image" sprite="ForegroundBody" size="20 120 100%-20 100%-58" hidden="true">
 
 			<object size="0 0 100% 100%-50">
-				<object name="playerName4Heading" type="text" style="LeftTabLabelText">
+				<object name="playerName3Heading" type="text" style="LeftTabLabelText">
 					Player name
 				</object>
 				<object name="resourceHeading" type="text" style="CenteredTabLabelText">
@@ -298,10 +262,10 @@
 
 			<object size="0 65 100% 100%-50">
 				<repeat count="8">
-					<object type="image" name="playerBox4[n]" size="10 0 10 30" hidden="true">
-						<object name="playerColourBox4[n]" 		type="image" size="10 4 30 24" />
-						<object name="playerName4[n]"      		type="text"  style="LeftLabelText" size="40 2 208 100%" />
-						<object name="civIcon4[n]"      		type="image" size="208 0 240 32" tooltip_style="sessionToolTip"/>
+					<object type="image" name="playerBox3[n]" size="10 0 10 30" hidden="true">
+						<object name="playerColourBox3[n]" 		type="image" size="10 4 30 24" />
+						<object name="playerName3[n]"      		type="text"  style="LeftLabelText" size="40 2 208 100%" />
+						<object name="civIcon3[n]"      		type="image" size="208 0 240 32" tooltip_style="sessionToolTip"/>
 						<object name="foodGathered[n]"     		type="text" style="CenteredLabelText"/>
 						<object name="woodGathered[n]"     		type="text" style="CenteredLabelText"/>
 						<object name="stoneGathered[n]"    		type="text" style="CenteredLabelText" />
@@ -317,7 +281,7 @@
 		<object name="marketPanel" type="image" sprite="ForegroundBody" size="20 120 100%-20 100%-58" hidden="true">
 
 			<object size="0 0 100% 100%-50">
-				<object name="playerName5Heading" type="text" style="LeftTabLabelText">
+				<object name="playerName4Heading" type="text" style="LeftTabLabelText">
 					Player name
 				</object>
 				<object name="exchangedFoodHeading" type="text" style="CenteredTabLabelText">
@@ -342,10 +306,10 @@
 
 			<object size="0 65 100% 100%-50">
 				<repeat count="8">
-					<object type="image" name="playerBox5[n]" size="10 0 10 30" hidden="true">
-						<object name="playerColourBox5[n]"      type="image" size="10 4 30 24" />
-						<object name="playerName5[n]"           type="text"  style="LeftLabelText" size="40 2 208 100%" />
-						<object name="civIcon5[n]"              type="image" size="208 0 240 32" tooltip_style="sessionToolTip"/>
+					<object type="image" name="playerBox4[n]" size="10 0 10 30" hidden="true">
+						<object name="playerColourBox4[n]"      type="image" size="10 4 30 24" />
+						<object name="playerName4[n]"           type="text"  style="LeftLabelText" size="40 2 208 100%" />
+						<object name="civIcon4[n]"              type="image" size="208 0 240 32" tooltip_style="sessionToolTip"/>
 						<object name="exchangedFood[n]"         type="text" style="CenteredLabelText"/>
 						<object name="exchangedWood[n]"         type="text" style="CenteredLabelText"/>
 						<object name="exchangedStone[n]"         type="text" style="CenteredLabelText"/>
@@ -361,7 +325,7 @@
 		<object name="miscPanel" type="image" sprite="ForegroundBody" size="20 120 100%-20 100%-58" hidden="true">
 
 			<object size="0 0 100% 100%-50">
-				<object name="playerName6Heading" type="text" style="LeftTabLabelText">
+				<object name="playerName5Heading" type="text" style="LeftTabLabelText">
 					Player name
 				</object>
 				<object name="vegetarianRatioHeading" type="text" style="CenteredTabLabelText">
@@ -373,17 +337,21 @@
 				<object name="killDeathRatioHeading" type="text" style="CenteredTabLabelText">
 					Kill / Death&#10;ratio
 				</object>
+				<object name="mapExplorationHeading" type="text" style="CenteredTabLabelText">
+					Map&#10;exploration
+				</object>
 			</object>
 
 			<object size="0 65 100% 100%-50">
 				<repeat count="8">
-					<object type="image" name="playerBox6[n]" size="10 0 10 30" hidden="true">
-						<object name="playerColourBox6[n]"      type="image" size="10 4 30 24" />
-						<object name="playerName6[n]"           type="text"  style="LeftLabelText" size="40 2 208 100%" />
-						<object name="civIcon6[n]"              type="image" size="208 0 240 32" tooltip_style="sessionToolTip"/>
+					<object type="image" name="playerBox5[n]" size="10 0 10 30" hidden="true">
+						<object name="playerColourBox5[n]"      type="image" size="10 4 30 24" />
+						<object name="playerName5[n]"           type="text"  style="LeftLabelText" size="40 2 208 100%" />
+						<object name="civIcon5[n]"              type="image" size="208 0 240 32" tooltip_style="sessionToolTip"/>
 						<object name="vegetarianRatio[n]"  	type="text" style="CenteredLabelText"/>
 						<object name="feminisation[n]"  	type="text" style="CenteredLabelText"/>
 						<object name="killDeathRatio[n]"  	type="text" style="CenteredLabelText"/>
+						<object name="mapExploration[n]" 		type="text" style="CenteredLabelText"/>
 					</object>	
 				</repeat>
 			</object>
