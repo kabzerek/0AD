@@ -141,10 +141,9 @@ StatisticsTracker.prototype.GetStatistics = function()
 /**
  *Increments counter associated with certain entity/counter and type of given entity.
  *@param entity Variable containing a class by which the unit is being identified
- *@param counter name of counter (e.g. "unitsTrained")
- *@param type the type of the counter (e.g. "workers")
+ *@param counter The name of the counter to increment(e.g. "unitsTrained")
+ *@param type The type of the counter (e.g. "workers")
  */
-
 StatisticsTracker.prototype.CounterIncrement = function(entity, counter, type)
 {
 	if (entity["HasClass(" + type + ")"])
@@ -169,13 +168,13 @@ StatisticsTracker.prototype.IncreaseTrainedUnitsCounter = function(trainedUnit)
 		this.CounterIncrement(cmpUnitEntityIdentity, "unitsTrained", "Champion");
 		this.CounterIncrement(cmpUnitEntityIdentity, "unitsTrained", "Hero");
 		this.CounterIncrement(cmpUnitEntityIdentity, "unitsTrained", "Ship");
-		this.unitsTrained["total"]++;
+		this.unitsTrained.total++;
 	}
 };
 
 StatisticsTracker.prototype.GetFeminisation = function()
 {
-	return Math.floor(this.unitsTrained["Female"] > 0 ? (this.unitsTrained["Female"] / this.unitsTrained["Worker"]) * 100 : 0)
+	return Math.floor(this.unitsTrained.Female > 0 ? (this.unitsTrained.Female / this.unitsTrained.Worker) * 100 : 0)
 };
 
 
@@ -197,7 +196,7 @@ StatisticsTracker.prototype.IncreaseConstructedBuildingsCounter = function(const
 		this.CounterIncrement(cmpBuildingEntityIdentity, "buildingsConstructed", "Fortress");
 		this.CounterIncrement(cmpBuildingEntityIdentity, "buildingsConstructed", "SpecialBuilding");
 		this.CounterIncrement(cmpBuildingEntityIdentity, "buildingsConstructed", "Wonder");
-		this.buildingsConstructed["total"]++;
+		this.buildingsConstructed.total++;
 	}
 };
 
@@ -236,7 +235,7 @@ StatisticsTracker.prototype.KilledEntity = function(targetEntity)
 				this.CounterIncrement(cmpTargetEntityIdentity, "enemyUnitsKilled", "Champion");
 				this.CounterIncrement(cmpTargetEntityIdentity, "enemyUnitsKilled", "Hero");
 				this.CounterIncrement(cmpTargetEntityIdentity, "enemyUnitsKilled", "Ship");
-				this.enemyUnitsKilled["total"]++;
+				this.enemyUnitsKilled.total++;
 				
 				for (var r in costs)
 				{
@@ -252,7 +251,7 @@ StatisticsTracker.prototype.KilledEntity = function(targetEntity)
 				this.CounterIncrement(cmpTargetEntityIdentity, "enemyBuildingsDestroyed", "Fortress");
 				this.CounterIncrement(cmpTargetEntityIdentity, "enemyBuildingsDestroyed", "SpecialBuilding");
 				this.CounterIncrement(cmpTargetEntityIdentity, "enemyBuildingsDestroyed", "Wonder");
-				this.enemyBuildingsDestroyed["total"]++;
+				this.enemyBuildingsDestroyed.total++;
 				
 				for (var r in costs)
 				{
@@ -288,7 +287,7 @@ StatisticsTracker.prototype.LostEntity = function(lostEntity)
 			this.CounterIncrement(cmpLostEntityIdentity, "unitsLost", "Champion");
 			this.CounterIncrement(cmpLostEntityIdentity, "unitsLost", "Hero");
 			this.CounterIncrement(cmpLostEntityIdentity, "unitsLost", "Ship");
-			this.unitsLost["total"]++;
+			this.unitsLost.total++;
 			
 			for (var r in costs)
 			{
@@ -304,7 +303,7 @@ StatisticsTracker.prototype.LostEntity = function(lostEntity)
 			this.CounterIncrement(cmpLostEntityIdentity, "buildingsLost", "Fortress");
 			this.CounterIncrement(cmpLostEntityIdentity, "buildingsLost", "SpecialBuilding");
 			this.CounterIncrement(cmpLostEntityIdentity, "buildingsLost", "Wonder");
-			this.buildingsLost["total"]++;
+			this.buildingsLost.total++;
 			
 			for (var r in costs)
 			{
@@ -322,7 +321,7 @@ StatisticsTracker.prototype.LostEntity = function(lostEntity)
 StatisticsTracker.prototype.IncreaseResourceGatheredCounter = function(type, amount, specificType)
 {
 	this.resourcesGathered[type] += amount;
-	this.resourcesGathered["total"] += amount;
+	this.resourcesGathered.total += amount;
 	
 	if (type == "food" && (specificType == "fruit" || specificType == "grain"))
 		this.resourcesGathered["vegetarianFood"] += amount;
@@ -335,7 +334,7 @@ StatisticsTracker.prototype.IncreaseResourceGatheredCounter = function(type, amo
 StatisticsTracker.prototype.IncreaseResourceUsedCounter = function(type, amount)
 {
 	this.resourcesUsed[type] += amount;
-	this.resourcesUsed["total"] += amount;
+	this.resourcesUsed.total += amount;
 };
 
 StatisticsTracker.prototype.IncreaseTreasuresCollectedCounter = function()
@@ -346,13 +345,13 @@ StatisticsTracker.prototype.IncreaseTreasuresCollectedCounter = function()
 StatisticsTracker.prototype.IncreaseResourcesSoldCounter = function(type, amount)
 {
 	this.resourcesSold[type] += amount;
-	this.resourcesSold["total"] += amount;
+	this.resourcesSold.total += amount;
 };
 
 StatisticsTracker.prototype.IncreaseResourcesBoughtCounter = function(type, amount)
 {
 	this.resourcesBought[type] += amount;
-	this.resourcesBought["total"] += amount;
+	this.resourcesBought.total += amount;
 };
 
 StatisticsTracker.prototype.IncreaseTributesSentCounter = function(amount)
