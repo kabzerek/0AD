@@ -208,7 +208,7 @@ function init(data)
 					+ Math.floor(playerState.colour.b * 255);
 				playerBox.sprite = colourString + " 32";
 				var playerColourBox = getGUIObjectByName("playerColourBox"+k+"["+i+"]");
-				playerColourBox.sprite = colourString + " 10";//" 255";
+				playerColourBox.sprite = colourString + " 140";//" 255";
 
 				// Show the multiplayer name, e.g. "Foobar" rather than "Player 1".
 				// TODO: Perhaps show both the multiplayer and map-specific name?
