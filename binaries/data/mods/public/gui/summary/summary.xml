@@ -122,6 +122,11 @@
 						</object>
 					</repeat>
 				</object>
+				<object name="teamHeading0t0"         type="text" style="CenteredLabelText"/>
+				<object name="economyScoret0"        type="text" style="CenteredLabelText"/>
+				<object name="militaryScoret0"       type="text" style="CenteredLabelText"/>
+				<object name="explorationScoret0"    type="text" style="CenteredLabelText"/>
+				<object name="totalScoret0" 	      type="text" style="CenteredLabelText"/>
 			</object>
 			<object name="teamBox0t1">
 				<object type="text" name="teamNameHeading0t1" style="LeftTabLabelText"/>
@@ -138,6 +143,11 @@
 						</object>
 					</repeat>
 				</object>
+				<object name="teamHeading0t1"         type="text" style="CenteredLabelText"/>
+				<object name="economyScoret1"        type="text" style="CenteredLabelText"/>
+				<object name="militaryScoret1"       type="text" style="CenteredLabelText"/>
+				<object name="explorationScoret1"    type="text" style="CenteredLabelText"/>
+				<object name="totalScoret1" 	      type="text" style="CenteredLabelText"/>
 			</object>
 			<object name="teamBox0t2">
 				<object type="text" name="teamNameHeading0t2" style="LeftTabLabelText"/>
@@ -154,6 +164,11 @@
 						</object>
 					</repeat>
 				</object>
+				<object name="teamHeading0t2"         type="text" style="CenteredLabelText"/>
+				<object name="economyScoret2"        type="text" style="CenteredLabelText"/>
+				<object name="militaryScoret2"       type="text" style="CenteredLabelText"/>
+				<object name="explorationScoret2"    type="text" style="CenteredLabelText"/>
+				<object name="totalScoret2" 	      type="text" style="CenteredLabelText"/>
 			</object>
 			<object name="teamBox0t3">
 				<object type="text" name="teamNameHeading0t3" style="LeftTabLabelText"/>
@@ -170,6 +185,11 @@
 						</object>
 					</repeat>
 				</object>
+				<object name="teamHeading0t3"         type="text" style="CenteredLabelText"/>
+				<object name="economyScoret3"        type="text" style="CenteredLabelText"/>
+				<object name="militaryScoret3"       type="text" style="CenteredLabelText"/>
+				<object name="explorationScoret3"    type="text" style="CenteredLabelText"/>
+				<object name="totalScoret3" 	      type="text" style="CenteredLabelText"/>
 			</object>
 			<object name="teamBox0t4">
 				<object type="text" name="teamNameHeading0t4" style="LeftTabLabelText"/>
@@ -186,6 +206,11 @@
 						</object>
 					</repeat>
 				</object>
+				<object name="teamHeading0t4"         type="text" style="CenteredLabelText"/>
+				<object name="economyScoret4"        type="text" style="CenteredLabelText"/>
+				<object name="militaryScoret4"       type="text" style="CenteredLabelText"/>
+				<object name="explorationScoret4"    type="text" style="CenteredLabelText"/>
+				<object name="totalScoret4" 	      type="text" style="CenteredLabelText"/>
 			</object>
 			<object name="teamBox0t5">
 				<object type="text" name="teamNameHeading0t5" style="LeftTabLabelText"/>
@@ -198,10 +223,15 @@
 							<object name="economyScoret5p[n]"        type="text" style="CenteredLabelText"/>
 							<object name="militaryScoret5p[n]"       type="text" style="CenteredLabelText"/>
 							<object name="explorationScoret5p[n]"    type="text" style="CenteredLabelText"/>
-							<object name="totalScoret5p[n]" 	      type="text" style="CenteredLabelText"/>
+							<object name="totalScoret5p[n]" 	 type="text" style="CenteredLabelText"/>
 						</object>
 					</repeat>
 				</object>
+				<object name="teamHeading0t5"         type="text" style="CenteredLabelText"/>
+				<object name="economyScoret5"        type="text" style="CenteredLabelText"/>
+				<object name="militaryScoret5"       type="text" style="CenteredLabelText"/>
+				<object name="explorationScoret5"    type="text" style="CenteredLabelText"/>
+				<object name="totalScoret5" 	      type="text" style="CenteredLabelText"/>
 			</object>
 			<object name="teamBox0t6">
 				<object type="text" name="teamNameHeading0t6" style="LeftTabLabelText"/>
@@ -214,12 +244,31 @@
 							<object name="economyScoret6p[n]"        type="text" style="CenteredLabelText"/>
 							<object name="militaryScoret6p[n]"       type="text" style="CenteredLabelText"/>
 							<object name="explorationScoret6p[n]"    type="text" style="CenteredLabelText"/>
-							<object name="totalScoret6p[n]" 	      type="text" style="CenteredLabelText"/>
+							<object name="totalScoret6p[n]" 	 type="text" style="CenteredLabelText"/>
 						</object>
 					</repeat>
 				</object>
+				<object name="teamHeading0t6"         type="text" style="CenteredLabelText"/>
+				<object name="economyScoret6"        type="text" style="CenteredLabelText"/>
+				<object name="militaryScoret6"       type="text" style="CenteredLabelText"/>
+				<object name="explorationScoret6"    type="text" style="CenteredLabelText"/>
+				<object name="totalScoret6" 	     type="text" style="CenteredLabelText"/>
 			</object>
 
+			<object size="0 65 100% 100%-50">
+				<repeat count="8">
+					<object type="image" name="playerBox0[n]" size="10 0 10 30" hidden="true">
+						<object name="playerColourBox0[n]"    type="image" size="10 4 30 24" />
+						<object name="playerName0[n]"         type="text"  style="LeftLabelText" size="40 2 208 100%" />
+						<object name="civIcon0[n]"            type="image" size="208 0 240 32" tooltip_style="sessionToolTip"/>
+						<object name="economyScore[n]"        type="text" style="CenteredLabelText"/>
+						<object name="militaryScore[n]"       type="text" style="CenteredLabelText"/>
+						<object name="explorationScore[n]"    type="text" style="CenteredLabelText"/>
+						<object name="totalScore[n]" 	      type="text" style="CenteredLabelText"/>
+					</object>
+				</repeat>
+			</object>
+			
 		</object>
 		<object name="buildingsPanel" type="image" sprite="ForegroundBody" size="20 120 100%-20 100%-58" hidden="true">
 
@@ -275,6 +324,15 @@
 						</object>
 					</repeat>
 				</object>
+				<object name="teamHeading1t0"         type="text" style="CenteredLabelText"/>
+				<object name="totalBuildingst0"        type="text" style="CenteredLabelText"/>
+				<object name="houseBuildingst0"        type="text" style="CenteredLabelText"/>
+				<object name="economicBuildingst0"     type="text" style="CenteredLabelText"/>
+				<object name="outpostBuildingst0"      type="text" style="CenteredLabelText"/>
+				<object name="militaryBuildingst0"     type="text" style="CenteredLabelText"/>
+				<object name="fortressBuildingst0"     type="text" style="CenteredLabelText"/>
+				<object name="civCentreBuildingst0"    type="text" style="CenteredLabelText"/>
+				<object name="wonderBuildingst0"       type="text" style="CenteredLabelText"/>
 			</object>
 			<object name="teamBox1t1">
 				<object type="text" name="teamNameHeading1t1" style="LeftTabLabelText"/>
@@ -295,6 +353,15 @@
 						</object>
 					</repeat>
 				</object>
+				<object name="teamHeading1t1"         type="text" style="CenteredLabelText"/>
+				<object name="totalBuildingst1"        type="text" style="CenteredLabelText"/>
+				<object name="houseBuildingst1"        type="text" style="CenteredLabelText"/>
+				<object name="economicBuildingst1"     type="text" style="CenteredLabelText"/>
+				<object name="outpostBuildingst1"      type="text" style="CenteredLabelText"/>
+				<object name="militaryBuildingst1"     type="text" style="CenteredLabelText"/>
+				<object name="fortressBuildingst1"     type="text" style="CenteredLabelText"/>
+				<object name="civCentreBuildingst1"    type="text" style="CenteredLabelText"/>
+				<object name="wonderBuildingst1"       type="text" style="CenteredLabelText"/>
 			</object>
 			<object name="teamBox1t2">
 				<object type="text" name="teamNameHeading1t2" style="LeftTabLabelText"/>
@@ -315,6 +382,15 @@
 						</object>
 					</repeat>
 				</object>
+				<object name="teamHeading1t2"         type="text" style="CenteredLabelText"/>
+				<object name="totalBuildingst2"        type="text" style="CenteredLabelText"/>
+				<object name="houseBuildingst2"        type="text" style="CenteredLabelText"/>
+				<object name="economicBuildingst2"     type="text" style="CenteredLabelText"/>
+				<object name="outpostBuildingst2"      type="text" style="CenteredLabelText"/>
+				<object name="militaryBuildingst2"     type="text" style="CenteredLabelText"/>
+				<object name="fortressBuildingst2"     type="text" style="CenteredLabelText"/>
+				<object name="civCentreBuildingst2"    type="text" style="CenteredLabelText"/>
+				<object name="wonderBuildingst2"       type="text" style="CenteredLabelText"/>
 			</object>
 			<object name="teamBox1t3">
 				<object type="text" name="teamNameHeading1t3" style="LeftTabLabelText"/>
@@ -335,6 +411,15 @@
 						</object>
 					</repeat>
 				</object>
+				<object name="teamHeading1t3"         type="text" style="CenteredLabelText"/>
+				<object name="totalBuildingst3"        type="text" style="CenteredLabelText"/>
+				<object name="houseBuildingst3"        type="text" style="CenteredLabelText"/>
+				<object name="economicBuildingst3"     type="text" style="CenteredLabelText"/>
+				<object name="outpostBuildingst3"      type="text" style="CenteredLabelText"/>
+				<object name="militaryBuildingst3"     type="text" style="CenteredLabelText"/>
+				<object name="fortressBuildingst3"     type="text" style="CenteredLabelText"/>
+				<object name="civCentreBuildingst3"    type="text" style="CenteredLabelText"/>
+				<object name="wonderBuildingst3"       type="text" style="CenteredLabelText"/>
 			</object>
 			<object name="teamBox1t4">
 				<object type="text" name="teamNameHeading1t4" style="LeftTabLabelText"/>
@@ -355,6 +440,15 @@
 						</object>
 					</repeat>
 				</object>
+				<object name="teamHeading1t4"         type="text" style="CenteredLabelText"/>
+				<object name="totalBuildingst4"        type="text" style="CenteredLabelText"/>
+				<object name="houseBuildingst4"        type="text" style="CenteredLabelText"/>
+				<object name="economicBuildingst4"     type="text" style="CenteredLabelText"/>
+				<object name="outpostBuildingst4"      type="text" style="CenteredLabelText"/>
+				<object name="militaryBuildingst4"     type="text" style="CenteredLabelText"/>
+				<object name="fortressBuildingst4"     type="text" style="CenteredLabelText"/>
+				<object name="civCentreBuildingst4"    type="text" style="CenteredLabelText"/>
+				<object name="wonderBuildingst4"       type="text" style="CenteredLabelText"/>
 			</object>
 			<object name="teamBox1t5">
 				<object type="text" name="teamNameHeading1t5" style="LeftTabLabelText"/>
@@ -375,6 +469,15 @@
 						</object>
 					</repeat>
 				</object>
+				<object name="teamHeading1t5"         type="text" style="CenteredLabelText"/>
+				<object name="totalBuildingst5"        type="text" style="CenteredLabelText"/>
+				<object name="houseBuildingst5"        type="text" style="CenteredLabelText"/>
+				<object name="economicBuildingst5"     type="text" style="CenteredLabelText"/>
+				<object name="outpostBuildingst5"      type="text" style="CenteredLabelText"/>
+				<object name="militaryBuildingst5"     type="text" style="CenteredLabelText"/>
+				<object name="fortressBuildingst5"     type="text" style="CenteredLabelText"/>
+				<object name="civCentreBuildingst5"    type="text" style="CenteredLabelText"/>
+				<object name="wonderBuildingst5"       type="text" style="CenteredLabelText"/>
 			</object>
 			<object name="teamBox1t6">
 				<object type="text" name="teamNameHeading1t6" style="LeftTabLabelText"/>
@@ -395,6 +498,32 @@
 						</object>
 					</repeat>
 				</object>
+				<object name="teamHeading1t6"         type="text" style="CenteredLabelText"/>
+				<object name="totalBuildingst6"        type="text" style="CenteredLabelText"/>
+				<object name="houseBuildingst6"        type="text" style="CenteredLabelText"/>
+				<object name="economicBuildingst6"     type="text" style="CenteredLabelText"/>
+				<object name="outpostBuildingst6"      type="text" style="CenteredLabelText"/>
+				<object name="militaryBuildingst6"     type="text" style="CenteredLabelText"/>
+				<object name="fortressBuildingst6"     type="text" style="CenteredLabelText"/>
+				<object name="civCentreBuildingst6"    type="text" style="CenteredLabelText"/>
+				<object name="wonderBuildingst6"       type="text" style="CenteredLabelText"/>
+			</object>
+			<object size="0 65 100% 100%-50">
+				<repeat count="8">
+					<object type="image" name="playerBox1[n]" size="10 0 10 30" hidden="true">
+						<object name="playerColourBox1[n]"      type="image" size="10 4 30 24" />
+						<object name="playerName1[n]"           type="text"  style="LeftLabelText" size="40 2 208 100%" />
+						<object name="civIcon1[n]"              type="image" size="208 0 240 32" tooltip_style="sessionToolTip"/>
+						<object name="totalBuildings[n]" 	type="text" style="CenteredLabelText"/>
+						<object name="houseBuildings[n]"        type="text" style="CenteredLabelText"/>
+						<object name="economicBuildings[n]"     type="text" style="CenteredLabelText"/>
+						<object name="outpostBuildings[n]"      type="text" style="CenteredLabelText"/>
+						<object name="militaryBuildings[n]"     type="text" style="CenteredLabelText"/>
+						<object name="fortressBuildings[n]"     type="text" style="CenteredLabelText"/>
+						<object name="civCentreBuildings[n]"    type="text" style="CenteredLabelText"/>
+						<object name="wonderBuildings[n]"       type="text" style="CenteredLabelText"/>
+					</object>
+				</repeat>
 			</object>
 		</object>
 		
@@ -435,19 +564,27 @@
 				<object size="0 65 100% 100%-50">
 					<repeat count="8">
 						<object type="image" name="playerBox2t0p[n]" size="10 0 10 30" hidden="true">
-							<object name="playerColourBox2t0p[n]"      type="image" size="10 4 30 24"/>
-							<object name="playerName2t0p[n]"           type="text"  style="LeftLabelText" size="40 2 208 100%"/>
-							<object name="civIcon2t0p[n]"              type="image" size="208 0 240 32" tooltip_style="sessionToolTip"/>
-							<object name="totalUnitst0p[n]"         	type="text" style="CenteredLabelText"/>
-							<object name="infantryUnitst0p[n]"         type="text" style="CenteredLabelText"/>
-							<object name="workerUnitst0p[n]"         	type="text" style="CenteredLabelText"/>
-							<object name="cavalryUnitst0p[n]"         	type="text" style="CenteredLabelText"/>
-							<object name="championUnitst0p[n]"         type="text" style="CenteredLabelText"/>
-							<object name="heroesUnitst0p[n]"         	type="text" style="CenteredLabelText"/>
+							<object name="playerColourBox2t0p[n]"   type="image" size="10 4 30 24"/>
+							<object name="playerName2t0p[n]"        type="text"  style="LeftLabelText" size="40 2 208 100%"/>
+							<object name="civIcon2t0p[n]"           type="image" size="208 0 240 32" tooltip_style="sessionToolTip"/>
+							<object name="totalUnitst0p[n]"         type="text" style="CenteredLabelText"/>
+							<object name="infantryUnitst0p[n]"      type="text" style="CenteredLabelText"/>
+							<object name="workerUnitst0p[n]"        type="text" style="CenteredLabelText"/>
+							<object name="cavalryUnitst0p[n]"       type="text" style="CenteredLabelText"/>
+							<object name="championUnitst0p[n]"      type="text" style="CenteredLabelText"/>
+							<object name="heroesUnitst0p[n]"        type="text" style="CenteredLabelText"/>
 							<object name="navyUnitst0p[n]"         	type="text" style="CenteredLabelText"/>
 						</object>
 					</repeat>
 				</object>
+				<object name="teamHeading2t0"     type="text" style="CenteredLabelText"/>
+				<object name="totalUnitst0"       type="text" style="CenteredLabelText"/>
+				<object name="infantryUnitst0"    type="text" style="CenteredLabelText"/>
+				<object name="workerUnitst0"      type="text" style="CenteredLabelText"/>
+				<object name="cavalryUnitst0"     type="text" style="CenteredLabelText"/>
+				<object name="championUnitst0"    type="text" style="CenteredLabelText"/>
+				<object name="heroesUnitst0"      type="text" style="CenteredLabelText"/>
+				<object name="navyUnitst0"        type="text" style="CenteredLabelText"/>
 			</object>
 			<object name="teamBox2t1">
 				<object type="text" name="teamNameHeading2t1" style="LeftTabLabelText"/>
@@ -467,6 +604,14 @@
 						</object>
 					</repeat>
 				</object>
+				<object name="teamHeading2t1"     type="text" style="CenteredLabelText"/>
+				<object name="totalUnitst1"       type="text" style="CenteredLabelText"/>
+				<object name="infantryUnitst1"    type="text" style="CenteredLabelText"/>
+				<object name="workerUnitst1"      type="text" style="CenteredLabelText"/>
+				<object name="cavalryUnitst1"     type="text" style="CenteredLabelText"/>
+				<object name="championUnitst1"    type="text" style="CenteredLabelText"/>
+				<object name="heroesUnitst1"      type="text" style="CenteredLabelText"/>
+				<object name="navyUnitst1"        type="text" style="CenteredLabelText"/>
 			</object>
 			<object name="teamBox2t2">
 				<object type="text" name="teamNameHeading2t2" style="LeftTabLabelText"/>
@@ -486,6 +631,14 @@
 						</object>
 					</repeat>
 				</object>
+				<object name="teamHeading2t2"     type="text" style="CenteredLabelText"/>
+				<object name="totalUnitst2"       type="text" style="CenteredLabelText"/>
+				<object name="infantryUnitst2"    type="text" style="CenteredLabelText"/>
+				<object name="workerUnitst2"      type="text" style="CenteredLabelText"/>
+				<object name="cavalryUnitst2"     type="text" style="CenteredLabelText"/>
+				<object name="championUnitst2"    type="text" style="CenteredLabelText"/>
+				<object name="heroesUnitst2"      type="text" style="CenteredLabelText"/>
+				<object name="navyUnitst2"        type="text" style="CenteredLabelText"/>
 			</object>
 			<object name="teamBox2t3">
 				<object type="text" name="teamNameHeading2t3" style="LeftTabLabelText"/>
@@ -505,6 +658,14 @@
 						</object>
 					</repeat>
 				</object>
+				<object name="teamHeading2t3"     type="text" style="CenteredLabelText"/>
+				<object name="totalUnitst3"       type="text" style="CenteredLabelText"/>
+				<object name="infantryUnitst3"    type="text" style="CenteredLabelText"/>
+				<object name="workerUnitst3"      type="text" style="CenteredLabelText"/>
+				<object name="cavalryUnitst3"     type="text" style="CenteredLabelText"/>
+				<object name="championUnitst3"    type="text" style="CenteredLabelText"/>
+				<object name="heroesUnitst3"      type="text" style="CenteredLabelText"/>
+				<object name="navyUnitst3"        type="text" style="CenteredLabelText"/>
 			</object>
 			<object name="teamBox2t4">
 				<object type="text" name="teamNameHeading2t4" style="LeftTabLabelText"/>
@@ -524,6 +685,14 @@
 						</object>
 					</repeat>
 				</object>
+				<object name="teamHeading2t4"     type="text" style="CenteredLabelText"/>
+				<object name="totalUnitst4"       type="text" style="CenteredLabelText"/>
+				<object name="infantryUnitst4"    type="text" style="CenteredLabelText"/>
+				<object name="workerUnitst4"      type="text" style="CenteredLabelText"/>
+				<object name="cavalryUnitst4"     type="text" style="CenteredLabelText"/>
+				<object name="championUnitst4"    type="text" style="CenteredLabelText"/>
+				<object name="heroesUnitst4"      type="text" style="CenteredLabelText"/>
+				<object name="navyUnitst4"        type="text" style="CenteredLabelText"/>
 			</object>
 			<object name="teamBox2t5">
 				<object type="text" name="teamNameHeading2t5" style="LeftTabLabelText"/>
@@ -543,6 +712,14 @@
 						</object>
 					</repeat>
 				</object>
+				<object name="teamHeading2t5"     type="text" style="CenteredLabelText"/>
+				<object name="totalUnitst5"       type="text" style="CenteredLabelText"/>
+				<object name="infantryUnitst5"    type="text" style="CenteredLabelText"/>
+				<object name="workerUnitst5"      type="text" style="CenteredLabelText"/>
+				<object name="cavalryUnitst5"     type="text" style="CenteredLabelText"/>
+				<object name="championUnitst5"    type="text" style="CenteredLabelText"/>
+				<object name="heroesUnitst5"      type="text" style="CenteredLabelText"/>
+				<object name="navyUnitst5"        type="text" style="CenteredLabelText"/>
 			</object>
 			<object name="teamBox2t6">
 				<object type="text" name="teamNameHeading2t6" style="LeftTabLabelText"/>
@@ -562,8 +739,32 @@
 						</object>
 					</repeat>
 				</object>
+				<object name="teamHeading2t6"     type="text" style="CenteredLabelText"/>
+				<object name="totalUnitst6"       type="text" style="CenteredLabelText"/>
+				<object name="infantryUnitst6"    type="text" style="CenteredLabelText"/>
+				<object name="workerUnitst6"      type="text" style="CenteredLabelText"/>
+				<object name="cavalryUnitst6"     type="text" style="CenteredLabelText"/>
+				<object name="championUnitst6"    type="text" style="CenteredLabelText"/>
+				<object name="heroesUnitst6"      type="text" style="CenteredLabelText"/>
+				<object name="navyUnitst6"        type="text" style="CenteredLabelText"/>
 			</object>
 
+			<object size="0 65 100% 100%-50">
+				<repeat count="8">
+					<object type="image" name="playerBox2[n]" size="10 0 10 30" hidden="true">
+						<object name="playerColourBox2[n]"      type="image" size="10 4 30 24" />
+						<object name="playerName2[n]"           type="text"  style="LeftLabelText" size="40 2 208 100%" />
+						<object name="civIcon2[n]"              type="image" size="208 0 240 32" tooltip_style="sessionToolTip"/>
+						<object name="totalUnits[n]"         	type="text" style="CenteredLabelText"/>
+						<object name="infantryUnits[n]"         type="text" style="CenteredLabelText"/>
+						<object name="workerUnits[n]"         	type="text" style="CenteredLabelText"/>
+						<object name="cavalryUnits[n]"         	type="text" style="CenteredLabelText"/>
+						<object name="championUnits[n]"         type="text" style="CenteredLabelText"/>
+						<object name="heroesUnits[n]"         	type="text" style="CenteredLabelText"/>
+						<object name="navyUnits[n]"         	type="text" style="CenteredLabelText"/>
+					</object>
+				</repeat>
+			</object>
 		</object>
 		<object name="resourcesPanel" type="image" sprite="ForegroundBody" size="20 120 100%-20 100%-58" hidden="true">
 
@@ -615,6 +816,14 @@
 						</object>
 					</repeat>
 				</object>
+				<object name="teamHeading3t0"         type="text" style="CenteredLabelText"/>
+				<object name="foodGatheredt0"         type="text" style="CenteredLabelText"/>
+				<object name="woodGatheredt0"         type="text" style="CenteredLabelText"/>
+				<object name="stoneGatheredt0"        type="text" style="CenteredLabelText"/>
+				<object name="metalGatheredt0"        type="text" style="CenteredLabelText"/>
+				<object name="totalGatheredt0"        type="text" style="CenteredLabelText"/>
+				<object name="treasuresCollectedt0"   type="text" style="CenteredLabelText"/>
+				<object name="resourcesTributedt0"    type="text" style="CenteredLabelText"/>
 			</object>
 			<object name="teamBox3t1">
 				<object type="text" name="teamNameHeading3t1" style="LeftTabLabelText"/>
@@ -634,6 +843,14 @@
 						</object>
 					</repeat>
 				</object>
+				<object name="teamHeading3t1"         type="text" style="CenteredLabelText"/>
+				<object name="foodGatheredt1"         type="text" style="CenteredLabelText"/>
+				<object name="woodGatheredt1"         type="text" style="CenteredLabelText"/>
+				<object name="stoneGatheredt1"        type="text" style="CenteredLabelText"/>
+				<object name="metalGatheredt1"        type="text" style="CenteredLabelText"/>
+				<object name="totalGatheredt1"        type="text" style="CenteredLabelText"/>
+				<object name="treasuresCollectedt1"   type="text" style="CenteredLabelText"/>
+				<object name="resourcesTributedt1"    type="text" style="CenteredLabelText"/>
 			</object>
 			<object name="teamBox3t2">
 				<object type="text" name="teamNameHeading3t2" style="LeftTabLabelText"/>
@@ -653,6 +870,14 @@
 						</object>
 					</repeat>
 				</object>
+				<object name="teamHeading3t2"         type="text" style="CenteredLabelText"/>
+				<object name="foodGatheredt2"         type="text" style="CenteredLabelText"/>
+				<object name="woodGatheredt2"         type="text" style="CenteredLabelText"/>
+				<object name="stoneGatheredt2"        type="text" style="CenteredLabelText"/>
+				<object name="metalGatheredt2"        type="text" style="CenteredLabelText"/>
+				<object name="totalGatheredt2"        type="text" style="CenteredLabelText"/>
+				<object name="treasuresCollectedt2"   type="text" style="CenteredLabelText"/>
+				<object name="resourcesTributedt2"    type="text" style="CenteredLabelText"/>
 			</object>
 			<object name="teamBox3t3">
 				<object type="text" name="teamNameHeading3t3" style="LeftTabLabelText"/>
@@ -672,6 +897,14 @@
 						</object>
 					</repeat>
 				</object>
+				<object name="teamHeading3t3"         type="text" style="CenteredLabelText"/>
+				<object name="foodGatheredt3"         type="text" style="CenteredLabelText"/>
+				<object name="woodGatheredt3"         type="text" style="CenteredLabelText"/>
+				<object name="stoneGatheredt3"        type="text" style="CenteredLabelText"/>
+				<object name="metalGatheredt3"        type="text" style="CenteredLabelText"/>
+				<object name="totalGatheredt3"        type="text" style="CenteredLabelText"/>
+				<object name="treasuresCollectedt3"   type="text" style="CenteredLabelText"/>
+				<object name="resourcesTributedt3"    type="text" style="CenteredLabelText"/>
 			</object>
 			<object name="teamBox3t4">
 				<object type="text" name="teamNameHeading3t4" style="LeftTabLabelText"/>
@@ -691,6 +924,14 @@
 						</object>
 					</repeat>
 				</object>
+				<object name="teamHeading3t4"         type="text" style="CenteredLabelText"/>
+				<object name="foodGatheredt4"         type="text" style="CenteredLabelText"/>
+				<object name="woodGatheredt4"         type="text" style="CenteredLabelText"/>
+				<object name="stoneGatheredt4"        type="text" style="CenteredLabelText"/>
+				<object name="metalGatheredt4"        type="text" style="CenteredLabelText"/>
+				<object name="totalGatheredt4"        type="text" style="CenteredLabelText"/>
+				<object name="treasuresCollectedt4"   type="text" style="CenteredLabelText"/>
+				<object name="resourcesTributedt4"    type="text" style="CenteredLabelText"/>
 			</object>
 			<object name="teamBox3t5">
 				<object type="text" name="teamNameHeading3t5" style="LeftTabLabelText"/>
@@ -710,6 +951,14 @@
 						</object>
 					</repeat>
 				</object>
+				<object name="teamHeading3t5"         type="text" style="CenteredLabelText"/>
+				<object name="foodGatheredt5"         type="text" style="CenteredLabelText"/>
+				<object name="woodGatheredt5"         type="text" style="CenteredLabelText"/>
+				<object name="stoneGatheredt5"        type="text" style="CenteredLabelText"/>
+				<object name="metalGatheredt5"        type="text" style="CenteredLabelText"/>
+				<object name="totalGatheredt5"        type="text" style="CenteredLabelText"/>
+				<object name="treasuresCollectedt5"   type="text" style="CenteredLabelText"/>
+				<object name="resourcesTributedt5"    type="text" style="CenteredLabelText"/>
 			</object>
 			<object name="teamBox3t6">
 				<object type="text" name="teamNameHeading3t6" style="LeftTabLabelText"/>
@@ -729,8 +978,32 @@
 						</object>
 					</repeat>
 				</object>
+				<object name="teamHeading3t6"         type="text" style="CenteredLabelText"/>
+				<object name="foodGatheredt6"         type="text" style="CenteredLabelText"/>
+				<object name="woodGatheredt6"         type="text" style="CenteredLabelText"/>
+				<object name="stoneGatheredt6"        type="text" style="CenteredLabelText"/>
+				<object name="metalGatheredt6"        type="text" style="CenteredLabelText"/>
+				<object name="totalGatheredt6"        type="text" style="CenteredLabelText"/>
+				<object name="treasuresCollectedt6"   type="text" style="CenteredLabelText"/>
+				<object name="resourcesTributedt6"    type="text" style="CenteredLabelText"/>
 			</object>
 
+			<object size="0 65 100% 100%-50">
+				<repeat count="8">
+					<object type="image" name="playerBox3[n]" size="10 0 10 30" hidden="true">
+						<object name="playerColourBox3[n]"     type="image" size="10 4 30 24" />
+						<object name="playerName3[n]"          type="text"  style="LeftLabelText" size="40 2 208 100%" />
+						<object name="civIcon3[n]"             type="image" size="208 0 240 32" tooltip_style="sessionToolTip"/>
+						<object name="foodGathered[n]"         type="text" style="CenteredLabelText"/>
+						<object name="woodGathered[n]"         type="text" style="CenteredLabelText"/>
+						<object name="stoneGathered[n]"        type="text" style="CenteredLabelText" />
+						<object name="metalGathered[n]"        type="text" style="CenteredLabelText"/>
+						<object name="totalGathered[n]"        type="text" style="CenteredLabelText"/>
+						<object name="treasuresCollected[n]"   type="text" style="CenteredLabelText"/>
+						<object name="resourcesTributed[n]"    type="text" style="CenteredLabelText"/>
+					</object>
+				</repeat>
+			</object>
 		</object>
 		<object name="marketPanel" type="image" sprite="ForegroundBody" size="20 120 100%-20 100%-58" hidden="true">
 
@@ -775,6 +1048,13 @@
 						</object>
 					</repeat>
 				</object>
+				<object name="teamHeading4t0"         type="text" style="CenteredLabelText"/>
+				<object name="exchangedFoodt0"        type="text" style="CenteredLabelText"/>
+				<object name="exchangedWoodt0"        type="text" style="CenteredLabelText"/>
+				<object name="exchangedStonet0"       type="text" style="CenteredLabelText"/>
+				<object name="exchangedMetalt0"       type="text" style="CenteredLabelText"/>
+				<object name="barterEfficiencyt0"     type="text" style="CenteredLabelText"/>
+				<object name="tradeIncomet0"          type="text" style="CenteredLabelText"/>
 			</object>
 			<object name="teamBox4t1">
 				<object type="text" name="teamNameHeading4t1" style="LeftTabLabelText"/>
@@ -793,6 +1073,13 @@
 						</object>
 					</repeat>
 				</object>
+				<object name="teamHeading4t1"         type="text" style="CenteredLabelText"/>
+				<object name="exchangedFoodt1"        type="text" style="CenteredLabelText"/>
+				<object name="exchangedWoodt1"        type="text" style="CenteredLabelText"/>
+				<object name="exchangedStonet1"       type="text" style="CenteredLabelText"/>
+				<object name="exchangedMetalt1"       type="text" style="CenteredLabelText"/>
+				<object name="barterEfficiencyt1"     type="text" style="CenteredLabelText"/>
+				<object name="tradeIncomet1"          type="text" style="CenteredLabelText"/>
 			</object>
 			<object name="teamBox4t2">
 				<object type="text" name="teamNameHeading4t2" style="LeftTabLabelText"/>
@@ -811,6 +1098,13 @@
 						</object>
 					</repeat>
 				</object>
+				<object name="teamHeading4t2"         type="text" style="CenteredLabelText"/>
+				<object name="exchangedFoodt2"        type="text" style="CenteredLabelText"/>
+				<object name="exchangedWoodt2"        type="text" style="CenteredLabelText"/>
+				<object name="exchangedStonet2"       type="text" style="CenteredLabelText"/>
+				<object name="exchangedMetalt2"       type="text" style="CenteredLabelText"/>
+				<object name="barterEfficiencyt2"     type="text" style="CenteredLabelText"/>
+				<object name="tradeIncomet2"          type="text" style="CenteredLabelText"/>
 			</object>
 			<object name="teamBox4t3">
 				<object type="text" name="teamNameHeading4t3" style="LeftTabLabelText"/>
@@ -829,6 +1123,13 @@
 						</object>
 					</repeat>
 				</object>
+				<object name="teamHeading4t3"         type="text" style="CenteredLabelText"/>
+				<object name="exchangedFoodt3"        type="text" style="CenteredLabelText"/>
+				<object name="exchangedWoodt3"        type="text" style="CenteredLabelText"/>
+				<object name="exchangedStonet3"       type="text" style="CenteredLabelText"/>
+				<object name="exchangedMetalt3"       type="text" style="CenteredLabelText"/>
+				<object name="barterEfficiencyt3"     type="text" style="CenteredLabelText"/>
+				<object name="tradeIncomet3"          type="text" style="CenteredLabelText"/>
 			</object>
 			<object name="teamBox4t4">
 				<object type="text" name="teamNameHeading4t4" style="LeftTabLabelText"/>
@@ -847,6 +1148,13 @@
 						</object>
 					</repeat>
 				</object>
+				<object name="teamHeading4t4"         type="text" style="CenteredLabelText"/>
+				<object name="exchangedFoodt4"        type="text" style="CenteredLabelText"/>
+				<object name="exchangedWoodt4"        type="text" style="CenteredLabelText"/>
+				<object name="exchangedStonet4"       type="text" style="CenteredLabelText"/>
+				<object name="exchangedMetalt4"       type="text" style="CenteredLabelText"/>
+				<object name="barterEfficiencyt4"     type="text" style="CenteredLabelText"/>
+				<object name="tradeIncomet4"          type="text" style="CenteredLabelText"/>
 			</object>
 			<object name="teamBox4t5">
 				<object type="text" name="teamNameHeading4t5" style="LeftTabLabelText"/>
@@ -865,6 +1173,13 @@
 						</object>
 					</repeat>
 				</object>
+				<object name="teamHeading4t5"         type="text" style="CenteredLabelText"/>
+				<object name="exchangedFoodt5"        type="text" style="CenteredLabelText"/>
+				<object name="exchangedWoodt5"        type="text" style="CenteredLabelText"/>
+				<object name="exchangedStonet5"       type="text" style="CenteredLabelText"/>
+				<object name="exchangedMetalt5"       type="text" style="CenteredLabelText"/>
+				<object name="barterEfficiencyt5"     type="text" style="CenteredLabelText"/>
+				<object name="tradeIncomet5"          type="text" style="CenteredLabelText"/>
 			</object>
 			<object name="teamBox4t6">
 				<object type="text" name="teamNameHeading4t6" style="LeftTabLabelText"/>
@@ -883,8 +1198,30 @@
 						</object>
 					</repeat>
 				</object>
+				<object name="teamHeading4t6"         type="text" style="CenteredLabelText"/>
+				<object name="exchangedFoodt6"        type="text" style="CenteredLabelText"/>
+				<object name="exchangedWoodt6"        type="text" style="CenteredLabelText"/>
+				<object name="exchangedStonet6"       type="text" style="CenteredLabelText"/>
+				<object name="exchangedMetalt6"       type="text" style="CenteredLabelText"/>
+				<object name="barterEfficiencyt6"     type="text" style="CenteredLabelText"/>
+				<object name="tradeIncomet6"          type="text" style="CenteredLabelText"/>
 			</object>
 
+			<object size="0 65 100% 100%-50">
+				<repeat count="8">
+					<object type="image" name="playerBox4[n]" size="10 0 10 30" hidden="true">
+						<object name="playerColourBox4[n]"     type="image" size="10 4 30 24" />
+						<object name="playerName4[n]"          type="text"  style="LeftLabelText" size="40 2 208 100%" />
+						<object name="civIcon4[n]"             type="image" size="208 0 240 32" tooltip_style="sessionToolTip"/>
+						<object name="exchangedFood[n]"        type="text" style="CenteredLabelText"/>
+						<object name="exchangedWood[n]"        type="text" style="CenteredLabelText"/>
+						<object name="exchangedStone[n]"       type="text" style="CenteredLabelText"/>
+						<object name="exchangedMetal[n]"       type="text" style="CenteredLabelText"/>
+						<object name="barterEfficiency[n]"     type="text" style="CenteredLabelText"/>
+						<object name="tradeIncome[n]"          type="text" style="CenteredLabelText"/>
+					</object>
+				</repeat>
+			</object>
 		</object>
 
 		<object name="miscPanel" type="image" sprite="ForegroundBody" size="20 120 100%-20 100%-58" hidden="true">
@@ -922,6 +1259,11 @@
 						</object>	
 					</repeat>
 				</object>
+				<object name="teamHeading5t0"         type="text" style="CenteredLabelText"/>
+				<object name="vegetarianRatiot0"      type="text" style="CenteredLabelText"/>
+				<object name="feminisationt0"         type="text" style="CenteredLabelText"/>
+				<object name="killDeathRatiot0"       type="text" style="CenteredLabelText"/>
+				<object name="mapExplorationt0"       type="text" style="CenteredLabelText"/>
 			</object>
 			<object name="teamBox5t1">
 				<object type="text" name="teamNameHeading5t1" style="LeftTabLabelText"/>
@@ -938,6 +1280,11 @@
 						</object>	
 					</repeat>
 				</object>
+				<object name="teamHeading5t1"         type="text" style="CenteredLabelText"/>
+				<object name="vegetarianRatiot1"      type="text" style="CenteredLabelText"/>
+				<object name="feminisationt1"         type="text" style="CenteredLabelText"/>
+				<object name="killDeathRatiot1"       type="text" style="CenteredLabelText"/>
+				<object name="mapExplorationt1"       type="text" style="CenteredLabelText"/>
 			</object>
 			<object name="teamBox5t2">
 				<object type="text" name="teamNameHeading5t2" style="LeftTabLabelText"/>
@@ -954,6 +1301,11 @@
 						</object>	
 					</repeat>
 				</object>
+				<object name="teamHeading5t2"         type="text" style="CenteredLabelText"/>
+				<object name="vegetarianRatiot2"      type="text" style="CenteredLabelText"/>
+				<object name="feminisationt2"         type="text" style="CenteredLabelText"/>
+				<object name="killDeathRatiot2"       type="text" style="CenteredLabelText"/>
+				<object name="mapExplorationt2"       type="text" style="CenteredLabelText"/>
 			</object>
 			<object name="teamBox5t3">
 				<object type="text" name="teamNameHeading5t3" style="LeftTabLabelText"/>
@@ -970,6 +1322,11 @@
 						</object>	
 					</repeat>
 				</object>
+				<object name="teamHeading5t3"         type="text" style="CenteredLabelText"/>
+				<object name="vegetarianRatiot3"      type="text" style="CenteredLabelText"/>
+				<object name="feminisationt3"         type="text" style="CenteredLabelText"/>
+				<object name="killDeathRatiot3"       type="text" style="CenteredLabelText"/>
+				<object name="mapExplorationt3"       type="text" style="CenteredLabelText"/>
 			</object>
 			<object name="teamBox5t4">
 				<object type="text" name="teamNameHeading5t4" style="LeftTabLabelText"/>
@@ -986,6 +1343,11 @@
 						</object>	
 					</repeat>
 				</object>
+				<object name="teamHeading5t4"         type="text" style="CenteredLabelText"/>
+				<object name="vegetarianRatiot4"      type="text" style="CenteredLabelText"/>
+				<object name="feminisationt4"         type="text" style="CenteredLabelText"/>
+				<object name="killDeathRatiot4"       type="text" style="CenteredLabelText"/>
+				<object name="mapExplorationt4"       type="text" style="CenteredLabelText"/>
 			</object>
 			<object name="teamBox5t5">
 				<object type="text" name="teamNameHeading5t5" style="LeftTabLabelText"/>
@@ -1002,6 +1364,11 @@
 						</object>	
 					</repeat>
 				</object>
+				<object name="teamHeading5t5"         type="text" style="CenteredLabelText"/>
+				<object name="vegetarianRatiot5"      type="text" style="CenteredLabelText"/>
+				<object name="feminisationt5"         type="text" style="CenteredLabelText"/>
+				<object name="killDeathRatiot5"       type="text" style="CenteredLabelText"/>
+				<object name="mapExplorationt5"       type="text" style="CenteredLabelText"/>
 			</object>
 			<object name="teamBox5t6">
 				<object type="text" name="teamNameHeading5t6" style="LeftTabLabelText"/>
@@ -1018,8 +1385,26 @@
 						</object>	
 					</repeat>
 				</object>
+				<object name="teamHeading5t6"         type="text" style="CenteredLabelText"/>
+				<object name="vegetarianRatiot6"      type="text" style="CenteredLabelText"/>
+				<object name="feminisationt6"         type="text" style="CenteredLabelText"/>
+				<object name="killDeathRatiot6"       type="text" style="CenteredLabelText"/>
+				<object name="mapExplorationt6"       type="text" style="CenteredLabelText"/>
 			</object>
 
+			<object size="0 65 100% 100%-50">
+				<repeat count="8">
+					<object type="image" name="playerBox5[n]" size="10 0 10 30" hidden="true">
+						<object name="playerColourBox5[n]"     type="image" size="10 4 30 24" />
+						<object name="playerName5[n]"          type="text"  style="LeftLabelText" size="40 2 208 100%" />
+						<object name="civIcon5[n]"             type="image" size="208 0 240 32" tooltip_style="sessionToolTip"/>
+						<object name="vegetarianRatio[n]"      type="text" style="CenteredLabelText"/>
+						<object name="feminisation[n]"         type="text" style="CenteredLabelText"/>
+						<object name="killDeathRatio[n]"       type="text" style="CenteredLabelText"/>
+						<object name="mapExploration[n]"       type="text" style="CenteredLabelText"/>
+					</object>	
+				</repeat>
+			</object>
 		</object>
 		
 		<object type="button" style="StoneButton" size="100%-164 100%-52 100%-24 100%-24">
