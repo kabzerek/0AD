@@ -107,18 +107,117 @@
 				</object>
 			</object>
 
-			<object size="0 65 100% 100%-50">
-				<repeat count="8">
-					<object type="image" name="playerBox0[n]" size="10 0 10 30" hidden="true">
-						<object name="playerColourBox0[n]"    type="image" size="10 4 30 24" />
-						<object name="playerName0[n]"         type="text"  style="LeftLabelText" size="40 2 208 100%" />
-						<object name="civIcon0[n]"            type="image" size="208 0 240 32" tooltip_style="sessionToolTip"/>
-						<object name="economyScore[n]"        type="text" style="CenteredLabelText"/>
-						<object name="militaryScore[n]"       type="text" style="CenteredLabelText"/>
-						<object name="explorationScore[n]"    type="text" style="CenteredLabelText"/>
-						<object name="totalScore[n]" 	      type="text" style="CenteredLabelText"/>
-					</object>
-				</repeat>
+			<object name="teamPanel0t0">
+				<object type="text" name="teamNameHeading0t0" style="LeftTabLabelText"/>
+				<object size="0 65 100% 100%-50">
+					<repeat count="8">
+						<object type="image" name="playerBox0t0p[n]" size="10 0 10 30" hidden="true">
+							<object name="playerColourBox0t0p[n]"    type="image" size="10 4 30 24"/>
+							<object name="playerName0t0p[n]"         type="text"  style="LeftLabelText" size="40 2 208 100%"/>
+							<object name="civIcon0t0p[n]"            type="image" size="208 0 240 32" tooltip_style="sessionToolTip"/>
+							<object name="economyScoret0p[n]"        type="text" style="CenteredLabelText"/>
+							<object name="militaryScoret0p[n]"       type="text" style="CenteredLabelText"/>
+							<object name="explorationScoret0p[n]"    type="text" style="CenteredLabelText"/>
+							<object name="totalScoret0p[n]" 	      type="text" style="CenteredLabelText"/>
+						</object>
+					</repeat>
+				</object>
+			</object>
+			<object name="teamPanel0t1">
+				<object type="text" name="teamNameHeading0t1" style="LeftTabLabelText"/>
+				<object size="0 65 100% 100%-50">
+					<repeat count="8">
+						<object type="image" name="playerBox0t1p[n]" size="10 0 10 30" hidden="true">
+							<object name="playerColourBox0t1p[n]"    type="image" size="10 4 30 24"/>
+							<object name="playerName0t1p[n]"         type="text"  style="LeftLabelText" size="40 2 208 100%"/>
+							<object name="civIcon0t1p[n]"            type="image" size="208 0 240 32" tooltip_style="sessionToolTip"/>
+							<object name="economyScoret1p[n]"        type="text" style="CenteredLabelText"/>
+							<object name="militaryScoret1p[n]"       type="text" style="CenteredLabelText"/>
+							<object name="explorationScoret1p[n]"    type="text" style="CenteredLabelText"/>
+							<object name="totalScoret1p[n]" 	      type="text" style="CenteredLabelText"/>
+						</object>
+					</repeat>
+				</object>
+			</object>
+			<object name="teamPanel0t2">
+				<object type="text" name="teamNameHeading0t2" style="LeftTabLabelText"/>
+				<object size="0 65 100% 100%-50">
+					<repeat count="8">
+						<object type="image" name="playerBox0t2p[n]" size="10 0 10 30" hidden="true">
+							<object name="playerColourBox0t2p[n]"    type="image" size="10 4 30 24"/>
+							<object name="playerName0t2p[n]"         type="text"  style="LeftLabelText" size="40 2 208 100%"/>
+							<object name="civIcon0t2p[n]"            type="image" size="208 0 240 32" tooltip_style="sessionToolTip"/>
+							<object name="economyScoret2p[n]"        type="text" style="CenteredLabelText"/>
+							<object name="militaryScoret2p[n]"       type="text" style="CenteredLabelText"/>
+							<object name="explorationScoret2p[n]"    type="text" style="CenteredLabelText"/>
+							<object name="totalScoret2p[n]" 	      type="text" style="CenteredLabelText"/>
+						</object>
+					</repeat>
+				</object>
+			</object>
+			<object name="teamPanel0t3">
+				<object type="text" name="teamNameHeading0t3" style="LeftTabLabelText"/>
+				<object size="0 65 100% 100%-50">
+					<repeat count="8">
+						<object type="image" name="playerBox0t3p[n]" size="10 0 10 30" hidden="true">
+							<object name="playerColourBox0t3p[n]"    type="image" size="10 4 30 24"/>
+							<object name="playerName0t3p[n]"         type="text"  style="LeftLabelText" size="40 2 208 100%"/>
+							<object name="civIcon0t3p[n]"            type="image" size="208 0 240 32" tooltip_style="sessionToolTip"/>
+							<object name="economyScoret3p[n]"        type="text" style="CenteredLabelText"/>
+							<object name="militaryScoret3p[n]"       type="text" style="CenteredLabelText"/>
+							<object name="explorationScoret3p[n]"    type="text" style="CenteredLabelText"/>
+							<object name="totalScoret3p[n]" 	      type="text" style="CenteredLabelText"/>
+						</object>
+					</repeat>
+				</object>
+			</object>
+			<object name="teamPanel0t4">
+				<object type="text" name="teamNameHeading0t4" style="LeftTabLabelText"/>
+				<object size="0 65 100% 100%-50">
+					<repeat count="8">
+						<object type="image" name="playerBox0t4p[n]" size="10 0 10 30" hidden="true">
+							<object name="playerColourBox0t4p[n]"    type="image" size="10 4 30 24"/>
+							<object name="playerName0t4p[n]"         type="text"  style="LeftLabelText" size="40 2 208 100%"/>
+							<object name="civIcon0t4p[n]"            type="image" size="208 0 240 32" tooltip_style="sessionToolTip"/>
+							<object name="economyScoret4p[n]"        type="text" style="CenteredLabelText"/>
+							<object name="militaryScoret4p[n]"       type="text" style="CenteredLabelText"/>
+							<object name="explorationScoret4p[n]"    type="text" style="CenteredLabelText"/>
+							<object name="totalScoret4p[n]" 	      type="text" style="CenteredLabelText"/>
+						</object>
+					</repeat>
+				</object>
+			</object>
+			<object name="teamPanel0t5">
+				<object type="text" name="teamNameHeading0t5" style="LeftTabLabelText"/>
+				<object size="0 65 100% 100%-50">
+					<repeat count="8">
+						<object type="image" name="playerBox0t5p[n]" size="10 0 10 30" hidden="true">
+							<object name="playerColourBox0t5p[n]"    type="image" size="10 4 30 24"/>
+							<object name="playerName0t5p[n]"         type="text"  style="LeftLabelText" size="40 2 208 100%"/>
+							<object name="civIcon0t5p[n]"            type="image" size="208 0 240 32" tooltip_style="sessionToolTip"/>
+							<object name="economyScoret5p[n]"        type="text" style="CenteredLabelText"/>
+							<object name="militaryScoret5p[n]"       type="text" style="CenteredLabelText"/>
+							<object name="explorationScoret5p[n]"    type="text" style="CenteredLabelText"/>
+							<object name="totalScoret5p[n]" 	      type="text" style="CenteredLabelText"/>
+						</object>
+					</repeat>
+				</object>
+			</object>
+			<object name="teamPanel0t6">
+				<object type="text" name="teamNameHeading0t6" style="LeftTabLabelText"/>
+				<object size="0 65 100% 100%-50">
+					<repeat count="8">
+						<object type="image" name="playerBox0t6p[n]" size="10 0 10 30" hidden="true">
+							<object name="playerColourBox0t6p[n]"    type="image" size="10 4 30 24"/>
+							<object name="playerName0t6p[n]"         type="text"  style="LeftLabelText" size="40 2 208 100%"/>
+							<object name="civIcon0t6p[n]"            type="image" size="208 0 240 32" tooltip_style="sessionToolTip"/>
+							<object name="economyScoret6p[n]"        type="text" style="CenteredLabelText"/>
+							<object name="militaryScoret6p[n]"       type="text" style="CenteredLabelText"/>
+							<object name="explorationScoret6p[n]"    type="text" style="CenteredLabelText"/>
+							<object name="totalScoret6p[n]" 	      type="text" style="CenteredLabelText"/>
+						</object>
+					</repeat>
+				</object>
 			</object>
 
 		</object>
@@ -157,27 +256,145 @@
 				</object>
 
 			</object>
-			<object>
-				<repeat count="7">
-					<object type="text" name="teamName1Heading[t]" style="LeftTabLabelText" size="0 65 100% 100%-50"> 
-						Team name 
-					</object>
+			<object name="teamPanel1t0">
+				<object type="text" name="teamNameHeading1t0" style="LeftTabLabelText"/>
+				<object size="0 65 100% 100%-50">
 					<repeat count="8">
-							<object type="image" name="playerBox1[t][n]" size="10 0 10 30" hidden="true">
-							<object name="playerColourBox1[t][n]"      type="image" size="10 4 30 24" />
-							<object name="playerName1[t][n]"           type="text"  style="LeftLabelText" size="40 2 208 100%" />
-							<object name="civIcon1[t][n]"              type="image" size="208 0 240 32" tooltip_style="sessionToolTip"/>
-							<object name="totalBuildings[t][n]"        type="text" style="CenteredLabelText"/>
-							<object name="houseBuildings[t][n]"        type="text" style="CenteredLabelText"/>
-							<object name="economicBuildings[t][n]"     type="text" style="CenteredLabelText"/>
-							<object name="outpostBuildings[t][n]"      type="text" style="CenteredLabelText"/>
-							<object name="militaryBuildings[t][n]"     type="text" style="CenteredLabelText"/>
-							<object name="fortressBuildings[t][n]"     type="text" style="CenteredLabelText"/>
-							<object name="civCentreBuildings[t][n]"    type="text" style="CenteredLabelText"/>
-							<object name="wonderBuildings[t][n]"       type="text" style="CenteredLabelText"/>
+						<object type="image" name="playerBox1t0p[n]" size="10 0 10 30" hidden="true">
+							<object name="playerColourBox1t0p[n]"      type="image" size="10 4 30 24"/>
+							<object name="playerName1t0p[n]"           type="text"  style="LeftLabelText" size="40 2 208 100%"/>
+							<object name="civIcon1t0p[n]"              type="image" size="208 0 240 32" tooltip_style="sessionToolTip"/>
+							<object name="totalBuildingst0p[n]"        type="text" style="CenteredLabelText"/>
+							<object name="houseBuildingst0p[n]"        type="text" style="CenteredLabelText"/>
+							<object name="economicBuildingst0p[n]"     type="text" style="CenteredLabelText"/>
+							<object name="outpostBuildingst0p[n]"      type="text" style="CenteredLabelText"/>
+							<object name="militaryBuildingst0p[n]"     type="text" style="CenteredLabelText"/>
+							<object name="fortressBuildingst0p[n]"     type="text" style="CenteredLabelText"/>
+							<object name="civCentreBuildingst0p[n]"    type="text" style="CenteredLabelText"/>
+							<object name="wonderBuildingst0p[n]"       type="text" style="CenteredLabelText"/>
 						</object>
 					</repeat>
-				</repeat>
+				</object>
+			</object>
+			<object name="teamPanel1t1">
+				<object type="text" name="teamNameHeading1t1" style="LeftTabLabelText"/>
+				<object size="0 65 100% 100%-50">
+					<repeat count="8">
+						<object type="image" name="playerBox1t1p[n]" size="10 0 10 30" hidden="true">
+							<object name="playerColourBox1t1p[n]"      type="image" size="10 4 30 24"/>
+							<object name="playerName1t1p[n]"           type="text"  style="LeftLabelText" size="40 2 208 100%"/>
+							<object name="civIcon1t1p[n]"              type="image" size="208 0 240 32" tooltip_style="sessionToolTip"/>
+							<object name="totalBuildingst1p[n]"        type="text" style="CenteredLabelText"/>
+							<object name="houseBuildingst1p[n]"        type="text" style="CenteredLabelText"/>
+							<object name="economicBuildingst1p[n]"     type="text" style="CenteredLabelText"/>
+							<object name="outpostBuildingst1p[n]"      type="text" style="CenteredLabelText"/>
+							<object name="militaryBuildingst1p[n]"     type="text" style="CenteredLabelText"/>
+							<object name="fortressBuildingst1p[n]"     type="text" style="CenteredLabelText"/>
+							<object name="civCentreBuildingst1p[n]"    type="text" style="CenteredLabelText"/>
+							<object name="wonderBuildingst1p[n]"       type="text" style="CenteredLabelText"/>
+						</object>
+					</repeat>
+				</object>
+			</object>
+			<object name="teamPanel1t2">
+				<object type="text" name="teamNameHeading1t2" style="LeftTabLabelText"/>
+				<object size="0 65 100% 100%-50">
+					<repeat count="8">
+						<object type="image" name="playerBox1t2p[n]" size="10 0 10 30" hidden="true">
+							<object name="playerColourBox1t2p[n]"      type="image" size="10 4 30 24"/>
+							<object name="playerName1t2p[n]"           type="text"  style="LeftLabelText" size="40 2 208 100%"/>
+							<object name="civIcon1t2p[n]"              type="image" size="208 0 240 32" tooltip_style="sessionToolTip"/>
+							<object name="totalBuildingst2p[n]"        type="text" style="CenteredLabelText"/>
+							<object name="houseBuildingst2p[n]"        type="text" style="CenteredLabelText"/>
+							<object name="economicBuildingst2p[n]"     type="text" style="CenteredLabelText"/>
+							<object name="outpostBuildingst2p[n]"      type="text" style="CenteredLabelText"/>
+							<object name="militaryBuildingst2p[n]"     type="text" style="CenteredLabelText"/>
+							<object name="fortressBuildingst2p[n]"     type="text" style="CenteredLabelText"/>
+							<object name="civCentreBuildingst2p[n]"    type="text" style="CenteredLabelText"/>
+							<object name="wonderBuildingst2p[n]"       type="text" style="CenteredLabelText"/>
+						</object>
+					</repeat>
+				</object>
+			</object>
+			<object name="teamPanel1t3">
+				<object type="text" name="teamNameHeading1t3" style="LeftTabLabelText"/>
+				<object size="0 65 100% 100%-50">
+					<repeat count="8">
+						<object type="image" name="playerBox1t3p[n]" size="10 0 10 30" hidden="true">
+							<object name="playerColourBox1t3p[n]"      type="image" size="10 4 30 24"/>
+							<object name="playerName1t3p[n]"           type="text"  style="LeftLabelText" size="40 2 208 100%"/>
+							<object name="civIcon1t3p[n]"              type="image" size="208 0 240 32" tooltip_style="sessionToolTip"/>
+							<object name="totalBuildingst3p[n]"        type="text" style="CenteredLabelText"/>
+							<object name="houseBuildingst3p[n]"        type="text" style="CenteredLabelText"/>
+							<object name="economicBuildingst3p[n]"     type="text" style="CenteredLabelText"/>
+							<object name="outpostBuildingst3p[n]"      type="text" style="CenteredLabelText"/>
+							<object name="militaryBuildingst3p[n]"     type="text" style="CenteredLabelText"/>
+							<object name="fortressBuildingst3p[n]"     type="text" style="CenteredLabelText"/>
+							<object name="civCentreBuildingst3p[n]"    type="text" style="CenteredLabelText"/>
+							<object name="wonderBuildingst3p[n]"       type="text" style="CenteredLabelText"/>
+						</object>
+					</repeat>
+				</object>
+			</object>
+			<object name="teamPanel1t4">
+				<object type="text" name="teamNameHeading1t4" style="LeftTabLabelText"/>
+				<object size="0 65 100% 100%-50">
+					<repeat count="8">
+						<object type="image" name="playerBox1t4p[n]" size="10 0 10 30" hidden="true">
+							<object name="playerColourBox1t4p[n]"      type="image" size="10 4 30 24"/>
+							<object name="playerName1t4p[n]"           type="text"  style="LeftLabelText" size="40 2 208 100%"/>
+							<object name="civIcon1t4p[n]"              type="image" size="208 0 240 32" tooltip_style="sessionToolTip"/>
+							<object name="totalBuildingst4p[n]"        type="text" style="CenteredLabelText"/>
+							<object name="houseBuildingst4p[n]"        type="text" style="CenteredLabelText"/>
+							<object name="economicBuildingst4p[n]"     type="text" style="CenteredLabelText"/>
+							<object name="outpostBuildingst4p[n]"      type="text" style="CenteredLabelText"/>
+							<object name="militaryBuildingst4p[n]"     type="text" style="CenteredLabelText"/>
+							<object name="fortressBuildingst4p[n]"     type="text" style="CenteredLabelText"/>
+							<object name="civCentreBuildingst4p[n]"    type="text" style="CenteredLabelText"/>
+							<object name="wonderBuildingst4p[n]"       type="text" style="CenteredLabelText"/>
+						</object>
+					</repeat>
+				</object>
+			</object>
+			<object name="teamPanel1t5">
+				<object type="text" name="teamNameHeading1t5" style="LeftTabLabelText"/>
+				<object size="0 65 100% 100%-50">
+					<repeat count="8">
+						<object type="image" name="playerBox1t5p[n]" size="10 0 10 30" hidden="true">
+							<object name="playerColourBox1t5p[n]"      type="image" size="10 4 30 24"/>
+							<object name="playerName1t5p[n]"           type="text"  style="LeftLabelText" size="40 2 208 100%"/>
+							<object name="civIcon1t5p[n]"              type="image" size="208 0 240 32" tooltip_style="sessionToolTip"/>
+							<object name="totalBuildingst5p[n]"        type="text" style="CenteredLabelText"/>
+							<object name="houseBuildingst5p[n]"        type="text" style="CenteredLabelText"/>
+							<object name="economicBuildingst5p[n]"     type="text" style="CenteredLabelText"/>
+							<object name="outpostBuildingst5p[n]"      type="text" style="CenteredLabelText"/>
+							<object name="militaryBuildingst5p[n]"     type="text" style="CenteredLabelText"/>
+							<object name="fortressBuildingst5p[n]"     type="text" style="CenteredLabelText"/>
+							<object name="civCentreBuildingst5p[n]"    type="text" style="CenteredLabelText"/>
+							<object name="wonderBuildingst5p[n]"       type="text" style="CenteredLabelText"/>
+						</object>
+					</repeat>
+				</object>
+			</object>
+			<object name="teamPanel1t6">
+				<object type="text" name="teamNameHeading1t6" style="LeftTabLabelText"/>
+				<object size="0 65 100% 100%-50">
+					<repeat count="8">
+						<object type="image" name="playerBox1t6p[n]" size="10 0 10 30" hidden="true">
+							<object name="playerColourBox1t6p[n]"      type="image" size="10 4 30 24"/>
+							<object name="playerName1t6p[n]"           type="text"  style="LeftLabelText" size="40 2 208 100%"/>
+							<object name="civIcon1t6p[n]"              type="image" size="208 0 240 32" tooltip_style="sessionToolTip"/>
+							<object name="totalBuildingst6p[n]"        type="text" style="CenteredLabelText"/>
+							<object name="houseBuildingst6p[n]"        type="text" style="CenteredLabelText"/>
+							<object name="economicBuildingst6p[n]"     type="text" style="CenteredLabelText"/>
+							<object name="outpostBuildingst6p[n]"      type="text" style="CenteredLabelText"/>
+							<object name="militaryBuildingst6p[n]"     type="text" style="CenteredLabelText"/>
+							<object name="fortressBuildingst6p[n]"     type="text" style="CenteredLabelText"/>
+							<object name="civCentreBuildingst6p[n]"    type="text" style="CenteredLabelText"/>
+							<object name="wonderBuildingst6p[n]"       type="text" style="CenteredLabelText"/>
+						</object>
+					</repeat>
+				</object>
 			</object>
 		</object>
 		
@@ -213,21 +430,138 @@
 				</object>
 			</object>
 
-			<object size="0 65 100% 100%-50">
-				<repeat count="8">
-					<object type="image" name="playerBox2[n]" size="10 0 10 30" hidden="true">
-						<object name="playerColourBox2[n]"      type="image" size="10 4 30 24" />
-						<object name="playerName2[n]"           type="text"  style="LeftLabelText" size="40 2 208 100%" />
-						<object name="civIcon2[n]"              type="image" size="208 0 240 32" tooltip_style="sessionToolTip"/>
-						<object name="totalUnits[n]"         	type="text" style="CenteredLabelText"/>
-						<object name="infantryUnits[n]"         type="text" style="CenteredLabelText"/>
-						<object name="workerUnits[n]"         	type="text" style="CenteredLabelText"/>
-						<object name="cavalryUnits[n]"         	type="text" style="CenteredLabelText"/>
-						<object name="championUnits[n]"         type="text" style="CenteredLabelText"/>
-						<object name="heroesUnits[n]"         	type="text" style="CenteredLabelText"/>
-						<object name="navyUnits[n]"         	type="text" style="CenteredLabelText"/>
-					</object>
-				</repeat>
+			<object name="teamPanel2t0">
+				<object type="text" name="teamNameHeading2t0" style="LeftTabLabelText"/>
+				<object size="0 65 100% 100%-50">
+					<repeat count="8">
+						<object type="image" name="playerBox2t0p[n]" size="10 0 10 30" hidden="true">
+							<object name="playerColourBox2t0p[n]"      type="image" size="10 4 30 24"/>
+							<object name="playerName2t0p[n]"           type="text"  style="LeftLabelText" size="40 2 208 100%"/>
+							<object name="civIcon2t0p[n]"              type="image" size="208 0 240 32" tooltip_style="sessionToolTip"/>
+							<object name="totalUnitst0p[n]"         	type="text" style="CenteredLabelText"/>
+							<object name="infantryUnitst0p[n]"         type="text" style="CenteredLabelText"/>
+							<object name="workerUnitst0p[n]"         	type="text" style="CenteredLabelText"/>
+							<object name="cavalryUnitst0p[n]"         	type="text" style="CenteredLabelText"/>
+							<object name="championUnitst0p[n]"         type="text" style="CenteredLabelText"/>
+							<object name="heroesUnitst0p[n]"         	type="text" style="CenteredLabelText"/>
+							<object name="navyUnitst0p[n]"         	type="text" style="CenteredLabelText"/>
+						</object>
+					</repeat>
+				</object>
+			</object>
+			<object name="teamPanel2t1">
+				<object type="text" name="teamNameHeading2t1" style="LeftTabLabelText"/>
+				<object size="0 65 100% 100%-50">
+					<repeat count="8">
+						<object type="image" name="playerBox2t1p[n]" size="10 0 10 30" hidden="true">
+							<object name="playerColourBox2t1p[n]"      type="image" size="10 4 30 24"/>
+							<object name="playerName2t1p[n]"           type="text"  style="LeftLabelText" size="40 2 208 100%"/>
+							<object name="civIcon2t1p[n]"              type="image" size="208 0 240 32" tooltip_style="sessionToolTip"/>
+							<object name="totalUnitst1p[n]"         	type="text" style="CenteredLabelText"/>
+							<object name="infantryUnitst1p[n]"         type="text" style="CenteredLabelText"/>
+							<object name="workerUnitst1p[n]"         	type="text" style="CenteredLabelText"/>
+							<object name="cavalryUnitst1p[n]"         	type="text" style="CenteredLabelText"/>
+							<object name="championUnitst1p[n]"         type="text" style="CenteredLabelText"/>
+							<object name="heroesUnitst1p[n]"         	type="text" style="CenteredLabelText"/>
+							<object name="navyUnitst1p[n]"         	type="text" style="CenteredLabelText"/>
+						</object>
+					</repeat>
+				</object>
+			</object>
+			<object name="teamPanel2t2">
+				<object type="text" name="teamNameHeading2t2" style="LeftTabLabelText"/>
+				<object size="0 65 100% 100%-50">
+					<repeat count="8">
+						<object type="image" name="playerBox2t2p[n]" size="10 0 10 30" hidden="true">
+							<object name="playerColourBox2t2p[n]"      type="image" size="10 4 30 24"/>
+							<object name="playerName2t2p[n]"           type="text"  style="LeftLabelText" size="40 2 208 100%"/>
+							<object name="civIcon2t2p[n]"              type="image" size="208 0 240 32" tooltip_style="sessionToolTip"/>
+							<object name="totalUnitst2p[n]"         	type="text" style="CenteredLabelText"/>
+							<object name="infantryUnitst2p[n]"         type="text" style="CenteredLabelText"/>
+							<object name="workerUnitst2p[n]"         	type="text" style="CenteredLabelText"/>
+							<object name="cavalryUnitst2p[n]"         	type="text" style="CenteredLabelText"/>
+							<object name="championUnitst2p[n]"         type="text" style="CenteredLabelText"/>
+							<object name="heroesUnitst2p[n]"         	type="text" style="CenteredLabelText"/>
+							<object name="navyUnitst2p[n]"         	type="text" style="CenteredLabelText"/>
+						</object>
+					</repeat>
+				</object>
+			</object>
+			<object name="teamPanel2t3">
+				<object type="text" name="teamNameHeading2t3" style="LeftTabLabelText"/>
+				<object size="0 65 100% 100%-50">
+					<repeat count="8">
+						<object type="image" name="playerBox2t3p[n]" size="10 0 10 30" hidden="true">
+							<object name="playerColourBox2t3p[n]"      type="image" size="10 4 30 24"/>
+							<object name="playerName2t3p[n]"           type="text"  style="LeftLabelText" size="40 2 208 100%"/>
+							<object name="civIcon2t3p[n]"              type="image" size="208 0 240 32" tooltip_style="sessionToolTip"/>
+							<object name="totalUnitst3p[n]"         	type="text" style="CenteredLabelText"/>
+							<object name="infantryUnitst3p[n]"         type="text" style="CenteredLabelText"/>
+							<object name="workerUnitst3p[n]"         	type="text" style="CenteredLabelText"/>
+							<object name="cavalryUnitst3p[n]"         	type="text" style="CenteredLabelText"/>
+							<object name="championUnitst3p[n]"         type="text" style="CenteredLabelText"/>
+							<object name="heroesUnitst3p[n]"         	type="text" style="CenteredLabelText"/>
+							<object name="navyUnitst3p[n]"         	type="text" style="CenteredLabelText"/>
+						</object>
+					</repeat>
+				</object>
+			</object>
+			<object name="teamPanel2t4">
+				<object type="text" name="teamNameHeading2t4" style="LeftTabLabelText"/>
+				<object size="0 65 100% 100%-50">
+					<repeat count="8">
+						<object type="image" name="playerBox2t4p[n]" size="10 0 10 30" hidden="true">
+							<object name="playerColourBox2t4p[n]"      type="image" size="10 4 30 24"/>
+							<object name="playerName2t4p[n]"           type="text"  style="LeftLabelText" size="40 2 208 100%"/>
+							<object name="civIcon2t4p[n]"              type="image" size="208 0 240 32" tooltip_style="sessionToolTip"/>
+							<object name="totalUnitst4p[n]"         	type="text" style="CenteredLabelText"/>
+							<object name="infantryUnitst4p[n]"         type="text" style="CenteredLabelText"/>
+							<object name="workerUnitst4p[n]"         	type="text" style="CenteredLabelText"/>
+							<object name="cavalryUnitst4p[n]"         	type="text" style="CenteredLabelText"/>
+							<object name="championUnitst4p[n]"         type="text" style="CenteredLabelText"/>
+							<object name="heroesUnitst4p[n]"         	type="text" style="CenteredLabelText"/>
+							<object name="navyUnitst4p[n]"         	type="text" style="CenteredLabelText"/>
+						</object>
+					</repeat>
+				</object>
+			</object>
+			<object name="teamPanel2t5">
+				<object type="text" name="teamNameHeading2t5" style="LeftTabLabelText"/>
+				<object size="0 65 100% 100%-50">
+					<repeat count="8">
+						<object type="image" name="playerBox2t5p[n]" size="10 0 10 30" hidden="true">
+							<object name="playerColourBox2t5p[n]"      type="image" size="10 4 30 24"/>
+							<object name="playerName2t5p[n]"           type="text"  style="LeftLabelText" size="40 2 208 100%"/>
+							<object name="civIcon2t5p[n]"              type="image" size="208 0 240 32" tooltip_style="sessionToolTip"/>
+							<object name="totalUnitst5p[n]"         	type="text" style="CenteredLabelText"/>
+							<object name="infantryUnitst5p[n]"         type="text" style="CenteredLabelText"/>
+							<object name="workerUnitst5p[n]"         	type="text" style="CenteredLabelText"/>
+							<object name="cavalryUnitst5p[n]"         	type="text" style="CenteredLabelText"/>
+							<object name="championUnitst5p[n]"         type="text" style="CenteredLabelText"/>
+							<object name="heroesUnitst5p[n]"         	type="text" style="CenteredLabelText"/>
+							<object name="navyUnitst5p[n]"         	type="text" style="CenteredLabelText"/>
+						</object>
+					</repeat>
+				</object>
+			</object>
+			<object name="teamPanel2t6">
+				<object type="text" name="teamNameHeading2t6" style="LeftTabLabelText"/>
+				<object size="0 65 100% 100%-50">
+					<repeat count="8">
+						<object type="image" name="playerBox2t6p[n]" size="10 0 10 30" hidden="true">
+							<object name="playerColourBox2t6p[n]"      type="image" size="10 4 30 24"/>
+							<object name="playerName2t6p[n]"           type="text"  style="LeftLabelText" size="40 2 208 100%"/>
+							<object name="civIcon2t6p[n]"              type="image" size="208 0 240 32" tooltip_style="sessionToolTip"/>
+							<object name="totalUnitst6p[n]"         	type="text" style="CenteredLabelText"/>
+							<object name="infantryUnitst6p[n]"         type="text" style="CenteredLabelText"/>
+							<object name="workerUnitst6p[n]"         	type="text" style="CenteredLabelText"/>
+							<object name="cavalryUnitst6p[n]"         	type="text" style="CenteredLabelText"/>
+							<object name="championUnitst6p[n]"         type="text" style="CenteredLabelText"/>
+							<object name="heroesUnitst6p[n]"         	type="text" style="CenteredLabelText"/>
+							<object name="navyUnitst6p[n]"         	type="text" style="CenteredLabelText"/>
+						</object>
+					</repeat>
+				</object>
 			</object>
 
 		</object>
@@ -263,21 +597,157 @@
 				</object>
 			</object>
 
-			<object size="0 65 100% 100%-50">
-				<repeat count="8">
-					<object type="image" name="playerBox3[n]" size="10 0 10 30" hidden="true">
-						<object name="playerColourBox3[n]"     type="image" size="10 4 30 24" />
-						<object name="playerName3[n]"          type="text"  style="LeftLabelText" size="40 2 208 100%" />
-						<object name="civIcon3[n]"             type="image" size="208 0 240 32" tooltip_style="sessionToolTip"/>
-						<object name="foodGathered[n]"         type="text" style="CenteredLabelText"/>
-						<object name="woodGathered[n]"         type="text" style="CenteredLabelText"/>
-						<object name="stoneGathered[n]"        type="text" style="CenteredLabelText" />
-						<object name="metalGathered[n]"        type="text" style="CenteredLabelText"/>
-						<object name="totalGathered[n]"        type="text" style="CenteredLabelText"/>
-						<object name="treasuresCollected[n]"   type="text" style="CenteredLabelText"/>
-						<object name="resourcesTributed[n]"    type="text" style="CenteredLabelText"/>
-					</object>
-				</repeat>
+			<object name="teamPanel3t0">
+				<object type="text" name="teamNameHeading3t0" style="LeftTabLabelText"/>
+				<object size="0 65 100% 100%-50">
+					<repeat count="8">
+						<object type="image" name="playerBox3t0p[n]" size="10 0 10 30" hidden="true">
+							<object name="playerColourBox3t0p[n]"     type="image" size="10 4 30 24"/>
+							<object name="playerName3t0p[n]"          type="text"  style="LeftLabelText" size="40 2 208 100%"/>
+							<object name="civIcon3t0p[n]"             type="image" size="208 0 240 32" tooltip_style="sessionToolTip"/>
+							<object name="foodGatheredt0p[n]"         type="text" style="CenteredLabelText"/>
+							<object name="woodGatheredt0p[n]"         type="text" style="CenteredLabelText"/>
+							<object name="stoneGatheredt0p[n]"        type="text" style="CenteredLabelText"/>
+							<object name="metalGatheredt0p[n]"        type="text" style="CenteredLabelText"/>
+							<object name="totalGatheredt0p[n]"        type="text" style="CenteredLabelText"/>
+							<object name="treasuresCollectedt0p[n]"   type="text" style="CenteredLabelText"/>
+							<object name="resourcesTributedt0p[n]"    type="text" style="CenteredLabelText"/>
+						</object>
+					</repeat>
+				</object>
+			</object>
+			<object name="teamPanel3t0">
+				<object type="text" name="teamNameHeading3t0" style="LeftTabLabelText"/>
+				<object size="0 65 100% 100%-50">
+					<repeat count="8">
+						<object type="image" name="playerBox3t1p[n]" size="10 0 10 30" hidden="true">
+							<object name="playerColourBox3t1p[n]"     type="image" size="10 4 30 24"/>
+							<object name="playerName3t1p[n]"          type="text"  style="LeftLabelText" size="40 2 208 100%"/>
+							<object name="civIcon3t1p[n]"             type="image" size="208 0 240 32" tooltip_style="sessionToolTip"/>
+							<object name="foodGatheredt1p[n]"         type="text" style="CenteredLabelText"/>
+							<object name="woodGatheredt1p[n]"         type="text" style="CenteredLabelText"/>
+							<object name="stoneGatheredt1p[n]"        type="text" style="CenteredLabelText"/>
+							<object name="metalGatheredt1p[n]"        type="text" style="CenteredLabelText"/>
+							<object name="totalGatheredt1p[n]"        type="text" style="CenteredLabelText"/>
+							<object name="treasuresCollectedt1p[n]"   type="text" style="CenteredLabelText"/>
+							<object name="resourcesTributedt1p[n]"    type="text" style="CenteredLabelText"/>
+						</object>
+					</repeat>
+				</object>
+			</object>
+			<object name="teamPanel3t1">
+				<object type="text" name="teamNameHeading3t1" style="LeftTabLabelText"/>
+				<object size="0 65 100% 100%-50">
+					<repeat count="8">
+						<object type="image" name="playerBox3t1p[n]" size="10 0 10 30" hidden="true">
+							<object name="playerColourBox3t1p[n]"     type="image" size="10 4 30 24"/>
+							<object name="playerName3t1p[n]"          type="text"  style="LeftLabelText" size="40 2 208 100%"/>
+							<object name="civIcon3t1p[n]"             type="image" size="208 0 240 32" tooltip_style="sessionToolTip"/>
+							<object name="foodGatheredt1p[n]"         type="text" style="CenteredLabelText"/>
+							<object name="woodGatheredt1p[n]"         type="text" style="CenteredLabelText"/>
+							<object name="stoneGatheredt1p[n]"        type="text" style="CenteredLabelText"/>
+							<object name="metalGatheredt1p[n]"        type="text" style="CenteredLabelText"/>
+							<object name="totalGatheredt1p[n]"        type="text" style="CenteredLabelText"/>
+							<object name="treasuresCollectedt1p[n]"   type="text" style="CenteredLabelText"/>
+							<object name="resourcesTributedt1p[n]"    type="text" style="CenteredLabelText"/>
+						</object>
+					</repeat>
+				</object>
+			</object>
+			<object name="teamPanel3t2">
+				<object type="text" name="teamNameHeading3t2" style="LeftTabLabelText"/>
+				<object size="0 65 100% 100%-50">
+					<repeat count="8">
+						<object type="image" name="playerBox3t2p[n]" size="10 0 10 30" hidden="true">
+							<object name="playerColourBox3t2p[n]"     type="image" size="10 4 30 24"/>
+							<object name="playerName3t2p[n]"          type="text"  style="LeftLabelText" size="40 2 208 100%"/>
+							<object name="civIcon3t2p[n]"             type="image" size="208 0 240 32" tooltip_style="sessionToolTip"/>
+							<object name="foodGatheredt2p[n]"         type="text" style="CenteredLabelText"/>
+							<object name="woodGatheredt2p[n]"         type="text" style="CenteredLabelText"/>
+							<object name="stoneGatheredt2p[n]"        type="text" style="CenteredLabelText"/>
+							<object name="metalGatheredt2p[n]"        type="text" style="CenteredLabelText"/>
+							<object name="totalGatheredt2p[n]"        type="text" style="CenteredLabelText"/>
+							<object name="treasuresCollectedt2p[n]"   type="text" style="CenteredLabelText"/>
+							<object name="resourcesTributedt2p[n]"    type="text" style="CenteredLabelText"/>
+						</object>
+					</repeat>
+				</object>
+			</object>
+			<object name="teamPanel3t3">
+				<object type="text" name="teamNameHeading3t3" style="LeftTabLabelText"/>
+				<object size="0 65 100% 100%-50">
+					<repeat count="8">
+						<object type="image" name="playerBox3t3p[n]" size="10 0 10 30" hidden="true">
+							<object name="playerColourBox3t3p[n]"     type="image" size="10 4 30 24"/>
+							<object name="playerName3t3p[n]"          type="text"  style="LeftLabelText" size="40 2 208 100%"/>
+							<object name="civIcon3t3p[n]"             type="image" size="208 0 240 32" tooltip_style="sessionToolTip"/>
+							<object name="foodGatheredt3p[n]"         type="text" style="CenteredLabelText"/>
+							<object name="woodGatheredt3p[n]"         type="text" style="CenteredLabelText"/>
+							<object name="stoneGatheredt3p[n]"        type="text" style="CenteredLabelText"/>
+							<object name="metalGatheredt3p[n]"        type="text" style="CenteredLabelText"/>
+							<object name="totalGatheredt3p[n]"        type="text" style="CenteredLabelText"/>
+							<object name="treasuresCollectedt3p[n]"   type="text" style="CenteredLabelText"/>
+							<object name="resourcesTributedt3p[n]"    type="text" style="CenteredLabelText"/>
+						</object>
+					</repeat>
+				</object>
+			</object>
+			<object name="teamPanel3t4">
+				<object type="text" name="teamNameHeading3t4" style="LeftTabLabelText"/>
+				<object size="0 65 100% 100%-50">
+					<repeat count="8">
+						<object type="image" name="playerBox3t4p[n]" size="10 0 10 30" hidden="true">
+							<object name="playerColourBox3t4p[n]"     type="image" size="10 4 30 24"/>
+							<object name="playerName3t4p[n]"          type="text"  style="LeftLabelText" size="40 2 208 100%"/>
+							<object name="civIcon3t4p[n]"             type="image" size="208 0 240 32" tooltip_style="sessionToolTip"/>
+							<object name="foodGatheredt4p[n]"         type="text" style="CenteredLabelText"/>
+							<object name="woodGatheredt4p[n]"         type="text" style="CenteredLabelText"/>
+							<object name="stoneGatheredt4p[n]"        type="text" style="CenteredLabelText"/>
+							<object name="metalGatheredt4p[n]"        type="text" style="CenteredLabelText"/>
+							<object name="totalGatheredt4p[n]"        type="text" style="CenteredLabelText"/>
+							<object name="treasuresCollectedt4p[n]"   type="text" style="CenteredLabelText"/>
+							<object name="resourcesTributedt4p[n]"    type="text" style="CenteredLabelText"/>
+						</object>
+					</repeat>
+				</object>
+			</object>
+			<object name="teamPanel3t5">
+				<object type="text" name="teamNameHeading3t5" style="LeftTabLabelText"/>
+				<object size="0 65 100% 100%-50">
+					<repeat count="8">
+						<object type="image" name="playerBox3t5p[n]" size="10 0 10 30" hidden="true">
+							<object name="playerColourBox3t5p[n]"     type="image" size="10 4 30 24"/>
+							<object name="playerName3t5p[n]"          type="text"  style="LeftLabelText" size="40 2 208 100%"/>
+							<object name="civIcon3t5p[n]"             type="image" size="208 0 240 32" tooltip_style="sessionToolTip"/>
+							<object name="foodGatheredt5p[n]"         type="text" style="CenteredLabelText"/>
+							<object name="woodGatheredt5p[n]"         type="text" style="CenteredLabelText"/>
+							<object name="stoneGatheredt5p[n]"        type="text" style="CenteredLabelText"/>
+							<object name="metalGatheredt5p[n]"        type="text" style="CenteredLabelText"/>
+							<object name="totalGatheredt5p[n]"        type="text" style="CenteredLabelText"/>
+							<object name="treasuresCollectedt5p[n]"   type="text" style="CenteredLabelText"/>
+							<object name="resourcesTributedt5p[n]"    type="text" style="CenteredLabelText"/>
+						</object>
+					</repeat>
+				</object>
+			</object>
+			<object name="teamPanel3t6">
+				<object type="text" name="teamNameHeading3t6" style="LeftTabLabelText"/>
+				<object size="0 65 100% 100%-50">
+					<repeat count="8">
+						<object type="image" name="playerBox3t6p[n]" size="10 0 10 30" hidden="true">
+							<object name="playerColourBox3t6p[n]"     type="image" size="10 4 30 24"/>
+							<object name="playerName3t6p[n]"          type="text"  style="LeftLabelText" size="40 2 208 100%"/>
+							<object name="civIcon3t6p[n]"             type="image" size="208 0 240 32" tooltip_style="sessionToolTip"/>
+							<object name="foodGatheredt6p[n]"         type="text" style="CenteredLabelText"/>
+							<object name="woodGatheredt6p[n]"         type="text" style="CenteredLabelText"/>
+							<object name="stoneGatheredt6p[n]"        type="text" style="CenteredLabelText"/>
+							<object name="metalGatheredt6p[n]"        type="text" style="CenteredLabelText"/>
+							<object name="totalGatheredt6p[n]"        type="text" style="CenteredLabelText"/>
+							<object name="treasuresCollectedt6p[n]"   type="text" style="CenteredLabelText"/>
+							<object name="resourcesTributedt6p[n]"    type="text" style="CenteredLabelText"/>
+						</object>
+					</repeat>
+				</object>
 			</object>
 
 		</object>
@@ -307,20 +777,131 @@
 				</object>
 			</object>
 
-			<object size="0 65 100% 100%-50">
-				<repeat count="8">
-					<object type="image" name="playerBox4[n]" size="10 0 10 30" hidden="true">
-						<object name="playerColourBox4[n]"     type="image" size="10 4 30 24" />
-						<object name="playerName4[n]"          type="text"  style="LeftLabelText" size="40 2 208 100%" />
-						<object name="civIcon4[n]"             type="image" size="208 0 240 32" tooltip_style="sessionToolTip"/>
-						<object name="exchangedFood[n]"        type="text" style="CenteredLabelText"/>
-						<object name="exchangedWood[n]"        type="text" style="CenteredLabelText"/>
-						<object name="exchangedStone[n]"       type="text" style="CenteredLabelText"/>
-						<object name="exchangedMetal[n]"       type="text" style="CenteredLabelText"/>
-						<object name="barterEfficiency[n]"     type="text" style="CenteredLabelText"/>
-						<object name="tradeIncome[n]"          type="text" style="CenteredLabelText"/>
-					</object>
-				</repeat>
+			<object name="teamPanel4t0">
+				<object type="text" name="teamNameHeading4t0" style="LeftTabLabelText"/>
+				<object size="0 65 100% 100%-50">
+					<repeat count="8">
+						<object type="image" name="playerBox4t0p[n]" size="10 0 10 30" hidden="true">
+							<object name="playerColourBox4t0p[n]"     type="image" size="10 4 30 24"/>
+							<object name="playerName4t0p[n]"          type="text"  style="LeftLabelText" size="40 2 208 100%"/>
+							<object name="civIcon4t0p[n]"             type="image" size="208 0 240 32" tooltip_style="sessionToolTip"/>
+							<object name="exchangedFoodt0p[n]"        type="text" style="CenteredLabelText"/>
+							<object name="exchangedWoodt0p[n]"        type="text" style="CenteredLabelText"/>
+							<object name="exchangedStonet0p[n]"       type="text" style="CenteredLabelText"/>
+							<object name="exchangedMetalt0p[n]"       type="text" style="CenteredLabelText"/>
+							<object name="barterEfficiencyt0p[n]"     type="text" style="CenteredLabelText"/>
+							<object name="tradeIncomet0p[n]"          type="text" style="CenteredLabelText"/>
+						</object>
+					</repeat>
+				</object>
+			</object>
+			<object name="teamPanel4t1">
+				<object type="text" name="teamNameHeading4t1" style="LeftTabLabelText"/>
+				<object size="0 65 100% 100%-50">
+					<repeat count="8">
+						<object type="image" name="playerBox4t1p[n]" size="10 0 10 30" hidden="true">
+							<object name="playerColourBox4t1p[n]"     type="image" size="10 4 30 24"/>
+							<object name="playerName4t1p[n]"          type="text"  style="LeftLabelText" size="40 2 208 100%"/>
+							<object name="civIcon4t1p[n]"             type="image" size="208 0 240 32" tooltip_style="sessionToolTip"/>
+							<object name="exchangedFoodt1p[n]"        type="text" style="CenteredLabelText"/>
+							<object name="exchangedWoodt1p[n]"        type="text" style="CenteredLabelText"/>
+							<object name="exchangedStonet1p[n]"       type="text" style="CenteredLabelText"/>
+							<object name="exchangedMetalt1p[n]"       type="text" style="CenteredLabelText"/>
+							<object name="barterEfficiencyt1p[n]"     type="text" style="CenteredLabelText"/>
+							<object name="tradeIncomet1p[n]"          type="text" style="CenteredLabelText"/>
+						</object>
+					</repeat>
+				</object>
+			</object>
+			<object name="teamPanel4t2">
+				<object type="text" name="teamNameHeading4t2" style="LeftTabLabelText"/>
+				<object size="0 65 100% 100%-50">
+					<repeat count="8">
+						<object type="image" name="playerBox4t2p[n]" size="10 0 10 30" hidden="true">
+							<object name="playerColourBox4t2p[n]"     type="image" size="10 4 30 24"/>
+							<object name="playerName4t2p[n]"          type="text"  style="LeftLabelText" size="40 2 208 100%"/>
+							<object name="civIcon4t2p[n]"             type="image" size="208 0 240 32" tooltip_style="sessionToolTip"/>
+							<object name="exchangedFoodt2p[n]"        type="text" style="CenteredLabelText"/>
+							<object name="exchangedWoodt2p[n]"        type="text" style="CenteredLabelText"/>
+							<object name="exchangedStonet2p[n]"       type="text" style="CenteredLabelText"/>
+							<object name="exchangedMetalt2p[n]"       type="text" style="CenteredLabelText"/>
+							<object name="barterEfficiencyt2p[n]"     type="text" style="CenteredLabelText"/>
+							<object name="tradeIncomet2p[n]"          type="text" style="CenteredLabelText"/>
+						</object>
+					</repeat>
+				</object>
+			</object>
+			<object name="teamPanel4t3">
+				<object type="text" name="teamNameHeading4t3" style="LeftTabLabelText"/>
+				<object size="0 65 100% 100%-50">
+					<repeat count="8">
+						<object type="image" name="playerBox4t3p[n]" size="10 0 10 30" hidden="true">
+							<object name="playerColourBox4t3p[n]"     type="image" size="10 4 30 24"/>
+							<object name="playerName4t3p[n]"          type="text"  style="LeftLabelText" size="40 2 208 100%"/>
+							<object name="civIcon4t3p[n]"             type="image" size="208 0 240 32" tooltip_style="sessionToolTip"/>
+							<object name="exchangedFoodt3p[n]"        type="text" style="CenteredLabelText"/>
+							<object name="exchangedWoodt3p[n]"        type="text" style="CenteredLabelText"/>
+							<object name="exchangedStonet3p[n]"       type="text" style="CenteredLabelText"/>
+							<object name="exchangedMetalt3p[n]"       type="text" style="CenteredLabelText"/>
+							<object name="barterEfficiencyt3p[n]"     type="text" style="CenteredLabelText"/>
+							<object name="tradeIncomet3p[n]"          type="text" style="CenteredLabelText"/>
+						</object>
+					</repeat>
+				</object>
+			</object>
+			<object name="teamPanel4t4">
+				<object type="text" name="teamNameHeading4t4" style="LeftTabLabelText"/>
+				<object size="0 65 100% 100%-50">
+					<repeat count="8">
+						<object type="image" name="playerBox4t4p[n]" size="10 0 10 30" hidden="true">
+							<object name="playerColourBox4t4p[n]"     type="image" size="10 4 30 24"/>
+							<object name="playerName4t4p[n]"          type="text"  style="LeftLabelText" size="40 2 208 100%"/>
+							<object name="civIcon4t4p[n]"             type="image" size="208 0 240 32" tooltip_style="sessionToolTip"/>
+							<object name="exchangedFoodt4p[n]"        type="text" style="CenteredLabelText"/>
+							<object name="exchangedWoodt4p[n]"        type="text" style="CenteredLabelText"/>
+							<object name="exchangedStonet4p[n]"       type="text" style="CenteredLabelText"/>
+							<object name="exchangedMetalt4p[n]"       type="text" style="CenteredLabelText"/>
+							<object name="barterEfficiencyt4p[n]"     type="text" style="CenteredLabelText"/>
+							<object name="tradeIncomet4p[n]"          type="text" style="CenteredLabelText"/>
+						</object>
+					</repeat>
+				</object>
+			</object>
+			<object name="teamPanel4t5">
+				<object type="text" name="teamNameHeading4t5" style="LeftTabLabelText"/>
+				<object size="0 65 100% 100%-50">
+					<repeat count="8">
+						<object type="image" name="playerBox4t5p[n]" size="10 0 10 30" hidden="true">
+							<object name="playerColourBox4t5p[n]"     type="image" size="10 4 30 24"/>
+							<object name="playerName4t5p[n]"          type="text"  style="LeftLabelText" size="40 2 208 100%"/>
+							<object name="civIcon4t5p[n]"             type="image" size="208 0 240 32" tooltip_style="sessionToolTip"/>
+							<object name="exchangedFoodt5p[n]"        type="text" style="CenteredLabelText"/>
+							<object name="exchangedWoodt5p[n]"        type="text" style="CenteredLabelText"/>
+							<object name="exchangedStonet5p[n]"       type="text" style="CenteredLabelText"/>
+							<object name="exchangedMetalt5p[n]"       type="text" style="CenteredLabelText"/>
+							<object name="barterEfficiencyt5p[n]"     type="text" style="CenteredLabelText"/>
+							<object name="tradeIncomet5p[n]"          type="text" style="CenteredLabelText"/>
+						</object>
+					</repeat>
+				</object>
+			</object>
+			<object name="teamPanel4t6">
+				<object type="text" name="teamNameHeading4t6" style="LeftTabLabelText"/>
+				<object size="0 65 100% 100%-50">
+					<repeat count="8">
+						<object type="image" name="playerBox4t6p[n]" size="10 0 10 30" hidden="true">
+							<object name="playerColourBox4t6p[n]"     type="image" size="10 4 30 24"/>
+							<object name="playerName4t6p[n]"          type="text"  style="LeftLabelText" size="40 2 208 100%"/>
+							<object name="civIcon4t6p[n]"             type="image" size="208 0 240 32" tooltip_style="sessionToolTip"/>
+							<object name="exchangedFoodt6p[n]"        type="text" style="CenteredLabelText"/>
+							<object name="exchangedWoodt6p[n]"        type="text" style="CenteredLabelText"/>
+							<object name="exchangedStonet6p[n]"       type="text" style="CenteredLabelText"/>
+							<object name="exchangedMetalt6p[n]"       type="text" style="CenteredLabelText"/>
+							<object name="barterEfficiencyt6p[n]"     type="text" style="CenteredLabelText"/>
+							<object name="tradeIncomet6p[n]"          type="text" style="CenteredLabelText"/>
+						</object>
+					</repeat>
+				</object>
 			</object>
 
 		</object>
@@ -345,18 +926,117 @@
 				</object>
 			</object>
 
-			<object size="0 65 100% 100%-50">
-				<repeat count="8">
-					<object type="image" name="playerBox5[n]" size="10 0 10 30" hidden="true">
-						<object name="playerColourBox5[n]"     type="image" size="10 4 30 24" />
-						<object name="playerName5[n]"          type="text"  style="LeftLabelText" size="40 2 208 100%" />
-						<object name="civIcon5[n]"             type="image" size="208 0 240 32" tooltip_style="sessionToolTip"/>
-						<object name="vegetarianRatio[n]"      type="text" style="CenteredLabelText"/>
-						<object name="feminisation[n]"         type="text" style="CenteredLabelText"/>
-						<object name="killDeathRatio[n]"       type="text" style="CenteredLabelText"/>
-						<object name="mapExploration[n]"       type="text" style="CenteredLabelText"/>
-					</object>	
-				</repeat>
+			<object name="teamPanel5t0">
+				<object type="text" name="teamNameHeading5t0" style="LeftTabLabelText"/>
+				<object size="0 65 100% 100%-50">
+					<repeat count="8">
+						<object type="image" name="playerBox5t0p[n]" size="10 0 10 30" hidden="true">
+							<object name="playerColourBox5t0p[n]"     type="image" size="10 4 30 24"/>
+							<object name="playerName5t0p[n]"          type="text"  style="LeftLabelText" size="40 2 208 100%"/>
+							<object name="civIcon5t0p[n]"             type="image" size="208 0 240 32" tooltip_style="sessionToolTip"/>
+							<object name="vegetarianRatiot0p[n]"      type="text" style="CenteredLabelText"/>
+							<object name="feminisationt0p[n]"         type="text" style="CenteredLabelText"/>
+							<object name="killDeathRatiot0p[n]"       type="text" style="CenteredLabelText"/>
+							<object name="mapExplorationt0p[n]"       type="text" style="CenteredLabelText"/>
+						</object>	
+					</repeat>
+				</object>
+			</object>
+			<object name="teamPanel5t1">
+				<object type="text" name="teamNameHeading5t1" style="LeftTabLabelText"/>
+				<object size="0 65 100% 100%-50">
+					<repeat count="8">
+						<object type="image" name="playerBox5t1p[n]" size="10 0 10 30" hidden="true">
+							<object name="playerColourBox5t1p[n]"     type="image" size="10 4 30 24"/>
+							<object name="playerName5t1p[n]"          type="text"  style="LeftLabelText" size="40 2 208 100%"/>
+							<object name="civIcon5t1p[n]"             type="image" size="208 0 240 32" tooltip_style="sessionToolTip"/>
+							<object name="vegetarianRatiot1p[n]"      type="text" style="CenteredLabelText"/>
+							<object name="feminisationt1p[n]"         type="text" style="CenteredLabelText"/>
+							<object name="killDeathRatiot1p[n]"       type="text" style="CenteredLabelText"/>
+							<object name="mapExplorationt1p[n]"       type="text" style="CenteredLabelText"/>
+						</object>	
+					</repeat>
+				</object>
+			</object>
+			<object name="teamPanel5t2">
+				<object type="text" name="teamNameHeading5t2" style="LeftTabLabelText"/>
+				<object size="0 65 100% 100%-50">
+					<repeat count="8">
+						<object type="image" name="playerBox5t2p[n]" size="10 0 10 30" hidden="true">
+							<object name="playerColourBox5t2p[n]"     type="image" size="10 4 30 24"/>
+							<object name="playerName5t2p[n]"          type="text"  style="LeftLabelText" size="40 2 208 100%"/>
+							<object name="civIcon5t2p[n]"             type="image" size="208 0 240 32" tooltip_style="sessionToolTip"/>
+							<object name="vegetarianRatiot2p[n]"      type="text" style="CenteredLabelText"/>
+							<object name="feminisationt2p[n]"         type="text" style="CenteredLabelText"/>
+							<object name="killDeathRatiot2p[n]"       type="text" style="CenteredLabelText"/>
+							<object name="mapExplorationt2p[n]"       type="text" style="CenteredLabelText"/>
+						</object>	
+					</repeat>
+				</object>
+			</object>
+			<object name="teamPanel5t3">
+				<object type="text" name="teamNameHeading5t3" style="LeftTabLabelText"/>
+				<object size="0 65 100% 100%-50">
+					<repeat count="8">
+						<object type="image" name="playerBox5t3p[n]" size="10 0 10 30" hidden="true">
+							<object name="playerColourBox5t3p[n]"     type="image" size="10 4 30 24"/>
+							<object name="playerName5t3p[n]"          type="text"  style="LeftLabelText" size="40 2 208 100%"/>
+							<object name="civIcon5t3p[n]"             type="image" size="208 0 240 32" tooltip_style="sessionToolTip"/>
+							<object name="vegetarianRatiot3p[n]"      type="text" style="CenteredLabelText"/>
+							<object name="feminisationt3p[n]"         type="text" style="CenteredLabelText"/>
+							<object name="killDeathRatiot3p[n]"       type="text" style="CenteredLabelText"/>
+							<object name="mapExplorationt3p[n]"       type="text" style="CenteredLabelText"/>
+						</object>	
+					</repeat>
+				</object>
+			</object>
+			<object name="teamPanel5t4">
+				<object type="text" name="teamNameHeading5t4" style="LeftTabLabelText"/>
+				<object size="0 65 100% 100%-50">
+					<repeat count="8">
+						<object type="image" name="playerBox5t4p[n]" size="10 0 10 30" hidden="true">
+							<object name="playerColourBox5t4p[n]"     type="image" size="10 4 30 24"/>
+							<object name="playerName5t4p[n]"          type="text"  style="LeftLabelText" size="40 2 208 100%"/>
+							<object name="civIcon5t4p[n]"             type="image" size="208 0 240 32" tooltip_style="sessionToolTip"/>
+							<object name="vegetarianRatiot4p[n]"      type="text" style="CenteredLabelText"/>
+							<object name="feminisationt4p[n]"         type="text" style="CenteredLabelText"/>
+							<object name="killDeathRatiot4p[n]"       type="text" style="CenteredLabelText"/>
+							<object name="mapExplorationt4p[n]"       type="text" style="CenteredLabelText"/>
+						</object>	
+					</repeat>
+				</object>
+			</object>
+			<object name="teamPanel5t5">
+				<object type="text" name="teamNameHeading5t5" style="LeftTabLabelText"/>
+				<object size="0 65 100% 100%-50">
+					<repeat count="8">
+						<object type="image" name="playerBox5t5p[n]" size="10 0 10 30" hidden="true">
+							<object name="playerColourBox5t5p[n]"     type="image" size="10 4 30 24"/>
+							<object name="playerName5t5p[n]"          type="text"  style="LeftLabelText" size="40 2 208 100%"/>
+							<object name="civIcon5t5p[n]"             type="image" size="208 0 240 32" tooltip_style="sessionToolTip"/>
+							<object name="vegetarianRatiot5p[n]"      type="text" style="CenteredLabelText"/>
+							<object name="feminisationt5p[n]"         type="text" style="CenteredLabelText"/>
+							<object name="killDeathRatiot5p[n]"       type="text" style="CenteredLabelText"/>
+							<object name="mapExplorationt5p[n]"       type="text" style="CenteredLabelText"/>
+						</object>	
+					</repeat>
+				</object>
+			</object>
+			<object name="teamPanel5t6">
+				<object type="text" name="teamNameHeading5t6" style="LeftTabLabelText"/>
+				<object size="0 65 100% 100%-50">
+					<repeat count="8">
+						<object type="image" name="playerBox5t6p[n]" size="10 0 10 30" hidden="true">
+							<object name="playerColourBox5t6p[n]"     type="image" size="10 4 30 24"/>
+							<object name="playerName5t6p[n]"          type="text"  style="LeftLabelText" size="40 2 208 100%"/>
+							<object name="civIcon5t6p[n]"             type="image" size="208 0 240 32" tooltip_style="sessionToolTip"/>
+							<object name="vegetarianRatiot6p[n]"      type="text" style="CenteredLabelText"/>
+							<object name="feminisationt6p[n]"         type="text" style="CenteredLabelText"/>
+							<object name="killDeathRatiot6p[n]"       type="text" style="CenteredLabelText"/>
+							<object name="mapExplorationt6p[n]"       type="text" style="CenteredLabelText"/>
+						</object>	
+					</repeat>
+				</object>
 			</object>
 
 		</object>
