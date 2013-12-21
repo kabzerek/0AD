@@ -1,14 +1,14 @@
 // Max player slots for any map (should read from config)
 const MAX_SLOTS = 8;
 
-var panelNames = [ 'scorePanel', 'buildingsPanel', 'unitsPanel', 'resourcesPanel', 'marketPanel', 'miscPanel' ];
-
 /**
  * Select active panel
  * @param panelNumber Number of panel, which should get active state (integer)
  */
 function selectPanel(panelNumber)
 {
+	var panelNames = [ 'scorePanel', 'buildingsPanel', 'unitsPanel', 'resourcesPanel', 'marketPanel', 'miscPanel' ];
+	
 	function adjustTabDividers(tabSize)
 	{
 		var leftSpacer = getGUIObjectByName("tabDividerLeft");
@@ -35,78 +35,153 @@ function selectPanel(panelNumber)
 
 function init(data)
 {
-	var scoreHeadings = [
-		{ "name": "playerName0Heading",      "yStart": 26, "width": 200 },
-		{ "name": "economyScoreHeading",     "yStart": 16, "width": 100 },
-		{ "name": "militaryScoreHeading",    "yStart": 16, "width": 100 },
-		{ "name": "explorationScoreHeading", "yStart": 16, "width": 100 },
-		{ "name": "totalScoreHeading",       "yStart": 16, "width": 100 }
-	];
-	var buildingsHeadings = [
-		{ "name": "playerName1Heading",        "yStart": 26, "width": 200 },
-		{ "name": "buildingsHeading",          "yStart": 16, "width": (85 * 7 + 105) },	//width = 735
-		{ "name": "totalBuildingsHeading",     "yStart": 34, "width": 105 },
-		{ "name": "houseBuildingsHeading",     "yStart": 34, "width": 85 },
-		{ "name": "economicBuildingsHeading",  "yStart": 34, "width": 85 },
-		{ "name": "outpostBuildingsHeading",   "yStart": 34, "width": 85 },
-		{ "name": "militaryBuildingsHeading",  "yStart": 34, "width": 85 },
-		{ "name": "fortressBuildingsHeading",  "yStart": 34, "width": 85 },
-		{ "name": "civCentreBuildingsHeading", "yStart": 34, "width": 85 },
-		{ "name": "wonderBuildingsHeading",    "yStart": 34, "width": 85 }
-	];
-	var unitsHeadings = [
-		{ "name": "playerName2Heading",   "yStart": 26, "width": 200 },
-		{ "name": "unitsHeading",         "yStart": 16, "width": (100 * 6 + 120) },	//width = 720
-		{ "name": "totalUnitsHeading",    "yStart": 34, "width": 120 },
-		{ "name": "infantryUnitsHeading", "yStart": 34, "width": 100 },
-		{ "name": "workerUnitsHeading",   "yStart": 34, "width": 100 },
-		{ "name": "cavalryUnitsHeading",  "yStart": 34, "width": 100 },
-		{ "name": "championUnitsHeading", "yStart": 34, "width": 100 },
-		{ "name": "heroesUnitsHeading",   "yStart": 34, "width": 100 },
-		{ "name": "navyUnitsHeading",     "yStart": 34, "width": 100 }
-	];
-	var resourcesHeadings = [
-		{ "name": "playerName3Heading",        "yStart": 26, "width": 200 },
-		{ "name": "resourceHeading",           "yStart": 16, "width": (100 * 4 + 110) },//width = 510
-		{ "name": "foodGatheredHeading",       "yStart": 34, "width": 100 },
-		{ "name": "woodGatheredHeading",       "yStart": 34, "width": 100 },
-		{ "name": "stoneGatheredHeading",      "yStart": 34, "width": 100 },
-		{ "name": "metalGatheredHeading",      "yStart": 34, "width": 100 },
-		{ "name": "totalGatheredHeading",      "yStart": 34, "width": 110 },
-		{ "name": "treasuresCollectedHeading", "yStart": 16, "width": 100 },
-		{ "name": "resourcesTributedHeading",  "yStart": 16, "width": 121 }
-	];
-	var marketHeadings = [
-		{ "name": "playerName4Heading",      "yStart": 26, "width": 200 },
-		{ "name": "exchangedFoodHeading",    "yStart": 16, "width": 100 },
-		{ "name": "exchangedWoodHeading",    "yStart": 16, "width": 100 },
-		{ "name": "exchangedStoneHeading",   "yStart": 16, "width": 100 },
-		{ "name": "exchangedMetalHeading",   "yStart": 16, "width": 100 },
-		{ "name": "barterEfficiencyHeading", "yStart": 16, "width": 100 },
-		{ "name": "tradeIncomeHeading",      "yStart": 16, "width": 100 }
-	];
-	var miscHeadings = [
-		{ "name": "playerName5Heading",     "yStart": 26, "width": 200 },
-		{ "name": "vegetarianRatioHeading", "yStart": 16, "width": 100 },
-		{ "name": "feminisationHeading",    "yStart": 26, "width": 100 },
-		{ "name": "killDeathRatioHeading",  "yStart": 16, "width": 100 },
-		{ "name": "mapExplorationHeading",  "yStart": 16, "width": 100 }
-	];
+	// LOCAL CONSTS, VARIABLES & FUNCTIONS
+	const LONG_HEADING_WIDTH = 250;
+	const PANELS_COUNT = 6;
+	const PLAYER_BOX_ALPHA = " 32";
+	const PLAYER_COLOUR_BOX_ALPHA = " 255";
 	
-	function setSize(yStart, width)
-	{
-		return left + " " + yStart + " " + (left + width) + " 100%";
-	}
+	var panels = {
+		"score": {		// score panel
+			"headings": {	// headings on score panel
+				"playerName0Heading":      { "yStart": 26, "width": 200 },
+				"economyScoreHeading":     { "yStart": 16, "width": 100 },
+				"militaryScoreHeading":    { "yStart": 16, "width": 100 },
+				"explorationScoreHeading": { "yStart": 16, "width": 100 },
+				"totalScoreHeading":       { "yStart": 16, "width": 100 }
+			},
+			"counters": {	// counters on score panel
+				"economyScore":     {"width": 100, "objects": [ ] },
+				"militaryScore":    {"width": 100, "objects": [ ] },
+				"explorationScore": {"width": 100, "objects": [ ] },
+				"totalScore":       {"width": 100, "objects": [ ] }
+			}
+		},
+		"buildings": {		// buildings panel
+			"headings": {	// headings on buildings panel
+				"playerName1Heading":        {"yStart": 26, "width": 200 },
+				"buildingsHeading":          {"yStart": 16, "width": (85 * 7 + 105) },	//width = 735
+				"totalBuildingsHeading":     {"yStart": 34, "width": 105 },
+				"houseBuildingsHeading":     {"yStart": 34, "width": 85 },
+				"economicBuildingsHeading":  {"yStart": 34, "width": 85 },
+				"outpostBuildingsHeading":   {"yStart": 34, "width": 85 },
+				"militaryBuildingsHeading":  {"yStart": 34, "width": 85 },
+				"fortressBuildingsHeading":  {"yStart": 34, "width": 85 },
+				"civCentreBuildingsHeading": {"yStart": 34, "width": 85 },
+				"wonderBuildingsHeading":    {"yStart": 34, "width": 85 }
+			},
+			"counters": {	// counters on buildings panel
+				"totalBuildings":     {"width": 105, "objects": [ ] },
+				"houseBuildings":     {"width": 85,  "objects": [ ] },
+				"economicBuildings":  {"width": 85,  "objects": [ ] },
+				"outpostBuildings":   {"width": 85,  "objects": [ ] },
+				"militaryBuildings":  {"width": 85,  "objects": [ ] },
+				"fortressBuildings":  {"width": 85,  "objects": [ ] },
+				"civCentreBuildings": {"width": 85,  "objects": [ ] },
+				"wonderBuildings":    {"width": 85,  "objects": [ ] }
+			}
+		},
+		"units": {		// units panel
+			"headings": {	// headings on units panel
+				"playerName2Heading":   {"yStart": 26, "width": 200 },
+				"unitsHeading":         {"yStart": 16, "width": (100 * 6 + 120) },	//width = 720
+				"totalUnitsHeading":    {"yStart": 34, "width": 120 },
+				"infantryUnitsHeading": {"yStart": 34, "width": 100 },
+				"workerUnitsHeading":   {"yStart": 34, "width": 100 },
+				"cavalryUnitsHeading":  {"yStart": 34, "width": 100 },
+				"championUnitsHeading": {"yStart": 34, "width": 100 },
+				"heroesUnitsHeading":   {"yStart": 34, "width": 100 },
+				"navyUnitsHeading":     {"yStart": 34, "width": 100 }
+			},
+			"counters": {	// counters on units panel
+				"totalUnits":    {"width": 120, "objects": [ ] },
+				"infantryUnits": {"width": 100, "objects": [ ] },
+				"workerUnits":   {"width": 100, "objects": [ ] },
+				"cavalryUnits":  {"width": 100, "objects": [ ] },
+				"championUnits": {"width": 100, "objects": [ ] },
+				"heroesUnits":   {"width": 100, "objects": [ ] },
+				"navyUnits":     {"width": 100, "objects": [ ] }
+			}
+		},
+		"resources": {		// resources panel
+			"headings": {	// headings on resources panel
+				"playerName3Heading":        {"yStart": 26, "width": 200 },
+				"resourceHeading":           {"yStart": 16, "width": (100 * 4 + 110) },//width = 510
+				"foodGatheredHeading":       {"yStart": 34, "width": 100 },
+				"woodGatheredHeading":       {"yStart": 34, "width": 100 },
+				"stoneGatheredHeading":      {"yStart": 34, "width": 100 },
+				"metalGatheredHeading":      {"yStart": 34, "width": 100 },
+				"totalGatheredHeading":      {"yStart": 34, "width": 110 },
+				"treasuresCollectedHeading": {"yStart": 16, "width": 100 },
+				"resourcesTributedHeading":  {"yStart": 16, "width": 121 }
+			},
+			"counters": {	// counters on resources panel
+				"foodGathered":       {"width": 100, "objects": [ ] },
+				"woodGathered":       {"width": 100, "objects": [ ] },
+				"stoneGathered":      {"width": 100, "objects": [ ] },
+				"metalGathered":      {"width": 100, "objects": [ ] },
+				"totalGathered":      {"width": 110, "objects": [ ] },
+				"treasuresCollected": {"width": 100, "objects": [ ] },
+				"resourcesTributed":  {"width": 121, "objects": [ ] }
+			}
+		},
+		"market": {		// market panel
+			"headings": {	// headings on market panel
+				"playerName4Heading":      {"yStart": 26, "width": 200 },
+				"exchangedFoodHeading":    {"yStart": 16, "width": 100 },
+				"exchangedWoodHeading":    {"yStart": 16, "width": 100 },
+				"exchangedStoneHeading":   {"yStart": 16, "width": 100 },
+				"exchangedMetalHeading":   {"yStart": 16, "width": 100 },
+				"barterEfficiencyHeading": {"yStart": 16, "width": 100 },
+				"tradeIncomeHeading":      {"yStart": 16, "width": 100 }
+			},
+			"counters": {	// counters on market panel
+				"exchangedFood":    {"width": 100, "objects": [ ] },
+				"exchangedWood":    {"width": 100, "objects": [ ] },
+				"exchangedStone":   {"width": 100, "objects": [ ] },
+				"exchangedMetal":   {"width": 100, "objects": [ ] },
+				"barterEfficiency": {"width": 100, "objects": [ ] },
+				"tradeIncome":      {"width": 100, "objects": [ ] }
+			}
+		},
+		"miscelanous": {	// miscelanous panel
+			"headings": {	// headings on miscelanous panel
+				"playerName5Heading":     {"yStart": 26, "width": 200 },
+				"vegetarianRatioHeading": {"yStart": 16, "width": 100 },
+				"feminisationHeading":    {"yStart": 26, "width": 100 },
+				"killDeathRatioHeading":  {"yStart": 16, "width": 100 },
+				"mapExplorationHeading":  {"yStart": 16, "width": 100 }
+			},
+			"counters": {	// counters on miscelanous panel
+				"vegetarianRatio": {"width": 100, "objects": [ ] },
+				"feminisation":    {"width": 100, "objects": [ ] },
+				"killDeathRatio":  {"width": 100, "objects": [ ] },
+				"mapExploration":  {"width": 100, "objects": [ ] }
+			}
+		}
+	};
 	
 	function alignHeaders(headings)
-	{
+	{		
 		left = 50;
-		for (i in headings)
+		for (var h in headings)
 		{
-			getGUIObjectByName(headings[i].name).size = setSize(headings[i].yStart, headings[i].width);
-			if (headings[i].width < 250)
-				left += headings[i].width;			
+			getGUIObjectByName(h).size = left + " " + headings[h].yStart + " " + (left + headings[h].width) + " 100%";
+			if (headings[h].width < LONG_HEADING_WIDTH)
+				left += headings[h].width;			
 		}
+	}
+	
+	function alignCounters(counters, player)
+	{
+		left = 240;
+		for (var c in counters)
+		{
+			counters[c].objects[player].size = left + " 2 " + (left + counters[c].width) + " 100%";
+			left += counters[c].width;
+		}
+		
+		return left;
 	}
 	
 	// colours used for units and buildings
@@ -145,6 +220,7 @@ function init(data)
 			+ BOUGHT_COLOR + '-' + playerState.statistics.resourcesSold[type] + '[/color]';	
 	}
 	
+	// FUNCTION BODY
 	// Load data
 	var civData = loadCivData();
 	// Map
@@ -176,249 +252,182 @@ function init(data)
 	// Panels
 	// Align headers
 	var left = 50;
-	alignHeaders(scoreHeadings);
-	alignHeaders(buildingsHeadings);
-	alignHeaders(unitsHeadings);
-	alignHeaders(resourcesHeadings);
-	alignHeaders(marketHeadings);
-	alignHeaders(miscHeadings);
-	
-	selectPanel(0);
-	return;
-
-	// Space player boxes
-	var boxSpacing = 32;
-	for (var i = 0; i < panelNames.length; ++i)
+	for (var p in panels)	//for all panels
 	{
-		for (var j = 0; j < MAX_SLOTS; ++j)
-		{
-			var box = getGUIObjectByName("playerBox"+i+"["+j+"]");
-			var boxSize = box.size;
-			var h = boxSize.bottom - boxSize.top;
-			boxSize.top = j * boxSpacing;
-			boxSize.bottom = j * boxSpacing + h;
-			box.size = boxSize;
-			
-			//tmp
-			box.hidden = false;
-		}
+		alignHeaders(panels[p].headings);
 	}
 
 	// TODO set maxPlayers as playerCounters.length
 	var maxPlayers = data.playerStates.length - 1;
+	var maxTeams = 0;
 
-	
-	
-	
-	selectPanel(0);
-	return;
-	
-	// Show counters
-	for (var i = 0; i < MAX_SLOTS; ++i)
+	var teams = [ ];
+	if (data.mapSettings.LockTeams)	//teams ARE locked
 	{
-		if (i < maxPlayers)
+		//count teams
+		for(var t = 1; t <= maxPlayers; ++t)
+		{
+			if (!teams[data.playerStates[t].team])
+			{
+				teams[data.playerStates[t].team] = 1;
+				continue;
+			}
+			teams[data.playerStates[t].team]++;
+		}
+		
+		if (teams.length == maxPlayers)
+			teams = false;	//Each player has his own team. Displaying teams makes no sense.
+	}
+	else				//teams are NOT locked
+		teams = false;
+
+
+	if (!teams)	//teams are NOT displayed
+	{
+		// Show boxes for no teams
+		for (var b = 0; b < PANELS_COUNT; ++b)
+		{
+			getGUIObjectByName("noTeamsBox"+b).hidden = false;			
+		}
+		
+		// Space player boxes
+		var boxSpacing = 32;
+		
+		for (var i = 0; i < maxPlayers; ++i)
 		{
 			var playerState = data.playerStates[i+1];
-
-			for (var k = 0; k < panelNames.length; ++k)
+			
+			for (var j = 0; j < PANELS_COUNT; ++j)
 			{
-				var playerBox = getGUIObjectByName("playerBox"+k+"1["+i+"]");
+				var playerBox = getGUIObjectByName("playerBox"+j+"["+i+"]");
 				playerBox.hidden = false;
+				
+				var boxSize = playerBox.size;
+				var h = boxSize.bottom - boxSize.top;
+				boxSize.top = i * boxSpacing;
+				boxSize.bottom = i * boxSpacing + h;
+				playerBox.size = boxSize;
 
 				var colourString = "colour: "
 					+ Math.floor(playerState.colour.r * 255) + " "
 					+ Math.floor(playerState.colour.g * 255) + " "
 					+ Math.floor(playerState.colour.b * 255);
-				playerBox.sprite = colourString + " 32";
-				var playerColourBox = getGUIObjectByName("playerColourBox"+k+"1["+i+"]");
-				playerColourBox.sprite = colourString + " 140";//" 255";
-
+				
+				playerBox.sprite = colourString + PLAYER_BOX_ALPHA;
+				
+				var playerColourBox = getGUIObjectByName("playerColourBox"+j+"["+i+"]");
+				playerColourBox.sprite = colourString + PLAYER_COLOUR_BOX_ALPHA;
+				
 				// Show the multiplayer name, e.g. "Foobar" rather than "Player 1".
 				// TODO: Perhaps show both the multiplayer and map-specific name?
-				var playerName = getGUIObjectByName("playerName"+k+"1["+i+"]");
+				var playerName = getGUIObjectByName("playerName"+j+"["+i+"]");
 				playerName.caption = data.players[i+1].name;
-
-				getGUIObjectByName("civIcon"+k+"1["+i+"]").sprite = "stretched:"+civData[playerState.civ].Emblem;
-				getGUIObjectByName("civIcon"+k+"1["+i+"]").tooltip = civData[playerState.civ].Name;
+				
+				getGUIObjectByName("civIcon"+j+"["+i+"]").sprite = "stretched:"+civData[playerState.civ].Emblem;
+				getGUIObjectByName("civIcon"+j+"["+i+"]").tooltip = civData[playerState.civ].Name;
 			}
-
-			var economyScore = getGUIObjectByName("economyScore1["+i+"]");
-			var militaryScore = getGUIObjectByName("militaryScore1["+i+"]");
-			var explorationScore = getGUIObjectByName("explorationScore1["+i+"]");
-			var totalScore = getGUIObjectByName("totalScore1["+i+"]");
-			
-			var totalBuildings = getGUIObjectByName("totalBuildings1["+i+"]");
-			var houseBuildings = getGUIObjectByName("houseBuildings1["+i+"]");
-			var economicBuildings = getGUIObjectByName("economicBuildings1["+i+"]");
-			var outpostBuildings = getGUIObjectByName("outpostBuildings1["+i+"]");
-			var militaryBuildings = getGUIObjectByName("militaryBuildings1["+i+"]");
-			var fortressBuildings = getGUIObjectByName("fortressBuildings1["+i+"]");
-			var civCentreBuildings = getGUIObjectByName("civCentreBuildings1["+i+"]");
-			var wonderBuildings = getGUIObjectByName("wonderBuildings1["+i+"]");
-
-			var totalUnits = getGUIObjectByName("totalUnits1["+i+"]");
-			var infantryUnits = getGUIObjectByName("infantryUnits1["+i+"]");
-			var workerUnits = getGUIObjectByName("workerUnits1["+i+"]");
-			var cavalryUnits = getGUIObjectByName("cavalryUnits1["+i+"]");
-			var championUnits = getGUIObjectByName("championUnits1["+i+"]");
-			var heroesUnits = getGUIObjectByName("heroesUnits1["+i+"]");
-			var navyUnits = getGUIObjectByName("navyUnits1["+i+"]");
-
-			var foodGathered = getGUIObjectByName("foodGathered1["+i+"]");
-			var woodGathered = getGUIObjectByName("woodGathered1["+i+"]");
-			var stoneGathered = getGUIObjectByName("stoneGathered1["+i+"]");
-			var metalGathered = getGUIObjectByName("metalGathered1["+i+"]");
-			var totalGathered = getGUIObjectByName("totalGathered1["+i+"]");
-			var treasuresCollected = getGUIObjectByName("treasuresCollected1["+i+"]");
-			var resourcesTributed = getGUIObjectByName("resourcesTributed1["+i+"]");
-
-			var exchangedFood = getGUIObjectByName("exchangedFood1["+i+"]");
-			var exchangedWood = getGUIObjectByName("exchangedWood1["+i+"]");
-			var exchangedStone = getGUIObjectByName("exchangedStone1["+i+"]");
-			var exchangedMetal = getGUIObjectByName("exchangedMetal1["+i+"]");
-			var barterEfficiency = getGUIObjectByName("barterEfficiency1["+i+"]");
-			var tradeIncome = getGUIObjectByName("tradeIncome1["+i+"]");
-			
-			var vegetarianRatio = getGUIObjectByName("vegetarianRatio1["+i+"]");
-			var feminisationRatio = getGUIObjectByName("feminisation1["+i+"]");
-			var killDeathRatio = getGUIObjectByName("killDeathRatio1["+i+"]");
-			var mapExploration = getGUIObjectByName("mapExploration1["+i+"]");
-
-			// align counters
-
-			left = 240;
-			width = 100;
-			economyScore.size = left + " 2 " + (left + width) + " 100%"; left += width;
-			militaryScore.size = left + " 2 " + (left + width) + " 100%"; left += width;
-			explorationScore.size = left + " 2 " + (left + width) + " 100%"; left += width;
-			totalScore.size = left + " 2 " + (left + width) + " 100%"; left += width;
-			var size = getGUIObjectByName("playerBox01["+i+"]").size;
-			size.right = left + 10;
-			getGUIObjectByName("playerBox01["+i+"]").size = size;
-			
-			left = 240;
-			width = 85;
-			totalBuildings.size = left + " 2 " + (left + width + 20) + " 100%"; left += width + 20;
-			houseBuildings.size = left + " 2 " + (left + width) + " 100%"; left += width;
-			economicBuildings.size = left + " 2 " + (left + width) + " 100%"; left += width;
-			outpostBuildings.size = left + " 2 " + (left + width) + " 100%"; left += width;
-			militaryBuildings.size = left + " 2 " + (left + width) + " 100%"; left += width;
-			fortressBuildings.size = left + " 2 " + (left + width) + " 100%"; left += width;
-			civCentreBuildings.size = left + " 2 " + (left + width) + " 100%"; left += width;
-			wonderBuildings.size = left + " 2 " + (left + width) + " 100%"; left += width;
-			size = getGUIObjectByName("playerBox11["+i+"]").size;
-			size.right = left + 10;
-			getGUIObjectByName("playerBox11["+i+"]").size = size;
-			
-			left = 240;
-			width = 100;
-			totalUnits.size = left + " 2 " + (left + width + 20) + " 100%"; left += width + 20;
-			infantryUnits.size = left + " 2 " + (left + width) + " 100%"; left += width;
-			workerUnits.size = left + " 2 " + (left + width) + " 100%"; left += width;
-			cavalryUnits.size = left + " 2 " + (left + width) + " 100%"; left += width;
-			championUnits.size = left + " 2 " + (left + width) + " 100%"; left += width;
-			heroesUnits.size = left + " 2 " + (left + width) + " 100%"; left += width;
-			navyUnits.size = left + " 2 " + (left + width) + " 100%"; left += width;
-			size = getGUIObjectByName("playerBox21["+i+"]").size;
-			size.right = left + 10;
-			getGUIObjectByName("playerBox21["+i+"]").size = size;
-
-			left = 240;
-			width = 100;
-			foodGathered.size = left + " 2 " + (left + width) + " 100%"; left += width;
-			woodGathered.size = left + " 2 " + (left + width) + " 100%"; left += width;
-			stoneGathered.size = left + " 2 " + (left + width) + " 100%"; left += width;
-			metalGathered.size = left + " 2 " + (left + width) + " 100%"; left += width;
-			totalGathered.size = left + " 2 " + (left + width + 10) + " 100%"; left += width + 10;
-			treasuresCollected.size	= left + " 2 " + (left + width) + " 100%"; left += width;
-			resourcesTributed.size = left + " 2 " + (left + tributesWidth) + " 100%"; left += tributesWidth;
-			size = getGUIObjectByName("playerBox31["+i+"]").size;
-			size.right = left + 10;
-			getGUIObjectByName("playerBox31["+i+"]").size = size;
-
-			left = 240;
-			width = 100;
-			exchangedFood.size = left + " 2 " + (left + width) + " 100%"; left += width;
-			exchangedWood.size = left + " 2 " + (left + width) + " 100%"; left += width;
-			exchangedStone.size = left + " 2 " + (left + width) + " 100%"; left += width;
-			exchangedMetal.size = left + " 2 " + (left + width) + " 100%"; left += width;
-			barterEfficiency.size = left + " 2 " + (left + width) + " 100%"; left += width;
-			tradeIncome.size = left + " 2 " + (left + width) + " 100%"; left += width;
-			size = getGUIObjectByName("playerBox41["+i+"]").size;
-			size.right = left + 10;
-			getGUIObjectByName("playerBox41["+i+"]").size = size;
-			
-			left = 240;
-			width = 100;
-			size = getGUIObjectByName("playerBox51["+i+"]").size;
-			vegetarianRatio.size = left + " 2 " + (left + width) + " 100%"; left += width;
-			feminisationRatio.size = left + " 2 " + (left + width) + " 100%"; left += width;
-			killDeathRatio.size = left + " 2 " + (left + width) + " 100%"; left += width;
-			mapExploration.size = left + " 2 " + (left + width) + " 100%"; left += width;
-			size.right = left + 10;
-			getGUIObjectByName("playerBox51["+i+"]").size = size;
-
-			// display counters
-			economyScore.caption = Math.round(playerState.statistics.resourcesGathered.total / 10);
-			militaryScore.caption = Math.round((playerState.statistics.enemyUnitsKilledValue + playerState.statistics.enemyBuildingsDestroyedValue) / 10);
-			explorationScore.caption = playerState.statistics.percentMapExplored * 10;
-			totalScore.caption = Number(economyScore.caption) + Number(militaryScore.caption) + Number(explorationScore.caption);
-
-			totalBuildings.caption = captionBuildings("total");
-			houseBuildings.caption = captionBuildings("House");
-			economicBuildings.caption = captionBuildings("Economic");
-			outpostBuildings.caption = captionBuildings("Outpost");
-			militaryBuildings.caption = captionBuildings("Military");
-			fortressBuildings.caption = captionBuildings("Fortress");
-			civCentreBuildings.caption = captionBuildings("CivCentre");
-			wonderBuildings.caption = captionBuildings("Wonder");
-
-			totalUnits.caption = captionUnits("total");
-			infantryUnits.caption = captionUnits("Infantry");
-			workerUnits.caption = captionUnits("Worker");
-			cavalryUnits.caption = captionUnits("Cavalry");
-			championUnits.caption = captionUnits("Champion");
-			heroesUnits.caption = captionUnits("Hero");
-			navyUnits.caption = captionUnits("Ship");
-
-			foodGathered.caption = captionResourcesGathered("food");
-			woodGathered.caption = captionResourcesGathered("wood");
-			stoneGathered.caption = captionResourcesGathered("stone");
-			metalGathered.caption = captionResourcesGathered("metal");
-			totalGathered.caption =	captionResourcesGathered("total");
-			treasuresCollected.caption = playerState.statistics.treasuresCollected;
-			resourcesTributed.caption = SOLD_COLOR + playerState.statistics.tributesSent + "[/color] / " +
-				BOUGHT_COLOR + playerState.statistics.tributesReceived + "[/color]";
-
-			exchangedFood.caption = captionResourcesExchanged("food");
-			exchangedWood.caption = captionResourcesExchanged("wood");
-			exchangedStone.caption = captionResourcesExchanged("stone");
-			exchangedMetal.caption = captionResourcesExchanged("metal");
-			var totalBought = 0;
-			for each (var boughtAmount in playerState.statistics.resourcesBought)
-				totalBought += boughtAmount;
-			var totalSold = 0;
-			for each (var soldAmount in playerState.statistics.resourcesSold)
-				totalSold += soldAmount;
-			barterEfficiency.caption = Math.floor(totalSold > 0 ? (totalBought / totalSold) * 100 : 0) + "%";
-			tradeIncome.caption = playerState.statistics.tradeIncome;
-						
-			vegetarianRatio.caption = Math.floor(playerState.statistics.resourcesGathered.food > 0 ?
-				(playerState.statistics.resourcesGathered.vegetarianFood / playerState.statistics.resourcesGathered.food) * 100 : 0) + "%";
-			feminisationRatio.caption = playerState.statistics.feminisation + "%";
-			killDeathRatio.caption = Math.round((playerState.statistics.enemyUnitsKilled.total > 0 ?
-				(playerState.statistics.enemyUnitsKilled.total / playerState.statistics.unitsLost.total) : 0)*100)/100;
-			mapExploration.caption = playerState.statistics.percentMapExplored + "%";
 		}
-		else
+	}
+	else	// teams ARE displayed
+	{
+		//TODO!
+		
+		//getGUIObjectByName("playerName0Heading").caption = "";
+	}
+
+	// Show counters
+	
+	var tn = "";
+	if (teams)
+	{
+		var team_number = 1;
+		tn = "t"+team_number+"p";
+	}
+	// get counters
+	for (var i = 0; i < maxPlayers; ++i)	//for all players
+	{
+		for (var p in panels)	//for all panels
 		{
-			// hide player boxes
-			for (var k = 0; k < panelNames.length; ++k)
+			for (var c in panels[p].counters)	//for all counters in panel
 			{
-				var playerBox = getGUIObjectByName("playerBox"+k+"1["+i+"]");
-				playerBox.hidden = true;
+				// get counter
+				panels[p].counters[c].objects[i] = getGUIObjectByName(c+tn+"["+i+"]");
 			}
 		}
+	}
+	
+	// align counters
+	for (var i = 0; i < maxPlayers; ++i)	//for all players
+	{
+		var pn = 0;
+		for (var p in panels)	//for all panels
+		{
+			var l = alignCounters(panels[p].counters, i);
+			var size = getGUIObjectByName("playerBox"+pn+tn+"["+i+"]").size;
+			size.right = l + 10;
+			getGUIObjectByName("playerBox"+pn+tn+"["+i+"]").size = size;
+			pn++;
+		}
+	}
+	
+	//display counters
+	for (var i = 0; i < maxPlayers; ++i)	//for all players
+	{
+		playerState = data.playerStates[i+1];
+		
+		panels.score.counters.economyScore.objects[i].caption = Math.round(playerState.statistics.resourcesGathered.total / 10);
+		panels.score.counters.militaryScore.objects[i].caption = Math.round((playerState.statistics.enemyUnitsKilledValue +
+			playerState.statistics.enemyBuildingsDestroyedValue) / 10);
+		panels.score.counters.explorationScore.objects[i].caption = playerState.statistics.percentMapExplored * 10;
+		panels.score.counters.totalScore.objects[i].caption = Number(panels.score.counters.economyScore.objects[i].caption) +
+			Number(panels.score.counters.militaryScore.objects[i].caption) +
+			Number(panels.score.counters.explorationScore.objects[i].caption);
+
+		panels.buildings.counters.totalBuildings.objects[i].caption = captionBuildings("total");
+		panels.buildings.counters.houseBuildings.objects[i].caption = captionBuildings("House");
+		panels.buildings.counters.economicBuildings.objects[i].caption = captionBuildings("Economic");
+		panels.buildings.counters.outpostBuildings.objects[i].caption = captionBuildings("Outpost");
+		panels.buildings.counters.militaryBuildings.objects[i].caption = captionBuildings("Military");
+		panels.buildings.counters.fortressBuildings.objects[i].caption = captionBuildings("Fortress");
+		panels.buildings.counters.civCentreBuildings.objects[i].caption = captionBuildings("CivCentre");
+		panels.buildings.counters.wonderBuildings.objects[i].caption = captionBuildings("Wonder");
+
+		panels.units.counters.totalUnits.objects[i].caption = captionUnits("total");
+		panels.units.counters.infantryUnits.objects[i].caption = captionUnits("Infantry");
+		panels.units.counters.workerUnits.objects[i].caption = captionUnits("Worker");
+		panels.units.counters.cavalryUnits.objects[i].caption = captionUnits("Cavalry");
+		panels.units.counters.championUnits.objects[i].caption = captionUnits("Champion");
+		panels.units.counters.heroesUnits.objects[i].caption = captionUnits("Hero");
+		panels.units.counters.navyUnits.objects[i].caption = captionUnits("Ship");
+
+		panels.resources.counters.foodGathered.objects[i].caption = captionResourcesGathered("food");
+		panels.resources.counters.woodGathered.objects[i].caption = captionResourcesGathered("wood");
+		panels.resources.counters.stoneGathered.objects[i].caption = captionResourcesGathered("stone");
+		panels.resources.counters.metalGathered.objects[i].caption = captionResourcesGathered("metal");
+		panels.resources.counters.totalGathered.objects[i].caption =	captionResourcesGathered("total");
+		panels.resources.counters.treasuresCollected.objects[i].caption = playerState.statistics.treasuresCollected;
+		panels.resources.counters.resourcesTributed.objects[i].caption = SOLD_COLOR + playerState.statistics.tributesSent +
+			"[/color] / " + BOUGHT_COLOR + playerState.statistics.tributesReceived + "[/color]";
+
+		panels.market.counters.exchangedFood.objects[i].caption = captionResourcesExchanged("food");
+		panels.market.counters.exchangedWood.objects[i].caption = captionResourcesExchanged("wood");
+		panels.market.counters.exchangedStone.objects[i].caption = captionResourcesExchanged("stone");
+		panels.market.counters.exchangedMetal.objects[i].caption = captionResourcesExchanged("metal");
+		var totalBought = 0;
+		for each (var boughtAmount in playerState.statistics.resourcesBought)
+			totalBought += boughtAmount;
+		var totalSold = 0;
+		for each (var soldAmount in playerState.statistics.resourcesSold)
+			totalSold += soldAmount;
+		panels.market.counters.barterEfficiency.objects[i].caption = Math.floor(totalSold > 0 ? (totalBought / totalSold) * 100 : 0) + "%";
+		panels.market.counters.tradeIncome.objects[i].caption = playerState.statistics.tradeIncome;
+
+		panels.miscelanous.counters.vegetarianRatio.objects[i].caption = Math.floor(playerState.statistics.resourcesGathered.food > 0 ?
+			(playerState.statistics.resourcesGathered.vegetarianFood / playerState.statistics.resourcesGathered.food) * 100 : 0) + "%";
+		panels.miscelanous.counters.feminisation.objects[i].caption = playerState.statistics.feminisation + "%";
+		panels.miscelanous.counters.killDeathRatio.objects[i].caption = Math.round((playerState.statistics.enemyUnitsKilled.total > 0 ?
+			(playerState.statistics.enemyUnitsKilled.total / playerState.statistics.unitsLost.total) : 0)*100)/100;
+		panels.miscelanous.counters.mapExploration.objects[i].caption = playerState.statistics.percentMapExplored + "%";
 	}
 
 	selectPanel(0);
