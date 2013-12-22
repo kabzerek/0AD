@@ -146,7 +146,6 @@ StatisticsTracker.prototype.GetStatistics = function()
 		"tributesReceived": this.tributesReceived,
 		"tradeIncome": this.tradeIncome,
 		"treasuresCollected": this.treasuresCollected,
-		"feminisation": this.GetFeminisation(),
 		"percentMapExplored": this.GetPercentMapExplored()
 	};
 };
@@ -184,12 +183,6 @@ StatisticsTracker.prototype.IncreaseTrainedUnitsCounter = function(trainedUnit)
 	}
 	this.unitsTrained.total++;
 };
-
-StatisticsTracker.prototype.GetFeminisation = function()
-{
-	return Math.floor(this.unitsTrained.Female > 0 ? (this.unitsTrained.Female / this.unitsTrained.Worker) * 100 : 0)
-};
-
 
 /** 
  * Counts the total number of buildings constructed as well as an individual count for 
