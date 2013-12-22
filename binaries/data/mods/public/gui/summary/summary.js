@@ -36,10 +36,29 @@ function selectPanel(panelNumber)
 function init(data)
 {
 	// LOCAL CONSTS, VARIABLES & FUNCTIONS
+	//const for filtering long collective headings
 	const LONG_HEADING_WIDTH = 250;
+	//number of panels
 	const PANELS_COUNT = 6;
+	//alpha for player box
 	const PLAYER_BOX_ALPHA = " 32";
+	//alpha for player colour box
 	const PLAYER_COLOUR_BOX_ALPHA = " 255";
+	//yStart value for spaceing teams boxes (and noTeamsBox)
+	const TEAMS_BOX_Y_START = 65;
+	//vertical size of player box
+	const PLAYER_BOX_Y_SIZE = 30;
+	//gap between players boxes
+	const PLAYER_BOX_GAP = 2;
+	
+	// colours used for units and buildings
+	const TRAINED_COLOR = '[color="201 255 200"]';
+	const LOST_COLOR = '[color="255 213 213"]';
+	const KILLED_COLOR = '[color="196 198 255"]';
+
+	// colours used for gathered and traded resources
+	const SOLD_COLOR = '[color="201 255 200"]';
+	const BOUGHT_COLOR = '[color="255 213 213"]';
 	
 	var panels = {
 		"score": {		// score panel
@@ -184,14 +203,7 @@ function init(data)
 		return left;
 	}
 	
-	// colours used for units and buildings
-	const TRAINED_COLOR = '[color="201 255 200"]';
-	const LOST_COLOR = '[color="255 213 213"]';
-	const KILLED_COLOR = '[color="196 198 255"]';
 
-	// colours used for gathered and traded resources
-	const SOLD_COLOR = '[color="201 255 200"]';
-	const BOUGHT_COLOR = '[color="255 213 213"]';
 	
 	// caption counters functions
 	function captionUnits(type)
@@ -265,14 +277,14 @@ function init(data)
 	if (data.mapSettings.LockTeams)	//teams ARE locked
 	{
 		//count teams
-		for(var t = 1; t <= maxPlayers; ++t)
+		for(var t = 0; t <= maxPlayers; ++t)
 		{
-			if (!teams[data.playerStates[t].team])
+			if (!teams[data.playerStates[t+1].team])
 			{
-				teams[data.playerStates[t].team] = 1;
+				teams[data.playerStates[t+1].team] = 1;
 				continue;
 			}
-			teams[data.playerStates[t].team]++;
+			teams[data.playerStates[t+1].team]++;
 		}
 		
 		if (teams.length == maxPlayers)
@@ -281,6 +293,17 @@ function init(data)
 	else				//teams are NOT locked
 		teams = false;
 
+	// Erase teams data if teams are not displayed
+	if (!teams)
+	{
+		for(var p = 0; p < maxPlayers; ++p)
+		{
+			data.playerStates[p+1].team = -1;
+		}
+	}
+	
+	// Count players without team	(or all if teams are not displayed)
+	var withoutTeam = maxPlayers;
 
 	if (!teams)	//teams are NOT displayed
 	{
