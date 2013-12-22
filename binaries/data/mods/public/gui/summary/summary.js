@@ -203,8 +203,6 @@ function init(data)
 		return left;
 	}
 	
-
-	
 	// caption counters functions
 	function captionUnits(type)
 	{
@@ -271,13 +269,14 @@ function init(data)
 
 	// TODO set maxPlayers as playerCounters.length
 	var maxPlayers = data.playerStates.length - 1;
+	//maxPlayers = 2;
 	var maxTeams = 0;
 
 	var teams = [ ];
 	if (data.mapSettings.LockTeams)	//teams ARE locked
 	{
 		//count teams
-		for(var t = 0; t <= maxPlayers; ++t)
+		for(var t = 0; t < maxPlayers; ++t)
 		{
 			if (!teams[data.playerStates[t+1].team])
 			{
@@ -292,7 +291,7 @@ function init(data)
 	}
 	else				//teams are NOT locked
 		teams = false;
-
+	
 	// Erase teams data if teams are not displayed
 	if (!teams)
 	{
@@ -301,104 +300,112 @@ function init(data)
 			data.playerStates[p+1].team = -1;
 		}
 	}
-	
 	// Count players without team	(or all if teams are not displayed)
 	var withoutTeam = maxPlayers;
-
-	if (!teams)	//teams are NOT displayed
+	if (teams)
+	{
+		// count players without team	(or all if teams are not displayed)
+		for (var i = 0; i < teams.length; ++i)
+		{
+			withoutTeam -= teams[i];
+		}
+		
+		// Display teams boxes
+		for (var p = 0; p < PANELS_COUNT; ++p)
+		{
+			var yStart = TEAMS_BOX_Y_START + withoutTeam * (PLAYER_BOX_Y_SIZE + PLAYER_BOX_GAP);
+			for (var i = 0; i < teams.length; ++i)
+			{
+				var teamBox = getGUIObjectByName("teamBox"+p+"t"+i);
+				teamBox.hidden = false;
+				var teamBoxSize = teamBox.size;
+				teamBoxSize.top = yStart;
+				teamBox.size = teamBoxSize;
+				
+				yStart += 30 + teams[i] * (PLAYER_BOX_Y_SIZE + PLAYER_BOX_GAP);
+			}
+			
+			// If there are no players without team, hide "player name" heading
+			if (!withoutTeam)
+				getGUIObjectByName("playerName"+p+"Heading").caption = "";
+		}
+	}
+	
+	if (withoutTeam)
 	{
 		// Show boxes for no teams
 		for (var b = 0; b < PANELS_COUNT; ++b)
 		{
 			getGUIObjectByName("noTeamsBox"+b).hidden = false;			
 		}
-		
-		// Space player boxes
-		var boxSpacing = 32;
-		
-		for (var i = 0; i < maxPlayers; ++i)
-		{
-			var playerState = data.playerStates[i+1];
-			
-			for (var j = 0; j < PANELS_COUNT; ++j)
-			{
-				var playerBox = getGUIObjectByName("playerBox"+j+"["+i+"]");
-				playerBox.hidden = false;
-				
-				var boxSize = playerBox.size;
-				var h = boxSize.bottom - boxSize.top;
-				boxSize.top = i * boxSpacing;
-				boxSize.bottom = i * boxSpacing + h;
-				playerBox.size = boxSize;
-
-				var colourString = "colour: "
-					+ Math.floor(playerState.colour.r * 255) + " "
-					+ Math.floor(playerState.colour.g * 255) + " "
-					+ Math.floor(playerState.colour.b * 255);
-				
-				playerBox.sprite = colourString + PLAYER_BOX_ALPHA;
-				
-				var playerColourBox = getGUIObjectByName("playerColourBox"+j+"["+i+"]");
-				playerColourBox.sprite = colourString + PLAYER_COLOUR_BOX_ALPHA;
-				
-				// Show the multiplayer name, e.g. "Foobar" rather than "Player 1".
-				// TODO: Perhaps show both the multiplayer and map-specific name?
-				var playerName = getGUIObjectByName("playerName"+j+"["+i+"]");
-				playerName.caption = data.players[i+1].name;
-				
-				getGUIObjectByName("civIcon"+j+"["+i+"]").sprite = "stretched:"+civData[playerState.civ].Emblem;
-				getGUIObjectByName("civIcon"+j+"["+i+"]").tooltip = civData[playerState.civ].Name;
-			}
-		}
-	}
-	else	// teams ARE displayed
-	{
-		//TODO!
-		
-		//getGUIObjectByName("playerName0Heading").caption = "";
 	}
 
-	// Show counters
+	var playerBoxesCounts = [ ];
 	
-	var tn = "";
-	if (teams)
+	var a = -1;
+	for (var i = 0; i < maxPlayers; ++i)
 	{
-		var team_number = 1;
-		tn = "t"+team_number+"p";
-	}
-	// get counters
-	for (var i = 0; i < maxPlayers; ++i)	//for all players
-	{
-		for (var p in panels)	//for all panels
+		var tn = "";
+		var playerState = data.playerStates[i+1];
+		
+		if (!playerBoxesCounts[playerState.team+1])
+			playerBoxesCounts[playerState.team+1] = 1;
+		else
+			playerBoxesCounts[playerState.team+1] += 1;
+
+		if (playerState.team != -1)
+			tn = "t"+playerState.team+"p";
+
+		var j = 0;
+		for (var p in panels)
 		{
-			for (var c in panels[p].counters)	//for all counters in panel
+			// Display boxes for players
+			var playerBox = getGUIObjectByName("playerBox"+j+tn+"["+(playerBoxesCounts[playerState.team+1] -1)+"]"); 
+			playerBox.hidden = false;
+			
+			var boxSize = playerBox.size;
+			boxSize.top += (playerBoxesCounts[playerState.team+1] - 1) * (PLAYER_BOX_Y_SIZE + PLAYER_BOX_GAP);
+			boxSize.bottom = boxSize.top + PLAYER_BOX_Y_SIZE;
+			playerBox.size = boxSize;
+			
+			var colourString = "colour: "
+				+ Math.floor(playerState.colour.r * 255) + " "
+				+ Math.floor(playerState.colour.g * 255) + " "
+				+ Math.floor(playerState.colour.b * 255);
+			
+			playerBox.sprite = colourString + PLAYER_BOX_ALPHA;
+			
+			var playerColourBox = getGUIObjectByName("playerColourBox"+j+tn+"["+(playerBoxesCounts[playerState.team+1] -1)+"]");
+			playerColourBox.sprite = colourString + PLAYER_COLOUR_BOX_ALPHA;
+			
+			// Show the multiplayer name, e.g. "Foobar" rather than "Player 1".
+			// TODO: Perhaps show both the multiplayer and map-specific name?
+			var playerName = getGUIObjectByName("playerName"+j+tn+"["+(playerBoxesCounts[playerState.team+1] -1)+"]");
+			playerName.caption = "i: "+i;//data.players[i+1].name;
+
+			var civIcon = getGUIObjectByName("civIcon"+j+tn+"["+(playerBoxesCounts[playerState.team+1] -1)+"]");
+			//getGUIObjectByName("civIcon"+j+tn+"["+playerBoxesCounts[playerState.team+1]+"]").sprite = "stretched:"+civData[playerState.civ].Emblem;
+			//getGUIObjectByName("civIcon"+j+tn+"["+playerBoxesCounts[playerState.team+1]+"]").tooltip = civData[playerState.civ].Name;
+			civIcon.sprite = "stretched:"+civData[playerState.civ].Emblem;
+			civIcon.tooltip = civData[playerState.civ].Name;
+			
+			// Get counters
+			for (var c in panels[p].counters)
 			{
-				// get counter
 				panels[p].counters[c].objects[i] = getGUIObjectByName(c+tn+"["+i+"]");
 			}
+			
+			// Align counters
+			var right = alignCounters(panels[p].counters, i);
+			boxSize.right = right;
+			playerBox.size = boxSize;
+			playerName.caption += " "+i+" a: "+a + " " + civData[playerState.civ].Name;
+			
+			j++;
 		}
-	}
-	
-	// align counters
-	for (var i = 0; i < maxPlayers; ++i)	//for all players
-	{
-		var pn = 0;
-		for (var p in panels)	//for all panels
-		{
-			var l = alignCounters(panels[p].counters, i);
-			var size = getGUIObjectByName("playerBox"+pn+tn+"["+i+"]").size;
-			size.right = l + 10;
-			getGUIObjectByName("playerBox"+pn+tn+"["+i+"]").size = size;
-			pn++;
-		}
-	}
-	
-	//display counters
-	for (var i = 0; i < maxPlayers; ++i)	//for all players
-	{
-		playerState = data.playerStates[i+1];
 		
-		panels.score.counters.economyScore.objects[i].caption = Math.round(playerState.statistics.resourcesGathered.total / 10);
+		// Assign counters
+		panels.score.counters.economyScore.objects[i].caption = "i: "+i+" a: "+a;//Math.round(playerState.statistics.resourcesGathered.total / 10);
 		panels.score.counters.militaryScore.objects[i].caption = Math.round((playerState.statistics.enemyUnitsKilledValue +
 			playerState.statistics.enemyBuildingsDestroyedValue) / 10);
 		panels.score.counters.explorationScore.objects[i].caption = playerState.statistics.percentMapExplored * 10;
@@ -451,7 +458,67 @@ function init(data)
 		panels.miscelanous.counters.killDeathRatio.objects[i].caption = Math.round((playerState.statistics.enemyUnitsKilled.total > 0 ?
 			(playerState.statistics.enemyUnitsKilled.total / playerState.statistics.unitsLost.total) : 0)*100)/100;
 		panels.miscelanous.counters.mapExploration.objects[i].caption = playerState.statistics.percentMapExplored + "%";
+		
+		a++;
 	}
+	
+	
+
+	// Show counters	
+	// get counters
+	//for (var i = 0; i < maxPlayers; ++i)	//for all players
+	//{
+	//	tn = "";
+//		if (data.playerStates[i+1].team != -1)
+//			tn = "t"+data.playerStates[i+1].team+"p";
+//		
+//		for (var p in panels)	//for all panels
+//		{
+//			for (var c in panels[p].counters)	//for all counters in panel
+//			{
+//				// get counter
+//				panels[p].counters[c].objects[i] = getGUIObjectByName(c+tn+"["+i+"]");
+//			}
+//		}
+//	}
+	
+	// align counters
+//	var zmienna = 0;
+//	while(zmienna < maxPlayers)
+//	{
+//		var pn = 0;
+//		for (var p in panels)	//for all panels
+//		{
+//			var playerName = getGUIObjectByName("playerName"+pn+tn+"["+zmienna+"]");
+//			playerName.caption = "" + " " + zmienna;
+//			
+//			var l = alignCounters(panels[p].counters, zmienna);
+//			var playerBox = getGUIObjectByName("playerBox"+pn+tn+"["+zmienna+"]");	//0
+//			var playerBoxSize = playerBox.size;					
+//			playerBoxSize.right = l;
+//			playerBox.size = playerBoxSize;
+//			
+//			//data.players[i+1].name;
+//			//l = 240;
+//			//var size = getGUIObjectByName("playerBox"+i+tn+"["+i+"]").size;
+//			//size.left = 10;
+//			//size.right = 240;
+//			//getGUIObjectByName("playerBox"+i+tn+"["+i+"]").size = size;
+//			pn++;
+//		}
+//		
+//		zmienna++;
+//	}
+	
+
+	
+	//display counters
+//	for (var i = 0; i < maxPlayers; ++i)	//for all players
+//	{
+//		playerState = data.playerStates[i+1];
+//		
+//		
+//	}
 
 	selectPanel(0);
 }
