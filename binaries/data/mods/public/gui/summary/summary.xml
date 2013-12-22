@@ -108,7 +108,7 @@
 			</object>
 
 			<object type="image" name="teamBox0t0" size="0 65 100% 100%-50" hidden="true">
-				<object type="text" name="teamNameHeading0t0" size="20 0 100% 100%" style="LeftTabLabelText"/>
+				<object type="text" name="teamNameHeading0t0" size="20 5 100% 100%" style="LeftTabLabelText"/>
 				<object size="0 30 100% 100%">
 					<repeat count="8">
 						<object type="image" name="playerBox0t0p[n]" size="10 0 10 30" hidden="true">
@@ -122,14 +122,14 @@
 						</object>
 					</repeat>
 				</object>
-				<object name="teamHeading0t0"     type="text" style="CenteredLabelText"/>
+				<object name="teamHeading0t0"     type="text" style="LeftTabLabelText"/>
 				<object name="economyScoret0"     type="text" style="CenteredLabelText"/>
 				<object name="militaryScoret0"    type="text" style="CenteredLabelText"/>
 				<object name="explorationScoret0" type="text" style="CenteredLabelText"/>
 				<object name="totalScoret0" 	  type="text" style="CenteredLabelText"/>
 			</object>
 			<object type="image" name="teamBox0t1" size="0 65 100% 100%-50" hidden="true">
-				<object type="text" name="teamNameHeading0t1" size="20 0 100% 100%" style="LeftTabLabelText"/>
+				<object type="text" name="teamNameHeading0t1" size="20 5 100% 100%" style="LeftTabLabelText"/>
 				<object size="0 30 100% 100%">
 					<repeat count="8">
 						<object type="image" name="playerBox0t1p[n]" size="10 0 10 30" hidden="true">
@@ -143,14 +143,14 @@
 						</object>
 					</repeat>
 				</object>
-				<object name="teamHeading0t1"     type="text" style="CenteredLabelText"/>
+				<object name="teamHeading0t1"     type="text" style="LeftTabLabelText"/>
 				<object name="economyScoret1"     type="text" style="CenteredLabelText"/>
 				<object name="militaryScoret1"    type="text" style="CenteredLabelText"/>
 				<object name="explorationScoret1" type="text" style="CenteredLabelText"/>
 				<object name="totalScoret1" 	  type="text" style="CenteredLabelText"/>
 			</object>
 			<object type="image" name="teamBox0t2" size="0 65 100% 100%-50" hidden="true">
-				<object type="text" name="teamNameHeading0t2" size="20 0 100% 100%" style="LeftTabLabelText"/>
+				<object type="text" name="teamNameHeading0t2" size="20 5 100% 100%" style="LeftTabLabelText"/>
 				<object size="0 30 100% 100%">
 					<repeat count="8">
 						<object type="image" name="playerBox0t2p[n]" size="10 0 10 30" hidden="true">
@@ -164,14 +164,14 @@
 						</object>
 					</repeat>
 				</object>
-				<object name="teamHeading0t2"     type="text" style="CenteredLabelText"/>
+				<object name="teamHeading0t2"     type="text" style="LeftTabLabelText"/>
 				<object name="economyScoret2"     type="text" style="CenteredLabelText"/>
 				<object name="militaryScoret2"    type="text" style="CenteredLabelText"/>
 				<object name="explorationScoret2" type="text" style="CenteredLabelText"/>
 				<object name="totalScoret2" 	  type="text" style="CenteredLabelText"/>
 			</object>
 			<object type="image" name="teamBox0t3" size="0 65 100% 100%-50" hidden="true">
-				<object type="text" name="teamNameHeading0t3" size="20 0 100% 100%" style="LeftTabLabelText"/>
+				<object type="text" name="teamNameHeading0t3" size="20 5 100% 100%" style="LeftTabLabelText"/>
 				<object size="0 30 100% 100%">
 					<repeat count="8">
 						<object type="image" name="playerBox0t3p[n]" size="10 0 10 30" hidden="true">
@@ -185,14 +185,14 @@
 						</object>
 					</repeat>
 				</object>
-				<object name="teamHeading0t3"     type="text" style="CenteredLabelText"/>
+				<object name="teamHeading0t3"     type="text" style="LeftTabLabelText"/>
 				<object name="economyScoret3"     type="text" style="CenteredLabelText"/>
 				<object name="militaryScoret3"    type="text" style="CenteredLabelText"/>
 				<object name="explorationScoret3" type="text" style="CenteredLabelText"/>
 				<object name="totalScoret3" 	  type="text" style="CenteredLabelText"/>
 			</object>
 			<object type="image" name="teamBox0t4" size="0 65 100% 100%-50" hidden="true">
-				<object type="text" name="teamNameHeading0t4" size="20 0 100% 100%" style="LeftTabLabelText"/>
+				<object type="text" name="teamNameHeading0t4" size="20 5 100% 100%" style="LeftTabLabelText"/>
 				<object size="0 30 100% 100%">
 					<repeat count="8">
 						<object type="image" name="playerBox0t4p[n]" size="10 0 10 30" hidden="true">
@@ -206,14 +206,14 @@
 						</object>
 					</repeat>
 				</object>
-				<object name="teamHeading0t4"     type="text" style="CenteredLabelText"/>
+				<object name="teamHeading0t4"     type="text" style="LeftTabLabelText"/>
 				<object name="economyScoret4"     type="text" style="CenteredLabelText"/>
 				<object name="militaryScoret4"    type="text" style="CenteredLabelText"/>
 				<object name="explorationScoret4" type="text" style="CenteredLabelText"/>
 				<object name="totalScoret4" 	  type="text" style="CenteredLabelText"/>
 			</object>
 			<object type="image" name="teamBox0t5" size="0 65 100% 100%-50" hidden="true">
-				<object type="text" name="teamNameHeading0t5" size="20 0 100% 100%" style="LeftTabLabelText"/>
+				<object type="text" name="teamNameHeading0t5" size="20 5 100% 100%" style="LeftTabLabelText"/>
 				<object size="0 30 100% 100%">
 					<repeat count="8">
 						<object type="image" name="playerBox0t5p[n]" size="10 0 10 30" hidden="true">
@@ -227,14 +227,14 @@
 						</object>
 					</repeat>
 				</object>
-				<object name="teamHeading0t5"     type="text" style="CenteredLabelText"/>
+				<object name="teamHeading0t5"     type="text" style="LeftTabLabelText"/>
 				<object name="economyScoret5"     type="text" style="CenteredLabelText"/>
 				<object name="militaryScoret5"    type="text" style="CenteredLabelText"/>
 				<object name="explorationScoret5" type="text" style="CenteredLabelText"/>
 				<object name="totalScoret5" 	  type="text" style="CenteredLabelText"/>
 			</object>
 			<object type="image" name="teamBox0t6" size="0 65 100% 100%-50" hidden="true">
-				<object type="text" name="teamNameHeading0t6" size="20 0 100% 100%" style="LeftTabLabelText"/>
+				<object type="text" name="teamNameHeading0t6" size="20 5 100% 100%" style="LeftTabLabelText"/>
 				<object size="0 30 100% 100%">
 					<repeat count="8">
 						<object type="image" name="playerBox0t6p[n]" size="10 0 10 30" hidden="true">
@@ -248,7 +248,7 @@
 						</object>
 					</repeat>
 				</object>
-				<object name="teamHeading0t6"     type="text" style="CenteredLabelText"/>
+				<object name="teamHeading0t6"     type="text" style="LeftTabLabelText"/>
 				<object name="economyScoret6"     type="text" style="CenteredLabelText"/>
 				<object name="militaryScoret6"    type="text" style="CenteredLabelText"/>
 				<object name="explorationScoret6" type="text" style="CenteredLabelText"/>
@@ -307,7 +307,7 @@
 			</object>
 			
 			<object type="image" name="teamBox1t0" size="0 65 100% 100%-50" hidden="true">
-				<object type="text" name="teamNameHeading1t0" size="20 0 100% 100%" style="LeftTabLabelText"/>
+				<object type="text" name="teamNameHeading1t0" size="20 5 100% 100%" style="LeftTabLabelText"/>
 				<object size="0 30 100% 100%">
 					<repeat count="8">
 						<object type="image" name="playerBox1t0p[n]" size="10 0 10 30" hidden="true">
@@ -325,7 +325,7 @@
 						</object>
 					</repeat>
 				</object>
-				<object name="teamHeading1t0"       type="text" style="CenteredLabelText"/>
+				<object name="teamHeading1t0"       type="text" style="LeftTabLabelText"/>
 				<object name="totalBuildingst0"     type="text" style="CenteredLabelText"/>
 				<object name="houseBuildingst0"     type="text" style="CenteredLabelText"/>
 				<object name="economicBuildingst0"  type="text" style="CenteredLabelText"/>
@@ -336,7 +336,7 @@
 				<object name="wonderBuildingst0"    type="text" style="CenteredLabelText"/>
 			</object>
 			<object type="image" name="teamBox1t1" size="0 65 100% 100%-50" hidden="true">
-				<object type="text" name="teamNameHeading1t1" size="20 0 100% 100%" style="LeftTabLabelText"/>
+				<object type="text" name="teamNameHeading1t1" size="20 5 100% 100%" style="LeftTabLabelText"/>
 				<object size="0 30 100% 100%">
 					<repeat count="8">
 						<object type="image" name="playerBox1t1p[n]" size="10 0 10 30" hidden="true">
@@ -354,7 +354,7 @@
 						</object>
 					</repeat>
 				</object>
-				<object name="teamHeading1t1"       type="text" style="CenteredLabelText"/>
+				<object name="teamHeading1t1"       type="text" style="LeftTabLabelText"/>
 				<object name="totalBuildingst1"     type="text" style="CenteredLabelText"/>
 				<object name="houseBuildingst1"     type="text" style="CenteredLabelText"/>
 				<object name="economicBuildingst1"  type="text" style="CenteredLabelText"/>
@@ -365,7 +365,7 @@
 				<object name="wonderBuildingst1"    type="text" style="CenteredLabelText"/>
 			</object>
 			<object type="image" name="teamBox1t2" size="0 65 100% 100%-50" hidden="true">
-				<object type="text" name="teamNameHeading1t2" size="20 0 100% 100%" style="LeftTabLabelText"/>
+				<object type="text" name="teamNameHeading1t2" size="20 5 100% 100%" style="LeftTabLabelText"/>
 				<object size="0 30 100% 100%">
 					<repeat count="8">
 						<object type="image" name="playerBox1t2p[n]" size="10 0 10 30" hidden="true">
@@ -383,7 +383,7 @@
 						</object>
 					</repeat>
 				</object>
-				<object name="teamHeading1t2"       type="text" style="CenteredLabelText"/>
+				<object name="teamHeading1t2"       type="text" style="LeftTabLabelText"/>
 				<object name="totalBuildingst2"     type="text" style="CenteredLabelText"/>
 				<object name="houseBuildingst2"     type="text" style="CenteredLabelText"/>
 				<object name="economicBuildingst2"  type="text" style="CenteredLabelText"/>
@@ -394,7 +394,7 @@
 				<object name="wonderBuildingst2"    type="text" style="CenteredLabelText"/>
 			</object>
 			<object type="image" name="teamBox1t3" size="0 65 100% 100%-50" hidden="true">
-				<object type="text" name="teamNameHeading1t3" size="20 0 100% 100%" style="LeftTabLabelText"/>
+				<object type="text" name="teamNameHeading1t3" size="20 5 100% 100%" style="LeftTabLabelText"/>
 				<object size="0 30 100% 100%">
 					<repeat count="8">
 						<object type="image" name="playerBox1t3p[n]" size="10 0 10 30" hidden="true">
@@ -412,7 +412,7 @@
 						</object>
 					</repeat>
 				</object>
-				<object name="teamHeading1t3"       type="text" style="CenteredLabelText"/>
+				<object name="teamHeading1t3"       type="text" style="LeftTabLabelText"/>
 				<object name="totalBuildingst3"     type="text" style="CenteredLabelText"/>
 				<object name="houseBuildingst3"     type="text" style="CenteredLabelText"/>
 				<object name="economicBuildingst3"  type="text" style="CenteredLabelText"/>
@@ -423,7 +423,7 @@
 				<object name="wonderBuildingst3"    type="text" style="CenteredLabelText"/>
 			</object>
 			<object type="image" name="teamBox1t4" size="0 65 100% 100%-50" hidden="true">
-				<object type="text" name="teamNameHeading1t4" size="20 0 100% 100%" style="LeftTabLabelText"/>
+				<object type="text" name="teamNameHeading1t4" size="20 5 100% 100%" style="LeftTabLabelText"/>
 				<object size="0 30 100% 100%">
 					<repeat count="8">
 						<object type="image" name="playerBox1t4p[n]" size="10 0 10 30" hidden="true">
@@ -441,7 +441,7 @@
 						</object>
 					</repeat>
 				</object>
-				<object name="teamHeading1t4"       type="text" style="CenteredLabelText"/>
+				<object name="teamHeading1t4"       type="text" style="LeftTabLabelText"/>
 				<object name="totalBuildingst4"     type="text" style="CenteredLabelText"/>
 				<object name="houseBuildingst4"     type="text" style="CenteredLabelText"/>
 				<object name="economicBuildingst4"  type="text" style="CenteredLabelText"/>
@@ -452,7 +452,7 @@
 				<object name="wonderBuildingst4"    type="text" style="CenteredLabelText"/>
 			</object>
 			<object type="image" name="teamBox1t5" size="0 65 100% 100%-50" hidden="true">
-				<object type="text" name="teamNameHeading1t5" size="20 0 100% 100%" style="LeftTabLabelText"/>
+				<object type="text" name="teamNameHeading1t5" size="20 5 100% 100%" style="LeftTabLabelText"/>
 				<object size="0 30 100% 100%">
 					<repeat count="8">
 						<object type="image" name="playerBox1t5p[n]" size="10 0 10 30" hidden="true">
@@ -470,7 +470,7 @@
 						</object>
 					</repeat>
 				</object>
-				<object name="teamHeading1t5"       type="text" style="CenteredLabelText"/>
+				<object name="teamHeading1t5"       type="text" style="LeftTabLabelText"/>
 				<object name="totalBuildingst5"     type="text" style="CenteredLabelText"/>
 				<object name="houseBuildingst5"     type="text" style="CenteredLabelText"/>
 				<object name="economicBuildingst5"  type="text" style="CenteredLabelText"/>
@@ -481,7 +481,7 @@
 				<object name="wonderBuildingst5"    type="text" style="CenteredLabelText"/>
 			</object>
 			<object type="image" name="teamBox1t6" size="0 65 100% 100%-50" hidden="true">
-				<object type="text" name="teamNameHeading1t6" size="20 0 100% 100%" style="LeftTabLabelText"/>
+				<object type="text" name="teamNameHeading1t6" size="20 5 100% 100%" style="LeftTabLabelText"/>
 				<object size="0 30 100% 100%">
 					<repeat count="8">
 						<object type="image" name="playerBox1t6p[n]" size="10 0 10 30" hidden="true">
@@ -499,7 +499,7 @@
 						</object>
 					</repeat>
 				</object>
-				<object name="teamHeading1t6"       type="text" style="CenteredLabelText"/>
+				<object name="teamHeading1t6"       type="text" style="LeftTabLabelText"/>
 				<object name="totalBuildingst6"     type="text" style="CenteredLabelText"/>
 				<object name="houseBuildingst6"     type="text" style="CenteredLabelText"/>
 				<object name="economicBuildingst6"  type="text" style="CenteredLabelText"/>
@@ -562,7 +562,7 @@
 			</object>
 			
 			<object type="image" name="teamBox2t0" size="0 65 100% 100%-50" hidden="true">
-				<object type="text" name="teamNameHeading2t0" size="20 0 100% 100%" style="LeftTabLabelText"/>
+				<object type="text" name="teamNameHeading2t0" size="20 5 100% 100%" style="LeftTabLabelText"/>
 				<object size="0 30 100% 100%">
 					<repeat count="8">
 						<object type="image" name="playerBox2t0p[n]" size="10 0 10 30" hidden="true">
@@ -579,7 +579,7 @@
 						</object>
 					</repeat>
 				</object>
-				<object name="teamHeading2t0"  type="text" style="CenteredLabelText"/>
+				<object name="teamHeading2t0"  type="text" style="LeftTabLabelText"/>
 				<object name="totalUnitst0"    type="text" style="CenteredLabelText"/>
 				<object name="infantryUnitst0" type="text" style="CenteredLabelText"/>
 				<object name="workerUnitst0"   type="text" style="CenteredLabelText"/>
@@ -589,7 +589,7 @@
 				<object name="navyUnitst0"     type="text" style="CenteredLabelText"/>
 			</object>
 			<object type="image" name="teamBox2t1" size="0 65 100% 100%-50" hidden="true">
-				<object type="text" name="teamNameHeading2t1" size="20 0 100% 100%" style="LeftTabLabelText"/>
+				<object type="text" name="teamNameHeading2t1" size="20 5 100% 100%" style="LeftTabLabelText"/>
 				<object size="0 30 100% 100%">
 					<repeat count="8">
 						<object type="image" name="playerBox2t1p[n]" size="10 0 10 30" hidden="true">
@@ -606,7 +606,7 @@
 						</object>
 					</repeat>
 				</object>
-				<object name="teamHeading2t1"  type="text" style="CenteredLabelText"/>
+				<object name="teamHeading2t1"  type="text" style="LeftTabLabelText"/>
 				<object name="totalUnitst1"    type="text" style="CenteredLabelText"/>
 				<object name="infantryUnitst1" type="text" style="CenteredLabelText"/>
 				<object name="workerUnitst1"   type="text" style="CenteredLabelText"/>
@@ -616,7 +616,7 @@
 				<object name="navyUnitst1"     type="text" style="CenteredLabelText"/>
 			</object>
 			<object type="image" name="teamBox2t2" size="0 65 100% 100%-50" hidden="true">
-				<object type="text" name="teamNameHeading2t2" size="20 0 100% 100%" style="LeftTabLabelText"/>
+				<object type="text" name="teamNameHeading2t2" size="20 5 100% 100%" style="LeftTabLabelText"/>
 				<object size="0 30 100% 100%">
 					<repeat count="8">
 						<object type="image" name="playerBox2t2p[n]" size="10 0 10 30" hidden="true">
@@ -633,7 +633,7 @@
 						</object>
 					</repeat>
 				</object>
-				<object name="teamHeading2t2"  type="text" style="CenteredLabelText"/>
+				<object name="teamHeading2t2"  type="text" style="LeftTabLabelText"/>
 				<object name="totalUnitst2"    type="text" style="CenteredLabelText"/>
 				<object name="infantryUnitst2" type="text" style="CenteredLabelText"/>
 				<object name="workerUnitst2"   type="text" style="CenteredLabelText"/>
@@ -643,7 +643,7 @@
 				<object name="navyUnitst2"     type="text" style="CenteredLabelText"/>
 			</object>
 			<object type="image" name="teamBox2t3" size="0 65 100% 100%-50" hidden="true">
-				<object type="text" name="teamNameHeading2t3" size="20 0 100% 100%" style="LeftTabLabelText"/>
+				<object type="text" name="teamNameHeading2t3" size="20 5 100% 100%" style="LeftTabLabelText"/>
 				<object size="0 30 100% 100%">
 					<repeat count="8">
 						<object type="image" name="playerBox2t3p[n]" size="10 0 10 30" hidden="true">
@@ -660,7 +660,7 @@
 						</object>
 					</repeat>
 				</object>
-				<object name="teamHeading2t3"  type="text" style="CenteredLabelText"/>
+				<object name="teamHeading2t3"  type="text" style="LeftTabLabelText"/>
 				<object name="totalUnitst3"    type="text" style="CenteredLabelText"/>
 				<object name="infantryUnitst3" type="text" style="CenteredLabelText"/>
 				<object name="workerUnitst3"   type="text" style="CenteredLabelText"/>
@@ -670,7 +670,7 @@
 				<object name="navyUnitst3"     type="text" style="CenteredLabelText"/>
 			</object>
 			<object type="image" name="teamBox2t4" size="0 65 100% 100%-50" hidden="true">
-				<object type="text" name="teamNameHeading2t4" size="20 0 100% 100%" style="LeftTabLabelText"/>
+				<object type="text" name="teamNameHeading2t4" size="20 5 100% 100%" style="LeftTabLabelText"/>
 				<object size="0 30 100% 100%">
 					<repeat count="8">
 						<object type="image" name="playerBox2t4p[n]" size="10 0 10 30" hidden="true">
@@ -687,7 +687,7 @@
 						</object>
 					</repeat>
 				</object>
-				<object name="teamHeading2t4"  type="text" style="CenteredLabelText"/>
+				<object name="teamHeading2t4"  type="text" style="LeftTabLabelText"/>
 				<object name="totalUnitst4"    type="text" style="CenteredLabelText"/>
 				<object name="infantryUnitst4" type="text" style="CenteredLabelText"/>
 				<object name="workerUnitst4"   type="text" style="CenteredLabelText"/>
@@ -697,7 +697,7 @@
 				<object name="navyUnitst4"     type="text" style="CenteredLabelText"/>
 			</object>
 			<object type="image" name="teamBox2t5" size="0 65 100% 100%-50" hidden="true">
-				<object type="text" name="teamNameHeading2t5" size="20 0 100% 100%" style="LeftTabLabelText"/>
+				<object type="text" name="teamNameHeading2t5" size="20 5 100% 100%" style="LeftTabLabelText"/>
 				<object size="0 30 100% 100%">
 					<repeat count="8">
 						<object type="image" name="playerBox2t5p[n]" size="10 0 10 30" hidden="true">
@@ -714,7 +714,7 @@
 						</object>
 					</repeat>
 				</object>
-				<object name="teamHeading2t5"  type="text" style="CenteredLabelText"/>
+				<object name="teamHeading2t5"  type="text" style="LeftTabLabelText"/>
 				<object name="totalUnitst5"    type="text" style="CenteredLabelText"/>
 				<object name="infantryUnitst5" type="text" style="CenteredLabelText"/>
 				<object name="workerUnitst5"   type="text" style="CenteredLabelText"/>
@@ -724,7 +724,7 @@
 				<object name="navyUnitst5"     type="text" style="CenteredLabelText"/>
 			</object>
 			<object type="image" name="teamBox2t6" size="0 65 100% 100%-50" hidden="true">
-				<object type="text" name="teamNameHeading2t6" size="20 0 100% 100%" style="LeftTabLabelText"/>
+				<object type="text" name="teamNameHeading2t6" size="20 5 100% 100%" style="LeftTabLabelText"/>
 				<object size="0 30 100% 100%">
 					<repeat count="8">
 						<object type="image" name="playerBox2t6p[n]" size="10 0 10 30" hidden="true">
@@ -741,7 +741,7 @@
 						</object>
 					</repeat>
 				</object>
-				<object name="teamHeading2t6"  type="text" style="CenteredLabelText"/>
+				<object name="teamHeading2t6"  type="text" style="LeftTabLabelText"/>
 				<object name="totalUnitst6"    type="text" style="CenteredLabelText"/>
 				<object name="infantryUnitst6" type="text" style="CenteredLabelText"/>
 				<object name="workerUnitst6"   type="text" style="CenteredLabelText"/>
@@ -802,7 +802,7 @@
 			</object>
 
 			<object type="image" name="teamBox3t0" size="0 65 100% 100%-50" hidden="true">
-				<object type="text" name="teamNameHeading3t0" size="20 0 100% 100%" style="LeftTabLabelText"/>
+				<object type="text" name="teamNameHeading3t0" size="20 5 100% 100%" style="LeftTabLabelText"/>
 				<object size="0 30 100% 100%">
 					<repeat count="8">
 						<object type="image" name="playerBox3t0p[n]" size="10 0 10 30" hidden="true">
@@ -819,7 +819,7 @@
 						</object>
 					</repeat>
 				</object>
-				<object name="teamHeading3t0"       type="text" style="CenteredLabelText"/>
+				<object name="teamHeading3t0"       type="text" style="LeftTabLabelText"/>
 				<object name="foodGatheredt0"       type="text" style="CenteredLabelText"/>
 				<object name="woodGatheredt0"       type="text" style="CenteredLabelText"/>
 				<object name="stoneGatheredt0"      type="text" style="CenteredLabelText"/>
@@ -829,7 +829,7 @@
 				<object name="resourcesTributedt0"  type="text" style="CenteredLabelText"/>
 			</object>
 			<object type="image" name="teamBox3t1" size="0 65 100% 100%-50" hidden="true">
-				<object type="text" name="teamNameHeading3t1" size="20 0 100% 100%" style="LeftTabLabelText"/>
+				<object type="text" name="teamNameHeading3t1" size="20 5 100% 100%" style="LeftTabLabelText"/>
 				<object size="0 30 100% 100%">
 					<repeat count="8">
 						<object type="image" name="playerBox3t1p[n]" size="10 0 10 30" hidden="true">
@@ -846,7 +846,7 @@
 						</object>
 					</repeat>
 				</object>
-				<object name="teamHeading3t1"       type="text" style="CenteredLabelText"/>
+				<object name="teamHeading3t1"       type="text" style="LeftTabLabelText"/>
 				<object name="foodGatheredt1"       type="text" style="CenteredLabelText"/>
 				<object name="woodGatheredt1"       type="text" style="CenteredLabelText"/>
 				<object name="stoneGatheredt1"      type="text" style="CenteredLabelText"/>
@@ -856,7 +856,7 @@
 				<object name="resourcesTributedt1"  type="text" style="CenteredLabelText"/>
 			</object>
 			<object type="image" name="teamBox3t2" size="0 65 100% 100%-50" hidden="true">
-				<object type="text" name="teamNameHeading3t2" size="20 0 100% 100%" style="LeftTabLabelText"/>
+				<object type="text" name="teamNameHeading3t2" size="20 5 100% 100%" style="LeftTabLabelText"/>
 				<object size="0 30 100% 100%">
 					<repeat count="8">
 						<object type="image" name="playerBox3t2p[n]" size="10 0 10 30" hidden="true">
@@ -873,7 +873,7 @@
 						</object>
 					</repeat>
 				</object>
-				<object name="teamHeading3t2"       type="text" style="CenteredLabelText"/>
+				<object name="teamHeading3t2"       type="text" style="LeftTabLabelText"/>
 				<object name="foodGatheredt2"       type="text" style="CenteredLabelText"/>
 				<object name="woodGatheredt2"       type="text" style="CenteredLabelText"/>
 				<object name="stoneGatheredt2"      type="text" style="CenteredLabelText"/>
@@ -883,7 +883,7 @@
 				<object name="resourcesTributedt2"  type="text" style="CenteredLabelText"/>
 			</object>
 			<object type="image" name="teamBox3t3" size="0 65 100% 100%-50" hidden="true">
-				<object type="text" name="teamNameHeading3t3" size="20 0 100% 100%" style="LeftTabLabelText"/>
+				<object type="text" name="teamNameHeading3t3" size="20 5 100% 100%" style="LeftTabLabelText"/>
 				<object size="0 30 100% 100%">
 					<repeat count="8">
 						<object type="image" name="playerBox3t3p[n]" size="10 0 10 30" hidden="true">
@@ -900,7 +900,7 @@
 						</object>
 					</repeat>
 				</object>
-				<object name="teamHeading3t3"       type="text" style="CenteredLabelText"/>
+				<object name="teamHeading3t3"       type="text" style="LeftTabLabelText"/>
 				<object name="foodGatheredt3"       type="text" style="CenteredLabelText"/>
 				<object name="woodGatheredt3"       type="text" style="CenteredLabelText"/>
 				<object name="stoneGatheredt3"      type="text" style="CenteredLabelText"/>
@@ -910,7 +910,7 @@
 				<object name="resourcesTributedt3"  type="text" style="CenteredLabelText"/>
 			</object>
 			<object type="image" name="teamBox3t4" size="0 65 100% 100%-50" hidden="true">
-				<object type="text" name="teamNameHeading3t4" size="20 0 100% 100%" style="LeftTabLabelText"/>
+				<object type="text" name="teamNameHeading3t4" size="20 5 100% 100%" style="LeftTabLabelText"/>
 				<object size="0 30 100% 100%">
 					<repeat count="8">
 						<object type="image" name="playerBox3t4p[n]" size="10 0 10 30" hidden="true">
@@ -927,7 +927,7 @@
 						</object>
 					</repeat>
 				</object>
-				<object name="teamHeading3t4"       type="text" style="CenteredLabelText"/>
+				<object name="teamHeading3t4"       type="text" style="LeftTabLabelText"/>
 				<object name="foodGatheredt4"       type="text" style="CenteredLabelText"/>
 				<object name="woodGatheredt4"       type="text" style="CenteredLabelText"/>
 				<object name="stoneGatheredt4"      type="text" style="CenteredLabelText"/>
@@ -937,7 +937,7 @@
 				<object name="resourcesTributedt4"  type="text" style="CenteredLabelText"/>
 			</object>
 			<object type="image" name="teamBox3t5" size="0 65 100% 100%-50" hidden="true">
-				<object type="text" name="teamNameHeading3t5" size="20 0 100% 100%" style="LeftTabLabelText"/>
+				<object type="text" name="teamNameHeading3t5" size="20 5 100% 100%" style="LeftTabLabelText"/>
 				<object size="0 30 100% 100%">
 					<repeat count="8">
 						<object type="image" name="playerBox3t5p[n]" size="10 0 10 30" hidden="true">
@@ -954,7 +954,7 @@
 						</object>
 					</repeat>
 				</object>
-				<object name="teamHeading3t5"       type="text" style="CenteredLabelText"/>
+				<object name="teamHeading3t5"       type="text" style="LeftTabLabelText"/>
 				<object name="foodGatheredt5"       type="text" style="CenteredLabelText"/>
 				<object name="woodGatheredt5"       type="text" style="CenteredLabelText"/>
 				<object name="stoneGatheredt5"      type="text" style="CenteredLabelText"/>
@@ -964,7 +964,7 @@
 				<object name="resourcesTributedt5"  type="text" style="CenteredLabelText"/>
 			</object>
 			<object type="image" name="teamBox3t6" size="0 65 100% 100%-50" hidden="true">
-				<object type="text" name="teamNameHeading3t6" size="20 0 100% 100%" style="LeftTabLabelText"/>
+				<object type="text" name="teamNameHeading3t6" size="20 5 100% 100%" style="LeftTabLabelText"/>
 				<object size="0 30 100% 100%">
 					<repeat count="8">
 						<object type="image" name="playerBox3t6p[n]" size="10 0 10 30" hidden="true">
@@ -981,7 +981,7 @@
 						</object>
 					</repeat>
 				</object>
-				<object name="teamHeading3t6"       type="text" style="CenteredLabelText"/>
+				<object name="teamHeading3t6"       type="text" style="LeftTabLabelText"/>
 				<object name="foodGatheredt6"       type="text" style="CenteredLabelText"/>
 				<object name="woodGatheredt6"       type="text" style="CenteredLabelText"/>
 				<object name="stoneGatheredt6"      type="text" style="CenteredLabelText"/>
@@ -1036,7 +1036,7 @@
 			</object>
 			
 			<object type="image" name="teamBox4t0" size="0 65 100% 100%-50" hidden="true">
-				<object type="text" name="teamNameHeading4t0" size="20 0 100% 100%" style="LeftTabLabelText"/>
+				<object type="text" name="teamNameHeading4t0" size="20 5 100% 100%" style="LeftTabLabelText"/>
 				<object size="0 30 100% 100%">
 					<repeat count="8">
 						<object type="image" name="playerBox4t0p[n]" size="10 0 10 30" hidden="true">
@@ -1052,7 +1052,7 @@
 						</object>
 					</repeat>
 				</object>
-				<object name="teamHeading4t0"     type="text" style="CenteredLabelText"/>
+				<object name="teamHeading4t0"     type="text" style="LeftTabLabelText"/>
 				<object name="exchangedFoodt0"    type="text" style="CenteredLabelText"/>
 				<object name="exchangedWoodt0"    type="text" style="CenteredLabelText"/>
 				<object name="exchangedStonet0"   type="text" style="CenteredLabelText"/>
@@ -1061,7 +1061,7 @@
 				<object name="tradeIncomet0"      type="text" style="CenteredLabelText"/>
 			</object>
 			<object type="image" name="teamBox4t1" size="0 65 100% 100%-50" hidden="true">
-				<object type="text" name="teamNameHeading4t1" size="20 0 100% 100%" style="LeftTabLabelText"/>
+				<object type="text" name="teamNameHeading4t1" size="20 5 100% 100%" style="LeftTabLabelText"/>
 				<object size="0 30 100% 100%">
 					<repeat count="8">
 						<object type="image" name="playerBox4t1p[n]" size="10 0 10 30" hidden="true">
@@ -1077,7 +1077,7 @@
 						</object>
 					</repeat>
 				</object>
-				<object name="teamHeading4t1"     type="text" style="CenteredLabelText"/>
+				<object name="teamHeading4t1"     type="text" style="LeftTabLabelText"/>
 				<object name="exchangedFoodt1"    type="text" style="CenteredLabelText"/>
 				<object name="exchangedWoodt1"    type="text" style="CenteredLabelText"/>
 				<object name="exchangedStonet1"   type="text" style="CenteredLabelText"/>
@@ -1086,7 +1086,7 @@
 				<object name="tradeIncomet1"      type="text" style="CenteredLabelText"/>
 			</object>
 			<object type="image" name="teamBox4t2" size="0 65 100% 100%-50" hidden="true">
-				<object type="text" name="teamNameHeading4t2" size="20 0 100% 100%" style="LeftTabLabelText"/>
+				<object type="text" name="teamNameHeading4t2" size="20 5 100% 100%" style="LeftTabLabelText"/>
 				<object size="0 30 100% 100%">
 					<repeat count="8">
 						<object type="image" name="playerBox4t2p[n]" size="10 0 10 30" hidden="true">
@@ -1102,7 +1102,7 @@
 						</object>
 					</repeat>
 				</object>
-				<object name="teamHeading4t2"     type="text" style="CenteredLabelText"/>
+				<object name="teamHeading4t2"     type="text" style="LeftTabLabelText"/>
 				<object name="exchangedFoodt2"    type="text" style="CenteredLabelText"/>
 				<object name="exchangedWoodt2"    type="text" style="CenteredLabelText"/>
 				<object name="exchangedStonet2"   type="text" style="CenteredLabelText"/>
@@ -1111,7 +1111,7 @@
 				<object name="tradeIncomet2"      type="text" style="CenteredLabelText"/>
 			</object>
 			<object type="image" name="teamBox4t3" size="0 65 100% 100%-50" hidden="true">
-				<object type="text" name="teamNameHeading4t3" size="20 0 100% 100%" style="LeftTabLabelText"/>
+				<object type="text" name="teamNameHeading4t3" size="20 5 100% 100%" style="LeftTabLabelText"/>
 				<object size="0 30 100% 100%">
 					<repeat count="8">
 						<object type="image" name="playerBox4t3p[n]" size="10 0 10 30" hidden="true">
@@ -1127,7 +1127,7 @@
 						</object>
 					</repeat>
 				</object>
-				<object name="teamHeading4t3"     type="text" style="CenteredLabelText"/>
+				<object name="teamHeading4t3"     type="text" style="LeftTabLabelText"/>
 				<object name="exchangedFoodt3"    type="text" style="CenteredLabelText"/>
 				<object name="exchangedWoodt3"    type="text" style="CenteredLabelText"/>
 				<object name="exchangedStonet3"   type="text" style="CenteredLabelText"/>
@@ -1136,7 +1136,7 @@
 				<object name="tradeIncomet3"      type="text" style="CenteredLabelText"/>
 			</object>
 			<object type="image" name="teamBox4t4" size="0 65 100% 100%-50" hidden="true">
-				<object type="text" name="teamNameHeading4t4" size="20 0 100% 100%" style="LeftTabLabelText"/>
+				<object type="text" name="teamNameHeading4t4" size="20 5 100% 100%" style="LeftTabLabelText"/>
 				<object size="0 30 100% 100%">
 					<repeat count="8">
 						<object type="image" name="playerBox4t4p[n]" size="10 0 10 30" hidden="true">
@@ -1152,7 +1152,7 @@
 						</object>
 					</repeat>
 				</object>
-				<object name="teamHeading4t4"     type="text" style="CenteredLabelText"/>
+				<object name="teamHeading4t4"     type="text" style="LeftTabLabelText"/>
 				<object name="exchangedFoodt4"    type="text" style="CenteredLabelText"/>
 				<object name="exchangedWoodt4"    type="text" style="CenteredLabelText"/>
 				<object name="exchangedStonet4"   type="text" style="CenteredLabelText"/>
@@ -1161,7 +1161,7 @@
 				<object name="tradeIncomet4"      type="text" style="CenteredLabelText"/>
 			</object>
 			<object type="image" name="teamBox4t5" size="0 65 100% 100%-50" hidden="true">
-				<object type="text" name="teamNameHeading4t5" size="20 0 100% 100%" style="LeftTabLabelText"/>
+				<object type="text" name="teamNameHeading4t5" size="20 5 100% 100%" style="LeftTabLabelText"/>
 				<object size="0 30 100% 100%">
 					<repeat count="8">
 						<object type="image" name="playerBox4t5p[n]" size="10 0 10 30" hidden="true">
@@ -1177,7 +1177,7 @@
 						</object>
 					</repeat>
 				</object>
-				<object name="teamHeading4t5"     type="text" style="CenteredLabelText"/>
+				<object name="teamHeading4t5"     type="text" style="LeftTabLabelText"/>
 				<object name="exchangedFoodt5"    type="text" style="CenteredLabelText"/>
 				<object name="exchangedWoodt5"    type="text" style="CenteredLabelText"/>
 				<object name="exchangedStonet5"   type="text" style="CenteredLabelText"/>
@@ -1186,7 +1186,7 @@
 				<object name="tradeIncomet5"      type="text" style="CenteredLabelText"/>
 			</object>
 			<object type="image" name="teamBox4t6" size="0 65 100% 100%-50" hidden="true">
-				<object type="text" name="teamNameHeading4t6" size="20 0 100% 100%" style="LeftTabLabelText"/>
+				<object type="text" name="teamNameHeading4t6" size="20 5 100% 100%" style="LeftTabLabelText"/>
 				<object size="0 30 100% 100%">
 					<repeat count="8">
 						<object type="image" name="playerBox4t6p[n]" size="10 0 10 30" hidden="true">
@@ -1202,7 +1202,7 @@
 						</object>
 					</repeat>
 				</object>
-				<object name="teamHeading4t6"     type="text" style="CenteredLabelText"/>
+				<object name="teamHeading4t6"     type="text" style="LeftTabLabelText"/>
 				<object name="exchangedFoodt6"    type="text" style="CenteredLabelText"/>
 				<object name="exchangedWoodt6"    type="text" style="CenteredLabelText"/>
 				<object name="exchangedStonet6"   type="text" style="CenteredLabelText"/>
@@ -1249,7 +1249,7 @@
 			</object>
 			
 			<object type="image" name="teamBox5t0" size="0 65 100% 100%-50" hidden="true">
-				<object type="text" name="teamNameHeading5t0" size="20 0 100% 100%" style="LeftTabLabelText"/>
+				<object type="text" name="teamNameHeading5t0" size="20 5 100% 100%" style="LeftTabLabelText"/>
 				<object size="0 30 100% 100%">
 					<repeat count="8">
 						<object type="image" name="playerBox5t0p[n]" size="10 0 10 30" hidden="true">
@@ -1263,14 +1263,14 @@
 						</object>	
 					</repeat>
 				</object>
-				<object name="teamHeading5t0"    type="text" style="CenteredLabelText"/>
+				<object name="teamHeading5t0"    type="text" style="LeftTabLabelText"/>
 				<object name="vegetarianRatiot0" type="text" style="CenteredLabelText"/>
 				<object name="feminisationt0"    type="text" style="CenteredLabelText"/>
 				<object name="killDeathRatiot0"  type="text" style="CenteredLabelText"/>
 				<object name="mapExplorationt0"  type="text" style="CenteredLabelText"/>
 			</object>
 			<object type="image" name="teamBox5t1" size="0 65 100% 100%-50" hidden="true">
-				<object type="text" name="teamNameHeading5t1" size="20 0 100% 100%" style="LeftTabLabelText"/>
+				<object type="text" name="teamNameHeading5t1" size="20 5 100% 100%" style="LeftTabLabelText"/>
 				<object size="0 30 100% 100%">
 					<repeat count="8">
 						<object type="image" name="playerBox5t1p[n]" size="10 0 10 30" hidden="true">
@@ -1284,14 +1284,14 @@
 						</object>	
 					</repeat>
 				</object>
-				<object name="teamHeading5t1"    type="text" style="CenteredLabelText"/>
+				<object name="teamHeading5t1"    type="text" style="LeftTabLabelText"/>
 				<object name="vegetarianRatiot1" type="text" style="CenteredLabelText"/>
 				<object name="feminisationt1"    type="text" style="CenteredLabelText"/>
 				<object name="killDeathRatiot1"  type="text" style="CenteredLabelText"/>
 				<object name="mapExplorationt1"  type="text" style="CenteredLabelText"/>
 			</object>
 			<object type="image" name="teamBox5t2" size="0 65 100% 100%-50" hidden="true">
-				<object type="text" name="teamNameHeading5t2" size="20 0 100% 100%" style="LeftTabLabelText"/>
+				<object type="text" name="teamNameHeading5t2" size="20 5 100% 100%" style="LeftTabLabelText"/>
 				<object size="0 30 100% 100%">
 					<repeat count="8">
 						<object type="image" name="playerBox5t2p[n]" size="10 0 10 30" hidden="true">
@@ -1305,14 +1305,14 @@
 						</object>	
 					</repeat>
 				</object>
-				<object name="teamHeading5t2"    type="text" style="CenteredLabelText"/>
+				<object name="teamHeading5t2"    type="text" style="LeftTabLabelText"/>
 				<object name="vegetarianRatiot2" type="text" style="CenteredLabelText"/>
 				<object name="feminisationt2"    type="text" style="CenteredLabelText"/>
 				<object name="killDeathRatiot2"  type="text" style="CenteredLabelText"/>
 				<object name="mapExplorationt2"  type="text" style="CenteredLabelText"/>
 			</object>
 			<object type="image" name="teamBox5t3" size="0 65 100% 100%-50" hidden="true">
-				<object type="text" name="teamNameHeading5t3" size="20 0 100% 100%" style="LeftTabLabelText"/>
+				<object type="text" name="teamNameHeading5t3" size="20 5 100% 100%" style="LeftTabLabelText"/>
 				<object size="0 30 100% 100%">
 					<repeat count="8">
 						<object type="image" name="playerBox5t3p[n]" size="10 0 10 30" hidden="true">
@@ -1326,14 +1326,14 @@
 						</object>	
 					</repeat>
 				</object>
-				<object name="teamHeading5t3"    type="text" style="CenteredLabelText"/>
+				<object name="teamHeading5t3"    type="text" style="LeftTabLabelText"/>
 				<object name="vegetarianRatiot3" type="text" style="CenteredLabelText"/>
 				<object name="feminisationt3"    type="text" style="CenteredLabelText"/>
 				<object name="killDeathRatiot3"  type="text" style="CenteredLabelText"/>
 				<object name="mapExplorationt3"  type="text" style="CenteredLabelText"/>
 			</object>
 			<object type="image" name="teamBox5t4" size="0 65 100% 100%-50" hidden="true">
-				<object type="text" name="teamNameHeading5t4" size="20 0 100% 100%" style="LeftTabLabelText"/>
+				<object type="text" name="teamNameHeading5t4" size="20 5 100% 100%" style="LeftTabLabelText"/>
 				<object size="0 30 100% 100%">
 					<repeat count="8">
 						<object type="image" name="playerBox5t4p[n]" size="10 0 10 30" hidden="true">
@@ -1347,14 +1347,14 @@
 						</object>	
 					</repeat>
 				</object>
-				<object name="teamHeading5t4"    type="text" style="CenteredLabelText"/>
+				<object name="teamHeading5t4"    type="text" style="LeftTabLabelText"/>
 				<object name="vegetarianRatiot4" type="text" style="CenteredLabelText"/>
 				<object name="feminisationt4"    type="text" style="CenteredLabelText"/>
 				<object name="killDeathRatiot4"  type="text" style="CenteredLabelText"/>
 				<object name="mapExplorationt4"  type="text" style="CenteredLabelText"/>
 			</object>
 			<object type="image" name="teamBox5t5" size="0 65 100% 100%-50" hidden="true">
-				<object type="text" name="teamNameHeading5t5" size="20 0 100% 100%" style="LeftTabLabelText"/>
+				<object type="text" name="teamNameHeading5t5" size="20 5 100% 100%" style="LeftTabLabelText"/>
 				<object size="0 30 100% 100%">
 					<repeat count="8">
 						<object type="image" name="playerBox5t5p[n]" size="10 0 10 30" hidden="true">
@@ -1368,14 +1368,14 @@
 						</object>	
 					</repeat>
 				</object>
-				<object name="teamHeading5t5"    type="text" style="CenteredLabelText"/>
+				<object name="teamHeading5t5"    type="text" style="LeftTabLabelText"/>
 				<object name="vegetarianRatiot5" type="text" style="CenteredLabelText"/>
 				<object name="feminisationt5"    type="text" style="CenteredLabelText"/>
 				<object name="killDeathRatiot5"  type="text" style="CenteredLabelText"/>
 				<object name="mapExplorationt5"  type="text" style="CenteredLabelText"/>
 			</object>
 			<object type="image" name="teamBox5t6" size="0 65 100% 100%-50" hidden="true">
-				<object type="text" name="teamNameHeading5t6" size="20 0 100% 100%" style="LeftTabLabelText"/>
+				<object type="text" name="teamNameHeading5t6" size="20 5 100% 100%" style="LeftTabLabelText"/>
 				<object size="0 30 100% 100%">
 					<repeat count="8">
 						<object type="image" name="playerBox5t6p[n]" size="10 0 10 30" hidden="true">
@@ -1389,7 +1389,7 @@
 						</object>	
 					</repeat>
 				</object>
-				<object name="teamHeading5t6"    type="text" style="CenteredLabelText"/>
+				<object name="teamHeading5t6"    type="text" style="LeftTabLabelText"/>
 				<object name="vegetarianRatiot6" type="text" style="CenteredLabelText"/>
 				<object name="feminisationt6"    type="text" style="CenteredLabelText"/>
 				<object name="killDeathRatiot6"  type="text" style="CenteredLabelText"/>
