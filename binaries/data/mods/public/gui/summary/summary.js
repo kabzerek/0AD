@@ -273,20 +273,27 @@ function init(data)
 	
 	function captionVegetarianRatio()
 	{
-		return Math.floor(playerState.statistics.resourcesGathered.food > 0 ?
-			(playerState.statistics.resourcesGathered.vegetarianFood / playerState.statistics.resourcesGathered.food) * 100 : 0) + "%";
+		if (playerState.statistics.resourcesGathered.vegetarianFood && playerState.statistics.resourcesGathered.food)
+			return Math.floor((playerState.statistics.resourcesGathered.vegetarianFood / playerState.statistics.resourcesGathered.food) * 100) + "%";
+		else
+			return 0 + "%";	
 	}
 	
 	function captionFeminisation()
 	{
-		return Math.floor(playerState.statistics.unitsTrained.Worker > 0 ?
-			(playerState.statistics.unitsTrained.Female / playerState.statistics.unitsTrained.Worker) * 100 : 0) + "%";
+		if (playerState.statistics.unitsTrained.Worker && playerState.statistics.unitsTrained.Female)
+			return Math.floor((playerState.statistics.unitsTrained.Female / playerState.statistics.unitsTrained.Worker) * 100) + "%";
+		else
+			return 0 + "%";
 	}
 	
 	function captionKillDeathRatio()
 	{
-		return Math.round((playerState.statistics.enemyUnitsKilled.total > 0 ?
-			(playerState.statistics.enemyUnitsKilled.total / playerState.statistics.unitsLost.total) : 0)*100)/100;
+		if (!playerState.statistics.enemyUnitsKilled.total)
+			return "0.00";
+		if (!playerState.statistics.unitsLost.total)	// and enemyUnitsKilled.total > 0
+			return "infinity";
+		return Math.round((playerState.statistics.enemyUnitsKilled.total / playerState.statistics.unitsLost.total)*100)/100;
 	}
 	
 	function sumTeamBuildings(counter, type)
@@ -442,10 +449,15 @@ function init(data)
 		panels.miscelanous.counters.vegetarianRatio.teamsScores[playerState.team].vegetarianFood += playerState.statistics.resourcesGathered.vegetarianFood;
 		panels.miscelanous.counters.vegetarianRatio.teamsScores[playerState.team].food += playerState.statistics.resourcesGathered.food;
 		
-		panels.miscelanous.counters.vegetarianRatio.teamsScoresCaption[playerState.team] =
-			Math.floor(panels.miscelanous.counters.vegetarianRatio.teamsScores[playerState.team].food > 0 ?
-			(panels.miscelanous.counters.vegetarianRatio.teamsScores[playerState.team].vegetarianFood /
-			 panels.miscelanous.counters.vegetarianRatio.teamsScores[playerState.team].food) * 100 : 0) + "%";
+		if (panels.miscelanous.counters.vegetarianRatio.teamsScores[playerState.team].food &&
+		    panels.miscelanous.counters.vegetarianRatio.teamsScores[playerState.team].vegetarianFood)
+		{
+			panels.miscelanous.counters.vegetarianRatio.teamsScoresCaption[playerState.team] =
+				Math.floor((panels.miscelanous.counters.vegetarianRatio.teamsScores[playerState.team].vegetarianFood /
+					   panels.miscelanous.counters.vegetarianRatio.teamsScores[playerState.team].food) * 100) + "%";
+			return;
+		}
+		panels.miscelanous.counters.vegetarianRatio.teamsScoresCaption[playerState.team] = 0 + "%";
 	}
 	
 	function sumFeminisation()
@@ -460,10 +472,15 @@ function init(data)
 		panels.miscelanous.counters.feminisation.teamsScores[playerState.team].femalesTrained += playerState.statistics.unitsTrained.Female;
 		panels.miscelanous.counters.feminisation.teamsScores[playerState.team].workersTrained += playerState.statistics.unitsTrained.Worker;
 		
-		panels.miscelanous.counters.feminisation.teamsScoresCaption[playerState.team] =
-			Math.floor(panels.miscelanous.counters.feminisation.teamsScores[playerState.team].femalesTrained > 0 ?
-			(panels.miscelanous.counters.feminisation.teamsScores[playerState.team].femalesTrained /
-			 panels.miscelanous.counters.feminisation.teamsScores[playerState.team].workersTrained) * 100 : 0) + "%";
+		if (panels.miscelanous.counters.feminisation.teamsScores[playerState.team].femalesTrained &&
+		    panels.miscelanous.counters.feminisation.teamsScores[playerState.team].workersTrained)
+		{
+			panels.miscelanous.counters.feminisation.teamsScoresCaption[playerState.team] =
+				Math.floor((panels.miscelanous.counters.feminisation.teamsScores[playerState.team].femalesTrained /
+					    panels.miscelanous.counters.feminisation.teamsScores[playerState.team].workersTrained) * 100) + "%";
+				return;
+		}
+		panels.miscelanous.counters.feminisation.teamsScoresCaption[playerState.team] = 0 + "%";
 	}
 	
 	function sumKillDeathRatio()
@@ -478,10 +495,19 @@ function init(data)
 		panels.miscelanous.counters.killDeathRatio.teamsScores[playerState.team].enemyUnitsKilled += playerState.statistics.enemyUnitsKilled.total;
 		panels.miscelanous.counters.killDeathRatio.teamsScores[playerState.team].unitsLost += playerState.statistics.unitsLost.total;
 		
+		if (!panels.miscelanous.counters.killDeathRatio.teamsScores[playerState.team].enemyUnitsKilled)
+		{
+			panels.miscelanous.counters.killDeathRatio.teamsScoresCaption[playerState.team] = "0.00";
+			return;
+		}
+		if (!panels.miscelanous.counters.killDeathRatio.teamsScores[playerState.team].unitsLost)
+		{
+			panels.miscelanous.counters.killDeathRatio.teamsScoresCaption[playerState.team] = "infinity";
+			return;
+		}
 		panels.miscelanous.counters.killDeathRatio.teamsScoresCaption[playerState.team] =
-			Math.round((panels.miscelanous.counters.killDeathRatio.teamsScores[playerState.team].unitsLost > 0 ?
-			(panels.miscelanous.counters.killDeathRatio.teamsScores[playerState.team].enemyUnitsKilled /
-			 panels.miscelanous.counters.killDeathRatio.teamsScores[playerState.team].unitsLost) : 0)*100)/100;
+			Math.round((panels.miscelanous.counters.killDeathRatio.teamsScores[playerState.team].enemyUnitsKilled /
+				    panels.miscelanous.counters.killDeathRatio.teamsScores[playerState.team].unitsLost) * 100)/100;
 	}
 	
 	// FUNCTION BODY
@@ -578,7 +604,7 @@ function init(data)
 				teamBoxSize.top = yStart;
 				teamBox.size = teamBoxSize;
 				
-				yStart += 30 + teams[i] * (PLAYER_BOX_Y_SIZE + PLAYER_BOX_GAP) + 35;
+				yStart += 30 + teams[i] * (PLAYER_BOX_Y_SIZE + PLAYER_BOX_GAP) + 32;
 				
 				getGUIObjectByName("teamNameHeading"+p+"t"+i).caption = "Team "+(i+1);
 				
@@ -797,7 +823,7 @@ function init(data)
 		{
 			var teamHeading = getGUIObjectByName("teamHeading"+pn+"t"+i);
 			var yStart = 30 + teams[i] * (PLAYER_BOX_Y_SIZE + PLAYER_BOX_GAP) + 2;
-			teamHeading.size = "20 "+yStart+" 100% 100%";
+			teamHeading.size = "20 "+yStart+" 100% "+(yStart+20);
 			teamHeading.caption = "Team total";
 			
 			var left = 250;
