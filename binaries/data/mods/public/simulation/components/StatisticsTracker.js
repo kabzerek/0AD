@@ -311,7 +311,6 @@ StatisticsTracker.prototype.LostEntity = function(lostEntity)
 StatisticsTracker.prototype.IncreaseResourceGatheredCounter = function(type, amount, specificType)
 {
 	this.resourcesGathered[type] += amount;
-	this.resourcesGathered.total += amount;
 	
 	if (type == "food" && (specificType == "fruit" || specificType == "grain"))
 		this.resourcesGathered.vegetarianFood += amount;
@@ -324,7 +323,6 @@ StatisticsTracker.prototype.IncreaseResourceGatheredCounter = function(type, amo
 StatisticsTracker.prototype.IncreaseResourceUsedCounter = function(type, amount)
 {
 	this.resourcesUsed[type] += amount;
-	this.resourcesUsed.total += amount;
 };
 
 StatisticsTracker.prototype.IncreaseTreasuresCollectedCounter = function()
@@ -335,13 +333,11 @@ StatisticsTracker.prototype.IncreaseTreasuresCollectedCounter = function()
 StatisticsTracker.prototype.IncreaseResourcesSoldCounter = function(type, amount)
 {
 	this.resourcesSold[type] += amount;
-	this.resourcesSold.total += amount;
 };
 
 StatisticsTracker.prototype.IncreaseResourcesBoughtCounter = function(type, amount)
 {
 	this.resourcesBought[type] += amount;
-	this.resourcesBought.total += amount;
 };
 
 StatisticsTracker.prototype.IncreaseTributesSentCounter = function(amount)
