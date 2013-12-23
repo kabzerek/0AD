@@ -108,7 +108,7 @@
 			</object>
 
 			<object type="image" name="teamBox0t0" size="0 65 100% 100%-50" hidden="true">
-				<object type="text" name="teamNameHeading0t0" size="20 5 100% 100%" style="LeftTabLabelText"/>
+				<object type="text" name="teamNameHeading0t0" size="15 5 100% 100%" style="LeftTabLabelText"/>
 				<object size="0 30 100% 100%">
 					<repeat count="8">
 						<object type="image" name="playerBox0t0p[n]" size="10 0 10 30" hidden="true">
@@ -129,7 +129,7 @@
 				<object name="totalScoret0" 	  type="text" style="CenteredLabelText"/>
 			</object>
 			<object type="image" name="teamBox0t1" size="0 65 100% 100%-50" hidden="true">
-				<object type="text" name="teamNameHeading0t1" size="20 5 100% 100%" style="LeftTabLabelText"/>
+				<object type="text" name="teamNameHeading0t1" size="15 5 100% 100%" style="LeftTabLabelText"/>
 				<object size="0 30 100% 100%">
 					<repeat count="8">
 						<object type="image" name="playerBox0t1p[n]" size="10 0 10 30" hidden="true">
@@ -150,7 +150,7 @@
 				<object name="totalScoret1" 	  type="text" style="CenteredLabelText"/>
 			</object>
 			<object type="image" name="teamBox0t2" size="0 65 100% 100%-50" hidden="true">
-				<object type="text" name="teamNameHeading0t2" size="20 5 100% 100%" style="LeftTabLabelText"/>
+				<object type="text" name="teamNameHeading0t2" size="15 5 100% 100%" style="LeftTabLabelText"/>
 				<object size="0 30 100% 100%">
 					<repeat count="8">
 						<object type="image" name="playerBox0t2p[n]" size="10 0 10 30" hidden="true">
@@ -171,7 +171,7 @@
 				<object name="totalScoret2" 	  type="text" style="CenteredLabelText"/>
 			</object>
 			<object type="image" name="teamBox0t3" size="0 65 100% 100%-50" hidden="true">
-				<object type="text" name="teamNameHeading0t3" size="20 5 100% 100%" style="LeftTabLabelText"/>
+				<object type="text" name="teamNameHeading0t3" size="15 5 100% 100%" style="LeftTabLabelText"/>
 				<object size="0 30 100% 100%">
 					<repeat count="8">
 						<object type="image" name="playerBox0t3p[n]" size="10 0 10 30" hidden="true">
@@ -244,7 +244,7 @@
 			</object>
 			
 			<object type="image" name="teamBox1t0" size="0 65 100% 100%-50" hidden="true">
-				<object type="text" name="teamNameHeading1t0" size="20 5 100% 100%" style="LeftTabLabelText"/>
+				<object type="text" name="teamNameHeading1t0" size="15 5 100% 100%" style="LeftTabLabelText"/>
 				<object size="0 30 100% 100%">
 					<repeat count="8">
 						<object type="image" name="playerBox1t0p[n]" size="10 0 10 30" hidden="true">
@@ -273,7 +273,7 @@
 				<object name="wonderBuildingst0"    type="text" style="CenteredLabelText"/>
 			</object>
 			<object type="image" name="teamBox1t1" size="0 65 100% 100%-50" hidden="true">
-				<object type="text" name="teamNameHeading1t1" size="20 5 100% 100%" style="LeftTabLabelText"/>
+				<object type="text" name="teamNameHeading1t1" size="15 5 100% 100%" style="LeftTabLabelText"/>
 				<object size="0 30 100% 100%">
 					<repeat count="8">
 						<object type="image" name="playerBox1t1p[n]" size="10 0 10 30" hidden="true">
@@ -302,7 +302,7 @@
 				<object name="wonderBuildingst1"    type="text" style="CenteredLabelText"/>
 			</object>
 			<object type="image" name="teamBox1t2" size="0 65 100% 100%-50" hidden="true">
-				<object type="text" name="teamNameHeading1t2" size="20 5 100% 100%" style="LeftTabLabelText"/>
+				<object type="text" name="teamNameHeading1t2" size="15 5 100% 100%" style="LeftTabLabelText"/>
 				<object size="0 30 100% 100%">
 					<repeat count="8">
 						<object type="image" name="playerBox1t2p[n]" size="10 0 10 30" hidden="true">
@@ -331,7 +331,7 @@
 				<object name="wonderBuildingst2"    type="text" style="CenteredLabelText"/>
 			</object>
 			<object type="image" name="teamBox1t3" size="0 65 100% 100%-50" hidden="true">
-				<object type="text" name="teamNameHeading1t3" size="20 5 100% 100%" style="LeftTabLabelText"/>
+				<object type="text" name="teamNameHeading1t3" size="15 5 100% 100%" style="LeftTabLabelText"/>
 				<object size="0 30 100% 100%">
 					<repeat count="8">
 						<object type="image" name="playerBox1t3p[n]" size="10 0 10 30" hidden="true">
@@ -412,7 +412,7 @@
 			</object>
 			
 			<object type="image" name="teamBox2t0" size="0 65 100% 100%-50" hidden="true">
-				<object type="text" name="teamNameHeading2t0" size="20 5 100% 100%" style="LeftTabLabelText"/>
+				<object type="text" name="teamNameHeading2t0" size="15 5 100% 100%" style="LeftTabLabelText"/>
 				<object size="0 30 100% 100%">
 					<repeat count="8">
 						<object type="image" name="playerBox2t0p[n]" size="10 0 10 30" hidden="true">
@@ -439,7 +439,7 @@
 				<object name="navyUnitst0"     type="text" style="CenteredLabelText"/>
 			</object>
 			<object type="image" name="teamBox2t1" size="0 65 100% 100%-50" hidden="true">
-				<object type="text" name="teamNameHeading2t1" size="20 5 100% 100%" style="LeftTabLabelText"/>
+				<object type="text" name="teamNameHeading2t1" size="15 5 100% 100%" style="LeftTabLabelText"/>
 				<object size="0 30 100% 100%">
 					<repeat count="8">
 						<object type="image" name="playerBox2t1p[n]" size="10 0 10 30" hidden="true">
@@ -466,7 +466,7 @@
 				<object name="navyUnitst1"     type="text" style="CenteredLabelText"/>
 			</object>
 			<object type="image" name="teamBox2t2" size="0 65 100% 100%-50" hidden="true">
-				<object type="text" name="teamNameHeading2t2" size="20 5 100% 100%" style="LeftTabLabelText"/>
+				<object type="text" name="teamNameHeading2t2" size="15 5 100% 100%" style="LeftTabLabelText"/>
 				<object size="0 30 100% 100%">
 					<repeat count="8">
 						<object type="image" name="playerBox2t2p[n]" size="10 0 10 30" hidden="true">
@@ -493,7 +493,7 @@
 				<object name="navyUnitst2"     type="text" style="CenteredLabelText"/>
 			</object>
 			<object type="image" name="teamBox2t3" size="0 65 100% 100%-50" hidden="true">
-				<object type="text" name="teamNameHeading2t3" size="20 5 100% 100%" style="LeftTabLabelText"/>
+				<object type="text" name="teamNameHeading2t3" size="15 5 100% 100%" style="LeftTabLabelText"/>
 				<object size="0 30 100% 100%">
 					<repeat count="8">
 						<object type="image" name="playerBox2t3p[n]" size="10 0 10 30" hidden="true">
@@ -571,7 +571,7 @@
 			</object>
 
 			<object type="image" name="teamBox3t0" size="0 65 100% 100%-50" hidden="true">
-				<object type="text" name="teamNameHeading3t0" size="20 5 100% 100%" style="LeftTabLabelText"/>
+				<object type="text" name="teamNameHeading3t0" size="15 5 100% 100%" style="LeftTabLabelText"/>
 				<object size="0 30 100% 100%">
 					<repeat count="8">
 						<object type="image" name="playerBox3t0p[n]" size="10 0 10 30" hidden="true">
@@ -598,7 +598,7 @@
 				<object name="resourcesTributedt0"  type="text" style="CenteredLabelText"/>
 			</object>
 			<object type="image" name="teamBox3t1" size="0 65 100% 100%-50" hidden="true">
-				<object type="text" name="teamNameHeading3t1" size="20 5 100% 100%" style="LeftTabLabelText"/>
+				<object type="text" name="teamNameHeading3t1" size="15 5 100% 100%" style="LeftTabLabelText"/>
 				<object size="0 30 100% 100%">
 					<repeat count="8">
 						<object type="image" name="playerBox3t1p[n]" size="10 0 10 30" hidden="true">
@@ -625,7 +625,7 @@
 				<object name="resourcesTributedt1"  type="text" style="CenteredLabelText"/>
 			</object>
 			<object type="image" name="teamBox3t2" size="0 65 100% 100%-50" hidden="true">
-				<object type="text" name="teamNameHeading3t2" size="20 5 100% 100%" style="LeftTabLabelText"/>
+				<object type="text" name="teamNameHeading3t2" size="15 5 100% 100%" style="LeftTabLabelText"/>
 				<object size="0 30 100% 100%">
 					<repeat count="8">
 						<object type="image" name="playerBox3t2p[n]" size="10 0 10 30" hidden="true">
@@ -652,7 +652,7 @@
 				<object name="resourcesTributedt2"  type="text" style="CenteredLabelText"/>
 			</object>
 			<object type="image" name="teamBox3t3" size="0 65 100% 100%-50" hidden="true">
-				<object type="text" name="teamNameHeading3t3" size="20 5 100% 100%" style="LeftTabLabelText"/>
+				<object type="text" name="teamNameHeading3t3" size="15 5 100% 100%" style="LeftTabLabelText"/>
 				<object size="0 30 100% 100%">
 					<repeat count="8">
 						<object type="image" name="playerBox3t3p[n]" size="10 0 10 30" hidden="true">
@@ -724,7 +724,7 @@
 			</object>
 			
 			<object type="image" name="teamBox4t0" size="0 65 100% 100%-50" hidden="true">
-				<object type="text" name="teamNameHeading4t0" size="20 5 100% 100%" style="LeftTabLabelText"/>
+				<object type="text" name="teamNameHeading4t0" size="15 5 100% 100%" style="LeftTabLabelText"/>
 				<object size="0 30 100% 100%">
 					<repeat count="8">
 						<object type="image" name="playerBox4t0p[n]" size="10 0 10 30" hidden="true">
@@ -749,7 +749,7 @@
 				<object name="tradeIncomet0"      type="text" style="CenteredLabelText"/>
 			</object>
 			<object type="image" name="teamBox4t1" size="0 65 100% 100%-50" hidden="true">
-				<object type="text" name="teamNameHeading4t1" size="20 5 100% 100%" style="LeftTabLabelText"/>
+				<object type="text" name="teamNameHeading4t1" size="15 5 100% 100%" style="LeftTabLabelText"/>
 				<object size="0 30 100% 100%">
 					<repeat count="8">
 						<object type="image" name="playerBox4t1p[n]" size="10 0 10 30" hidden="true">
@@ -774,7 +774,7 @@
 				<object name="tradeIncomet1"      type="text" style="CenteredLabelText"/>
 			</object>
 			<object type="image" name="teamBox4t2" size="0 65 100% 100%-50" hidden="true">
-				<object type="text" name="teamNameHeading4t2" size="20 5 100% 100%" style="LeftTabLabelText"/>
+				<object type="text" name="teamNameHeading4t2" size="15 5 100% 100%" style="LeftTabLabelText"/>
 				<object size="0 30 100% 100%">
 					<repeat count="8">
 						<object type="image" name="playerBox4t2p[n]" size="10 0 10 30" hidden="true">
@@ -799,7 +799,7 @@
 				<object name="tradeIncomet2"      type="text" style="CenteredLabelText"/>
 			</object>
 			<object type="image" name="teamBox4t3" size="0 65 100% 100%-50" hidden="true">
-				<object type="text" name="teamNameHeading4t3" size="20 5 100% 100%" style="LeftTabLabelText"/>
+				<object type="text" name="teamNameHeading4t3" size="15 5 100% 100%" style="LeftTabLabelText"/>
 				<object size="0 30 100% 100%">
 					<repeat count="8">
 						<object type="image" name="playerBox4t3p[n]" size="10 0 10 30" hidden="true">
@@ -862,7 +862,7 @@
 			</object>
 			
 			<object type="image" name="teamBox5t0" size="0 65 100% 100%-50" hidden="true">
-				<object type="text" name="teamNameHeading5t0" size="20 5 100% 100%" style="LeftTabLabelText"/>
+				<object type="text" name="teamNameHeading5t0" size="15 5 100% 100%" style="LeftTabLabelText"/>
 				<object size="0 30 100% 100%">
 					<repeat count="8">
 						<object type="image" name="playerBox5t0p[n]" size="10 0 10 30" hidden="true">
@@ -883,7 +883,7 @@
 				<object name="mapExplorationt0"  type="text" style="CenteredLabelText"/>
 			</object>
 			<object type="image" name="teamBox5t1" size="0 65 100% 100%-50" hidden="true">
-				<object type="text" name="teamNameHeading5t1" size="20 5 100% 100%" style="LeftTabLabelText"/>
+				<object type="text" name="teamNameHeading5t1" size="15 5 100% 100%" style="LeftTabLabelText"/>
 				<object size="0 30 100% 100%">
 					<repeat count="8">
 						<object type="image" name="playerBox5t1p[n]" size="10 0 10 30" hidden="true">
@@ -904,7 +904,7 @@
 				<object name="mapExplorationt1"  type="text" style="CenteredLabelText"/>
 			</object>
 			<object type="image" name="teamBox5t2" size="0 65 100% 100%-50" hidden="true">
-				<object type="text" name="teamNameHeading5t2" size="20 5 100% 100%" style="LeftTabLabelText"/>
+				<object type="text" name="teamNameHeading5t2" size="15 5 100% 100%" style="LeftTabLabelText"/>
 				<object size="0 30 100% 100%">
 					<repeat count="8">
 						<object type="image" name="playerBox5t2p[n]" size="10 0 10 30" hidden="true">
@@ -925,7 +925,7 @@
 				<object name="mapExplorationt2"  type="text" style="CenteredLabelText"/>
 			</object>
 			<object type="image" name="teamBox5t3" size="0 65 100% 100%-50" hidden="true">
-				<object type="text" name="teamNameHeading5t3" size="20 5 100% 100%" style="LeftTabLabelText"/>
+				<object type="text" name="teamNameHeading5t3" size="15 5 100% 100%" style="LeftTabLabelText"/>
 				<object size="0 30 100% 100%">
 					<repeat count="8">
 						<object type="image" name="playerBox5t3p[n]" size="10 0 10 30" hidden="true">

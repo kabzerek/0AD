@@ -173,10 +173,9 @@ StatisticsTracker.prototype.IncreaseTrainedUnitsCounter = function(trainedUnit)
 	if (!cmpUnitEntityIdentity)
 		return;
 
-	for each (type in this.unitsClasses)
-	{
+	for each (var type in this.unitsClasses)
 		this.CounterIncrement(cmpUnitEntityIdentity, "unitsTrained", type);
-	}
+
 	this.unitsTrained.total++;
 };
 
@@ -192,10 +191,9 @@ StatisticsTracker.prototype.IncreaseConstructedBuildingsCounter = function(const
 	if (!cmpBuildingEntityIdentity)
 		return;
 
-	for each(type in this.buildingsClasses)
-	{
+	for each(var type in this.buildingsClasses)
 		this.CounterIncrement(cmpBuildingEntityIdentity, "buildingsConstructed", type);
-	}
+
 	this.buildingsConstructed.total++;
 };
 
@@ -223,29 +221,23 @@ StatisticsTracker.prototype.KilledEntity = function(targetEntity)
 
 	if (targetIsUnit)
 	{
-		for each (type in this.unitsClasses)
-		{
+		for each (var type in this.unitsClasses)
 			this.CounterIncrement(cmpTargetEntityIdentity, "enemyUnitsKilled", type);
-		}
+
 		this.enemyUnitsKilled.total++;
 		
-		for (var r in costs)
-		{
-			this.enemyUnitsKilledValue += costs[r];
-		}
+		for each (var cost in costs)
+			this.enemyUnitsKilledValue += cost;
 	}	
 	if (targetIsStructure)
 	{
-		for each (type in this.buildingsClasses)
-		{
+		for each (var type in this.buildingsClasses)
 			this.CounterIncrement(cmpTargetEntityIdentity, "enemyBuildingsDestroyed", type);
-		}
+
 		this.enemyBuildingsDestroyed.total++;
 		
-		for (var r in costs)
-		{
-			this.enemyBuildingsDestroyedValue += costs[r];
-		}
+		for each (var cost in costs)
+			this.enemyBuildingsDestroyedValue += cost;
 	}
 };
 
@@ -266,29 +258,23 @@ StatisticsTracker.prototype.LostEntity = function(lostEntity)
 
 	if (lostEntityIsUnit)
 	{
-		for each (type in this.unitsClasses)
-		{
+		for each (var type in this.unitsClasses)
 			this.CounterIncrement(cmpLostEntityIdentity, "unitsLost", type);
-		}
+
 		this.unitsLost.total++;
 		
-		for (var r in costs)
-		{
-			this.unitsLostValue += costs[r];
-		}	
+		for each (var cost in costs)
+			this.unitsLostValue += cost;	
 	}	
 	if (lostEntityIsStructure)
 	{
-		for each (type in this.buildingsClasses)
-		{
+		for each (var type in this.buildingsClasses)
 			this.CounterIncrement(cmpLostEntityIdentity, "buildingsLost", type);
-		}
+
 		this.buildingsLost.total++;
 		
-		for (var r in costs)
-		{
-			this.buildingsLostValue += costs[r];
-		}
+		for each (var cost in costs)
+			this.buildingsLostValue += cost;
 	}
 };
 

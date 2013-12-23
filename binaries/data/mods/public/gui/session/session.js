@@ -808,18 +808,16 @@ function reportGame(extendedSimState)
 	];
 	//resources
 	resourcesTypes = [
-		"total",
 		"wood",
 		"food",
 		"stone",
-		"metal",
-		"vegetarianFood"
+		"metal"
 	];
 	resourcesCounterTypes = [
 		"resourcesGathered",
 		"resourcesUsed",
 		"resourcesSold",
-		"resourcesBought",
+		"resourcesBought"
 	];
 	
 	if (!Engine.HasXmppClient())
@@ -829,32 +827,24 @@ function reportGame(extendedSimState)
 	
 	// Unit Stats
 	for each (var unitCounterType in unitsCountersTypes)
-	{
 		for each (var unitsClass in unitsClasses)
-		{
 			playerStatistics[unitCounterType][unitsClass] = "";
-		}
-	}
+			
 	playerStatistics.unitsLostValue = "";
 	playerStatistics.unitsKilledValue = "";
 	// Building stats
 	for each (var buildingCounterType in buildingsCountersTypes)
-	{
 		for each (var buildingsClass in buildingsClasses)
-		{
 			playerStatistics[buildingCounterType][buildingsClass] = "";
-		}
-	}
+			
 	playerStatistics.buildingsLostValue = "";
 	playerStatistics.enemyBuildingsDestroyedValue = "";
 	// Resources
 	for each (var resourcesCounterType in resourcesCounterTypes)
-	{
 		for each (var resourcesType in resourcesTypes)
-		{
 			playerStatistics[resourcesCounterType][resourcesType] = "";
-		}
-	}
+	playerStatistics.resourcesGathered.vegetarianFood = "";
+			
 	playerStatistics.tradeIncome = "";
 	// Tribute
 	playerStatistics.tributesSent = "";
@@ -873,26 +863,18 @@ function reportGame(extendedSimState)
 		playerStates += player.state + ",";
 		playerCivs += player.civ + ",";
 		for each (var resourcesCounterType in resourcesCounterTypes)
-		{
 			for each (var resourcesType in resourcesTypes)
-			{
 				playerStatistics[resourcesCounterType][resourcesType] += player.statistics[resourcesCounterType][resourcesType] + ",";
-			}
-		}
+		playerStatistics.resourcesGathered.vegetarianFood += player.statistics.resourcesGathered.vegetarianFood + ",";
+				
 		for each (var unitCounterType in unitsCountersTypes)
-		{
 			for each (var unitsClass in unitsClasses)
-			{
 				playerStatistics[unitCounterType][unitsClass] += player.statistics[unitCounterType][unitsClass] + ",";
-			}
-		}
+				
 		for each (var buildingCounterType in buildingsCountersTypes)
-		{
 			for each (var buildingsClass in buildingsClasses)
-			{
 				playerStatistics[buildingCounterType][buildingsClass] += player.statistics[buildingCounterType][buildingsClass] + ",";
-			}
-		}
+				
 		playerStatistics.tradeIncome += player.statistics.tradeIncome + ",";
 		playerStatistics.tributesSent += player.statistics.tributesSent + ",";
 		playerStatistics.tributesReceived += player.statistics.tributesReceived + ",";
@@ -901,84 +883,35 @@ function reportGame(extendedSimState)
 	}
 
 	// Send the report with serialized data
-	// Some loops maybe? Don't know how to make them :/
-	Engine.SendGameReport({
-			"timeElapsed" : extendedSimState.timeElapsed,
-			"playerStates" : playerStates,
-			"playerID": Engine.GetPlayerID(),
-			"matchID": g_MatchID,
-			"civs" : playerCivs,
-			"mapName" : mapName,
-			"foodGathered": playerStatistics.resourcesGathered.food,
-			"woodGathered": playerStatistics.resourcesGathered.wood,
-			"stoneGathered": playerStatistics.resourcesGathered.stone,
-			"metalGathered": playerStatistics.resourcesGathered.metal,
-			"vegetarianFoodGathered": playerStatistics.resourcesGathered.vegetarianFood,
-			"totalGathered": playerStatistics.resourcesGathered.total,
-			"foodUsed": playerStatistics.resourcesUsed.food,
-			"woodUsed": playerStatistics.resourcesUsed.wood,
-			"stoneUsed": playerStatistics.resourcesUsed.stone,
-			"metalUsed": playerStatistics.resourcesUsed.metal,
-			"vegetarianFoodUsed": playerStatistics.resourcesUsed.vegetarianFood,
-			"totalUsed": playerStatistics.resourcesUsed.total,
-			"foodBought": playerStatistics.resourcesBought.food,
-			"woodBought": playerStatistics.resourcesBought.wood,
-			"stoneBought": playerStatistics.resourcesBought.stone,
-			"metalBought": playerStatistics.resourcesBought.metal,
-			"vegetarianFoodBought": playerStatistics.resourcesBought.vegetarianFood,
-			"totalBought": playerStatistics.resourcesBought.total,
-			"foodSold": playerStatistics.resourcesSold.food,
-			"woodSold": playerStatistics.resourcesSold.wood,
-			"stoneSold": playerStatistics.resourcesSold.stone,
-			"metalSold": playerStatistics.resourcesSold.metal,
-			"vegetarianFoodSold": playerStatistics.resourcesSold.vegetarianFood,
-			"totalSold": playerStatistics.resourcesSold.total,
-			"infantryUnitsTrained": playerStatistics.unitsTrained.Infantry,
-			"workerUnitsTrained": playerStatistics.unitsTrained.Worker,
-			"femaleUnitsTrained": playerStatistics.unitsTrained.Female,
-			"cavalryUnitsTrained": playerStatistics.unitsTrained.Cavalry,
-			"championUnitsTrained": playerStatistics.unitsTrained.Champion,
-			"heroUnitsTrained": playerStatistics.unitsTrained.Hero,
-			"shipUnitsTrained": playerStatistics.unitsTrained.Ship,
-			"infantryUnitsLost": playerStatistics.unitsLost.Infantry,
-			"workerUnitsLost": playerStatistics.unitsLost.Worker,
-			"femaleUnitsLost": playerStatistics.unitsLost.Female,
-			"cavalryUnitsLost": playerStatistics.unitsLost.Cavalry,
-			"championUnitsLost": playerStatistics.unitsLost.Champion,
-			"heroUnitsLost": playerStatistics.unitsLost.Hero,
-			"shipUnitsLost": playerStatistics.unitsLost.Ship,
-			"enemyInfantryUnitsKilled": playerStatistics.enemyUnitsKilled.Infantry,
-			"enemyWorkerUnitsKilled": playerStatistics.enemyUnitsKilled.Worker,
-			"enemyFemaleUnitsKilled": playerStatistics.enemyUnitsKilled.Female,
-			"enemyCavalryUnitsKilled": playerStatistics.enemyUnitsKilled.Cavalry,
-			"enemyChampionUnitsKilled": playerStatistics.enemyUnitsKilled.Champion,
-			"enemyHeroUnitsKilled": playerStatistics.enemyUnitsKilled.Hero,
-			"enemyShipUnitsKilled": playerStatistics.enemyUnitsKilled.Ship,
-			"civCentreBuildingsConstructed": playerStatistics.buildingsConstructed.CivCentre,
-			"houseBuildingsConstructed": playerStatistics.buildingsConstructed.House,
-			"economicBuildingsConstructed": playerStatistics.buildingsConstructed.Economic,
-			"outpostBuildingsConstructed": playerStatistics.buildingsConstructed.Outpost,
-			"militaryBuildingsConstructed": playerStatistics.buildingsConstructed.Military,
-			"fortressBuildingsConstructed": playerStatistics.buildingsConstructed.Fortress,
-			"wonderBuildingsConstructed": playerStatistics.buildingsConstructed.Wonder,
-			"civCentreBuildingsLost": playerStatistics.buildingsLost.CivCentre,
-			"houseBuildingsLost": playerStatistics.buildingsLost.House,
-			"economicBuildingsLost": playerStatistics.buildingsLost.Economic,
-			"outpostBuildingsLost": playerStatistics.buildingsLost.Outpost,
-			"militaryBuildingsLost": playerStatistics.buildingsLost.Military,
-			"fortressBuildingsLost": playerStatistics.buildingsLost.Fortress,
-			"wonderBuildingsLost": playerStatistics.buildingsLost.Wonder,
-			"enemyCivCentreBuildingsDestroyed": playerStatistics.enemyBuildingsDestroyed.CivCentre,
-			"enemyHouseBuildingsDestroyed": playerStatistics.enemyBuildingsDestroyed.House,
-			"enemyEconomicBuildingsDestroyed": playerStatistics.enemyBuildingsDestroyed.Economic,
-			"enemyOutpostBuildingsDestroyed": playerStatistics.enemyBuildingsDestroyed.Outpost,
-			"enemyMilitaryBuildingsDestroyed": playerStatistics.enemyBuildingsDestroyed.Military,
-			"enemyFortressBuildingsDestroyed": playerStatistics.enemyBuildingsDestroyed.Fortress,
-			"enemyWonderBuildingsDestroyed": playerStatistics.enemyBuildingsDestroyed.Wonder,
-			"tributeSent": playerStatistics.tributesSent,
-			"tributeReceived": playerStatistics.tributesReceived,
-			"precentMapExplored": playerStatistics.percentMapExplored,
-			"treasuresCollected": playerStatistics.treasuresCollected,
-			"tradeIncome": playerStatistics.tradeIncome
-		});
+	var reportObject = { };
+	reportObject.timeElapsed = extendedSimState.timeElapsed;
+	reportObject.playerStates = playerStates;
+	reportObject.playerID = Engine.GetPlayerID();
+	reportObject.matchID = g_MatchID;
+	reportObject.civs = playerCivs;
+	reportObject.mapName = mapName;
+	for each (var rct in resourcesCounterTypes)
+		for each (var rt in resourcesTypes)
+			reportObject[rt+rct.substr(9)] = playerStatistics[rct][rt];
+			//eg. rt = food rct.substr = Gathered rct = resourcesGathered
+	for each (var type in unitsClasses)
+		reportObject[(type.substr(0,1)).toLowerCase()+type.substr(1)+"UnitsTrained"] = playerStatistics.unitsTrained[type];
+		//eg. type = Infantry (type.substr(0,1)).toLowerCase()+type.substr(1) = infantry
+	for each (var type in unitsClasses)
+		reportObject[(type.substr(0,1)).toLowerCase()+type.substr(1)+"UnitsLost"] = playerStatistics.unitsLost[type];
+	for each (var type in unitsClasses)
+		reportObject["enemy"+type+"UnitsKilled"] = playerStatistics.enemyUnitsKilled[type];
+	for each (var type in buildingsClasses)
+		reportObject[(type.substr(0,1)).toLowerCase()+type.substr(1)+"BuildingsConstructed"] = playerStatistics.buildingsConstructed[type];
+	for each (var type in buildingsClasses)
+		reportObject[(type.substr(0,1)).toLowerCase()+type.substr(1)+"BuildingsLost"] = playerStatistics.buildingsLost[type];
+	for each (var type in buildingsClasses)
+		reportObject["enemy"+type+"BuildingsDestroyed"] = playerStatistics.enemyBuildingsDestroyed[type];
+	reportObject.tributesSent = playerStatistics.tributesSent;
+	reportObject.tributesReceived = playerStatistics.tributesReceived;
+	reportObject.precentMapExplored = playerStatistics.percentMapExplored;
+	reportObject.treasuresCollected = playerStatistics.treasuresCollected;
+	reportObject.tradeIncome = playerStatistics.tradeIncome;
+	
+	Engine.SendGameReport(reportObject);
 }
