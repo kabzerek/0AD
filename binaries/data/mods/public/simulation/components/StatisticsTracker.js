@@ -91,7 +91,6 @@ StatisticsTracker.prototype.Init = function()
 	this.enemyBuildingsDestroyedValue = 0;
 	// resources
 	this.resourcesGathered = {
-		"total": 0,
 		"food": 0,
 		"wood": 0,
 		"metal": 0,
@@ -99,21 +98,18 @@ StatisticsTracker.prototype.Init = function()
 		"vegetarianFood": 0
 	};
 	this.resourcesUsed = {
-		"total": 0,
 		"food": 0,
 		"wood": 0,
 		"metal": 0,
 		"stone": 0
 	};
 	this.resourcesSold = {
-		"total": 0,
 		"food": 0,
 		"wood": 0,
 		"metal": 0,
 		"stone": 0
 	};
 	this.resourcesBought = {
-		"total": 0,
 		"food": 0,
 		"wood": 0,
 		"metal": 0,
@@ -146,7 +142,6 @@ StatisticsTracker.prototype.GetStatistics = function()
 		"tributesReceived": this.tributesReceived,
 		"tradeIncome": this.tradeIncome,
 		"treasuresCollected": this.treasuresCollected,
-		"feminisation": this.GetFeminisation(),
 		"percentMapExplored": this.GetPercentMapExplored()
 	};
 };
@@ -184,12 +179,6 @@ StatisticsTracker.prototype.IncreaseTrainedUnitsCounter = function(trainedUnit)
 	}
 	this.unitsTrained.total++;
 };
-
-StatisticsTracker.prototype.GetFeminisation = function()
-{
-	return Math.floor(this.unitsTrained.Female > 0 ? (this.unitsTrained.Female / this.unitsTrained.Worker) * 100 : 0)
-};
-
 
 /** 
  * Counts the total number of buildings constructed as well as an individual count for 

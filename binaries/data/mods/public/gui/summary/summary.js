@@ -57,8 +57,8 @@ function init(data)
 	const KILLED_COLOR = '[color="196 198 255"]';
 
 	// colours used for gathered and traded resources
-	const SOLD_COLOR = '[color="201 255 200"]';
-	const BOUGHT_COLOR = '[color="255 213 213"]';
+	const INCOME_COLOR = '[color="201 255 200"]';
+	const OUTCOME_COLOR = '[color="255 213 213"]';
 	
 	const BUILDINGS_TYPES = ["total", "House", "Economic", "Outpost", "Military", "Fortress", "CivCentre", "Wonder"];
 	const UNITS_TYPES = ["total", "Infantry", "Worker", "Cavalry", "Champion", "Hero", "Ship"];
@@ -208,8 +208,6 @@ function init(data)
 	}
 	
 	// caption counters functions
-
-	
 	function captionBuildings(object, type)
 	{
 		function captionBuildings(type)
@@ -238,8 +236,8 @@ function init(data)
 	{
 		function captionResourcesGathered(type)
 		{
-			return SOLD_COLOR + playerState.statistics.resourcesGathered[type] + '[/color] / '
-				+ BOUGHT_COLOR + (playerState.statistics.resourcesUsed[type] - playerState.statistics.resourcesSold[type]) + '[/color]';
+			return INCOME_COLOR + playerState.statistics.resourcesGathered[type] + '[/color] / '
+				+ OUTCOME_COLOR + (playerState.statistics.resourcesUsed[type] - playerState.statistics.resourcesSold[type]) + '[/color]';
 		}
 		
 		object.caption = captionResourcesGathered(type);
@@ -247,15 +245,15 @@ function init(data)
 	
 	function captionResourcesTributed()
 	{
-		return SOLD_COLOR + playerState.statistics.tributesSent + "[/color] / " + BOUGHT_COLOR + playerState.statistics.tributesReceived + "[/color]";
+		return INCOME_COLOR + playerState.statistics.tributesSent + "[/color] / " + OUTCOME_COLOR + playerState.statistics.tributesReceived + "[/color]";
 	}
 	
 	function captionResourcesExchanged(object, type)
 	{
 		function captionResourcesExchanged(type)
 		{
-			return SOLD_COLOR + '+' + playerState.statistics.resourcesBought[type] + '[/color] '
-				+ BOUGHT_COLOR + '-' + playerState.statistics.resourcesSold[type] + '[/color]';	
+			return INCOME_COLOR + '+' + playerState.statistics.resourcesBought[type] + '[/color] '
+				+ OUTCOME_COLOR + '-' + playerState.statistics.resourcesSold[type] + '[/color]';	
 		}
 	
 		object.caption = captionResourcesExchanged(type);	
@@ -271,6 +269,31 @@ function init(data)
 			totalSold += playerState.statistics.resourcesSold[sold];
 			
 		return Math.floor(totalSold > 0 ? (totalBought / totalSold) * 100 : 0) + "%";
+	}
+	
+	function captionVegetarianRatio()
+	{
+		if (playerState.statistics.resourcesGathered.vegetarianFood && playerState.statistics.resourcesGathered.food)
+			return Math.floor((playerState.statistics.resourcesGathered.vegetarianFood / playerState.statistics.resourcesGathered.food) * 100) + "%";
+		else
+			return 0 + "%";	
+	}
+	
+	function captionFeminisation()
+	{
+		if (playerState.statistics.unitsTrained.Worker && playerState.statistics.unitsTrained.Female)
+			return Math.floor((playerState.statistics.unitsTrained.Female / playerState.statistics.unitsTrained.Worker) * 100) + "%";
+		else
+			return 0 + "%";
+	}
+	
+	function captionKillDeathRatio()
+	{
+		if (!playerState.statistics.enemyUnitsKilled.total)
+			return "0.00";
+		if (!playerState.statistics.unitsLost.total)	// and enemyUnitsKilled.total > 0
+			return "\u221E";
+		return Math.round((playerState.statistics.enemyUnitsKilled.total / playerState.statistics.unitsLost.total)*100)/100;
 	}
 	
 	function sumTeamBuildings(counter, type)
@@ -331,8 +354,8 @@ function init(data)
 	{
 		function captionSumResourcesGathered(type)
 		{
-			return SOLD_COLOR + counter.teamsScores[playerState.team].resourcesGathered[type] + '[/color] / '
-				+ BOUGHT_COLOR + counter.teamsScores[playerState.team].resourcesUsed[type] + '[/color]';
+			return INCOME_COLOR + counter.teamsScores[playerState.team].resourcesGathered[type] + '[/color] / '
+				+ OUTCOME_COLOR + counter.teamsScores[playerState.team].resourcesUsed[type] + '[/color]';
 		}
 		
 		if (counter.teamsScores[playerState.team] == 0)
@@ -354,8 +377,8 @@ function init(data)
 	{
 		function captionResourcesTributed()
 		{
-			return SOLD_COLOR + panels.resources.counters.resourcesTributed.teamsScores[playerState.team].tributesSent + "[/color] / " +
-				BOUGHT_COLOR + panels.resources.counters.resourcesTributed.teamsScores[playerState.team].tributesReceived + "[/color]";
+			return INCOME_COLOR + panels.resources.counters.resourcesTributed.teamsScores[playerState.team].tributesSent + "[/color] / " +
+				OUTCOME_COLOR + panels.resources.counters.resourcesTributed.teamsScores[playerState.team].tributesReceived + "[/color]";
 		}
 		
 		if (panels.resources.counters.resourcesTributed.teamsScores[playerState.team] == 0)
@@ -369,6 +392,29 @@ function init(data)
 		panels.resources.counters.resourcesTributed.teamsScores[playerState.team].tributesReceived += playerState.statistics.tributesReceived;
 		
 		panels.resources.counters.resourcesTributed.teamsScoresCaption[playerState.team] = captionResourcesTributed();
+	}
+	
+	function sumResourcesExchanged(counter, type)
+	{
+		function captionSumResourcesExchanged(type)
+		{
+			return INCOME_COLOR + '+' + counter.teamsScores[playerState.team].resourcesBought[type] + '[/color] '
+				+ OUTCOME_COLOR + '-' + counter.teamsScores[playerState.team].resourcesSold[type] + '[/color]';
+		}
+		
+		if (counter.teamsScores[playerState.team] == 0)
+		{
+			counter.teamsScores[playerState.team] = { };
+			counter.teamsScores[playerState.team].resourcesBought = { };
+			counter.teamsScores[playerState.team].resourcesBought[type] = 0;
+			counter.teamsScores[playerState.team].resourcesSold = { };
+			counter.teamsScores[playerState.team].resourcesSold[type] = 0;
+		}
+		
+		counter.teamsScores[playerState.team].resourcesBought[type] += playerState.statistics.resourcesBought[type];
+		counter.teamsScores[playerState.team].resourcesSold[type] += playerState.statistics.resourcesSold[type];
+		
+		counter.teamsScoresCaption[playerState.team] = captionSumResourcesExchanged(type);
 	}
 	
 	function sumBarterEfficiency()
@@ -389,6 +435,79 @@ function init(data)
 			Math.floor(panels.market.counters.barterEfficiency.teamsScores[playerState.team].resourcesSold > 0 ?
 			(panels.market.counters.barterEfficiency.teamsScores[playerState.team].resourcesBought /
 			 panels.market.counters.barterEfficiency.teamsScores[playerState.team].resourcesSold) * 100 : 0) + "%";
+	}
+	
+	function sumVegetarianRatio()
+	{
+		if (panels.miscelanous.counters.vegetarianRatio.teamsScores[playerState.team] == 0)
+		{
+			panels.miscelanous.counters.vegetarianRatio.teamsScores[playerState.team] = { };
+			panels.miscelanous.counters.vegetarianRatio.teamsScores[playerState.team].vegetarianFood = 0;
+			panels.miscelanous.counters.vegetarianRatio.teamsScores[playerState.team].food = 0;
+		}
+		
+		panels.miscelanous.counters.vegetarianRatio.teamsScores[playerState.team].vegetarianFood += playerState.statistics.resourcesGathered.vegetarianFood;
+		panels.miscelanous.counters.vegetarianRatio.teamsScores[playerState.team].food += playerState.statistics.resourcesGathered.food;
+		
+		if (panels.miscelanous.counters.vegetarianRatio.teamsScores[playerState.team].food &&
+		    panels.miscelanous.counters.vegetarianRatio.teamsScores[playerState.team].vegetarianFood)
+		{
+			panels.miscelanous.counters.vegetarianRatio.teamsScoresCaption[playerState.team] =
+				Math.floor((panels.miscelanous.counters.vegetarianRatio.teamsScores[playerState.team].vegetarianFood /
+					   panels.miscelanous.counters.vegetarianRatio.teamsScores[playerState.team].food) * 100) + "%";
+			return;
+		}
+		panels.miscelanous.counters.vegetarianRatio.teamsScoresCaption[playerState.team] = 0 + "%";
+	}
+	
+	function sumFeminisation()
+	{
+		if (panels.miscelanous.counters.feminisation.teamsScores[playerState.team] == 0)
+		{
+			panels.miscelanous.counters.feminisation.teamsScores[playerState.team] = { };
+			panels.miscelanous.counters.feminisation.teamsScores[playerState.team].femalesTrained = 0;
+			panels.miscelanous.counters.feminisation.teamsScores[playerState.team].workersTrained = 0;
+		}
+		
+		panels.miscelanous.counters.feminisation.teamsScores[playerState.team].femalesTrained += playerState.statistics.unitsTrained.Female;
+		panels.miscelanous.counters.feminisation.teamsScores[playerState.team].workersTrained += playerState.statistics.unitsTrained.Worker;
+		
+		if (panels.miscelanous.counters.feminisation.teamsScores[playerState.team].femalesTrained &&
+		    panels.miscelanous.counters.feminisation.teamsScores[playerState.team].workersTrained)
+		{
+			panels.miscelanous.counters.feminisation.teamsScoresCaption[playerState.team] =
+				Math.floor((panels.miscelanous.counters.feminisation.teamsScores[playerState.team].femalesTrained /
+					    panels.miscelanous.counters.feminisation.teamsScores[playerState.team].workersTrained) * 100) + "%";
+				return;
+		}
+		panels.miscelanous.counters.feminisation.teamsScoresCaption[playerState.team] = 0 + "%";
+	}
+	
+	function sumKillDeathRatio()
+	{
+		if (panels.miscelanous.counters.killDeathRatio.teamsScores[playerState.team] == 0)
+		{
+			panels.miscelanous.counters.killDeathRatio.teamsScores[playerState.team] = { };
+			panels.miscelanous.counters.killDeathRatio.teamsScores[playerState.team].enemyUnitsKilled = 0;
+			panels.miscelanous.counters.killDeathRatio.teamsScores[playerState.team].unitsLost = 0;
+		}
+		
+		panels.miscelanous.counters.killDeathRatio.teamsScores[playerState.team].enemyUnitsKilled += playerState.statistics.enemyUnitsKilled.total;
+		panels.miscelanous.counters.killDeathRatio.teamsScores[playerState.team].unitsLost += playerState.statistics.unitsLost.total;
+		
+		if (!panels.miscelanous.counters.killDeathRatio.teamsScores[playerState.team].enemyUnitsKilled)
+		{
+			panels.miscelanous.counters.killDeathRatio.teamsScoresCaption[playerState.team] = "0.00";
+			return;
+		}
+		if (!panels.miscelanous.counters.killDeathRatio.teamsScores[playerState.team].unitsLost)
+		{
+			panels.miscelanous.counters.killDeathRatio.teamsScoresCaption[playerState.team] = "\u221E";
+			return;
+		}
+		panels.miscelanous.counters.killDeathRatio.teamsScoresCaption[playerState.team] =
+			Math.round((panels.miscelanous.counters.killDeathRatio.teamsScores[playerState.team].enemyUnitsKilled /
+				    panels.miscelanous.counters.killDeathRatio.teamsScores[playerState.team].unitsLost) * 100)/100;
 	}
 	
 	// FUNCTION BODY
@@ -461,6 +580,7 @@ function init(data)
 			data.playerStates[p+1].team = -1;
 		}
 	}
+	
 	// Count players without team	(or all if teams are not displayed)
 	var withoutTeam = maxPlayers;
 	if (teams)
@@ -484,7 +604,7 @@ function init(data)
 				teamBoxSize.top = yStart;
 				teamBox.size = teamBoxSize;
 				
-				yStart += 30 + teams[i] * (PLAYER_BOX_Y_SIZE + PLAYER_BOX_GAP) + 35;
+				yStart += 30 + teams[i] * (PLAYER_BOX_Y_SIZE + PLAYER_BOX_GAP) + 32;
 				
 				getGUIObjectByName("teamNameHeading"+p+"t"+i).caption = "Team "+(i+1);
 				
@@ -622,11 +742,9 @@ function init(data)
 		panels.market.counters.barterEfficiency.objects[i].caption = captionBarterEfficiency();
 		panels.market.counters.tradeIncome.objects[i].caption = playerState.statistics.tradeIncome;
 		// miscelanous panel
-		panels.miscelanous.counters.vegetarianRatio.objects[i].caption = Math.floor(playerState.statistics.resourcesGathered.food > 0 ?
-			(playerState.statistics.resourcesGathered.vegetarianFood / playerState.statistics.resourcesGathered.food) * 100 : 0) + "%";
-		panels.miscelanous.counters.feminisation.objects[i].caption = playerState.statistics.feminisation + "%";
-		panels.miscelanous.counters.killDeathRatio.objects[i].caption = Math.round((playerState.statistics.enemyUnitsKilled.total > 0 ?
-			(playerState.statistics.enemyUnitsKilled.total / playerState.statistics.unitsLost.total) : 0)*100)/100;
+		panels.miscelanous.counters.vegetarianRatio.objects[i].caption = captionVegetarianRatio();
+		panels.miscelanous.counters.feminisation.objects[i].caption = captionFeminisation();
+		panels.miscelanous.counters.killDeathRatio.objects[i].caption = captionKillDeathRatio();
 		panels.miscelanous.counters.mapExploration.objects[i].caption = playerState.statistics.percentMapExplored + "%";
 		
 		if (!teams)
@@ -670,7 +788,25 @@ function init(data)
 		panels.resources.counters.treasuresCollected.teamsScoresCaption[playerState.team] = panels.resources.counters.treasuresCollected.teamsScores[playerState.team];
 		sumResourcesTributed();
 		// market panel
+		t = 0;
+		for (var c in panels.market.counters)
+		{
+			if (t >= 4)	// only 4 first counters
+				break;
+			
+			sumResourcesExchanged(panels.market.counters[c], RESOURCES_TYPES[t]);
+			t++;
+		}
+		sumBarterEfficiency();
+		panels.market.counters.tradeIncome.teamsScores[playerState.team] += playerState.statistics.tradeIncome;
+		panels.market.counters.tradeIncome.teamsScoresCaption[playerState.team] = panels.market.counters.tradeIncome.teamsScores[playerState.team];
 		// miscelanous panel
+		sumVegetarianRatio();
+		sumFeminisation();
+		sumKillDeathRatio();
+		// TODO: probably change from simple sum to union from range manager
+		panels.miscelanous.counters.mapExploration.teamsScores[playerState.team] += playerState.statistics.percentMapExplored;
+		panels.miscelanous.counters.mapExploration.teamsScoresCaption[playerState.team] = panels.miscelanous.counters.mapExploration.teamsScores[playerState.team] + "%";
 	}
 	
 	if (!teams)
@@ -687,7 +823,7 @@ function init(data)
 		{
 			var teamHeading = getGUIObjectByName("teamHeading"+pn+"t"+i);
 			var yStart = 30 + teams[i] * (PLAYER_BOX_Y_SIZE + PLAYER_BOX_GAP) + 2;
-			teamHeading.size = "20 "+yStart+" 100% 100%";
+			teamHeading.size = "20 "+yStart+" 100% "+(yStart+20);
 			teamHeading.caption = "Team total";
 			
 			var left = 250;
