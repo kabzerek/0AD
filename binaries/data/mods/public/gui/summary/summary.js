@@ -292,7 +292,7 @@ function init(data)
 		if (!playerState.statistics.enemyUnitsKilled.total)
 			return "0.00";
 		if (!playerState.statistics.unitsLost.total)	// and enemyUnitsKilled.total > 0
-			return "infinity";
+			return "\u221E";
 		return Math.round((playerState.statistics.enemyUnitsKilled.total / playerState.statistics.unitsLost.total)*100)/100;
 	}
 	
@@ -502,7 +502,7 @@ function init(data)
 		}
 		if (!panels.miscelanous.counters.killDeathRatio.teamsScores[playerState.team].unitsLost)
 		{
-			panels.miscelanous.counters.killDeathRatio.teamsScoresCaption[playerState.team] = "infinity";
+			panels.miscelanous.counters.killDeathRatio.teamsScoresCaption[playerState.team] = "\u221E";
 			return;
 		}
 		panels.miscelanous.counters.killDeathRatio.teamsScoresCaption[playerState.team] =
