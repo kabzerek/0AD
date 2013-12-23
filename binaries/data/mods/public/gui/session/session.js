@@ -894,6 +894,7 @@ function reportGame(extendedSimState)
 		for each (var rt in resourcesTypes)
 			reportObject[rt+rct.substr(9)] = playerStatistics[rct][rt];
 			//eg. rt = food rct.substr = Gathered rct = resourcesGathered
+	reportObject.resourcesGathered.vegetarianFood = playerStatistics.resourcesGathered.vegetarianFood;
 	for each (var type in unitsClasses)
 		reportObject[(type.substr(0,1)).toLowerCase()+type.substr(1)+"UnitsTrained"] = playerStatistics.unitsTrained[type];
 		//eg. type = Infantry (type.substr(0,1)).toLowerCase()+type.substr(1) = infantry
