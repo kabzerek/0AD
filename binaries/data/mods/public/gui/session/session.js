@@ -776,7 +776,7 @@ function stopAmbient()
 // Send a report on the game status to the lobby
 function reportGame(extendedSimState)
 {
-	//units
+	// units
 	unitsClasses = [
 		"Infantry",
 		"Worker",
@@ -791,7 +791,7 @@ function reportGame(extendedSimState)
 		"unitsLost",
 		"enemyUnitsKilled"
 	];
-	//buildings
+	// buildings
 	buildingsClasses = [
 		"CivCentre",
 		"House",
@@ -806,7 +806,7 @@ function reportGame(extendedSimState)
 		"buildingsLost",
 		"enemyBuildingsDestroyed"
 	];
-	//resources
+	// resources
 	resourcesTypes = [
 		"wood",
 		"food",
@@ -893,21 +893,21 @@ function reportGame(extendedSimState)
 	for each (var rct in resourcesCounterTypes)
 		for each (var rt in resourcesTypes)
 			reportObject[rt+rct.substr(9)] = playerStatistics[rct][rt];
-			//eg. rt = food rct.substr = Gathered rct = resourcesGathered
+			// eg. rt = food rct.substr = Gathered rct = resourcesGathered
 	reportObject.resourcesGathered.vegetarianFood = playerStatistics.resourcesGathered.vegetarianFood;
 	for each (var type in unitsClasses)
+	{
+		// eg. type = Infantry (type.substr(0,1)).toLowerCase()+type.substr(1) = infantry
 		reportObject[(type.substr(0,1)).toLowerCase()+type.substr(1)+"UnitsTrained"] = playerStatistics.unitsTrained[type];
-		//eg. type = Infantry (type.substr(0,1)).toLowerCase()+type.substr(1) = infantry
-	for each (var type in unitsClasses)
 		reportObject[(type.substr(0,1)).toLowerCase()+type.substr(1)+"UnitsLost"] = playerStatistics.unitsLost[type];
-	for each (var type in unitsClasses)
 		reportObject["enemy"+type+"UnitsKilled"] = playerStatistics.enemyUnitsKilled[type];
+	}
 	for each (var type in buildingsClasses)
+	{
 		reportObject[(type.substr(0,1)).toLowerCase()+type.substr(1)+"BuildingsConstructed"] = playerStatistics.buildingsConstructed[type];
-	for each (var type in buildingsClasses)
 		reportObject[(type.substr(0,1)).toLowerCase()+type.substr(1)+"BuildingsLost"] = playerStatistics.buildingsLost[type];
-	for each (var type in buildingsClasses)
 		reportObject["enemy"+type+"BuildingsDestroyed"] = playerStatistics.enemyBuildingsDestroyed[type];
+	}	
 	reportObject.tributesSent = playerStatistics.tributesSent;
 	reportObject.tributesReceived = playerStatistics.tributesReceived;
 	reportObject.precentMapExplored = playerStatistics.percentMapExplored;

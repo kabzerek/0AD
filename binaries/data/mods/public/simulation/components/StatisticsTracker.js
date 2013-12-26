@@ -47,7 +47,7 @@ StatisticsTracker.prototype.Init = function()
 		"total": 0
 	};
 	this.enemyUnitsKilledValue = 0;
-	//buildings
+	// buildings
 	this.buildingsClasses = [
 		"House",
 		"Economic",
@@ -147,10 +147,10 @@ StatisticsTracker.prototype.GetStatistics = function()
 };
 
 /**
- *Increments counter associated with certain entity/counter and type of given entity.
- *@param entity The entity id
- *@param counter The name of the counter to increment (e.g. "unitsTrained")
- *@param type The type of the counter (e.g. "workers")
+ * Increments counter associated with certain entity/counter and type of given entity.
+ * @param entity The entity id
+ * @param counter The name of the counter to increment (e.g. "unitsTrained")
+ * @param type The type of the counter (e.g. "workers")
  */
 StatisticsTracker.prototype.CounterIncrement = function(entity, counter, type)
 {
@@ -196,7 +196,6 @@ StatisticsTracker.prototype.IncreaseConstructedBuildingsCounter = function(const
 
 	this.buildingsConstructed.total++;
 };
-
 
 StatisticsTracker.prototype.KilledEntity = function(targetEntity)
 {
