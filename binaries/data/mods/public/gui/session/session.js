@@ -823,26 +823,38 @@ function reportGame(extendedSimState)
 	if (!Engine.HasXmppClient())
 		return;
 
-	var playerStatistics;
+	var playerStatistics = { };
 	
 	// Unit Stats
 	for each (var unitCounterType in unitsCountersTypes)
+	{
+		if (!playerStatistics[unitCounterType])
+			playerStatistics[unitCounterType] = { };
 		for each (var unitsClass in unitsClasses)
 			playerStatistics[unitCounterType][unitsClass] = "";
+	}
 			
 	playerStatistics.unitsLostValue = "";
 	playerStatistics.unitsKilledValue = "";
 	// Building stats
 	for each (var buildingCounterType in buildingsCountersTypes)
+	{
+		if (!playerStatistics[buildingCounterType])
+			playerStatistics[buildingCounterType] = { };
 		for each (var buildingsClass in buildingsClasses)
 			playerStatistics[buildingCounterType][buildingsClass] = "";
+	}
 			
 	playerStatistics.buildingsLostValue = "";
 	playerStatistics.enemyBuildingsDestroyedValue = "";
 	// Resources
 	for each (var resourcesCounterType in resourcesCounterTypes)
+	{
+		if (!playerStatistics[resourcesCounterType])
+			playerStatistics[resourcesCounterType] = { };
 		for each (var resourcesType in resourcesTypes)
 			playerStatistics[resourcesCounterType][resourcesType] = "";
+	}
 	playerStatistics.resourcesGathered.vegetarianFood = "";
 			
 	playerStatistics.tradeIncome = "";
@@ -878,7 +890,7 @@ function reportGame(extendedSimState)
 		playerStatistics.tradeIncome += player.statistics.tradeIncome + ",";
 		playerStatistics.tributesSent += player.statistics.tributesSent + ",";
 		playerStatistics.tributesReceived += player.statistics.tributesReceived + ",";
-		playerStatistics.percentMapExplored += player.statistics.precentMapExplored + ",";
+		playerStatistics.percentMapExplored += player.statistics.percentMapExplored + ",";
 		playerStatistics.treasuresCollected += player.statistics.treasuresCollected + ",";
 	}
 
@@ -891,10 +903,14 @@ function reportGame(extendedSimState)
 	reportObject.civs = playerCivs;
 	reportObject.mapName = mapName;
 	for each (var rct in resourcesCounterTypes)
+	{
+		if (!reportObject[rt+rct.substr(9)])
+			reportObject[rt+rct.substr(9)] = { };
 		for each (var rt in resourcesTypes)
 			reportObject[rt+rct.substr(9)] = playerStatistics[rct][rt];
 			// eg. rt = food rct.substr = Gathered rct = resourcesGathered
-	reportObject.resourcesGathered.vegetarianFood = playerStatistics.resourcesGathered.vegetarianFood;
+	}
+	reportObject.vegetarianFoodGathered = playerStatistics.resourcesGathered.vegetarianFood;
 	for each (var type in unitsClasses)
 	{
 		// eg. type = Infantry (type.substr(0,1)).toLowerCase()+type.substr(1) = infantry
